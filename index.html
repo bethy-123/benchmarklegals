@@ -45,35 +45,86 @@
     a{color:inherit}
     img{max-width:100%;display:block}
     .wrap{max-width:var(--max); margin:0 auto; padding:0 24px;}
+    /* ===== Top bar (premium like reference) ===== */
+.topbar{
+  background:linear-gradient(180deg, var(--navy2), var(--navy));
+  color:rgba(255,255,255,.92);
+  font-size:13px;
+  border-bottom:1px solid rgba(255,255,255,.10);
+}
 
-    /* ===== Top strip (like inspiration) ===== */
-    .topstrip{
-      background:var(--navy);
-      color:rgba(255,255,255,.92);
-      font-size:13px;
-      border-bottom:1px solid rgba(255,255,255,.10);
-    }
-    .topstrip .inner{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      padding:10px 0;
-      flex-wrap:wrap;
-    }
-    .topstrip .left, .topstrip .right{
-      display:flex; gap:14px; align-items:center; flex-wrap:wrap
-    }
-    .topstrip a{color:rgba(255,255,255,.92); text-decoration:none}
-    .topstrip a:hover{color:#fff}
-    .chip{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:6px 10px;
-      border:1px solid rgba(255,255,255,.16);
-      border-radius:999px;
-      background:rgba(255,255,255,.03);
-      white-space:nowrap;
-    }
+.topbar-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  padding:10px 0;
+  flex-wrap:wrap;
+}
+
+.topbar-left{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.topbar-link{
+  color:rgba(255,255,255,.92);
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-weight:600;
+}
+
+.topbar-link:hover{ color:#fff; }
+
+.topbar-text{
+  color:rgba(255,255,255,.92);
+  font-weight:600;
+}
+
+.topbar-text strong{ color:#fff; font-weight:800; }
+
+.sep{
+  color:rgba(255,255,255,.35);
+  margin:0 2px;
+}
+
+.ico{
+  opacity:.95;
+  transform:translateY(-.5px);
+}
+
+/* socials on the right */
+.topbar-right{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.social{
+  width:28px;
+  height:28px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:8px;
+  text-decoration:none;
+  color:rgba(255,255,255,.92);
+  font-weight:900;
+  letter-spacing:-.2px;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.04);
+}
+
+.social:hover{
+  background:rgba(255,255,255,.10);
+  border-color:rgba(255,255,255,.22);
+  color:#fff;
+}
+
 
     /* ===== Sticky header (GOLD) ===== */
     header{
