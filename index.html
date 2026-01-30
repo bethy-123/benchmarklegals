@@ -8,121 +8,328 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      color: #0b1f33;
-      background: #ffffff;
-      line-height: 1.6;
+    :root{
+      --navy:#0b1f33;
+      --navy-2:#102a45;
+      --text:#0b1f33;
+      --muted:#4a5a6a;
+      --line:#e7eaee;
+      --bg:#ffffff;
+      --soft:#f6f8fb;
+      --gold:#c9a24d;
+      --shadow: 0 16px 40px rgba(11,31,51,0.12);
+      --radius: 14px;
+      --max: 1120px;
     }
 
-    header {
-      border-bottom: 1px solid #e6e6e6;
-      padding: 16px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.65;
     }
+    a{ color:inherit; }
 
-    header img {
-      height: 48px;
+    /* Header */
+    header{
+      position: sticky;
+      top:0;
+      z-index: 50;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid var(--line);
     }
-
-    nav a {
-      margin-left: 28px;
-      text-decoration: none;
-      color: #0b1f33;
-      font-weight: 500;
+    .header-inner{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:14px 22px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
     }
-
-    .hero {
-      padding: 90px 40px;
-      max-width: 1100px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 60px;
-      align-items: center;
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width: 180px;
     }
-
-    .hero h1 {
-      font-size: 42px;
-      font-weight: 700;
-      margin-bottom: 20px;
+    .brand img{
+      height:48px;
+      width:auto;
+      display:block;
     }
-
-    .hero p {
-      font-size: 18px;
-      color: #3a4a5e;
-      margin-bottom: 32px;
+    nav{
+      display:flex;
+      align-items:center;
+      gap:22px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
     }
-
-    .btn {
-      display: inline-block;
-      padding: 14px 28px;
-      background: #c9a24d;
-      color: #ffffff;
-      text-decoration: none;
-      font-weight: 600;
-      border-radius: 4px;
+    nav a{
+      text-decoration:none;
+      color:var(--navy);
+      font-weight:600;
+      font-size:14px;
+      opacity:0.9;
     }
+    nav a:hover{ opacity:1; }
 
-    .badge {
-      margin-top: 40px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
+    .cta{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:999px;
+      background:var(--gold);
+      color:#fff;
+      text-decoration:none;
+      font-weight:700;
+      font-size:14px;
+      box-shadow: 0 10px 18px rgba(201,162,77,0.25);
+      white-space:nowrap;
     }
+    .cta:hover{ filter:brightness(0.98); }
 
-    .badge img {
-      height: 70px;
+    /* Hero */
+    .hero-wrap{
+      border-bottom:1px solid var(--line);
+      background: #fff;
     }
-
-    .info {
-      background: #f8f9fb;
-      padding: 70px 40px;
+    .hero{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:70px 22px 42px;
+      display:grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap:44px;
+      align-items:center;
     }
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      font-size:13px;
+      font-weight:700;
+      color:var(--navy-2);
+      background: rgba(11,31,51,0.06);
+      padding:8px 12px;
+      border-radius:999px;
+      margin-bottom:16px;
+    }
+    .kicker-dot{
+      width:8px; height:8px; border-radius:50%;
+      background:var(--gold);
+      display:inline-block;
+    }
+    h1{
+      margin:0 0 14px;
+      font-size:44px;
+      line-height:1.12;
+      letter-spacing:-0.02em;
+    }
+    .lead{
+      margin:0 0 22px;
+      color:var(--muted);
+      font-size:18px;
+      max-width: 56ch;
+    }
+    .hero-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-top: 6px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:14px 18px;
+      border-radius: 12px;
+      text-decoration:none;
+      font-weight:700;
+      font-size:15px;
+      border:1px solid transparent;
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .btn.primary{
+      background: var(--navy);
+      color:#fff;
+      box-shadow: var(--shadow);
+    }
+    .btn.primary:hover{ transform: translateY(-1px); }
+    .btn.secondary{
+      background:#fff;
+      border-color: var(--line);
+      color: var(--navy);
+    }
+    .btn.secondary:hover{ transform: translateY(-1px); }
 
-    .info-container {
-      max-width: 1100px;
-      margin: auto;
-      display: grid;
+    /* Right card (IAA) */
+    .card{
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+    }
+    .iaa{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+    .iaa img{
+      width:84px;
+      height:auto;
+      display:block;
+    }
+    .iaa strong{
+      display:block;
+      font-size:14px;
+      color: var(--navy);
+    }
+    .iaa small{
+      display:block;
+      font-size:13px;
+      color: var(--muted);
+      margin-top:4px;
+    }
+    .mini{
+      margin-top:12px;
+      padding-top:12px;
+      border-top:1px solid rgba(11,31,51,0.10);
+      display:grid;
+      gap:6px;
+      color: var(--muted);
+      font-size:13px;
+    }
+    .mini b{ color: var(--navy); }
+
+    /* Services grid */
+    .section{
+      max-width:var(--max);
+      margin:0 auto;
+      padding: 46px 22px;
+    }
+    .section h2{
+      margin:0 0 10px;
+      font-size:26px;
+      letter-spacing:-0.01em;
+    }
+    .section p.sub{
+      margin:0 0 22px;
+      color:var(--muted);
+      max-width: 70ch;
+    }
+    .grid{
+      display:grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 40px;
+      gap:16px;
+    }
+    .box{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      padding:18px;
+      box-shadow: 0 10px 30px rgba(11,31,51,0.06);
+      min-height: 120px;
+    }
+    .box h3{
+      margin:0 0 6px;
+      font-size:16px;
+    }
+    .box p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
     }
 
-    .info-box h3 {
-      font-size: 18px;
-      margin-bottom: 8px;
+    /* Footer */
+    footer{
+      background: var(--navy);
+      color:#fff;
+      padding: 54px 22px;
+      margin-top: 10px;
     }
-
-    footer {
-      background: #0b1f33;
-      color: #ffffff;
-      padding: 50px 40px;
-    }
-
-    footer .footer-container {
-      max-width: 1100px;
-      margin: auto;
-      display: grid;
+    .footer-inner{
+      max-width:var(--max);
+      margin:0 auto;
+      display:grid;
       grid-template-columns: 2fr 1fr 1fr;
-      gap: 40px;
+      gap:26px;
+    }
+    footer .muted, footer a{
+      color: rgba(255,255,255,0.78);
+      font-size:14px;
+      text-decoration:none;
+    }
+    .footer-title{
+      font-weight:800;
+      letter-spacing:0.2px;
+      margin-bottom:10px;
+      display:block;
+    }
+    .footer-line{
+      margin-top:18px;
+      padding-top:18px;
+      border-top:1px solid rgba(255,255,255,0.14);
+      color: rgba(255,255,255,0.68);
+      font-size:13px;
+      max-width:var(--max);
+      margin-left:auto;
+      margin-right:auto;
     }
 
-    footer p, footer a {
-      color: #cfd6de;
-      font-size: 14px;
-      text-decoration: none;
+    /* WhatsApp floating */
+    .whatsapp-float{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:999;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 14px;
+      border-radius: 999px;
+      background: rgba(11,31,51,0.96);
+      color:#fff;
+      text-decoration:none;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.24);
+      border: 1px solid rgba(255,255,255,0.10);
+      transition: transform .15s ease;
     }
+    .whatsapp-float:hover{ transform: translateY(-2px); }
+    .wa-icon{
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      background:#25D366;
+      display:grid;
+      place-items:center;
+      flex:0 0 auto;
+    }
+    .wa-icon svg{ width:22px; height:22px; fill:#fff; }
+    .wa-text{
+      display:flex;
+      flex-direction:column;
+      line-height:1.15;
+    }
+    .wa-text strong{ font-size:13px; }
+    .wa-text span{ font-size:12px; color: rgba(255,255,255,0.75); }
 
-    @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: 1fr;
-      }
-      .info-container, footer .footer-container {
-        grid-template-columns: 1fr;
-      }
+    @media (max-width: 980px){
+      .hero{ grid-template-columns:1fr; padding-top:48px; }
+      h1{ font-size:36px; }
+      .grid{ grid-template-columns:1fr; }
+      .footer-inner{ grid-template-columns:1fr; }
+      nav{ display:none; } /* keeps header premium on mobile */
+    }
+    @media (max-width: 520px){
+      .whatsapp-float{ padding:12px; border-radius:50%; }
+      .wa-text{ display:none; }
     }
   </style>
 </head>
@@ -130,73 +337,146 @@
 <body>
 
 <header>
-  <img src="FullLogo_Transparent (1).png" alt="Benchmark Legals">
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Immigration Services</a>
-    <a href="#">Contact</a>
-  </nav>
+  <div class="header-inner">
+    <div class="brand">
+      <!-- Recommended: rename to logo.png -->
+      <img src="FullLogo_Transparent (1).png" alt="Benchmark Legals logo">
+    </div>
+
+    <nav>
+      <a href="#top">Home</a>
+      <a href="#services">Services</a>
+      <a href="#regulation">Regulation</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <a class="cta" href="#contact">Book a Consultation</a>
+  </div>
 </header>
 
-<section class="hero">
-  <div>
-    <h1>UK Immigration Advice You Can Trust</h1>
-    <p>
-      Benchmark Legals provides professional UK immigration advice and assistance,
-      authorised and regulated by the Immigration Advice Authority (IAA).
-    </p>
-    <a href="#" class="btn">Book a Consultation</a>
+<div id="top" class="hero-wrap">
+  <section class="hero">
+    <div>
+      <div class="kicker"><span class="kicker-dot"></span> UK Immigration Advice • IAA Regulated</div>
 
-    <div class="badge">
-      <img src="Untitled design (10).png" alt="IAA Logo">
-      <div>
-        <strong>Immigration Advice Authority</strong><br>
-        Registration Number: <strong>F202538075</strong>
+      <h1>UK Immigration Advice You Can Trust</h1>
+      <p class="lead">
+        Benchmark Legals provides professional UK immigration advice and case support,
+        authorised and regulated by the Immigration Advice Authority (IAA).
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn primary" href="#contact">Book a Consultation</a>
+        <a class="btn secondary" href="#services">View Services</a>
+      </div>
+    </div>
+
+    <div class="card" id="regulation">
+      <div class="iaa">
+        <!-- Recommended: rename to iaa.png -->
+        <img src="Untitled design (10).png" alt="Immigration Advice Authority logo">
+        <div>
+          <strong>Immigration Advice Authority (IAA)</strong>
+          <small>Registration Number: <b style="color:var(--navy);">F202538075</b></small>
+        </div>
+      </div>
+
+      <div class="mini">
+        <div><b>Address:</b> 124 City Road, London, EC1V 2NX</div>
+        <div><b>Phone:</b> +44 7903 004158</div>
+        <div><b>Hours:</b> Mon–Fri 9:00–17:30 (Weekends closed)</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<section class="section" id="services">
+  <h2>UK Immigration Services</h2>
+  <p class="sub">
+    Clear, ethical advice with transparent communication — supporting individuals, families, and businesses with UK immigration matters.
+  </p>
+
+  <div class="grid">
+    <div class="box">
+      <h3>Visa Applications</h3>
+      <p>Guidance and preparation support for UK visa routes, with clear document requirements.</p>
+    </div>
+    <div class="box">
+      <h3>Extensions & Renewals</h3>
+      <p>Ongoing support to help you maintain lawful status and submit on time.</p>
+    </div>
+    <div class="box">
+      <h3>Settlement & Citizenship</h3>
+      <p>Advice for ILR and naturalisation pathways, with careful eligibility checks.</p>
+    </div>
+    <div class="box">
+      <h3>Family Routes</h3>
+      <p>Support for family-based routes, evidence planning, and application preparation.</p>
+    </div>
+    <div class="box">
+      <h3>Business & Work Routes</h3>
+      <p>Support for business and work-related routes, including compliance guidance where relevant.</p>
+    </div>
+    <div class="box">
+      <h3>General Immigration Advice</h3>
+      <p>Straightforward advice, next steps, and practical help throughout your process.</p>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="footer-inner">
+    <div>
+      <span class="footer-title">Benchmark Legals</span>
+      <div class="muted">
+        124 City Road, London, EC1V 2NX<br><br>
+        Phone: +44 7903 004158
+      </div>
+    </div>
+
+    <div>
+      <span class="footer-title">Regulation</span>
+      <div class="muted">
+        Immigration Advice Authority (IAA)<br>
+        Registration No: F202538075
+      </div>
+    </div>
+
+    <div>
+      <span class="footer-title">Working Hours</span>
+      <div class="muted">
+        Mon – Fri: 9:00 – 17:30<br>
+        Weekends: Closed
       </div>
     </div>
   </div>
-</section>
 
-<section class="info">
-  <div class="info-container">
-    <div class="info-box">
-      <h3>Who We Help</h3>
-      <p>Individuals, families, and businesses seeking UK immigration solutions.</p>
-    </div>
-    <div class="info-box">
-      <h3>Our Focus</h3>
-      <p>UK visas, settlement, extensions, and immigration compliance.</p>
-    </div>
-    <div class="info-box">
-      <h3>Our Promise</h3>
-      <p>Clear advice, ethical practice, and transparent communication.</p>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="footer-container">
-    <div>
-      <strong>Benchmark Legals</strong><br><br>
-      124 City Road<br>
-      London, EC1V 2NX<br><br>
-      📞 +44 7903 004158
-    </div>
-
-    <div>
-      <strong>Regulation</strong><br><br>
-      Immigration Advice Authority (IAA)<br>
-      Registration No: F202538075
-    </div>
-
-    <div>
-      <strong>Working Hours</strong><br><br>
-      Mon – Fri: 9:00 – 17:30<br>
-      Weekends: Closed
-    </div>
+  <div class="footer-line">
+    © <span id="year"></span> Benchmark Legals. All rights reserved.
   </div>
 </footer>
+
+<!-- WhatsApp Floating Button (premium + number shown) -->
+<a class="whatsapp-float"
+   href="https://wa.me/447903004158?text=Hello%20Benchmark%20Legals,%20I%20would%20like%20to%20book%20an%20immigration%20consultation."
+   target="_blank" rel="noopener"
+   aria-label="Chat with Benchmark Legals on WhatsApp">
+  <div class="wa-icon" aria-hidden="true">
+    <!-- Inline icon (no external image) -->
+    <svg viewBox="0 0 32 32">
+      <path d="M19.11 17.53c-.28-.14-1.64-.81-1.9-.9-.26-.1-.45-.14-.64.14-.19.28-.73.9-.9 1.09-.16.19-.33.21-.61.07-.28-.14-1.19-.44-2.26-1.4-.83-.74-1.39-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.13-.13.28-.33.42-.5.14-.16.19-.28.28-.47.09-.19.05-.36-.02-.5-.07-.14-.64-1.55-.88-2.12-.23-.55-.46-.47-.64-.48-.16-.01-.36-.01-.55-.01-.19 0-.5.07-.76.36-.26.28-1 1-1 2.43s1.03 2.81 1.17 3.01c.14.19 2.03 3.11 4.92 4.36.69.3 1.23.48 1.65.61.69.22 1.31.19 1.81.12.55-.08 1.64-.67 1.87-1.31.23-.64.23-1.19.16-1.31-.07-.12-.26-.19-.55-.33z"/>
+      <path d="M26.66 5.34A12.95 12.95 0 0016.02 1C8.86 1 3.03 6.83 3.03 13.99c0 2.29.6 4.52 1.74 6.49L3 31l10.75-1.77a12.93 12.93 0 006.27 1.6h.01c7.16 0 12.99-5.83 12.99-12.99 0-3.47-1.35-6.73-3.8-9.2zm-6.64 23.3h-.01c-2.02 0-4-.54-5.72-1.56l-.41-.24-6.38 1.05 1.04-6.22-.27-.44a10.8 10.8 0 01-1.66-5.79C6.61 8.5 10.5 4.61 15.99 4.61c2.65 0 5.14 1.03 7.01 2.9a9.86 9.86 0 012.9 7.01c0 5.49-3.89 9.38-8.78 9.38z"/>
+    </svg>
+  </div>
+  <div class="wa-text">
+    <strong>WhatsApp us</strong>
+    <span>+44 7903 004158</span>
+  </div>
+</a>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
