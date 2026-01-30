@@ -4,11 +4,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Benchmark Legals | UK Immigration Advice</title>
-  <meta name="description" content="Benchmark Legals provides UK immigration advice and assistance, authorised and regulated by the Immigration Advice Authority (IAA)."/>
+  <meta name="description" content="Benchmark Legals provides UK immigration advice and assistance, authorised and regulated by the Immigration Advice Authority (IAA)." />
+
+  <!-- Favicon (tab icon) -->
+  <link rel="icon" type="image/png" href="assets/logo.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
     :root{
@@ -17,9 +20,12 @@
       --ink:#0b1f33;
       --muted:#5b6775;
       --paper:#ffffff;
-      --soft:#f6f7fa;
+      --soft:#f5f6f8;
+
+      /* Gold header like your inspiration */
       --gold:#c9a24d;
       --gold2:#b78c2e;
+      --goldDark:#9a7322;
 
       --max:1180px;
       --radius:18px;
@@ -40,14 +46,14 @@
     img{max-width:100%;display:block}
     .wrap{max-width:var(--max); margin:0 auto; padding:0 24px;}
 
-    /* ===== Top bar ===== */
-    .topbar{
+    /* ===== Top strip (like inspiration) ===== */
+    .topstrip{
       background:var(--navy);
       color:rgba(255,255,255,.92);
       font-size:13px;
-      border-bottom:1px solid var(--line);
+      border-bottom:1px solid rgba(255,255,255,.10);
     }
-    .topbar .inner{
+    .topstrip .inner{
       display:flex;
       align-items:center;
       justify-content:space-between;
@@ -55,101 +61,109 @@
       padding:10px 0;
       flex-wrap:wrap;
     }
-    .topbar .left, .topbar .right{display:flex; gap:14px; align-items:center; flex-wrap:wrap}
-    .topbar a{color:rgba(255,255,255,.92); text-decoration:none}
-    .topbar a:hover{color:#fff}
-    .pill{
+    .topstrip .left, .topstrip .right{
+      display:flex; gap:14px; align-items:center; flex-wrap:wrap
+    }
+    .topstrip a{color:rgba(255,255,255,.92); text-decoration:none}
+    .topstrip a:hover{color:#fff}
+    .chip{
       display:inline-flex; align-items:center; gap:8px;
       padding:6px 10px;
       border:1px solid rgba(255,255,255,.16);
       border-radius:999px;
+      background:rgba(255,255,255,.03);
+      white-space:nowrap;
     }
 
-   /* ===== Header / nav ===== */
-header{
-  position:sticky;
-  top:0;
-  z-index:50;
-  background:#ffffff;                 /* CHANGED: white header */
-  border-bottom:1px solid rgba(11,31,51,.10);
-}
+    /* ===== Sticky header (GOLD) ===== */
+    header{
+      position:sticky;
+      top:0;
+      z-index:100;
+      background:var(--gold);
+      border-bottom:1px solid rgba(0,0,0,.08);
+      box-shadow:0 10px 30px rgba(7,26,43,.10);
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      padding:14px 0;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:240px;
+      text-decoration:none;
+    }
+    /* BIGGER logo */
+    .brand img{
+      height:64px; /* <- bigger */
+      width:auto;
+      filter:drop-shadow(0 10px 18px rgba(7,26,43,.18));
+    }
 
-.nav{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:18px;
-  padding:14px 0;
-}
+    .menu{
+      display:flex;
+      align-items:center;
+      gap:22px;
+    }
+    .menu a{
+      text-decoration:none;
+      color:#0a1622;
+      font-weight:900;
+      font-size:13px;
+      letter-spacing:.28px;
+      padding:10px 10px;
+      border-radius:12px;
+    }
+    .menu a:hover{background:rgba(255,255,255,.35)}
+    .cta{display:flex; align-items:center; gap:10px;}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      height:44px;
+      padding:0 16px;
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:900;
+      font-size:13px;
+      border:1px solid rgba(10,22,34,.18);
+      color:#0a1622;
+      background:rgba(255,255,255,.22);
+      white-space:nowrap;
+    }
+    .btn:hover{background:rgba(255,255,255,.34)}
+    .btn.primary{
+      background:#0a1622;
+      border-color:#0a1622;
+      color:#fff;
+    }
+    .btn.primary:hover{background:#0b1f33; border-color:#0b1f33}
 
-.brand{display:flex; align-items:center; gap:12px; min-width:240px;}
-.brand img,
-.logo{
-  height:90px;      /* BIGGER */
-  width:auto;
-}
-
-
-.menu{display:flex; align-items:center; gap:22px;}
-.menu a{
-  text-decoration:none;
-  color:rgba(11,31,51,.88);           /* CHANGED: dark text */
-  font-weight:800;
-  font-size:13px;
-  letter-spacing:.2px;
-  padding:10px 8px;
-  border-radius:10px;
-}
-.menu a:hover{
-  color:var(--ink);
-  background:rgba(11,31,51,.06);      /* CHANGED: dark hover */
-}
-
-.cta{display:flex; align-items:center; gap:10px;}
-
-.btn{
-  display:inline-flex; align-items:center; justify-content:center;
-  height:44px;
-  padding:0 16px;
-  border-radius:999px;
-  text-decoration:none;
-  font-weight:800;
-  font-size:13px;
-  border:1px solid rgba(11,31,51,.18); /* CHANGED: dark border */
-  color:var(--ink);                     /* CHANGED: dark text */
-  background:#fff;
-  white-space:nowrap;
-}
-.btn.primary{
-  background:var(--gold);
-  border-color:var(--gold);
-  color:#0a1622;
-}
-.btn.primary:hover{background:var(--gold2); border-color:var(--gold2)}
-.btn:hover{border-color:rgba(11,31,51,.30)}
-
-.burger{
-  display:none;
-  background:transparent;
-  border:1px solid rgba(11,31,51,.18);  /* CHANGED */
-  color:var(--ink);                      /* CHANGED */
-  padding:8px;
-  cursor:pointer;
-  border-radius:12px;
-}
-.burger:hover{background:rgba(11,31,51,.06)}
-.burger svg{width:26px; height:26px}
+    .burger{
+      display:none;
+      background:rgba(255,255,255,.22);
+      border:1px solid rgba(10,22,34,.18);
+      color:#0a1622;
+      padding:8px;
+      cursor:pointer;
+      border-radius:12px;
+    }
+    .burger:hover{background:rgba(255,255,255,.34)}
+    .burger svg{width:26px; height:26px}
 
     /* Desktop dropdown */
     .dropdown{position:relative}
     .dropdown > a{display:inline-flex; gap:8px; align-items:center}
     .dropdown .panel{
       position:absolute;
-      top:48px;
+      top:52px;
       left:0;
       width:560px;
-      background:rgba(7,26,43,.98);
-      border:1px solid rgba(255,255,255,.12);
+      background:#0a1622;
+      border:1px solid rgba(255,255,255,.14);
       border-radius:16px;
       box-shadow:var(--shadow);
       padding:14px;
@@ -168,65 +182,65 @@ header{
       border-radius:12px;
       color:rgba(255,255,255,.92);
       text-decoration:none;
-      font-weight:700;
+      font-weight:800;
       font-size:13px;
     }
-    .panel a:hover{background:rgba(255,255,255,.08); color:#fff}
+    .panel a:hover{background:rgba(255,255,255,.10); color:#fff}
 
     /* Mobile menu */
     .mobile{
       display:none;
-      border-top:1px solid var(--line);
+      border-top:1px solid rgba(0,0,0,.10);
       padding:10px 0 14px;
     }
     .mobile a{
       display:block;
       padding:10px 12px;
-      color:rgba(255,255,255,.92);
+      color:#0a1622;
       text-decoration:none;
-      font-weight:700;
+      font-weight:900;
       border-radius:12px;
+      background:rgba(255,255,255,.18);
+      margin-bottom:8px;
     }
-    .mobile a:hover{background:rgba(255,255,255,.06)}
+    .mobile a:hover{background:rgba(255,255,255,.28)}
     .mobile .sub{
       margin-top:8px;
       padding-left:10px;
-      border-left:1px solid rgba(255,255,255,.14);
+      border-left:2px solid rgba(10,22,34,.18);
     }
-    .mobile .sub a{font-weight:600; font-size:13px; opacity:.95}
+    .mobile .sub a{font-weight:800; font-size:13px; opacity:.95}
 
-    /* ===== Hero slider ===== */
+    /* ===== Hero (premium like inspiration) ===== */
     .hero{
       position:relative;
       background:var(--navy);
       color:#fff;
       overflow:hidden;
     }
-    .slides{position:absolute; inset:0}
-    .slide{
+    .hero-bg{
       position:absolute; inset:0;
-      opacity:0;
-      transition:opacity .7s ease;
+      background-image:url("assets/hero-1.jpg");
       background-size:cover;
       background-position:center;
-      transform:scale(1.02);
+      transform:scale(1.03);
+      filter:saturate(.95);
     }
-    .slide.active{opacity:1}
-    .overlay{
+    .hero-overlay{
       position:absolute; inset:0;
-      background:rgba(7,26,43,.62);
+      background:linear-gradient(90deg, rgba(7,26,43,.86), rgba(7,26,43,.58) 60%, rgba(7,26,43,.35));
     }
     .hero .content{
       position:relative;
-      min-height:74vh;
+      min-height:78vh;
       display:flex;
       align-items:center;
-      padding:56px 0 46px;
+      padding:68px 0 58px;
     }
     .hero-grid{
       width:100%;
       display:grid;
-      grid-template-columns:1.15fr .85fr;
+      grid-template-columns:1.1fr .9fr;
       gap:34px;
       align-items:center;
     }
@@ -237,41 +251,59 @@ header{
       padding:8px 12px;
       border-radius:999px;
       background:rgba(255,255,255,.10);
-      border:1px solid rgba(255,255,255,.14);
-      font-weight:700;
+      border:1px solid rgba(255,255,255,.16);
+      font-weight:800;
       font-size:13px;
       color:rgba(255,255,255,.92);
       width:fit-content;
     }
     .hero h1{
-      font-size:54px;
-      line-height:1.05;
-      margin:14px 0 12px;
-      letter-spacing:-.9px;
+      font-size:58px;
+      line-height:1.02;
+      margin:16px 0 14px;
+      letter-spacing:-1px;
+      text-transform:uppercase;
     }
     .hero p{
-      margin:0 0 22px;
+      margin:0 0 24px;
       font-size:17px;
-      color:rgba(255,255,255,.86);
-      max-width:58ch;
+      color:rgba(255,255,255,.88);
+      max-width:60ch;
     }
     .hero-actions{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
-    .btn.light{
-      background:#fff;
-      border-color:#fff;
+    .hero .btn{
+      height:48px;
+      padding:0 18px;
+      font-size:13px;
+      border-color:rgba(255,255,255,.20);
+      color:#fff;
+      background:rgba(255,255,255,.08);
+    }
+    .hero .btn:hover{background:rgba(255,255,255,.14)}
+    .hero .btn.primary{
+      background:var(--gold);
+      border-color:var(--gold);
       color:#0a1622;
     }
-    .btn.light:hover{background:#f3f3f3; border-color:#f3f3f3}
+    .hero .btn.primary:hover{background:var(--gold2); border-color:var(--gold2)}
 
+    /* Hero trust card (IAA block) */
     .trust{
       background:rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.16);
       border-radius:var(--radius);
       padding:18px;
       box-shadow:var(--shadow2);
+      backdrop-filter: blur(6px);
     }
     .trust .row{display:flex; gap:14px; align-items:center}
-    .trust img{height:56px; width:auto; border-radius:12px; background:#fff; padding:6px}
+    .trust img{
+      height:66px; /* bigger */
+      width:auto;
+      border-radius:14px;
+      background:#fff;
+      padding:8px;
+    }
     .trust .meta{font-size:13px; color:rgba(255,255,255,.86)}
     .trust .meta strong{color:#fff}
     .mini{
@@ -290,133 +322,218 @@ header{
     }
     .mini .card strong{color:#fff}
 
-    .slider-controls{
-      position:absolute;
-      left:24px; right:24px;
-      bottom:18px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:12px;
-      pointer-events:none;
-    }
-    .dots{display:flex; gap:8px; pointer-events:auto}
-    .dot{
-      width:10px; height:10px;
-      border-radius:50%;
-      border:1px solid rgba(255,255,255,.55);
-      background:transparent;
-      cursor:pointer;
-      opacity:.9;
-    }
-    .dot.active{background:var(--gold); border-color:var(--gold)}
-    .arrows{display:flex; gap:10px; pointer-events:auto}
-    .arrow{
-      width:42px; height:42px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.22);
-      background:rgba(255,255,255,.08);
-      color:#fff;
-      cursor:pointer;
-    }
-    .arrow:hover{background:rgba(255,255,255,.14)}
-
     /* ===== Sections ===== */
-    section{padding:74px 0}
+    section{padding:78px 0}
     .soft{background:var(--soft)}
     .section-title{
-      display:flex;
-      justify-content:space-between;
-      gap:22px;
-      align-items:flex-end;
-      flex-wrap:wrap;
-      margin-bottom:22px;
+      text-align:center;
+      margin-bottom:28px;
+    }
+    .section-title .overline{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      font-weight:900;
+      letter-spacing:.25px;
+      font-size:12px;
+      color:rgba(11,31,51,.70);
+      text-transform:uppercase;
+    }
+    .section-title .overline:before{
+      content:"";
+      width:44px;
+      height:2px;
+      background:var(--gold);
+      border-radius:999px;
+      display:inline-block;
     }
     .section-title h2{
-      margin:0;
+      margin:10px 0 0;
       font-size:34px;
       letter-spacing:-.5px;
       line-height:1.15;
+      text-transform:uppercase;
     }
-    .section-title p{margin:0; color:var(--muted); max-width:64ch}
+    .section-title p{
+      margin:10px auto 0;
+      color:var(--muted);
+      max-width:70ch;
+      font-size:15px;
+    }
 
-    /* Services grid */
-    .grid{
+    /* ===== Services - icon grid like inspiration ===== */
+    .services-grid{
       display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:14px;
-    }
-    .tile{
-      background:#fff;
-      border:1px solid rgba(11,31,51,.08);
+      grid-template-columns:repeat(5,1fr);
+      gap:0;
+      border:1px solid rgba(11,31,51,.10);
       border-radius:18px;
-      padding:18px;
+      overflow:hidden;
+      background:#fff;
       box-shadow:0 10px 22px rgba(7,26,43,.06);
-      transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
-      min-height:150px;
+    }
+    .service{
+      padding:22px 18px 18px;
+      border-right:1px solid rgba(11,31,51,.08);
+      border-bottom:1px solid rgba(11,31,51,.08);
+      text-align:center;
+      text-decoration:none;
+      color:var(--ink);
+      min-height:190px;
       display:flex;
       flex-direction:column;
-      justify-content:space-between;
-      text-decoration:none;
+      align-items:center;
+      justify-content:center;
+      gap:12px;
+      transition:background .15s ease, transform .15s ease;
     }
-    .tile:hover{
-      transform:translateY(-3px);
-      box-shadow:0 16px 34px rgba(7,26,43,.10);
-      border-color:rgba(11,31,51,.14);
+    .service:hover{
+      background:rgba(201,162,77,.08);
+      transform:translateY(-2px);
     }
-    .icon{
-      width:44px;height:44px;border-radius:14px;
-      background:rgba(201,162,77,.14);
-      display:flex;align-items:center;justify-content:center;
-      color:var(--gold);
-      font-weight:900;
-      margin-bottom:10px;
-      font-size:14px;
-    }
-    .tile h3{margin:0 0 6px; font-size:15px; letter-spacing:.2px}
-    .tile span{color:var(--muted); font-size:13px}
-    .tile .go{margin-top:14px; font-weight:900; color:var(--gold); font-size:13px}
+    .service:nth-child(5),
+    .service:nth-child(10){border-right:none}
+    .service:nth-child(n+6){border-bottom:none}
 
-    /* About strip */
+    .svc-icn{
+      width:54px;
+      height:54px;
+      border-radius:16px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:rgba(11,31,51,.04);
+      border:1px solid rgba(11,31,51,.08);
+    }
+    .svc-icn svg{width:30px;height:30px}
+    .service h3{
+      margin:0;
+      font-size:14px;
+      letter-spacing:.2px;
+      font-weight:900;
+      text-transform:uppercase;
+    }
+    .service .arrow{
+      font-weight:900;
+      color:rgba(11,31,51,.65);
+      font-size:18px;
+      margin-top:2px;
+    }
+
+    /* ===== About (image + text like inspiration) ===== */
     .about{
       display:grid;
-      grid-template-columns:1.1fr .9fr;
-      gap:18px;
+      grid-template-columns:1.05fr .95fr;
+      gap:26px;
       align-items:stretch;
     }
-    .about .card{
+    .about-visual{
+      border-radius:22px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      min-height:440px;
+      position:relative;
+      background:#0b1f33;
+    }
+    .about-visual .img{
+      position:absolute; inset:0;
+      background-image:url("assets/hero-2.jpg");
+      background-size:cover;
+      background-position:center;
+      filter:saturate(.95);
+      transform:scale(1.02);
+    }
+    .about-visual .shade{
+      position:absolute; inset:0;
+      background:linear-gradient(180deg, rgba(7,26,43,.10), rgba(7,26,43,.55));
+    }
+    .about-card{
       background:#fff;
       border:1px solid rgba(11,31,51,.08);
-      border-radius:var(--radius);
-      padding:22px;
+      border-radius:22px;
+      padding:28px;
       box-shadow:0 12px 28px rgba(7,26,43,.07);
     }
-    .about h3{margin:0 0 10px; font-size:26px; letter-spacing:-.3px}
-    .about p{margin:0; color:var(--muted)}
-    .ticks{margin-top:14px; display:grid; gap:10px}
-    .tick{display:flex; gap:10px; align-items:flex-start; color:var(--ink); font-weight:600}
+    .about-card .small{
+      font-weight:900;
+      text-transform:uppercase;
+      font-size:12px;
+      letter-spacing:.25px;
+      color:rgba(11,31,51,.65);
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom:8px;
+    }
+    .about-card .small:before{
+      content:"";
+      width:44px;
+      height:2px;
+      background:var(--gold);
+      border-radius:999px;
+      display:inline-block;
+    }
+    .about-card h3{
+      margin:0 0 10px;
+      font-size:30px;
+      line-height:1.12;
+      letter-spacing:-.4px;
+      text-transform:uppercase;
+    }
+    .about-card p{margin:0; color:var(--muted); font-size:15px}
+    .ticks{margin-top:16px; display:grid; gap:10px}
+    .tick{
+      display:flex; gap:10px; align-items:flex-start;
+      color:var(--ink); font-weight:700;
+    }
     .tick i{
       width:22px;height:22px;border-radius:8px;
       background:rgba(201,162,77,.18);
-      color:var(--gold);
+      color:var(--goldDark);
       display:flex;align-items:center;justify-content:center;
       font-style:normal;
       font-weight:900;
       margin-top:2px;
       flex:0 0 auto;
     }
-    .about .actions{margin-top:16px; display:flex; gap:10px; flex-wrap:wrap}
+    .about-actions{margin-top:18px; display:flex; gap:10px; flex-wrap:wrap}
+    .about-actions .btn{
+      height:46px;
+      background:#fff;
+      border-color:rgba(11,31,51,.14);
+      color:var(--ink);
+    }
+    .about-actions .btn.primary{
+      background:var(--gold);
+      border-color:var(--gold);
+      color:#0a1622;
+    }
 
-    /* FAQ */
+    /* ===== FAQ (like inspiration) ===== */
     .faq{
       display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:22px;
+      grid-template-columns:1fr 1.05fr;
+      gap:34px;
       align-items:start;
     }
-    .faq-left h3{margin:0 0 10px; font-size:28px}
-    .faq-left p{margin:0 0 16px; color:var(--muted)}
-    .acc{display:flex; flex-direction:column; gap:10px;}
+    .faq-left h3{
+      margin:8px 0 10px;
+      font-size:34px;
+      letter-spacing:-.5px;
+      text-transform:uppercase;
+      line-height:1.12;
+    }
+    .faq-left p{margin:0; color:var(--muted); max-width:48ch}
+    .faq-left .btn{
+      margin-top:18px;
+      height:48px;
+      background:var(--gold);
+      border-color:var(--gold);
+      color:#0a1622;
+    }
+    .faq-left .btn:hover{background:var(--gold2); border-color:var(--gold2)}
+
+    .acc{display:flex; flex-direction:column; gap:12px;}
     details{
       background:#fff;
       border:1px solid rgba(11,31,51,.10);
@@ -427,96 +544,113 @@ header{
     summary{
       cursor:pointer;
       list-style:none;
-      font-weight:800;
+      font-weight:900;
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:14px;
+      font-size:14px;
     }
     summary::-webkit-details-marker{display:none}
     .plus{
-      width:28px;height:28px;border-radius:10px;
+      width:30px;height:30px;border-radius:10px;
       border:1px solid rgba(11,31,51,.12);
       display:flex;align-items:center;justify-content:center;
       font-weight:900;
-      color:var(--gold);
+      color:var(--goldDark);
       flex:0 0 auto;
+      background:rgba(201,162,77,.10);
     }
-    details[open] .plus{background:rgba(201,162,77,.14)}
-    details p{margin:10px 0 0; color:var(--muted); font-size:14px}
+    details[open]{
+      border-color:rgba(11,31,51,.18);
+    }
+    details[open] summary{
+      background:#0a1622;
+      color:#fff;
+      padding:12px 12px;
+      border-radius:12px;
+      margin:-6px -6px 10px;
+    }
+    details[open] .plus{
+      background:rgba(255,255,255,.10);
+      border-color:rgba(255,255,255,.20);
+      color:#fff;
+    }
+    details p{
+      margin:10px 0 0;
+      color:var(--muted);
+      font-size:14px;
+    }
 
-    /* Footer */
+    /* ===== Footer (premium, with both logos big like inspiration) ===== */
     footer{
       background:var(--navy);
       color:#fff;
-      padding:58px 0 28px;
-      border-top:1px solid var(--line);
+      padding:64px 0 28px;
+      border-top:1px solid rgba(255,255,255,.10);
     }
     .foot{
       display:grid;
-      grid-template-columns:1.35fr 1fr 1fr 1fr;
-      gap:26px;
+      grid-template-columns:1.25fr 1fr 1fr 1fr;
+      gap:28px;
       align-items:start;
     }
-    .brandline{display:flex; align-items:center; gap:12px; margin-bottom:10px}
-    .brandline img{height:42px}
-    .foot h4{margin:8px 0 10px; font-size:14px; letter-spacing:.2px}
-    .foot a{color:rgba(255,255,255,.84); text-decoration:none; font-size:13px}
-    .foot a:hover{color:#fff}
-    .foot p{margin:0; color:rgba(255,255,255,.76); font-size:13px}
 
-    .iaa{
-      display:flex; gap:12px; align-items:center;
-      margin-top:14px;
-      padding:12px;
-      border:1px solid rgba(255,255,255,.12);
-      border-radius:16px;
-      background:rgba(255,255,255,.06);
-    }
-    .iaa img{height:56px; background:#fff; padding:6px; border-radius:12px}
-
-    .footer-drawer{
-      margin-top:12px;
-      border-top:1px solid rgba(255,255,255,.12);
-      padding-top:12px;
-    }
-    .drawer-btn{
-      width:100%;
+    /* Big tidy logo row */
+    .footer-brand{
       display:flex;
-      justify-content:space-between;
+      align-items:flex-start;
+      gap:18px;
+      margin-bottom:12px;
+    }
+    .footer-brand .logo-main img{
+      height:72px; /* bigger */
+      width:auto;
+    }
+    .footer-brand .logo-iaa{
+      display:flex;
       align-items:center;
-      gap:10px;
-      background:transparent;
-      color:#fff;
-      border:1px solid rgba(255,255,255,.12);
-      padding:12px 12px;
-      border-radius:14px;
-      cursor:pointer;
-      font-weight:800;
-    }
-    .drawer-btn:hover{background:rgba(255,255,255,.06)}
-    .drawer-panel{
-      display:none;
-      margin-top:10px;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.10);
+      gap:12px;
+      padding:10px 12px;
+      border:1px solid rgba(255,255,255,.14);
       border-radius:16px;
-      padding:14px;
+      background:rgba(255,255,255,.06);
     }
-    .drawer-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:8px 14px;
+    .footer-brand .logo-iaa img{
+      height:72px; /* BIG & same size feel */
+      width:auto;
+      background:#fff;
+      padding:8px;
+      border-radius:14px;
     }
-    .drawer-grid a{
-      display:block;
-      padding:8px 10px;
-      border-radius:12px;
-      background:rgba(255,255,255,.05);
+    .footer-brand .logo-iaa .meta{
+      font-size:13px;
+      color:rgba(255,255,255,.88);
+      line-height:1.35;
     }
-    .drawer-grid a:hover{background:rgba(255,255,255,.10)}
+    .footer-brand .logo-iaa .meta strong{color:#fff}
+
+    .foot h4{
+      margin:10px 0 12px;
+      font-size:14px;
+      letter-spacing:.25px;
+      text-transform:uppercase;
+    }
+    .foot a{
+      color:rgba(255,255,255,.82);
+      text-decoration:none;
+      font-size:13px;
+    }
+    .foot a:hover{color:#fff}
+    .foot p{
+      margin:0;
+      color:rgba(255,255,255,.76);
+      font-size:13px;
+    }
+    .foot .list p{margin:0 0 8px}
+
     .copyright{
-      margin-top:24px;
+      margin-top:26px;
       padding-top:18px;
       border-top:1px solid rgba(255,255,255,.12);
       display:flex;
@@ -532,7 +666,7 @@ header{
       position:fixed;
       right:18px;
       bottom:18px;
-      z-index:60;
+      z-index:120;
       display:flex;
       align-items:center;
       gap:10px;
@@ -543,7 +677,7 @@ header{
       border:1px solid rgba(255,255,255,.12);
       border-radius:999px;
       padding:10px 12px;
-      font-weight:800;
+      font-weight:900;
       font-size:12px;
       box-shadow:var(--shadow2);
     }
@@ -560,57 +694,68 @@ header{
     .wa-btn:active{transform:translateY(1px)}
 
     /* Responsive */
+    @media (max-width: 1100px){
+      .services-grid{grid-template-columns:repeat(3,1fr)}
+      .service:nth-child(3), .service:nth-child(6), .service:nth-child(9){border-right:none}
+      .service:nth-child(5), .service:nth-child(10){border-right:1px solid rgba(11,31,51,.08)}
+      .service:nth-child(n+7){border-bottom:none}
+    }
     @media (max-width: 980px){
       .menu{display:none}
       .burger{display:block}
       .mobile.open{display:block}
+
       .hero-grid{grid-template-columns:1fr}
-      .grid{grid-template-columns:repeat(2,1fr)}
+      .hero h1{font-size:44px}
       .about{grid-template-columns:1fr}
       .faq{grid-template-columns:1fr}
       .foot{grid-template-columns:1fr 1fr}
-      .hero h1{font-size:40px}
-      .slider-controls{position:static; padding:0 0 22px}
     }
     @media (max-width: 560px){
-      .grid{grid-template-columns:1fr}
+      .services-grid{grid-template-columns:1fr}
+      .service{border-right:none !important; border-bottom:1px solid rgba(11,31,51,.08)}
+      .service:last-child{border-bottom:none}
       .foot{grid-template-columns:1fr}
-      .brand{min-width:unset}
+      .brand img{height:58px}
+      .hero h1{font-size:38px}
+      .footer-brand{flex-direction:column; align-items:flex-start}
+      .footer-brand .logo-iaa{width:100%}
     }
   </style>
 </head>
 
 <body>
 
-  <!-- Top bar -->
-  <div class="topbar">
+  <!-- Top strip -->
+  <div class="topstrip">
     <div class="wrap">
       <div class="inner">
         <div class="left">
-          <span class="pill">IAA Reg: <strong>F202538075</strong></span>
-          <a class="pill" href="tel:+447903004158">📞 +44 7903 004158</a>
+          <a class="chip" href="mailto:info@benchmarklegals.co.uk">✉️ info@benchmarklegals.co.uk</a>
+          <a class="chip" href="tel:+447903004158">📞 +44 7903 004158</a>
+          <span class="chip">IAA Reg: <strong>F202538075</strong></span>
         </div>
         <div class="right">
-          <span class="pill">124 City Road, London, EC1V 2NX</span>
+          <span class="chip">124 City Road, London, EC1V 2NX</span>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Header -->
+  <!-- GOLD sticky header -->
   <header>
     <div class="wrap">
       <div class="nav">
         <a class="brand" href="index.html" aria-label="Benchmark Legals Home">
-          <img src="assets/logo.png" alt="Benchmark Legals">
+          <img src="assets/logo.png" alt="Benchmark Legals logo">
         </a>
 
         <nav class="menu" aria-label="Primary navigation">
-          <a href="index.html">Home</a>
-          <a href="#about">About</a>
+          <a href="index.html">HOME</a>
+          <a href="#about">ABOUT</a>
 
           <div class="dropdown">
-            <a href="#services">Immigration ▾</a>
+            <a href="#services">IMMIGRATION ▾</a>
             <div class="panel" role="menu" aria-label="Immigration services">
               <div class="cols">
                 <a href="services.html#skilled-worker">Skilled Worker Visa</a>
@@ -625,8 +770,8 @@ header{
             </div>
           </div>
 
-          <a href="services.html">Services</a>
-          <a href="contact.html">Contact</a>
+          <a href="services.html">SERVICES</a>
+          <a href="contact.html">CONTACT</a>
         </nav>
 
         <div class="cta">
@@ -642,9 +787,9 @@ header{
 
       <!-- Mobile menu -->
       <div class="mobile" id="mobileMenu">
-        <a href="index.html">Home</a>
-        <a href="#about">About</a>
-        <a href="#services">Immigration</a>
+        <a href="index.html">HOME</a>
+        <a href="#about">ABOUT</a>
+        <a href="#services">IMMIGRATION</a>
         <div class="sub">
           <a href="services.html#skilled-worker">Skilled Worker Visa</a>
           <a href="services.html#business">Business Visas</a>
@@ -655,8 +800,8 @@ header{
           <a href="services.html#settlement">Settlement & Naturalisation</a>
           <a href="services.html#student">Student / Graduate Routes</a>
         </div>
-        <a href="services.html">Services</a>
-        <a href="contact.html">Contact</a>
+        <a href="services.html">SERVICES</a>
+        <a href="contact.html">CONTACT</a>
       </div>
 
     </div>
@@ -664,26 +809,23 @@ header{
 
   <!-- Hero -->
   <section class="hero" aria-label="Hero">
-    <div class="slides" aria-hidden="true">
-      <div class="slide active" style="background-image:url('assets/hero-1.jpg')"></div>
-      <div class="slide" style="background-image:url('assets/hero-2.jpg')"></div>
-      <div class="overlay"></div>
-    </div>
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-overlay" aria-hidden="true"></div>
 
     <div class="wrap">
       <div class="content">
         <div class="hero-grid">
           <div>
             <div class="kicker">Authorised & regulated by the Immigration Advice Authority (IAA)</div>
-            <h1>UK Immigration Advice<br>with Clarity & Confidence</h1>
+            <h1>UK Immigration<br>Advice with<br>Clarity & Confidence</h1>
             <p>
-              Benchmark Legals provides professional immigration advice and application support,
-              with transparent communication and a client-first approach — from first consultation to outcome.
+              Professional immigration advice and application support with transparent communication,
+              careful document checks, and a client-first approach — from first consultation to outcome.
             </p>
 
             <div class="hero-actions">
               <a class="btn primary" href="contact.html">Free Initial Enquiry</a>
-              <a class="btn light" href="services.html">Explore Services</a>
+              <a class="btn" href="services.html">Explore Services</a>
             </div>
           </div>
 
@@ -705,101 +847,161 @@ header{
           </div>
         </div>
       </div>
-
-      <div class="slider-controls" aria-label="Slider controls">
-        <div class="dots" id="dots">
-          <button class="dot active" aria-label="Slide 1"></button>
-          <button class="dot" aria-label="Slide 2"></button>
-        </div>
-        <div class="arrows">
-          <button class="arrow" id="prev" aria-label="Previous slide">‹</button>
-          <button class="arrow" id="next" aria-label="Next slide">›</button>
-        </div>
-      </div>
     </div>
   </section>
 
-  <!-- Services -->
+  <!-- UK Visa Services (icon tiles like inspiration) -->
   <section id="services" class="soft">
     <div class="wrap">
       <div class="section-title">
-        <div>
-          <h2>UK Visa Services</h2>
-          <p>Choose a route below to learn more. Each service tile can link to a dedicated page section.</p>
-        </div>
+        <div class="overline">UK Immigration</div>
+        <h2>UK Visa Services</h2>
+        <p>Choose a route below to learn more. Each tile links to a dedicated section on your Services page.</p>
       </div>
 
-      <div class="grid">
-        <a class="tile" href="services.html#business">
-          <div>
-            <div class="icon">BV</div>
-            <h3>Business Visas</h3>
-            <span>Business Mobility & related routes</span>
+      <div class="services-grid" role="list">
+        <!-- 1 -->
+        <a class="service" role="listitem" href="services.html#business">
+          <div class="svc-icn" aria-hidden="true">
+            <!-- briefcase -->
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M9 7V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1" stroke="#0b1f33" stroke-width="2" stroke-linecap="round"/>
+              <path d="M4 9h16v8a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V9Z" stroke="#0b1f33" stroke-width="2"/>
+              <path d="M4 12h16" stroke="#c9a24d" stroke-width="2" stroke-linecap="round"/>
+            </svg>
           </div>
-          <div class="go">View →</div>
+          <h3>Business Visas</h3>
+          <div class="arrow">→</div>
         </a>
 
-        <a class="tile" href="services.html#skilled-worker">
-          <div>
-            <div class="icon">SW</div>
-            <h3>Skilled Worker Visa</h3>
-            <span>Sponsorship & eligibility guidance</span>
+        <!-- 2 -->
+        <a class="service" role="listitem" href="services.html#skilled-worker">
+          <div class="svc-icn" aria-hidden="true">
+            <!-- id card -->
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M4 7a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7Z" stroke="#0b1f33" stroke-width="2"/>
+              <path d="M8 10h4" stroke="#c9a24d" stroke-width="2" stroke-linecap="round"/>
+              <path d="M8 14h8" stroke="#0b1f33" stroke-width="2" stroke-linecap="round"/>
+              <path d="M15.5 9.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" stroke="#0b1f33" stroke-width="2"/>
+            </svg>
           </div>
-          <div class="go">View →</div>
+          <h3>Skilled Worker Visa</h3>
+          <div class="arrow">→</div>
         </a>
 
-        <a class="tile" href="services.html#global-talent">
-          <div>
-            <div class="icon">GT</div>
-            <h3>Global Talent</h3>
-            <span>Endorsement & application support</span>
+        <!-- 3 -->
+        <a class="service" role="listitem" href="services.html#global-talent">
+          <div class="svc-icn" aria-hidden="true">
+            <!-- star -->
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 3l2.5 6.2 6.5.5-5 4.2 1.6 6.4L12 17l-5.6 3.3 1.6-6.4-5-4.2 6.5-.5L12 3Z"
+                    stroke="#0b1f33" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M12 7.2v7.6" stroke="#c9a24d" stroke-width="2" stroke-linecap="round"/>
+            </svg>
           </div>
-          <div class="go">View →</div>
+          <h3>Global Talent</h3>
+          <div class="arrow">→</div>
         </a>
 
-        <a class="tile" href="services.html#family">
-          <div>
-            <div class="icon">FV</div>
-            <h3>Family Visas</h3>
-            <span>Partner / spouse / dependent routes</span>
+        <!-- 4 -->
+        <a class="service" role="listitem" href="services.html#extensions">
+          <div class="svc-icn" aria-hidden="true">
+            <!-- document -->
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M7 3h7l3 3v15a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z" stroke="#0b1f33" stroke-width="2"/>
+              <path d="M14 3v4h4" stroke="#0b1f33" stroke-width="2" stroke-linecap="round"/>
+              <path d="M8 12h8" stroke="#c9a24d" stroke-width="2" stroke-linecap="round"/>
+              <path d="M8 16h8" stroke="#0b1f33" stroke-width="2" stroke-linecap="round"/>
+            </svg>
           </div>
-          <div class="go">View →</div>
+          <h3>Extension Visas</h3>
+          <div class="arrow">→</div>
         </a>
 
-        <a class="tile" href="services.html#student">
-          <div>
-            <div class="icon">ST</div>
-            <h3>Student / Graduate Routes</h3>
-            <span>Student & post-study options</span>
+        <!-- 5 -->
+        <a class="service" role="listitem" href="services.html#family">
+          <div class="svc-icn" aria-hidden="true">
+            <!-- family -->
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M8.5 11.5a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z" stroke="#0b1f33" stroke-width="2"/>
+              <path d="M20.5 11.5a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z" stroke="#0b1f33" stroke-width="2"/>
+              <path d="M14 9.5a2 2 0 1 0-4 0 2 2 0 0 0 4 0Z" stroke="#c9a24d" stroke-width="2"/>
+              <path d="M2.8 20a5 5 0 0 1 6.2-3.1" stroke="#0b1f33" stroke-width="2" stroke-linecap="round"/>
+              <path d="M21.2 20a5 5 0 0 0-6.2-3.1" stroke="#0b1f33" stroke-width="2" stroke-linecap="round"/>
+              <path d="M9 20a4.5 4.5 0 0 1 6 0" stroke="#c9a24d" stroke-width="2" stroke-linecap="round"/>
+            </svg>
           </div>
-          <div class="go">View →</div>
+          <h3>Family Visas</h3>
+          <div class="arrow">→</div>
         </a>
 
-        <a class="tile" href="services.html#extensions">
-          <div>
-            <div class="icon">EX</div>
-            <h3>Extension Visas</h3>
-            <span>Extensions, switches & renewals</span>
+        <!-- 6 -->
+        <a class="service" role="listitem" href="services.html#visitor">
+          <div class="svc-icn" aria-hidden="true">
+            <!-- passport -->
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M7 4h8a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z" stroke="#0b1f33" stroke-width="2"/>
+              <path d="M9 8h4" stroke="#c9a24d" stroke-width="2" stroke-linecap="round"/>
+              <path d="M12 11.5a2.2 2.2 0 1 0 0 4.4 2.2 2.2 0 0 0 0-4.4Z" stroke="#0b1f33" stroke-width="2"/>
+            </svg>
           </div>
-          <div class="go">View →</div>
+          <h3>UK Visitor Visa</h3>
+          <div class="arrow">→</div>
         </a>
 
-        <a class="tile" href="services.html#settlement">
-          <div>
-            <div class="icon">SN</div>
-            <h3>Settlement & Naturalisation</h3>
-            <span>ILR & British citizenship pathways</span>
+        <!-- 7 -->
+        <a class="service" role="listitem" href="services.html#student">
+          <div class="svc-icn" aria-hidden="true">
+            <!-- cap -->
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 4 2.5 9 12 14l9.5-5L12 4Z" stroke="#0b1f33" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M6.5 11.2V16c0 1.7 2.5 3 5.5 3s5.5-1.3 5.5-3v-4.8" stroke="#c9a24d" stroke-width="2" stroke-linecap="round"/>
+              <path d="M21.5 9v6" stroke="#0b1f33" stroke-width="2" stroke-linecap="round"/>
+            </svg>
           </div>
-          <div class="go">View →</div>
+          <h3>Student / Graduate</h3>
+          <div class="arrow">→</div>
         </a>
 
-        <a class="tile" href="contact.html">
-          <div>
-            <div class="icon">QA</div>
-            <h3>Not sure which route?</h3>
-            <span>Tell us your situation — we’ll guide you</span>
+        <!-- 8 -->
+        <a class="service" role="listitem" href="services.html#settlement">
+          <div class="svc-icn" aria-hidden="true">
+            <!-- home -->
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M4 11.5 12 5l8 6.5V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8.5Z" stroke="#0b1f33" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M9 22v-7h6v7" stroke="#c9a24d" stroke-width="2" stroke-linecap="round"/>
+            </svg>
           </div>
-          <div class="go">Enquire →</div>
+          <h3>Settlement & Citizenship</h3>
+          <div class="arrow">→</div>
+        </a>
+
+        <!-- 9 -->
+        <a class="service" role="listitem" href="services.html#business">
+          <div class="svc-icn" aria-hidden="true">
+            <!-- globe -->
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z" stroke="#0b1f33" stroke-width="2"/>
+              <path d="M2 12h20" stroke="#c9a24d" stroke-width="2" stroke-linecap="round"/>
+              <path d="M12 2c3 2.6 3 17.4 0 20" stroke="#0b1f33" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Business Mobility</h3>
+          <div class="arrow">→</div>
+        </a>
+
+        <!-- 10 -->
+        <a class="service" role="listitem" href="contact.html">
+          <div class="svc-icn" aria-hidden="true">
+            <!-- chat -->
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M21 12a8 8 0 0 1-8 8H7l-4 2 1.4-4.2A8 8 0 1 1 21 12Z" stroke="#0b1f33" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M8 12h8" stroke="#c9a24d" stroke-width="2" stroke-linecap="round"/>
+              <path d="M8 9h5" stroke="#0b1f33" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Not sure which route?</h3>
+          <div class="arrow">→</div>
         </a>
       </div>
     </div>
@@ -808,48 +1010,33 @@ header{
   <!-- About -->
   <section id="about">
     <div class="wrap">
-      <div class="section-title">
-        <div>
-          <h2>Professional support, without the confusion</h2>
-          <p>We keep the process structured, clear, and organised — so you feel confident at every step.</p>
-        </div>
-      </div>
-
       <div class="about">
-        <div class="card">
+        <div class="about-visual" aria-hidden="true">
+          <div class="img"></div>
+          <div class="shade"></div>
+        </div>
+
+        <div class="about-card">
+          <div class="small">Leading with clarity</div>
           <h3>Welcome to Benchmark Legals</h3>
           <p>
             We provide immigration advice and application support with a careful, document-led approach.
-            You’ll get clear next steps, transparent scope, and timely communication throughout.
+            You’ll receive clear next steps, transparent scope, and professional communication throughout.
           </p>
+
           <div class="ticks">
             <div class="tick"><i>✓</i> Clear eligibility checks and realistic guidance</div>
-            <div class="tick"><i>✓</i> Document review and application preparation support</div>
+            <div class="tick"><i>✓</i> Structured document review and preparation support</div>
             <div class="tick"><i>✓</i> High standards of professionalism and confidentiality</div>
             <div class="tick"><i>✓</i> Authorised and regulated by the IAA</div>
           </div>
-          <div class="actions">
-            <a class="btn primary" href="contact.html">Get Started</a>
-            <a class="btn" style="border-color:rgba(11,31,51,.12); color:var(--ink); background:#fff;" href="services.html">View All Services</a>
-          </div>
-        </div>
 
-        <div class="card">
-          <h3>Contact details</h3>
-          <p><strong>Address:</strong> 124 City Road, London, EC1V 2NX</p>
-          <p><strong>Phone:</strong> <a href="tel:+447903004158">+44 7903 004158</a></p>
-          <p><strong>Working hours:</strong> Mon – Fri: 9:00 – 17:30</p>
-
-          <div class="iaa">
-            <img src="assets/iaa.png" alt="IAA logo">
-            <div>
-              <p style="margin:0;color:rgba(255,255,255,.90);font-weight:800">Immigration Advice Authority</p>
-              <p style="margin:2px 0 0;">Registration No: <strong>F202538075</strong></p>
-            </div>
+          <div class="about-actions">
+            <a class="btn primary" href="contact.html">Get a Quote</a>
+            <a class="btn" href="services.html">View Services</a>
           </div>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -858,10 +1045,13 @@ header{
     <div class="wrap">
       <div class="faq">
         <div class="faq-left">
-          <div class="kicker" style="background:rgba(11,31,51,.04);border-color:rgba(11,31,51,.08);color:var(--ink)">Frequently Asked Questions</div>
+          <div class="overline" style="justify-content:flex-start; text-align:left; display:flex;">Frequently Asked Questions</div>
           <h3>Common Queries</h3>
-          <p>Quick answers to help you understand how we work and what to expect.</p>
-          <a class="btn primary" href="contact.html" style="height:46px">Get Started Now</a>
+          <p>
+            Understanding immigration law can feel overwhelming. If you’re seeking visa advice or support with an application,
+            we’re here to provide clear answers and next steps.
+          </p>
+          <a class="btn" href="contact.html">Get Started Now</a>
         </div>
 
         <div class="acc">
@@ -871,8 +1061,7 @@ header{
               <span class="plus">+</span>
             </summary>
             <p>
-              We support a range of UK immigration routes including Skilled Worker, Business routes,
-              Global Talent, Family visas, Visitor visas, Extensions, and Settlement / Naturalisation.
+              [Add your answer here]
             </p>
           </details>
 
@@ -882,8 +1071,7 @@ header{
               <span class="plus">+</span>
             </summary>
             <p>
-              You can contact us via our enquiry form, phone, or WhatsApp. We’ll ask a few questions to understand your case
-              and advise the next steps.
+              [Add your answer here]
             </p>
           </details>
 
@@ -893,72 +1081,75 @@ header{
               <span class="plus">+</span>
             </summary>
             <p>
-              Our fees depend on the visa route, complexity, and scope of work. We explain pricing clearly before any work begins,
-              so you know exactly what is included.
+              [Add your answer here]
             </p>
           </details>
 
+          <details>
+            <summary>
+              How long does the process usually take?
+              <span class="plus">+</span>
+            </summary>
+            <p>
+              [Add your answer here]
+            </p>
+          </details>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- Footer (premium, big logos) -->
   <footer>
     <div class="wrap">
       <div class="foot">
         <div>
-          <div class="brandline">
-            <img src="assets/logo.png" alt="Benchmark Legals">
+          <div class="footer-brand">
+            <div class="logo-main">
+              <img src="assets/logo.png" alt="Benchmark Legals logo">
+            </div>
+
+            <div class="logo-iaa">
+              <img src="assets/iaa.png" alt="Immigration Advice Authority (IAA) logo">
+              <div class="meta">
+                <strong>Immigration Advice Authority</strong><br>
+                Registration No: <strong>F202538075</strong>
+              </div>
+            </div>
           </div>
+
           <p>
             Benchmark Legals provides UK immigration advice with a structured and professional approach.
             We are authorised and regulated by the Immigration Advice Authority (IAA).
           </p>
-
-          <div class="iaa">
-            <img src="assets/iaa.png" alt="IAA logo">
-            <div>
-              <p style="margin:0;color:rgba(255,255,255,.90);font-weight:800">Immigration Advice Authority</p>
-              <p style="margin:2px 0 0;">Registration No: <strong>F202538075</strong></p>
-            </div>
-          </div>
         </div>
 
-        <div>
+        <div class="list">
           <h4>Contact Us</h4>
           <p>124 City Road<br>London, EC1V 2NX</p>
-          <p style="margin-top:8px"><a href="tel:+447903004158">+44 7903 004158</a></p>
+          <p style="margin-top:10px"><a href="tel:+447903004158">+44 7903 004158</a></p>
+          <p style="margin-top:8px"><a href="mailto:info@benchmarklegals.co.uk">info@benchmarklegals.co.uk</a></p>
           <p style="margin-top:8px"><a href="contact.html">Send an enquiry</a></p>
         </div>
 
-        <div>
+        <div class="list">
+          <h4>UK Immigration</h4>
+          <p><a href="services.html#skilled-worker">Skilled Worker Visa</a></p>
+          <p><a href="services.html#business">Business Visas</a></p>
+          <p><a href="services.html#global-talent">Global Talent</a></p>
+          <p><a href="services.html#family">Family Visas</a></p>
+          <p><a href="services.html#visitor">UK Visitor Visa</a></p>
+          <p><a href="services.html#extensions">Extension Visas</a></p>
+          <p><a href="services.html#settlement">Settlement & Citizenship</a></p>
+          <p><a href="services.html#student">Student / Graduate</a></p>
+        </div>
+
+        <div class="list">
           <h4>Working Hours</h4>
           <p>Mon – Fri: 9:00 – 17:30</p>
           <p>Weekends: Closed</p>
 
-          <div class="footer-drawer">
-            <button class="drawer-btn" id="footerDrawerBtn" type="button">
-              UK Immigration (open list)
-              <span aria-hidden="true">▾</span>
-            </button>
-            <div class="drawer-panel" id="footerDrawerPanel">
-              <div class="drawer-grid">
-                <a href="services.html#business">Business Visas</a>
-                <a href="services.html#skilled-worker">Skilled Worker Visa</a>
-                <a href="services.html#global-talent">Global Talent Visa</a>
-                <a href="services.html#family">Family Visas</a>
-                <a href="services.html#visitor">UK Visitor Visa</a>
-                <a href="services.html#extensions">Extension Visas</a>
-                <a href="services.html#settlement">Settlement & Naturalisation</a>
-                <a href="services.html#student">Student / Graduate Routes</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <h4>Quick Links</h4>
+          <h4 style="margin-top:18px">Quick Links</h4>
           <p><a href="index.html">Home</a></p>
           <p><a href="services.html">Services</a></p>
           <p><a href="#faq">FAQ</a></p>
@@ -997,44 +1188,6 @@ header{
       const open = mobileMenu.classList.toggle('open');
       burger.setAttribute('aria-expanded', String(open));
     });
-
-    // footer drawer
-    const drawerBtn = document.getElementById('footerDrawerBtn');
-    const drawerPanel = document.getElementById('footerDrawerPanel');
-    drawerBtn.addEventListener('click', () => {
-      const isOpen = drawerPanel.style.display === 'block';
-      drawerPanel.style.display = isOpen ? 'none' : 'block';
-      drawerBtn.querySelector('span').textContent = isOpen ? '▾' : '▴';
-    });
-
-    // slider
-    const slides = Array.from(document.querySelectorAll('.slide'));
-    const dotButtons = Array.from(document.querySelectorAll('.dot'));
-    const prev = document.getElementById('prev');
-    const next = document.getElementById('next');
-    let i = 0;
-    let timer;
-
-    function show(idx){
-      slides.forEach((s, n) => s.classList.toggle('active', n === idx));
-      dotButtons.forEach((d, n) => d.classList.toggle('active', n === idx));
-      i = idx;
-    }
-    function goNext(){ show((i + 1) % slides.length); }
-    function goPrev(){ show((i - 1 + slides.length) % slides.length); }
-    function start(){
-      stop();
-      timer = setInterval(goNext, 6500);
-    }
-    function stop(){
-      if (timer) clearInterval(timer);
-    }
-
-    next.addEventListener('click', () => { goNext(); start(); });
-    prev.addEventListener('click', () => { goPrev(); start(); });
-    dotButtons.forEach((btn, idx) => btn.addEventListener('click', () => { show(idx); start(); }));
-
-    start();
   </script>
 
 </body>
