@@ -1,3 +1,133 @@
+/* ===== Announcement bar (ultra minimal, premium) ===== */
+.announce{
+  background:linear-gradient(180deg, #06213a 0%, #071a2b 100%);
+  color:rgba(255,255,255,.92);
+  font-size:13px;
+  border-bottom:1px solid rgba(255,255,255,.10);
+}
+.announce .inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  padding:10px 0;
+}
+.announce .left{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap;
+  min-width:0;
+}
+.announce .item{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  color:rgba(255,255,255,.90);
+  text-decoration:none;
+  white-space:nowrap;
+}
+.announce .item:hover{color:#fff}
+.announce .sep{
+  width:1px;
+  height:16px;
+  background:rgba(255,255,255,.16);
+}
+.announce .reg{
+  color:rgba(255,255,255,.82);
+  white-space:nowrap;
+}
+.announce .reg strong{color:#fff}
+
+.announce .right{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex:0 0 auto;
+}
+.social{
+  width:32px; height:32px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.04);
+  text-decoration:none;
+}
+.social:hover{background:rgba(255,255,255,.10)}
+.social svg{width:16px;height:16px; fill:#fff; opacity:.92}
+
+/* Mobile: keep it clean and stacked */
+@media (max-width: 720px){
+  .announce .inner{flex-direction:column; align-items:flex-start}
+  .announce .right{width:100%}
+}
+/* ===== Announcement bar (ultra minimal, premium) ===== */
+.announce{
+  background:linear-gradient(180deg, #06213a 0%, #071a2b 100%);
+  color:rgba(255,255,255,.92);
+  font-size:13px;
+  border-bottom:1px solid rgba(255,255,255,.10);
+}
+.announce .inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  padding:10px 0;
+}
+.announce .left{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap;
+  min-width:0;
+}
+.announce .item{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  color:rgba(255,255,255,.90);
+  text-decoration:none;
+  white-space:nowrap;
+}
+.announce .item:hover{color:#fff}
+.announce .sep{
+  width:1px;
+  height:16px;
+  background:rgba(255,255,255,.16);
+}
+.announce .reg{
+  color:rgba(255,255,255,.82);
+  white-space:nowrap;
+}
+.announce .reg strong{color:#fff}
+
+.announce .right{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex:0 0 auto;
+}
+.social{
+  width:32px; height:32px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.04);
+  text-decoration:none;
+}
+.social:hover{background:rgba(255,255,255,.10)}
+.social svg{width:16px;height:16px; fill:#fff; opacity:.92}
+
+/* Mobile: keep it clean and stacked */
+@media (max-width: 720px){
+  .announce .inner{flex-direction:column; align-items:flex-start}
+  .announce .right{width:100%}
+}
 <!doctype html>
 <html lang="en">
 <head>
@@ -607,7 +737,7 @@
       height:72px; /* bigger */
       width:auto;
     }
-    .footer-brand .logo1-iaa{
+    .footer-brand .logo1-iaa1{
       display:flex;
       align-items:center;
       gap:12px;
@@ -616,19 +746,19 @@
       border-radius:16px;
       background:rgba(255,255,255,.06);
     }
-    .footer-brand .logo1-iaa img{
+    .footer-brand .logo1-iaa1 img{
       height:72px; /* BIG & same size feel */
       width:auto;
       background:#fff;
       padding:8px;
       border-radius:14px;
     }
-    .footer-brand .logo1-iaa .meta{
+    .footer-brand .logo1-iaa1 .meta{
       font-size:13px;
       color:rgba(255,255,255,.88);
       line-height:1.35;
     }
-    .footer-brand .logo1-iaa .meta strong{color:#fff}
+    .footer-brand .logo1-iaa1 .meta strong{color:#fff}
 
     .foot h4{
       margin:10px 0 12px;
@@ -719,7 +849,7 @@
       .brand img{height:58px}
       .hero h1{font-size:38px}
       .footer-brand{flex-direction:column; align-items:flex-start}
-      .footer-brand .logo1-iaa{width:100%}
+      .footer-brand .logo1-iaa1{width:100%}
     }
   </style>
 </head>
@@ -831,7 +961,7 @@
 
           <div class="trust">
             <div class="row">
-              <img src="assets/iaa.png" alt="Immigration Advice Authority (IAA) logo">
+              <img src="assets/iaa1.png" alt="Immigration Advice Authority (IAA) logo">
               <div class="meta">
                 <strong>Immigration Advice Authority</strong><br>
                 Registration No: <strong>F202538075</strong>
@@ -1109,8 +1239,8 @@
               <img src="assets/logo1.png" alt="Benchmark Legals logo">
             </div>
 
-            <div class="logo1-iaa">
-              <img src="assets/iaa.png" alt="Immigration Advice Authority (IAA) logo">
+            <div class="logo1-iaa1">
+              <img src="assets/iaa1.png" alt="Immigration Advice Authority (IAA) logo">
               <div class="meta">
                 <strong>Immigration Advice Authority</strong><br>
                 Registration No: <strong>F202538075</strong>
@@ -1800,7 +1930,7 @@
       height:72px; /* bigger */
       width:auto;
     }
-    .footer-brand .logo1-iaa{
+    .footer-brand .logo1-iaa1{
       display:flex;
       align-items:center;
       gap:12px;
@@ -1809,19 +1939,19 @@
       border-radius:16px;
       background:rgba(255,255,255,.06);
     }
-    .footer-brand .logo1-iaa img{
+    .footer-brand .logo1-iaa1 img{
       height:72px; /* BIG & same size feel */
       width:auto;
       background:#fff;
       padding:8px;
       border-radius:14px;
     }
-    .footer-brand .logo1-iaa .meta{
+    .footer-brand .logo1-iaa1 .meta{
       font-size:13px;
       color:rgba(255,255,255,.88);
       line-height:1.35;
     }
-    .footer-brand .logo1-iaa .meta strong{color:#fff}
+    .footer-brand .logo1-iaa1 .meta strong{color:#fff}
 
     .foot h4{
       margin:10px 0 12px;
@@ -1912,7 +2042,7 @@
       .brand img{height:58px}
       .hero h1{font-size:38px}
       .footer-brand{flex-direction:column; align-items:flex-start}
-      .footer-brand .logo1-iaa{width:100%}
+      .footer-brand .logo1-iaa1{width:100%}
     }
   </style>
 </head>
@@ -2024,7 +2154,7 @@
 
           <div class="trust">
             <div class="row">
-              <img src="assets/iaa.png" alt="Immigration Advice Authority (IAA) ">
+              <img src="assets/iaa1.png" alt="Immigration Advice Authority (IAA) ">
               <div class="meta">
                 <strong>Immigration Advice Authority</strong><br>
                 Registration No: <strong>F202538075</strong>
@@ -2302,8 +2432,8 @@
               <img src="assets/logo1.png" alt="Benchmark Legals logo">
             </div>
 
-            <div class="logo1-iaa">
-              <img src="assets/iaa.png" alt="Immigration Advice Authority (IAA) logo">
+            <div class="logo1-iaa1">
+              <img src="assets/iaa1.png" alt="Immigration Advice Authority (IAA) logo">
               <div class="meta">
                 <strong>Immigration Advice Authority</strong><br>
                 Registration No: <strong>F202538075</strong>
