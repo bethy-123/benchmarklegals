@@ -1,482 +1,1027 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Benchmark Legals | UK Immigration Advice</title>
+  <meta name="description" content="Benchmark Legals provides UK immigration advice and assistance, authorised and regulated by the Immigration Advice Authority (IAA)."/>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --navy:#0b1f33;
-      --navy-2:#102a45;
-      --text:#0b1f33;
-      --muted:#4a5a6a;
-      --line:#e7eaee;
-      --bg:#ffffff;
-      --soft:#f6f8fb;
+      --navy:#071a2b;
+      --navy2:#0b243b;
+      --ink:#0b1f33;
+      --muted:#5b6775;
+      --paper:#ffffff;
+      --soft:#f6f7fa;
       --gold:#c9a24d;
-      --shadow: 0 16px 40px rgba(11,31,51,0.12);
-      --radius: 14px;
-      --max: 1120px;
+      --gold2:#b78c2e;
+
+      --max:1180px;
+      --radius:18px;
+      --shadow:0 18px 46px rgba(7,26,43,.14);
+      --shadow2:0 10px 26px rgba(7,26,43,.10);
+      --line:rgba(255,255,255,.14);
     }
 
-    *{ box-sizing:border-box; }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
     body{
-      margin:0;
-      font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      color:var(--text);
-      background:var(--bg);
-      line-height:1.65;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--ink);
+      background:var(--paper);
+      line-height:1.6;
     }
-    a{ color:inherit; }
+    a{color:inherit}
+    img{max-width:100%;display:block}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 24px;}
 
-    /* Header */
-    header{
-      position: sticky;
-      top:0;
-      z-index: 50;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(10px);
+    /* ===== Top bar ===== */
+    .topbar{
+      background:var(--navy);
+      color:rgba(255,255,255,.92);
+      font-size:13px;
       border-bottom:1px solid var(--line);
     }
-    .header-inner{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:14px 22px;
+    .topbar .inner{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:16px;
-    }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      min-width: 180px;
-    }
-    .brand img{
-      height:48px;
-      width:auto;
-      display:block;
-    }
-    nav{
-      display:flex;
-      align-items:center;
-      gap:22px;
+      gap:14px;
+      padding:10px 0;
       flex-wrap:wrap;
-      justify-content:flex-end;
     }
-    nav a{
-      text-decoration:none;
-      color:var(--navy);
-      font-weight:600;
-      font-size:14px;
-      opacity:0.9;
-    }
-    nav a:hover{ opacity:1; }
-
-    .cta{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:10px 14px;
+    .topbar .left, .topbar .right{display:flex; gap:14px; align-items:center; flex-wrap:wrap}
+    .topbar a{color:rgba(255,255,255,.92); text-decoration:none}
+    .topbar a:hover{color:#fff}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:6px 10px;
+      border:1px solid rgba(255,255,255,.16);
       border-radius:999px;
-      background:var(--gold);
-      color:#fff;
+    }
+
+    /* ===== Header / nav ===== */
+    header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:var(--navy);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      padding:14px 0;
+    }
+    .brand{display:flex; align-items:center; gap:12px; min-width:240px;}
+    .brand img{height:44px; width:auto}
+    .menu{display:flex; align-items:center; gap:22px;}
+    .menu a{
       text-decoration:none;
+      color:rgba(255,255,255,.90);
       font-weight:700;
-      font-size:14px;
-      box-shadow: 0 10px 18px rgba(201,162,77,0.25);
+      font-size:13px;
+      letter-spacing:.2px;
+      padding:10px 8px;
+      border-radius:10px;
+    }
+    .menu a:hover{color:#fff; background:rgba(255,255,255,.06)}
+    .cta{display:flex; align-items:center; gap:10px;}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      height:44px;
+      padding:0 16px;
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:800;
+      font-size:13px;
+      border:1px solid rgba(255,255,255,.16);
+      color:#fff;
+      background:transparent;
       white-space:nowrap;
     }
-    .cta:hover{ filter:brightness(0.98); }
-
-    /* Hero */
-    .hero-wrap{
-      border-bottom:1px solid var(--line);
-      background: #fff;
+    .btn.primary{
+      background:var(--gold);
+      border-color:var(--gold);
+      color:#0a1622;
     }
-    .hero{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:70px 22px 42px;
+    .btn.primary:hover{background:var(--gold2); border-color:var(--gold2)}
+    .btn:hover{border-color:rgba(255,255,255,.28)}
+    .burger{
+      display:none;
+      background:transparent;
+      border:0;
+      color:#fff;
+      padding:8px;
+      cursor:pointer;
+      border-radius:12px;
+    }
+    .burger:hover{background:rgba(255,255,255,.06)}
+    .burger svg{width:26px; height:26px}
+
+    /* Desktop dropdown */
+    .dropdown{position:relative}
+    .dropdown > a{display:inline-flex; gap:8px; align-items:center}
+    .dropdown .panel{
+      position:absolute;
+      top:48px;
+      left:0;
+      width:560px;
+      background:rgba(7,26,43,.98);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:16px;
+      box-shadow:var(--shadow);
+      padding:14px;
+      display:none;
+    }
+    .dropdown:hover .panel{display:block}
+    .panel .cols{
       display:grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap:44px;
+      grid-template-columns:1fr 1fr;
+      gap:8px 16px;
+      padding:6px;
+    }
+    .panel a{
+      display:flex;
+      padding:10px 10px;
+      border-radius:12px;
+      color:rgba(255,255,255,.92);
+      text-decoration:none;
+      font-weight:700;
+      font-size:13px;
+    }
+    .panel a:hover{background:rgba(255,255,255,.08); color:#fff}
+
+    /* Mobile menu */
+    .mobile{
+      display:none;
+      border-top:1px solid var(--line);
+      padding:10px 0 14px;
+    }
+    .mobile a{
+      display:block;
+      padding:10px 12px;
+      color:rgba(255,255,255,.92);
+      text-decoration:none;
+      font-weight:700;
+      border-radius:12px;
+    }
+    .mobile a:hover{background:rgba(255,255,255,.06)}
+    .mobile .sub{
+      margin-top:8px;
+      padding-left:10px;
+      border-left:1px solid rgba(255,255,255,.14);
+    }
+    .mobile .sub a{font-weight:600; font-size:13px; opacity:.95}
+
+    /* ===== Hero slider ===== */
+    .hero{
+      position:relative;
+      background:var(--navy);
+      color:#fff;
+      overflow:hidden;
+    }
+    .slides{position:absolute; inset:0}
+    .slide{
+      position:absolute; inset:0;
+      opacity:0;
+      transition:opacity .7s ease;
+      background-size:cover;
+      background-position:center;
+      transform:scale(1.02);
+    }
+    .slide.active{opacity:1}
+    .overlay{
+      position:absolute; inset:0;
+      background:rgba(7,26,43,.62);
+    }
+    .hero .content{
+      position:relative;
+      min-height:74vh;
+      display:flex;
+      align-items:center;
+      padding:56px 0 46px;
+    }
+    .hero-grid{
+      width:100%;
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:34px;
       align-items:center;
     }
     .kicker{
       display:inline-flex;
       align-items:center;
       gap:10px;
-      font-size:13px;
-      font-weight:700;
-      color:var(--navy-2);
-      background: rgba(11,31,51,0.06);
       padding:8px 12px;
       border-radius:999px;
-      margin-bottom:16px;
-    }
-    .kicker-dot{
-      width:8px; height:8px; border-radius:50%;
-      background:var(--gold);
-      display:inline-block;
-    }
-    h1{
-      margin:0 0 14px;
-      font-size:44px;
-      line-height:1.12;
-      letter-spacing:-0.02em;
-    }
-    .lead{
-      margin:0 0 22px;
-      color:var(--muted);
-      font-size:18px;
-      max-width: 56ch;
-    }
-    .hero-actions{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      align-items:center;
-      margin-top: 6px;
-    }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      padding:14px 18px;
-      border-radius: 12px;
-      text-decoration:none;
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.14);
       font-weight:700;
-      font-size:15px;
-      border:1px solid transparent;
-      transition: transform .15s ease, box-shadow .15s ease;
+      font-size:13px;
+      color:rgba(255,255,255,.92);
+      width:fit-content;
     }
-    .btn.primary{
-      background: var(--navy);
-      color:#fff;
-      box-shadow: var(--shadow);
+    .hero h1{
+      font-size:54px;
+      line-height:1.05;
+      margin:14px 0 12px;
+      letter-spacing:-.9px;
     }
-    .btn.primary:hover{ transform: translateY(-1px); }
-    .btn.secondary{
+    .hero p{
+      margin:0 0 22px;
+      font-size:17px;
+      color:rgba(255,255,255,.86);
+      max-width:58ch;
+    }
+    .hero-actions{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
+    .btn.light{
       background:#fff;
-      border-color: var(--line);
-      color: var(--navy);
+      border-color:#fff;
+      color:#0a1622;
     }
-    .btn.secondary:hover{ transform: translateY(-1px); }
+    .btn.light:hover{background:#f3f3f3; border-color:#f3f3f3}
 
-    /* Right card (IAA) */
-    .card{
-      background: var(--soft);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 18px;
+    .trust{
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:var(--shadow2);
     }
-    .iaa{
-      display:flex;
-      align-items:center;
-      gap:14px;
-    }
-    .iaa img{
-      width:84px;
-      height:auto;
-      display:block;
-    }
-    .iaa strong{
-      display:block;
-      font-size:14px;
-      color: var(--navy);
-    }
-    .iaa small{
-      display:block;
-      font-size:13px;
-      color: var(--muted);
-      margin-top:4px;
-    }
+    .trust .row{display:flex; gap:14px; align-items:center}
+    .trust img{height:56px; width:auto; border-radius:12px; background:#fff; padding:6px}
+    .trust .meta{font-size:13px; color:rgba(255,255,255,.86)}
+    .trust .meta strong{color:#fff}
     .mini{
-      margin-top:12px;
-      padding-top:12px;
-      border-top:1px solid rgba(11,31,51,0.10);
+      margin-top:14px;
       display:grid;
-      gap:6px;
-      color: var(--muted);
-      font-size:13px;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
     }
-    .mini b{ color: var(--navy); }
+    .mini .card{
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:14px;
+      padding:12px;
+      font-size:13px;
+      color:rgba(255,255,255,.86);
+    }
+    .mini .card strong{color:#fff}
+
+    .slider-controls{
+      position:absolute;
+      left:24px; right:24px;
+      bottom:18px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      pointer-events:none;
+    }
+    .dots{display:flex; gap:8px; pointer-events:auto}
+    .dot{
+      width:10px; height:10px;
+      border-radius:50%;
+      border:1px solid rgba(255,255,255,.55);
+      background:transparent;
+      cursor:pointer;
+      opacity:.9;
+    }
+    .dot.active{background:var(--gold); border-color:var(--gold)}
+    .arrows{display:flex; gap:10px; pointer-events:auto}
+    .arrow{
+      width:42px; height:42px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.22);
+      background:rgba(255,255,255,.08);
+      color:#fff;
+      cursor:pointer;
+    }
+    .arrow:hover{background:rgba(255,255,255,.14)}
+
+    /* ===== Sections ===== */
+    section{padding:74px 0}
+    .soft{background:var(--soft)}
+    .section-title{
+      display:flex;
+      justify-content:space-between;
+      gap:22px;
+      align-items:flex-end;
+      flex-wrap:wrap;
+      margin-bottom:22px;
+    }
+    .section-title h2{
+      margin:0;
+      font-size:34px;
+      letter-spacing:-.5px;
+      line-height:1.15;
+    }
+    .section-title p{margin:0; color:var(--muted); max-width:64ch}
 
     /* Services grid */
-    .section{
-      max-width:var(--max);
-      margin:0 auto;
-      padding: 46px 22px;
-    }
-    .section h2{
-      margin:0 0 10px;
-      font-size:26px;
-      letter-spacing:-0.01em;
-    }
-    .section p.sub{
-      margin:0 0 22px;
-      color:var(--muted);
-      max-width: 70ch;
-    }
     .grid{
       display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:16px;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px;
     }
-    .box{
+    .tile{
       background:#fff;
-      border:1px solid var(--line);
-      border-radius: var(--radius);
+      border:1px solid rgba(11,31,51,.08);
+      border-radius:18px;
       padding:18px;
-      box-shadow: 0 10px 30px rgba(11,31,51,0.06);
-      min-height: 120px;
+      box-shadow:0 10px 22px rgba(7,26,43,.06);
+      transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+      min-height:150px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      text-decoration:none;
     }
-    .box h3{
-      margin:0 0 6px;
-      font-size:16px;
+    .tile:hover{
+      transform:translateY(-3px);
+      box-shadow:0 16px 34px rgba(7,26,43,.10);
+      border-color:rgba(11,31,51,.14);
     }
-    .box p{
-      margin:0;
-      color:var(--muted);
+    .icon{
+      width:44px;height:44px;border-radius:14px;
+      background:rgba(201,162,77,.14);
+      display:flex;align-items:center;justify-content:center;
+      color:var(--gold);
+      font-weight:900;
+      margin-bottom:10px;
       font-size:14px;
     }
+    .tile h3{margin:0 0 6px; font-size:15px; letter-spacing:.2px}
+    .tile span{color:var(--muted); font-size:13px}
+    .tile .go{margin-top:14px; font-weight:900; color:var(--gold); font-size:13px}
+
+    /* About strip */
+    .about{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    .about .card{
+      background:#fff;
+      border:1px solid rgba(11,31,51,.08);
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow:0 12px 28px rgba(7,26,43,.07);
+    }
+    .about h3{margin:0 0 10px; font-size:26px; letter-spacing:-.3px}
+    .about p{margin:0; color:var(--muted)}
+    .ticks{margin-top:14px; display:grid; gap:10px}
+    .tick{display:flex; gap:10px; align-items:flex-start; color:var(--ink); font-weight:600}
+    .tick i{
+      width:22px;height:22px;border-radius:8px;
+      background:rgba(201,162,77,.18);
+      color:var(--gold);
+      display:flex;align-items:center;justify-content:center;
+      font-style:normal;
+      font-weight:900;
+      margin-top:2px;
+      flex:0 0 auto;
+    }
+    .about .actions{margin-top:16px; display:flex; gap:10px; flex-wrap:wrap}
+
+    /* FAQ */
+    .faq{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:22px;
+      align-items:start;
+    }
+    .faq-left h3{margin:0 0 10px; font-size:28px}
+    .faq-left p{margin:0 0 16px; color:var(--muted)}
+    .acc{display:flex; flex-direction:column; gap:10px;}
+    details{
+      background:#fff;
+      border:1px solid rgba(11,31,51,.10);
+      border-radius:16px;
+      padding:14px 16px;
+      box-shadow:0 10px 22px rgba(7,26,43,.06);
+    }
+    summary{
+      cursor:pointer;
+      list-style:none;
+      font-weight:800;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+    }
+    summary::-webkit-details-marker{display:none}
+    .plus{
+      width:28px;height:28px;border-radius:10px;
+      border:1px solid rgba(11,31,51,.12);
+      display:flex;align-items:center;justify-content:center;
+      font-weight:900;
+      color:var(--gold);
+      flex:0 0 auto;
+    }
+    details[open] .plus{background:rgba(201,162,77,.14)}
+    details p{margin:10px 0 0; color:var(--muted); font-size:14px}
 
     /* Footer */
     footer{
-      background: var(--navy);
+      background:var(--navy);
       color:#fff;
-      padding: 54px 22px;
-      margin-top: 10px;
+      padding:58px 0 28px;
+      border-top:1px solid var(--line);
     }
-    .footer-inner{
-      max-width:var(--max);
-      margin:0 auto;
+    .foot{
       display:grid;
-      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-columns:1.35fr 1fr 1fr 1fr;
       gap:26px;
+      align-items:start;
     }
-    footer .muted, footer a{
-      color: rgba(255,255,255,0.78);
-      font-size:14px;
-      text-decoration:none;
+    .brandline{display:flex; align-items:center; gap:12px; margin-bottom:10px}
+    .brandline img{height:42px}
+    .foot h4{margin:8px 0 10px; font-size:14px; letter-spacing:.2px}
+    .foot a{color:rgba(255,255,255,.84); text-decoration:none; font-size:13px}
+    .foot a:hover{color:#fff}
+    .foot p{margin:0; color:rgba(255,255,255,.76); font-size:13px}
+
+    .iaa{
+      display:flex; gap:12px; align-items:center;
+      margin-top:14px;
+      padding:12px;
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:16px;
+      background:rgba(255,255,255,.06);
     }
-    .footer-title{
+    .iaa img{height:56px; background:#fff; padding:6px; border-radius:12px}
+
+    .footer-drawer{
+      margin-top:12px;
+      border-top:1px solid rgba(255,255,255,.12);
+      padding-top:12px;
+    }
+    .drawer-btn{
+      width:100%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      background:transparent;
+      color:#fff;
+      border:1px solid rgba(255,255,255,.12);
+      padding:12px 12px;
+      border-radius:14px;
+      cursor:pointer;
       font-weight:800;
-      letter-spacing:0.2px;
-      margin-bottom:10px;
-      display:block;
     }
-    .footer-line{
-      margin-top:18px;
+    .drawer-btn:hover{background:rgba(255,255,255,.06)}
+    .drawer-panel{
+      display:none;
+      margin-top:10px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:16px;
+      padding:14px;
+    }
+    .drawer-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:8px 14px;
+    }
+    .drawer-grid a{
+      display:block;
+      padding:8px 10px;
+      border-radius:12px;
+      background:rgba(255,255,255,.05);
+    }
+    .drawer-grid a:hover{background:rgba(255,255,255,.10)}
+    .copyright{
+      margin-top:24px;
       padding-top:18px;
-      border-top:1px solid rgba(255,255,255,0.14);
-      color: rgba(255,255,255,0.68);
-      font-size:13px;
-      max-width:var(--max);
-      margin-left:auto;
-      margin-right:auto;
+      border-top:1px solid rgba(255,255,255,.12);
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      color:rgba(255,255,255,.66);
+      font-size:12px;
     }
 
     /* WhatsApp floating */
-    .whatsapp-float{
+    .whatsapp{
       position:fixed;
       right:18px;
       bottom:18px;
-      z-index:999;
+      z-index:60;
       display:flex;
       align-items:center;
       gap:10px;
-      padding:12px 14px;
-      border-radius: 999px;
-      background: rgba(11,31,51,0.96);
+    }
+    .wa-pill{
+      background:#0b1f33;
       color:#fff;
-      text-decoration:none;
-      box-shadow: 0 16px 40px rgba(0,0,0,0.24);
-      border: 1px solid rgba(255,255,255,0.10);
-      transition: transform .15s ease;
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:999px;
+      padding:10px 12px;
+      font-weight:800;
+      font-size:12px;
+      box-shadow:var(--shadow2);
     }
-    .whatsapp-float:hover{ transform: translateY(-2px); }
-    .wa-icon{
-      width:42px;
-      height:42px;
-      border-radius:50%;
+    .wa-btn{
+      width:54px; height:54px;
+      border-radius:999px;
       background:#25D366;
-      display:grid;
-      place-items:center;
-      flex:0 0 auto;
+      border:0;
+      display:flex; align-items:center; justify-content:center;
+      box-shadow:var(--shadow);
+      cursor:pointer;
     }
-    .wa-icon svg{ width:22px; height:22px; fill:#fff; }
-    .wa-text{
-      display:flex;
-      flex-direction:column;
-      line-height:1.15;
-    }
-    .wa-text strong{ font-size:13px; }
-    .wa-text span{ font-size:12px; color: rgba(255,255,255,0.75); }
+    .wa-btn svg{width:26px;height:26px; fill:#fff}
+    .wa-btn:active{transform:translateY(1px)}
 
+    /* Responsive */
     @media (max-width: 980px){
-      .hero{ grid-template-columns:1fr; padding-top:48px; }
-      h1{ font-size:36px; }
-      .grid{ grid-template-columns:1fr; }
-      .footer-inner{ grid-template-columns:1fr; }
-      nav{ display:none; } /* keeps header premium on mobile */
+      .menu{display:none}
+      .burger{display:block}
+      .mobile.open{display:block}
+      .hero-grid{grid-template-columns:1fr}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .about{grid-template-columns:1fr}
+      .faq{grid-template-columns:1fr}
+      .foot{grid-template-columns:1fr 1fr}
+      .hero h1{font-size:40px}
+      .slider-controls{position:static; padding:0 0 22px}
     }
-    @media (max-width: 520px){
-      .whatsapp-float{ padding:12px; border-radius:50%; }
-      .wa-text{ display:none; }
+    @media (max-width: 560px){
+      .grid{grid-template-columns:1fr}
+      .foot{grid-template-columns:1fr}
+      .brand{min-width:unset}
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <div class="header-inner">
-    <div class="brand">
-      <!-- Recommended: rename to logo.png -->
-      <img src="FullLogo_Transparent (1).png" alt="Benchmark Legals logo">
-    </div>
-
-    <nav>
-      <a href="#top">Home</a>
-      <a href="#services">Services</a>
-      <a href="#regulation">Regulation</a>
-      <a href="#contact">Contact</a>
-    </nav>
-
-    <a class="cta" href="#contact">Book a Consultation</a>
-  </div>
-</header>
-
-<div id="top" class="hero-wrap">
-  <section class="hero">
-    <div>
-      <div class="kicker"><span class="kicker-dot"></span> UK Immigration Advice • IAA Regulated</div>
-
-      <h1>UK Immigration Advice You Can Trust</h1>
-      <p class="lead">
-        Benchmark Legals provides professional UK immigration advice and case support,
-        authorised and regulated by the Immigration Advice Authority (IAA).
-      </p>
-
-      <div class="hero-actions">
-        <a class="btn primary" href="#contact">Book a Consultation</a>
-        <a class="btn secondary" href="#services">View Services</a>
+  <!-- Top bar -->
+  <div class="topbar">
+    <div class="wrap">
+      <div class="inner">
+        <div class="left">
+          <span class="pill">IAA Reg: <strong>F202538075</strong></span>
+          <a class="pill" href="tel:+447903004158">📞 +44 7903 004158</a>
+        </div>
+        <div class="right">
+          <span class="pill">124 City Road, London, EC1V 2NX</span>
+        </div>
       </div>
     </div>
+  </div>
 
-    <div class="card" id="regulation">
-      <div class="iaa">
-        <!-- Recommended: rename to iaa.png -->
-        <img src="Untitled design (10).png" alt="Immigration Advice Authority logo">
-        <div>
-          <strong>Immigration Advice Authority (IAA)</strong>
-          <small>Registration Number: <b style="color:var(--navy);">F202538075</b></small>
+  <!-- Header -->
+  <header>
+    <div class="wrap">
+      <div class="nav">
+        <a class="brand" href="index.html" aria-label="Benchmark Legals Home">
+          <img src="assets/logo.png" alt="Benchmark Legals">
+        </a>
+
+        <nav class="menu" aria-label="Primary navigation">
+          <a href="index.html">Home</a>
+          <a href="#about">About</a>
+
+          <div class="dropdown">
+            <a href="#services">Immigration ▾</a>
+            <div class="panel" role="menu" aria-label="Immigration services">
+              <div class="cols">
+                <a href="services.html#skilled-worker">Skilled Worker Visa</a>
+                <a href="services.html#business">Business Visas</a>
+                <a href="services.html#global-talent">Global Talent Visa</a>
+                <a href="services.html#family">Family Visas</a>
+                <a href="services.html#visitor">UK Visitor Visa</a>
+                <a href="services.html#extensions">Extension Visas</a>
+                <a href="services.html#settlement">Settlement & Naturalisation</a>
+                <a href="services.html#student">Student / Graduate Routes</a>
+              </div>
+            </div>
+          </div>
+
+          <a href="services.html">Services</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+
+        <div class="cta">
+          <a class="btn" href="contact.html">Get a Quote</a>
+          <a class="btn primary" href="contact.html">Book Appointment</a>
+          <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
         </div>
       </div>
 
-      <div class="mini">
-        <div><b>Address:</b> 124 City Road, London, EC1V 2NX</div>
-        <div><b>Phone:</b> +44 7903 004158</div>
-        <div><b>Hours:</b> Mon–Fri 9:00–17:30 (Weekends closed)</div>
+      <!-- Mobile menu -->
+      <div class="mobile" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Immigration</a>
+        <div class="sub">
+          <a href="services.html#skilled-worker">Skilled Worker Visa</a>
+          <a href="services.html#business">Business Visas</a>
+          <a href="services.html#global-talent">Global Talent Visa</a>
+          <a href="services.html#family">Family Visas</a>
+          <a href="services.html#visitor">UK Visitor Visa</a>
+          <a href="services.html#extensions">Extension Visas</a>
+          <a href="services.html#settlement">Settlement & Naturalisation</a>
+          <a href="services.html#student">Student / Graduate Routes</a>
+        </div>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" aria-label="Hero">
+    <div class="slides" aria-hidden="true">
+      <div class="slide active" style="background-image:url('assets/hero-1.jpg')"></div>
+      <div class="slide" style="background-image:url('assets/hero-2.jpg')"></div>
+      <div class="overlay"></div>
+    </div>
+
+    <div class="wrap">
+      <div class="content">
+        <div class="hero-grid">
+          <div>
+            <div class="kicker">Authorised & regulated by the Immigration Advice Authority (IAA)</div>
+            <h1>UK Immigration Advice<br>with Clarity & Confidence</h1>
+            <p>
+              Benchmark Legals provides professional immigration advice and application support,
+              with transparent communication and a client-first approach — from first consultation to outcome.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn primary" href="contact.html">Free Initial Enquiry</a>
+              <a class="btn light" href="services.html">Explore Services</a>
+            </div>
+          </div>
+
+          <div class="trust">
+            <div class="row">
+              <img src="assets/iaa.png" alt="Immigration Advice Authority (IAA) logo">
+              <div class="meta">
+                <strong>Immigration Advice Authority</strong><br>
+                Registration No: <strong>F202538075</strong>
+              </div>
+            </div>
+
+            <div class="mini">
+              <div class="card"><strong>Fast</strong><br>clear next steps</div>
+              <div class="card"><strong>Transparent</strong><br>fees & scope</div>
+              <div class="card"><strong>Careful</strong><br>document checks</div>
+              <div class="card"><strong>Direct</strong><br>client updates</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slider-controls" aria-label="Slider controls">
+        <div class="dots" id="dots">
+          <button class="dot active" aria-label="Slide 1"></button>
+          <button class="dot" aria-label="Slide 2"></button>
+        </div>
+        <div class="arrows">
+          <button class="arrow" id="prev" aria-label="Previous slide">‹</button>
+          <button class="arrow" id="next" aria-label="Next slide">›</button>
+        </div>
       </div>
     </div>
   </section>
-</div>
 
-<section class="section" id="services">
-  <h2>UK Immigration Services</h2>
-  <p class="sub">
-    Clear, ethical advice with transparent communication — supporting individuals, families, and businesses with UK immigration matters.
-  </p>
+  <!-- Services -->
+  <section id="services" class="soft">
+    <div class="wrap">
+      <div class="section-title">
+        <div>
+          <h2>UK Visa Services</h2>
+          <p>Choose a route below to learn more. Each service tile can link to a dedicated page section.</p>
+        </div>
+      </div>
 
-  <div class="grid">
-    <div class="box">
-      <h3>Visa Applications</h3>
-      <p>Guidance and preparation support for UK visa routes, with clear document requirements.</p>
-    </div>
-    <div class="box">
-      <h3>Extensions & Renewals</h3>
-      <p>Ongoing support to help you maintain lawful status and submit on time.</p>
-    </div>
-    <div class="box">
-      <h3>Settlement & Citizenship</h3>
-      <p>Advice for ILR and naturalisation pathways, with careful eligibility checks.</p>
-    </div>
-    <div class="box">
-      <h3>Family Routes</h3>
-      <p>Support for family-based routes, evidence planning, and application preparation.</p>
-    </div>
-    <div class="box">
-      <h3>Business & Work Routes</h3>
-      <p>Support for business and work-related routes, including compliance guidance where relevant.</p>
-    </div>
-    <div class="box">
-      <h3>General Immigration Advice</h3>
-      <p>Straightforward advice, next steps, and practical help throughout your process.</p>
-    </div>
-  </div>
-</section>
+      <div class="grid">
+        <a class="tile" href="services.html#business">
+          <div>
+            <div class="icon">BV</div>
+            <h3>Business Visas</h3>
+            <span>Business Mobility & related routes</span>
+          </div>
+          <div class="go">View →</div>
+        </a>
 
-<footer id="contact">
-  <div class="footer-inner">
-    <div>
-      <span class="footer-title">Benchmark Legals</span>
-      <div class="muted">
-        124 City Road, London, EC1V 2NX<br><br>
-        Phone: +44 7903 004158
+        <a class="tile" href="services.html#skilled-worker">
+          <div>
+            <div class="icon">SW</div>
+            <h3>Skilled Worker Visa</h3>
+            <span>Sponsorship & eligibility guidance</span>
+          </div>
+          <div class="go">View →</div>
+        </a>
+
+        <a class="tile" href="services.html#global-talent">
+          <div>
+            <div class="icon">GT</div>
+            <h3>Global Talent</h3>
+            <span>Endorsement & application support</span>
+          </div>
+          <div class="go">View →</div>
+        </a>
+
+        <a class="tile" href="services.html#family">
+          <div>
+            <div class="icon">FV</div>
+            <h3>Family Visas</h3>
+            <span>Partner / spouse / dependent routes</span>
+          </div>
+          <div class="go">View →</div>
+        </a>
+
+        <a class="tile" href="services.html#student">
+          <div>
+            <div class="icon">ST</div>
+            <h3>Student / Graduate Routes</h3>
+            <span>Student & post-study options</span>
+          </div>
+          <div class="go">View →</div>
+        </a>
+
+        <a class="tile" href="services.html#extensions">
+          <div>
+            <div class="icon">EX</div>
+            <h3>Extension Visas</h3>
+            <span>Extensions, switches & renewals</span>
+          </div>
+          <div class="go">View →</div>
+        </a>
+
+        <a class="tile" href="services.html#settlement">
+          <div>
+            <div class="icon">SN</div>
+            <h3>Settlement & Naturalisation</h3>
+            <span>ILR & British citizenship pathways</span>
+          </div>
+          <div class="go">View →</div>
+        </a>
+
+        <a class="tile" href="contact.html">
+          <div>
+            <div class="icon">QA</div>
+            <h3>Not sure which route?</h3>
+            <span>Tell us your situation — we’ll guide you</span>
+          </div>
+          <div class="go">Enquire →</div>
+        </a>
       </div>
     </div>
+  </section>
 
-    <div>
-      <span class="footer-title">Regulation</span>
-      <div class="muted">
-        Immigration Advice Authority (IAA)<br>
-        Registration No: F202538075
+  <!-- About -->
+  <section id="about">
+    <div class="wrap">
+      <div class="section-title">
+        <div>
+          <h2>Professional support, without the confusion</h2>
+          <p>We keep the process structured, clear, and organised — so you feel confident at every step.</p>
+        </div>
+      </div>
+
+      <div class="about">
+        <div class="card">
+          <h3>Welcome to Benchmark Legals</h3>
+          <p>
+            We provide immigration advice and application support with a careful, document-led approach.
+            You’ll get clear next steps, transparent scope, and timely communication throughout.
+          </p>
+          <div class="ticks">
+            <div class="tick"><i>✓</i> Clear eligibility checks and realistic guidance</div>
+            <div class="tick"><i>✓</i> Document review and application preparation support</div>
+            <div class="tick"><i>✓</i> High standards of professionalism and confidentiality</div>
+            <div class="tick"><i>✓</i> Authorised and regulated by the IAA</div>
+          </div>
+          <div class="actions">
+            <a class="btn primary" href="contact.html">Get Started</a>
+            <a class="btn" style="border-color:rgba(11,31,51,.12); color:var(--ink); background:#fff;" href="services.html">View All Services</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Contact details</h3>
+          <p><strong>Address:</strong> 124 City Road, London, EC1V 2NX</p>
+          <p><strong>Phone:</strong> <a href="tel:+447903004158">+44 7903 004158</a></p>
+          <p><strong>Working hours:</strong> Mon – Fri: 9:00 – 17:30</p>
+
+          <div class="iaa">
+            <img src="assets/iaa.png" alt="IAA logo">
+            <div>
+              <p style="margin:0;color:rgba(255,255,255,.90);font-weight:800">Immigration Advice Authority</p>
+              <p style="margin:2px 0 0;">Registration No: <strong>F202538075</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAQ (NO asylum) -->
+  <section class="soft" id="faq">
+    <div class="wrap">
+      <div class="faq">
+        <div class="faq-left">
+          <div class="kicker" style="background:rgba(11,31,51,.04);border-color:rgba(11,31,51,.08);color:var(--ink)">Frequently Asked Questions</div>
+          <h3>Common Queries</h3>
+          <p>Quick answers to help you understand how we work and what to expect.</p>
+          <a class="btn primary" href="contact.html" style="height:46px">Get Started Now</a>
+        </div>
+
+        <div class="acc">
+          <details>
+            <summary>
+              What types of visas can you help with?
+              <span class="plus">+</span>
+            </summary>
+            <p>
+              We support a range of UK immigration routes including Skilled Worker, Business routes,
+              Global Talent, Family visas, Visitor visas, Extensions, and Settlement / Naturalisation.
+            </p>
+          </details>
+
+          <details>
+            <summary>
+              How can I get in touch to discuss my situation?
+              <span class="plus">+</span>
+            </summary>
+            <p>
+              You can contact us via our enquiry form, phone, or WhatsApp. We’ll ask a few questions to understand your case
+              and advise the next steps.
+            </p>
+          </details>
+
+          <details>
+            <summary>
+              What are your fees?
+              <span class="plus">+</span>
+            </summary>
+            <p>
+              Our fees depend on the visa route, complexity, and scope of work. We explain pricing clearly before any work begins,
+              so you know exactly what is included.
+            </p>
+          </details>
+
+        </div>
       </div>
     </div>
+  </section>
 
-    <div>
-      <span class="footer-title">Working Hours</span>
-      <div class="muted">
-        Mon – Fri: 9:00 – 17:30<br>
-        Weekends: Closed
+  <!-- Footer -->
+  <footer>
+    <div class="wrap">
+      <div class="foot">
+        <div>
+          <div class="brandline">
+            <img src="assets/logo.png" alt="Benchmark Legals">
+          </div>
+          <p>
+            Benchmark Legals provides UK immigration advice with a structured and professional approach.
+            We are authorised and regulated by the Immigration Advice Authority (IAA).
+          </p>
+
+          <div class="iaa">
+            <img src="assets/iaa.png" alt="IAA logo">
+            <div>
+              <p style="margin:0;color:rgba(255,255,255,.90);font-weight:800">Immigration Advice Authority</p>
+              <p style="margin:2px 0 0;">Registration No: <strong>F202538075</strong></p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4>Contact Us</h4>
+          <p>124 City Road<br>London, EC1V 2NX</p>
+          <p style="margin-top:8px"><a href="tel:+447903004158">+44 7903 004158</a></p>
+          <p style="margin-top:8px"><a href="contact.html">Send an enquiry</a></p>
+        </div>
+
+        <div>
+          <h4>Working Hours</h4>
+          <p>Mon – Fri: 9:00 – 17:30</p>
+          <p>Weekends: Closed</p>
+
+          <div class="footer-drawer">
+            <button class="drawer-btn" id="footerDrawerBtn" type="button">
+              UK Immigration (open list)
+              <span aria-hidden="true">▾</span>
+            </button>
+            <div class="drawer-panel" id="footerDrawerPanel">
+              <div class="drawer-grid">
+                <a href="services.html#business">Business Visas</a>
+                <a href="services.html#skilled-worker">Skilled Worker Visa</a>
+                <a href="services.html#global-talent">Global Talent Visa</a>
+                <a href="services.html#family">Family Visas</a>
+                <a href="services.html#visitor">UK Visitor Visa</a>
+                <a href="services.html#extensions">Extension Visas</a>
+                <a href="services.html#settlement">Settlement & Naturalisation</a>
+                <a href="services.html#student">Student / Graduate Routes</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4>Quick Links</h4>
+          <p><a href="index.html">Home</a></p>
+          <p><a href="services.html">Services</a></p>
+          <p><a href="#faq">FAQ</a></p>
+          <p><a href="contact.html">Contact</a></p>
+        </div>
+      </div>
+
+      <div class="copyright">
+        <span>© <span id="year"></span> Benchmark Legals. All rights reserved.</span>
+        <span>IAA Reg: F202538075</span>
       </div>
     </div>
+  </footer>
+
+  <!-- WhatsApp Floating -->
+  <div class="whatsapp" aria-label="WhatsApp contact">
+    <div class="wa-pill">WhatsApp us</div>
+    <a class="wa-btn"
+       href="https://wa.me/447903004158?text=Hello%20Benchmark%20Legals%20-%20I%20need%20immigration%20advice"
+       target="_blank" rel="noopener"
+       aria-label="Chat on WhatsApp">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M19.11 17.53c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.62.14-.18.27-.71.88-.87 1.06-.16.18-.32.2-.59.07-.27-.14-1.14-.42-2.17-1.34-.8-.71-1.34-1.6-1.5-1.87-.16-.27-.02-.42.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.5-.85-2.06-.22-.53-.45-.46-.62-.47l-.53-.01c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.29 0 1.35.98 2.66 1.12 2.85.14.18 1.94 2.96 4.7 4.15.66.28 1.18.45 1.58.58.66.21 1.26.18 1.73.11.53-.08 1.6-.65 1.82-1.28.23-.62.23-1.15.16-1.28-.07-.12-.25-.2-.52-.34ZM16.02 27.2h-.01c-1.9 0-3.76-.51-5.38-1.49l-.39-.23-4 1.05 1.07-3.9-.25-.4a11.1 11.1 0 0 1-1.71-5.9c0-6.12 4.99-11.1 11.13-11.1a11.1 11.1 0 0 1 7.86 3.25 11.05 11.05 0 0 1 3.26 7.85c0 6.12-4.99 11.1-11.58 11.87Zm9.46-21.77A13.29 13.29 0 0 0 16.49 2.3C9.02 2.3 2.95 8.36 2.95 15.83c0 2.34.62 4.62 1.79 6.63L2.3 30.3l8.03-2.1a13.43 13.43 0 0 0 6.16 1.5h.01c7.47 0 13.54-6.07 13.54-13.54 0-3.61-1.41-7.0-3.96-9.53Z"/>
+      </svg>
+    </a>
   </div>
 
-  <div class="footer-line">
-    © <span id="year"></span> Benchmark Legals. All rights reserved.
-  </div>
-</footer>
+  <script>
+    // year
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-<!-- WhatsApp Floating Button (premium + number shown) -->
-<a class="whatsapp-float"
-   href="https://wa.me/447903004158?text=Hello%20Benchmark%20Legals,%20I%20would%20like%20to%20book%20an%20immigration%20consultation."
-   target="_blank" rel="noopener"
-   aria-label="Chat with Benchmark Legals on WhatsApp">
-  <div class="wa-icon" aria-hidden="true">
-    <!-- Inline icon (no external image) -->
-    <svg viewBox="0 0 32 32">
-      <path d="M19.11 17.53c-.28-.14-1.64-.81-1.9-.9-.26-.1-.45-.14-.64.14-.19.28-.73.9-.9 1.09-.16.19-.33.21-.61.07-.28-.14-1.19-.44-2.26-1.4-.83-.74-1.39-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.13-.13.28-.33.42-.5.14-.16.19-.28.28-.47.09-.19.05-.36-.02-.5-.07-.14-.64-1.55-.88-2.12-.23-.55-.46-.47-.64-.48-.16-.01-.36-.01-.55-.01-.19 0-.5.07-.76.36-.26.28-1 1-1 2.43s1.03 2.81 1.17 3.01c.14.19 2.03 3.11 4.92 4.36.69.3 1.23.48 1.65.61.69.22 1.31.19 1.81.12.55-.08 1.64-.67 1.87-1.31.23-.64.23-1.19.16-1.31-.07-.12-.26-.19-.55-.33z"/>
-      <path d="M26.66 5.34A12.95 12.95 0 0016.02 1C8.86 1 3.03 6.83 3.03 13.99c0 2.29.6 4.52 1.74 6.49L3 31l10.75-1.77a12.93 12.93 0 006.27 1.6h.01c7.16 0 12.99-5.83 12.99-12.99 0-3.47-1.35-6.73-3.8-9.2zm-6.64 23.3h-.01c-2.02 0-4-.54-5.72-1.56l-.41-.24-6.38 1.05 1.04-6.22-.27-.44a10.8 10.8 0 01-1.66-5.79C6.61 8.5 10.5 4.61 15.99 4.61c2.65 0 5.14 1.03 7.01 2.9a9.86 9.86 0 012.9 7.01c0 5.49-3.89 9.38-8.78 9.38z"/>
-    </svg>
-  </div>
-  <div class="wa-text">
-    <strong>WhatsApp us</strong>
-    <span>+44 7903 004158</span>
-  </div>
-</a>
+    // mobile menu
+    const burger = document.getElementById('burger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    burger.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('open');
+      burger.setAttribute('aria-expanded', String(open));
+    });
 
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+    // footer drawer
+    const drawerBtn = document.getElementById('footerDrawerBtn');
+    const drawerPanel = document.getElementById('footerDrawerPanel');
+    drawerBtn.addEventListener('click', () => {
+      const isOpen = drawerPanel.style.display === 'block';
+      drawerPanel.style.display = isOpen ? 'none' : 'block';
+      drawerBtn.querySelector('span').textContent = isOpen ? '▾' : '▴';
+    });
+
+    // slider
+    const slides = Array.from(document.querySelectorAll('.slide'));
+    const dotButtons = Array.from(document.querySelectorAll('.dot'));
+    const prev = document.getElementById('prev');
+    const next = document.getElementById('next');
+    let i = 0;
+    let timer;
+
+    function show(idx){
+      slides.forEach((s, n) => s.classList.toggle('active', n === idx));
+      dotButtons.forEach((d, n) => d.classList.toggle('active', n === idx));
+      i = idx;
+    }
+    function goNext(){ show((i + 1) % slides.length); }
+    function goPrev(){ show((i - 1 + slides.length) % slides.length); }
+    function start(){
+      stop();
+      timer = setInterval(goNext, 6500);
+    }
+    function stop(){
+      if (timer) clearInterval(timer);
+    }
+
+    next.addEventListener('click', () => { goNext(); start(); });
+    prev.addEventListener('click', () => { goPrev(); start(); });
+    dotButtons.forEach((btn, idx) => btn.addEventListener('click', () => { show(idx); start(); }));
+
+    start();
+  </script>
 
 </body>
 </html>
