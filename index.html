@@ -1,349 +1,393 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Benchmark Legals | UK Immigration Advice</title>
-<meta name="description" content="Benchmark Legals provides UK immigration advice with clarity, professionalism, and confidence. Authorised and regulated by the IAA.">
 
-<link rel="icon" href="assets/logo-black.png">
+<link rel="icon" href="assets/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
-/* ================= ROOT ================= */
 :root{
-  --navy:#071a2b;
-  --navy-soft:#0b253f;
-  --gold:#d4af5a;
-  --white:#ffffff;
-  --text:#0e1f2f;
-  --muted:#6b7a88;
-  --radius:22px;
+--navy:#071a2b;
+--navy2:#0b243b;
+--gold:#c9a24d;
+--gold2:#b78c2e;
+--ink:#0b1f33;
+--muted:#5b6775;
+--paper:#ffffff;
+--soft:#f4f5f7;
+--radius:22px;
+--shadow:0 24px 60px rgba(7,26,43,.18);
+--shadow-soft:0 12px 30px rgba(7,26,43,.12);
+--max:1180px;
 }
 
 *{box-sizing:border-box}
 body{
-  margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;
-  color:var(--text);
-  background:#f7f8fa;
-  line-height:1.55;
+margin:0;
+font-family:Inter,system-ui;
+color:var(--ink);
+background:var(--paper);
+line-height:1.6;
+}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:var(--max);margin:auto;padding:0 22px}
+
+/* TOP STRIP */
+.topstrip{
+background:var(--navy);
+color:#fff;
+font-size:13px;
+}
+.topstrip .wrap{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+justify-content:space-between;
+padding:10px 0;
+}
+.chip{
+padding:6px 12px;
+border-radius:999px;
+border:1px solid rgba(255,255,255,.18);
+background:rgba(255,255,255,.05);
+white-space:nowrap;
 }
 
-/* ================= HEADER ================= */
+/* HEADER */
 header{
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:var(--gold);
+position:sticky;
+top:0;
+z-index:100;
+background:var(--gold);
+box-shadow:0 12px 30px rgba(0,0,0,.15);
 }
 .nav{
-  max-width:1200px;
-  margin:auto;
-  padding:14px 20px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:14px 0;
 }
-.brand img{
-  height:56px;
-}
-.nav-actions{
-  display:flex;
-  gap:10px;
-}
+.brand img{height:64px}
+.menu{display:flex;gap:22px;font-weight:900;font-size:13px}
+.menu a{padding:8px 10px;border-radius:10px}
+.menu a:hover{background:rgba(255,255,255,.35)}
+.cta{display:flex;gap:10px}
 .btn{
-  padding:12px 18px;
-  border-radius:999px;
-  border:none;
-  font-weight:600;
-  cursor:pointer;
-  text-decoration:none;
+height:44px;
+padding:0 18px;
+border-radius:999px;
+display:flex;
+align-items:center;
+font-weight:900;
+font-size:13px;
+border:1px solid rgba(0,0,0,.18);
+background:rgba(255,255,255,.25);
 }
-.btn-dark{
-  background:var(--navy);
-  color:white;
-}
-.btn-light{
-  background:rgba(255,255,255,.35);
-  color:#000;
+.btn.primary{
+background:#0a1622;
+color:#fff;
+border-color:#0a1622;
 }
 
-/* ================= HERO ================= */
+/* HERO */
 .hero{
-  position:relative;
-  background:url("assets/hero.jpg") center/cover no-repeat;
+position:relative;
+background:var(--navy);
+color:#fff;
+overflow:hidden;
 }
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(90deg, rgba(7,26,43,.85), rgba(7,26,43,.65));
+.hero-bg{
+position:absolute;inset:0;
+background:url("assets/hero-1.jpg") center/cover no-repeat;
 }
-.hero-content{
-  position:relative;
-  max-width:1200px;
-  margin:auto;
-  padding:90px 20px 70px;
-  display:grid;
-  grid-template-columns:1.2fr .8fr;
-  gap:40px;
-  color:white;
+.hero-overlay{
+position:absolute;inset:0;
+background:linear-gradient(90deg,rgba(7,26,43,.92),rgba(7,26,43,.6));
+}
+.hero .wrap{
+position:relative;
+padding:80px 0 70px;
+}
+.hero-grid{
+display:grid;
+grid-template-columns:1.1fr .9fr;
+gap:40px;
+align-items:center;
+}
+.kicker{
+display:inline-block;
+padding:8px 14px;
+border-radius:999px;
+border:1px solid rgba(255,255,255,.2);
+font-weight:800;
+font-size:13px;
+background:rgba(255,255,255,.1);
 }
 .hero h1{
-  font-size:50px;
-  line-height:1.05;
-  margin:16px 0;
-}
-.hero h1 span{
-  display:block;
-}
-.hero h1 .small{
-  font-size:20px;
-  text-transform:uppercase;
-  letter-spacing:2px;
-  opacity:.9;
+font-size:52px;
+line-height:1.05;
+margin:18px 0 16px;
+text-transform:uppercase;
 }
 .hero p{
-  max-width:520px;
-  color:rgba(255,255,255,.85);
-  font-size:17px;
+font-size:16px;
+color:rgba(255,255,255,.88);
+max-width:56ch;
 }
-.hero-buttons{
-  margin-top:22px;
-  display:flex;
-  gap:14px;
+.hero-actions{display:flex;gap:12px;margin-top:22px}
+.hero .btn.primary{background:var(--gold);color:#0a1622}
+
+/* TRUST CARD */
+.trust{
+background:linear-gradient(180deg,rgba(255,255,255,.18),rgba(255,255,255,.05));
+border:1px solid rgba(255,255,255,.22);
+border-radius:22px;
+padding:20px;
+box-shadow:var(--shadow);
+backdrop-filter:blur(12px);
 }
-.hero-card{
-  background:rgba(255,255,255,.1);
-  border:1px solid rgba(255,255,255,.2);
-  border-radius:var(--radius);
-  padding:18px;
-  display:flex;
-  align-items:center;
-  gap:14px;
-  backdrop-filter:blur(8px);
+.trust-row{
+display:flex;
+gap:14px;
+align-items:center;
 }
-.hero-card img{
-  width:60px;
-  background:white;
-  border-radius:14px;
-  padding:8px;
+.trust img{
+height:64px;
+background:#fff;
+padding:8px;
+border-radius:14px;
 }
-.hero-card small{
-  opacity:.85;
+.trust strong{display:block}
+.mini{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+margin-top:14px;
+}
+.mini div{
+padding:12px;
+border-radius:14px;
+background:rgba(255,255,255,.08);
+font-size:13px;
 }
 
-/* ================= ABOUT ================= */
-.section{
-  max-width:1200px;
-  margin:auto;
-  padding:80px 20px;
+/* SERVICES */
+section{padding:80px 0}
+.soft{background:var(--soft)}
+.section-title{text-align:center;margin-bottom:30px}
+.section-title h2{
+font-size:32px;
+text-transform:uppercase;
 }
-.about{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:40px;
-  align-items:center;
-}
-.about-img{
-  background:url("assets/about.jpg") center/cover no-repeat;
-  border-radius:28px;
-  min-height:420px;
-}
-.about h2{
-  font-size:36px;
-  margin-bottom:12px;
-}
-.about ul{
-  padding:0;
-  list-style:none;
-}
-.about li{
-  margin:12px 0;
-  font-weight:500;
-}
-.about li::before{
-  content:"✔";
-  color:var(--gold);
-  margin-right:10px;
-}
-
-/* ================= SERVICES ================= */
 .services{
-  padding-top:0;
-}
-.services h2{
-  font-size:34px;
-  margin-bottom:20px;
-}
-.service-row{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:18px;
+display:flex;
+gap:16px;
+overflow-x:auto;
+scroll-snap-type:x mandatory;
+padding-bottom:10px;
 }
 .service{
-  background:white;
-  border-radius:22px;
-  padding:22px;
-  box-shadow:0 12px 30px rgba(0,0,0,.06);
+min-width:220px;
+scroll-snap-align:start;
+background:#fff;
+border-radius:20px;
+padding:22px;
+box-shadow:var(--shadow-soft);
+text-align:center;
+font-weight:800;
 }
-.service h4{
-  margin:0 0 8px;
-}
+.service:hover{transform:translateY(-4px)}
 
-/* ================= FAQ ================= */
+/* ABOUT */
+.about{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:28px;
+align-items:center;
+}
+.about-img{
+border-radius:22px;
+overflow:hidden;
+min-height:340px;
+background:url("assets/hero-2.jpg") center/cover;
+}
+.about-card{
+background:#fff;
+border-radius:22px;
+padding:28px;
+box-shadow:var(--shadow-soft);
+}
+.about-card h3{text-transform:uppercase}
+
+/* FAQ */
 .faq{
-  background:#fff;
-  border-radius:28px;
-  padding:40px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:28px;
 }
-.faq h2{
-  margin-bottom:20px;
+details{
+background:#fff;
+border-radius:16px;
+padding:14px 18px;
+box-shadow:var(--shadow-soft);
 }
-.faq-item{
-  border-bottom:1px solid #eee;
-  padding:14px 0;
+summary{
+font-weight:800;
+cursor:pointer;
 }
-.faq-item:last-child{border:none}
 
-/* ================= FOOTER ================= */
+/* FOOTER */
 footer{
-  background:var(--navy);
-  color:white;
+background:var(--navy);
+color:#fff;
+padding:60px 0 30px;
 }
-.footer{
-  max-width:1200px;
-  margin:auto;
-  padding:50px 20px;
+.footer-grid{
+display:grid;
+grid-template-columns:1.3fr 1fr 1fr;
+gap:28px;
 }
-.footer img{
-  width:70px;
-  background:white;
-  padding:10px;
-  border-radius:16px;
+.footer-brand{
+display:flex;
+gap:18px;
+align-items:flex-start;
 }
-.footer p{
-  color:rgba(255,255,255,.75);
-  max-width:420px;
+.footer-brand img{height:64px}
+.copyright{
+margin-top:28px;
+border-top:1px solid rgba(255,255,255,.15);
+padding-top:18px;
+font-size:12px;
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
 }
 
-/* ================= MOBILE ================= */
+/* MOBILE */
 @media(max-width:900px){
-  .hero-content,
-  .about{
-    grid-template-columns:1fr;
-  }
-  .hero h1{font-size:40px}
-}
-
-@media(max-width:680px){
-  .service-row{
-    display:flex;
-    overflow-x:auto;
-    gap:14px;
-    scroll-snap-type:x mandatory;
-  }
-  .service{
-    min-width:260px;
-    scroll-snap-align:start;
-  }
-  .hero-content{
-    padding:60px 20px;
-  }
-  .hero h1{font-size:34px}
+.menu{display:none}
+.hero-grid{grid-template-columns:1fr}
+.about{grid-template-columns:1fr}
+.faq{grid-template-columns:1fr}
 }
 </style>
 </head>
 
 <body>
 
+<div class="topstrip">
+  <div class="wrap">
+    <div class="chip">✉️ info@benchmarklegals.co.uk</div>
+    <div class="chip">📞 +44 7903 004158</div>
+    <div class="chip">IAA Reg: <strong>F202538075</strong></div>
+  </div>
+</div>
+
 <header>
-  <div class="nav">
-    <div class="brand">
-      <img src="assets/logo-black.png" alt="Benchmark Legals">
-    </div>
-    <div class="nav-actions">
-      <a class="btn btn-light" href="#">Get a Quote</a>
-      <a class="btn btn-dark" href="#">Book Appointment</a>
+  <div class="wrap nav">
+    <a class="brand"><img src="assets/logo.png"></a>
+    <nav class="menu">
+      <a>HOME</a><a>ABOUT</a><a>IMMIGRATION</a><a>SERVICES</a><a>CONTACT</a>
+    </nav>
+    <div class="cta">
+      <a class="btn">Get a Quote</a>
+      <a class="btn primary">Book Appointment</a>
     </div>
   </div>
 </header>
 
 <section class="hero">
-  <div class="hero-content">
-    <div>
-      <h1>
-        <span class="small">UK Immigration</span>
-        Advice with Clarity
-        <span>and Confidence</span>
-      </h1>
-      <p>
-        Professional, document-led UK immigration advice with transparent communication and a client-first approach.
-      </p>
-      <div class="hero-buttons">
-        <a class="btn btn-dark" href="#">Free Initial Enquiry</a>
-        <a class="btn btn-light" href="#">Explore Services</a>
-      </div>
-    </div>
+<div class="hero-bg"></div><div class="hero-overlay"></div>
+<div class="wrap">
+<div class="hero-grid">
+<div>
+<span class="kicker">Authorised & regulated by the IAA</span>
+<h1>UK Immigration Advice<br>with Clarity & Confidence</h1>
+<p>Professional immigration advice with a structured, document-led approach.</p>
+<div class="hero-actions">
+<a class="btn primary">Free Initial Enquiry</a>
+<a class="btn">Explore Services</a>
+</div>
+</div>
 
-    <div class="hero-card">
-      <img src="assets/iaa.png" alt="IAA">
-      <div>
-        <strong>Immigration Advice Authority</strong><br>
-        <small>Registration No: F202538075</small>
-      </div>
-    </div>
-  </div>
+<div class="trust">
+<div class="trust-row">
+<img src="assets/iaa.png">
+<div>
+<strong>Immigration Advice Authority</strong>
+Registration No: F202538075
+</div>
+</div>
+<div class="mini">
+<div><strong>Fast</strong><br>Clear steps</div>
+<div><strong>Transparent</strong><br>Fees</div>
+<div><strong>Careful</strong><br>Checks</div>
+<div><strong>Direct</strong><br>Updates</div>
+</div>
+</div>
+</div>
+</div>
 </section>
 
-<section class="section about">
-  <div class="about-img"></div>
-  <div>
-    <h2>Welcome to Benchmark Legals</h2>
-    <p>
-      We provide structured, professional immigration advice with clear eligibility checks and realistic guidance.
-    </p>
-    <ul>
-      <li>Clear eligibility assessments</li>
-      <li>Careful document preparation</li>
-      <li>High professional standards</li>
-      <li>Authorised & regulated by the IAA</li>
-    </ul>
-  </div>
+<section class="soft">
+<div class="wrap">
+<div class="section-title">
+<h2>UK Visa Services</h2>
+</div>
+<div class="services">
+<div class="service">Business Visas →</div>
+<div class="service">Skilled Worker →</div>
+<div class="service">Global Talent →</div>
+<div class="service">Family Visas →</div>
+<div class="service">Settlement →</div>
+</div>
+</div>
 </section>
 
-<section class="section services">
-  <h2>UK Immigration Services</h2>
-  <div class="service-row">
-    <div class="service"><h4>Student & Graduate</h4><p>Study and post-study routes.</p></div>
-    <div class="service"><h4>Settlement & Citizenship</h4><p>ILR and naturalisation.</p></div>
-    <div class="service"><h4>Business Mobility</h4><p>UK expansion and visas.</p></div>
-    <div class="service"><h4>Not Sure?</h4><p>We guide you clearly.</p></div>
-  </div>
+<section>
+<div class="wrap about">
+<div class="about-img"></div>
+<div class="about-card">
+<h3>Welcome to Benchmark Legals</h3>
+<p>Clear guidance, structured preparation, and professional immigration support.</p>
+</div>
+</div>
 </section>
 
-<section class="section">
-  <div class="faq">
-    <h2>Common Questions</h2>
-    <div class="faq-item">What visas can you help with?</div>
-    <div class="faq-item">How do I start?</div>
-    <div class="faq-item">What are your fees?</div>
-    <div class="faq-item">How long does it take?</div>
-  </div>
+<section class="soft">
+<div class="wrap faq">
+<div>
+<h3>Common Queries</h3>
+<p>Clear answers and next steps.</p>
+</div>
+<div>
+<details><summary>What visas do you help with?</summary><p>UK immigration routes.</p></details>
+<details><summary>How do I get started?</summary><p>Contact us.</p></details>
+</div>
+</div>
 </section>
 
 <footer>
-  <div class="footer">
-    <img src="assets/iaa.png" alt="IAA">
-    <p>
-      Benchmark Legals provides UK immigration advice with professionalism and clarity.
-      <br><br>
-      📍 124 City Road, London EC1V 2NX<br>
-      📞 +44 7903 004158<br>
-      ✉ info@benchmarklegals.co.uk
-    </p>
-  </div>
+<div class="wrap footer-grid">
+<div class="footer-brand">
+<img src="assets/logo.png">
+<img src="assets/iaa.png">
+</div>
+<div>
+<p>124 City Road<br>London EC1V 2NX</p>
+</div>
+<div>
+<p>Mon–Fri 9:00–17:30</p>
+</div>
+</div>
+<div class="wrap copyright">
+<span>© 2026 Benchmark Legals</span>
+<span>IAA Reg: F202538075</span>
+</div>
 </footer>
 
 </body>
