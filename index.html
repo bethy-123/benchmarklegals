@@ -408,20 +408,21 @@
 
     /* ---------- HERO ---------- */
     .hero{
-      position:relative;
-      background: radial-gradient(900px 520px at 20% 18%, rgba(255,255,255,.09), transparent 55%),
-                  radial-gradient(860px 540px at 85% 30%, rgba(215,181,109,.10), transparent 62%),
-                  linear-gradient(180deg, var(--navy2), var(--navy));
-      color:#fff;
-      overflow:hidden;
-    }
-    .hero::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background-image: linear-gradient(180deg, rgba(5,15,30,.60), rgba(5,15,30,.76));
-      pointer-events:none;
-    }
+  position: relative;
+
+  /* IMAGE + DARK BLUE OVERLAY */
+  background:
+    linear-gradient(
+      rgba(6, 18, 38, 0.82),
+      rgba(6, 18, 38, 0.92)
+    ),
+    url("assets/hero-legal-woman.png") center / cover no-repeat;
+
+  color: #fff;
+  overflow: hidden;
+}
+
+
     .heroInner{
       position:relative;
       z-index:2;
