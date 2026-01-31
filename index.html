@@ -183,98 +183,64 @@
     }
 
     /* ---------- header/nav ---------- */
-/* ===== HEADER / NAV (FINAL CLEAN VERSION) ===== */
-
+/* ===== HEADER / NAV (hero blend → solid on scroll) ===== */
 #siteHeader{
   position: sticky;
   top: 0;
   z-index: 999;
 
-  /* DEFAULT = transparent (hero visible behind) */
+  /* DEFAULT (TOP OF PAGE) = transparent over hero */
   background: transparent;
-  border-bottom: 1px solid transparent;
+  border-bottom: 1px solid rgba(255,255,255,.12);
+  box-shadow: none;
+  backdrop-filter: none;
 
-  transition: background .25s ease, border-color .25s ease, box-shadow .25s ease;
+  transition: background .25s ease, border-color .25s ease, box-shadow .25s ease, backdrop-filter .25s ease;
 }
 
-/* ===== HEADER WHILE OVER HERO ===== */
+/* While on hero: add a light navy tint so it's readable but still part of hero */
 #siteHeader.on-hero{
-  background: rgba(6, 18, 38, 0.55);   /* hero overlay match */
-  border-bottom: 1px solid rgba(255,255,255,.10);
+  background: rgba(6, 18, 38, 0.18);
   backdrop-filter: blur(10px);
 }
 
-/* WHITE TEXT ON HERO */
+/* NAV text/icons WHITE while on hero */
 #siteHeader.on-hero nav.desktop a,
 #siteHeader.on-hero .dd > button{
-  color: rgba(255,255,255,.95);
+  color: rgba(255,255,255,.92);
 }
 
-/* Buttons on hero */
+#siteHeader.on-hero nav.desktop a{ opacity:.88; }
+#siteHeader.on-hero nav.desktop a:hover{ opacity:1; }
+
+/* buttons on hero */
 #siteHeader.on-hero .searchBtn,
 #siteHeader.on-hero .burger{
-  background: rgba(255,255,255,.08);
+  background: rgba(255,255,255,.10);
   border-color: rgba(255,255,255,.18);
 }
-#siteHeader.on-hero .burger span{
-  background: rgba(255,255,255,.95);
-}
+#siteHeader.on-hero .burger span{ background: rgba(255,255,255,.92); }
 
-/* ===== SCROLLED = FULL SOLID ===== */
+/* AFTER SCROLL (leaving hero) = solid white + NOT transparent */
 #siteHeader.scrolled{
-  background: #ffffff;   /* 🔥 TRUE SOLID */
-  border-bottom: 1px solid rgba(2,8,23,.10);
+  background: #ffffff;                 /* fully solid */
+  border-bottom: 1px solid rgba(2,8,23,.08);
   box-shadow: 0 10px 24px rgba(2,8,23,.08);
-  backdrop-filter: none; /* removes glass transparency */
+  backdrop-filter: none;               /* remove the glassy look */
 }
 
-/* Dark text after scroll */
+/* nav text dark when scrolled */
 #siteHeader.scrolled nav.desktop a,
 #siteHeader.scrolled .dd > button{
   color: #0b1220;
 }
-#siteHeader.scrolled .burger span{
-  background: #0b1220;
-}
 
-
-/* Make nav items white while header is on hero */
-header.on-hero nav.desktop,
-header.on-hero nav.desktop a,
-header.on-hero .dd > button{
-  color: rgba(255,255,255,.92);
+#siteHeader.scrolled .burger{
+  background: #ffffff;
+  border-color: rgba(2,8,23,.12);
 }
+#siteHeader.scrolled .burger span{ background:#0b1220; }
 
-header.on-hero nav.desktop a{ opacity: .85; }
-header.on-hero nav.desktop a:hover{ opacity: 1; }
-
-header.on-hero .searchBtn{
-  background: rgba(255,255,255,.08);
-  border-color: rgba(255,255,255,.18);
-}
-
-header.on-hero .burger{
-  background: rgba(255,255,255,.08);
-  border-color: rgba(255,255,255,.18);
-}
-
-header.on-hero .burger span{
-  background: rgba(255,255,255,.9);
-}
-
-
-/* When not on hero = normal solid header */
-header.scrolled{
-  background: rgba(255,255,255,.92);
-  border-bottom: 1px solid rgba(2,8,23,.06);
-}
-header.scrolled nav.desktop a,
-header.scrolled .dd > button{
-  color: #0b1220;
-}
-header.scrolled .burger span{
-  background: #0b1220;
-}
 
     .navwrap{
       display:flex;
@@ -1679,18 +1645,26 @@ header.scrolled .burger span{
    // Make header blend into hero at top, then turn solid on scroll
 const heroSection = document.querySelector(".hero");
 
+const header = document.getElementById("siteHeader");
+const heroSection = document.querySelector(".hero");
+
 function setHeaderMode(){
   if(!header || !heroSection) return;
 
   const heroBottom = heroSection.getBoundingClientRect().bottom;
 
-  // when header is still sitting over the hero background
+  // If hero is still behind header (top area)
   const onHero = heroBottom > 80;
 
   header.classList.toggle("on-hero", onHero);
   header.classList.toggle("scrolled", !onHero);
 }
-    }
+
+setHeaderMode();
+window.addEventListener("scroll", setHeaderMode, { passive: true });
+window.addEventListener("resize", setHeaderMode);
+
+
 
 setHeaderMode();
 window.addEventListener("scroll", setHeaderMode, { passive: true });
