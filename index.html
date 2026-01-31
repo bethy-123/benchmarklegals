@@ -484,33 +484,63 @@
       margin-bottom: 14px;
     }
     .regRow{
-      display:flex;
-      align-items:center;
-      gap: 12px;
-      border-top: 1px solid rgba(255,255,255,.12);
-      padding-top: 14px;
+  display:flex;
+  align-items:center;
+  gap: 22px;
+  border-top: 1px solid rgba(255,255,255,.12);
+  padding-top: 18px;
+}
+
+.regLogo{
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 20px;
+  width: 170px;          /* makes the left block big */
+  height: 120px;         /* gives it presence */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow: 0 12px 28px rgba(0,0,0,.18);
+  flex: 0 0 auto;
+}
+
+.regLogo img{
+  width: 130px;          /* BIG logo */
+  height: auto;
+  object-fit: contain;
+}
+
     }
-    .regRow img{
-      width: 56px;
-      height: 56px;
-      object-fit:contain;
-      border-radius: 12px;
-      background: rgba(255,255,255,.10);
-      border: 1px solid rgba(255,255,255,.12);
-      padding: 8px;
-    }
-    .regRow .note{
-      font-size: 13px;
-      color: rgba(255,255,255,.72);
-      line-height: 1.45;
+    .regText{
+  flex:1;
+}
+
+.regText .note{
+  font-size: 14.5px;
+  color: rgba(255,255,255,.78);
+  line-height: 1.55;
+}
+
     }
 
-    @media (max-width: 980px){
-      .heroInner{
-        grid-template-columns: 1fr;
-        padding: 44px 0 56px;
-      }
-      .regCard{ max-width: 520px; }
+ @media (max-width: 600px){
+  .regRow{
+    flex-direction: row;       /* keep side-by-side on mobile too */
+    align-items:center;
+    gap: 14px;
+  }
+
+  .regLogo{
+    width: 120px;
+    height: 92px;
+    padding: 14px;
+  }
+
+  .regLogo img{
+    width: 95px;
+  }
+}
+
     }
 
     /* ---------- SECTION BASE ---------- */
