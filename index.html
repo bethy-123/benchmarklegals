@@ -167,36 +167,57 @@
       }
     }
 
-    /* ---------- header/nav (hero blend → solid on scroll) ---------- */
-    #siteHeader{
-      position: sticky;
-      top: 0;
-      z-index: 999;
+    /* ===== HEADER / NAV (SOLID BRAND NAVY — NO TRANSPARENCY EVER) ===== */
 
-      /* TOP OF PAGE = part of hero (tinted transparent) */
-      background: rgba(6, 18, 38, 0.18);
-      border-bottom: 1px solid rgba(255,255,255,.12);
-      box-shadow: none;
-      backdrop-filter: blur(10px);
+#siteHeader{
+  position: sticky;
+  top: 0;
+  z-index: 999;
 
-      transition: background .25s ease, border-color .25s ease, box-shadow .25s ease, backdrop-filter .25s ease;
-    }
+  /* BRAND DARK NAVY — ALWAYS */
+  background: #081a33;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  box-shadow: 0 10px 24px rgba(0,0,0,.25);
+}
 
-    /* While on hero (same as default, but kept for clarity) */
-    #siteHeader.on-hero{
-      background: rgba(6, 18, 38, 0.18);
-      border-bottom: 1px solid rgba(255,255,255,.12);
-      box-shadow: none;
-      backdrop-filter: blur(10px);
-    }
+/* ===== LOGO ===== */
+#siteHeader .brand img{
+  filter: brightness(0) invert(1); /* makes logo white if dark */
+}
 
-    /* After leaving hero = SOLID WHITE */
-    #siteHeader.scrolled{
-      background: #ffffff !important;
-      border-bottom: 1px solid rgba(2,8,23,.08);
-      box-shadow: 0 10px 24px rgba(2,8,23,.08);
-      backdrop-filter: none;
-    }
+/* ===== MENU TEXT DEFAULT = WHITE ===== */
+#siteHeader nav.desktop a,
+#siteHeader .dd > button{
+  color: rgba(255,255,255,.92);
+}
+
+#siteHeader nav.desktop a:hover{
+  color: #ffffff;
+}
+
+/* ===== GOLD ITEMS (Home + Immigration) ===== */
+
+#siteHeader nav.desktop a.active{
+  color: var(--gold);
+  opacity: 1;
+}
+
+/* Immigration dropdown button gold */
+#siteHeader .dd > button{
+  color: var(--gold);
+}
+
+/* ===== SEARCH + BURGER ===== */
+#siteHeader .searchBtn,
+#siteHeader .burger{
+  background: rgba(255,255,255,.08);
+  border-color: rgba(255,255,255,.18);
+}
+
+#siteHeader .burger span{
+  background: #ffffff;
+}
+
 
     .navwrap{
       display:flex;
