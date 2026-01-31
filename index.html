@@ -871,17 +871,81 @@
       border-color: rgba(215,181,109,.35);
     }
 
-    /* ---------- CONTACT / BOOKING ---------- */
-    .contact{
-      background: var(--soft);
-      border-top:1px solid rgba(2,8,23,.06);
-    }
+   /* ---------- CONTACT / BOOKING ---------- */
+.contact{
+  background: var(--navy);
+  border-top: 1px solid rgba(255,255,255,.10);
+}
+.contact .sectionTitle .top,
+.contact .sectionTitle h2{
+  color: #fff;
+}
+.contact .sectionTitle .top .line{
+  background: rgba(255,255,255,.25);
+}
+
     .contactGrid{
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap: 22px;
       align-items:start;
     }
+    /* Make booking single card and styled for navy */
+.contactGrid{
+  grid-template-columns: 1fr; /* one card only */
+}
+
+.contact .card{
+  background: var(--navy2);
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow: 0 18px 60px rgba(0,0,0,.35);
+  color: #fff;
+}
+
+.contact .card p{
+  color: rgba(255,255,255,.72);
+}
+
+.contact label{
+  color: rgba(255,255,255,.70);
+}
+
+.contact input,
+.contact select,
+.contact textarea{
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.16);
+  color: #fff;
+}
+
+.contact input::placeholder,
+.contact textarea::placeholder{
+  color: rgba(255,255,255,.55);
+}
+
+.contact .consent{
+  color: rgba(255,255,255,.75);
+}
+
+.contact .note{
+  color: rgba(255,255,255,.60);
+}
+
+/* Buttons in this section */
+.contact .btn.light{
+  background: transparent;
+  border: 1px solid rgba(255,255,255,.22);
+  color: #fff;
+}
+.contact .btn.light:hover{
+  background: rgba(255,255,255,.08);
+  transform: translateY(-1px);
+}
+.contact .btn.primary{
+  background: var(--gold);
+  color: #10203a;
+}
+
     @media (max-width: 980px){
       .contactGrid{ grid-template-columns: 1fr; }
     }
