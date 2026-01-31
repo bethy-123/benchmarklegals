@@ -183,16 +183,53 @@
     }
 
     /* ---------- header/nav ---------- */
-   /* Header default (after scroll) */
-header{
+  /* ===== HEADER / NAV (premium hero blend) ===== */
+#siteHeader{
   position: sticky;
   top: 0;
-  z-index: 50;
+  z-index: 999;
+
+  /* default state = SOLID */
   background: rgba(255,255,255,.92);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(2,8,23,.06);
-  transition: background .25s ease, border-color .25s ease;
+  transition: background .25s ease, border-color .25s ease, box-shadow .25s ease, backdrop-filter .25s ease;
 }
+
+/* When header is over hero (top of page) */
+#siteHeader.on-hero{
+  background: rgba(6, 18, 38, 0.15); /* light tint but still shows hero behind */
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,.12);
+}
+
+/* Make nav items WHITE while on hero */
+#siteHeader.on-hero nav.desktop a,
+#siteHeader.on-hero .dd > button{
+  color: rgba(255,255,255,.92);
+}
+
+#siteHeader.on-hero nav.desktop a{ opacity: .88; }
+#siteHeader.on-hero nav.desktop a:hover{ opacity: 1; }
+
+/* Search button & burger on hero */
+#siteHeader.on-hero .searchBtn,
+#siteHeader.on-hero .burger{
+  background: rgba(255,255,255,.08);
+  border-color: rgba(255,255,255,.18);
+}
+#siteHeader.on-hero .burger span{ background: rgba(255,255,255,.92); }
+
+/* Solid state (after leaving hero) */
+#siteHeader.scrolled{
+  background: rgba(255,255,255,.92);
+  border-bottom: 1px solid rgba(2,8,23,.06);
+}
+#siteHeader.scrolled nav.desktop a,
+#siteHeader.scrolled .dd > button{
+  color: #0b1220;
+}
+#siteHeader.scrolled .burger span{ background: #0b1220; }
 
 /* Header while on HERO (blends into hero like premium sites) */
 header.on-hero{
@@ -252,7 +289,7 @@ header.scrolled .burger span{
       gap: 12px;
       min-width: 200px;
     }
-    ..brand .logoBox{
+    .brand .logoBox{
   width: 240px;
   height: 70px;
   display:flex;
@@ -1645,14 +1682,15 @@ const heroSection = document.querySelector(".hero");
 function setHeaderMode(){
   if(!header || !heroSection) return;
 
-  // if we're still over the hero area
   const heroBottom = heroSection.getBoundingClientRect().bottom;
-  if(heroBottom > 80){
-    header.classList.add("on-hero");
-  }else{
-    header.classList.remove("on-hero");
-  }
+
+  // when header is still sitting over the hero background
+  const onHero = heroBottom > 80;
+
+  header.classList.toggle("on-hero", onHero);
+  header.classList.toggle("scrolled", !onHero);
 }
+    }
 
 setHeaderMode();
 window.addEventListener("scroll", setHeaderMode, { passive: true });
