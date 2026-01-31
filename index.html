@@ -921,9 +921,12 @@
   margin-top: 22px;
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 12px;
   flex-wrap: wrap;
+  width: 100%;
 }
+
 
 
 .contact input::placeholder,
@@ -945,6 +948,22 @@
   border: 1px solid rgba(255,255,255,.22);
   color: #fff;
 }
+    /* Force both buttons to look correct ONLY inside contact section */
+.contact .btn.light,
+.contact .btn.primary{
+  background-clip: padding-box;
+}
+
+/* Make sure light button never turns white in contact section */
+.contact .btn.light{
+  background: rgba(255,255,255,.06) !important;
+  border: 1px solid rgba(255,255,255,.22) !important;
+  color: #fff !important;
+}
+.contact .btn.light:hover{
+  background: rgba(255,255,255,.10) !important;
+}
+
 .contact .btn.light:hover{
   background: rgba(255,255,255,.08);
   transform: translateY(-1px);
@@ -1645,6 +1664,16 @@
           </div>
         </div>
       </div>
+         </div> <!-- closes contactGrid -->
+      
+      <div class="contactActions">
+        <a class="btn primary" href="#top">Back to top</a>
+        <a class="btn light" href="#services">View services</a>
+      </div>
+
+    </div> <!-- closes container -->
+  </section>
+
     </section>
 
   </main>
