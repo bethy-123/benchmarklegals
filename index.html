@@ -191,6 +191,47 @@
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(2,8,23,.06);
     }
+    /* Header starts transparent on hero */
+header.onHero{
+  background: rgba(255,255,255,0.10);
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(10px);
+}
+
+/* Make menu text white while on hero */
+header.onHero nav.desktop a,
+header.onHero .dd > button{
+  color: rgba(255,255,255,0.92);
+}
+
+header.onHero nav.desktop a.active::after{
+  background: var(--gold);
+}
+
+/* Make the burger + search look good on hero */
+header.onHero .searchBtn,
+header.onHero .burger{
+  background: rgba(255,255,255,0.10);
+  border-color: rgba(255,255,255,0.20);
+}
+
+header.onHero .burger span{
+  background: #fff;
+}
+
+/* When not on hero = normal solid header */
+header.scrolled{
+  background: rgba(255,255,255,.92);
+  border-bottom: 1px solid rgba(2,8,23,.06);
+}
+header.scrolled nav.desktop a,
+header.scrolled .dd > button{
+  color: #0b1220;
+}
+header.scrolled .burger span{
+  background: #0b1220;
+}
+
     .navwrap{
       display:flex;
       align-items:center;
@@ -1591,6 +1632,22 @@
 
     // mobile burger
     const header = document.getElementById("siteHeader");
+    // Header transparent on hero, solid on scroll
+function updateHeaderStyle(){
+  const y = window.scrollY || 0;
+
+  if(y < 40){
+    header.classList.add("onHero");
+    header.classList.remove("scrolled");
+  }else{
+    header.classList.remove("onHero");
+    header.classList.add("scrolled");
+  }
+}
+
+updateHeaderStyle();
+window.addEventListener("scroll", updateHeaderStyle, { passive:true });
+
     const burger = document.getElementById("burger");
     burger?.addEventListener("click", () => {
       header.classList.toggle("menuOpen");
