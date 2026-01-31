@@ -183,58 +183,58 @@
     }
 
     /* ---------- header/nav ---------- */
-  /* ===== HEADER / NAV (premium hero blend) ===== */
+/* ===== HEADER / NAV (FINAL CLEAN VERSION) ===== */
+
 #siteHeader{
   position: sticky;
   top: 0;
   z-index: 999;
 
-  /* default state = SOLID */
-  background: rgba(255,255,255,.92);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(2,8,23,.06);
-  transition: background .25s ease, border-color .25s ease, box-shadow .25s ease, backdrop-filter .25s ease;
+  /* DEFAULT = transparent (hero visible behind) */
+  background: transparent;
+  border-bottom: 1px solid transparent;
+
+  transition: background .25s ease, border-color .25s ease, box-shadow .25s ease;
 }
 
-/* When header is over hero (top of page) */
+/* ===== HEADER WHILE OVER HERO ===== */
 #siteHeader.on-hero{
-  background: rgba(6, 18, 38, 0.15); /* light tint but still shows hero behind */
+  background: rgba(6, 18, 38, 0.55);   /* hero overlay match */
+  border-bottom: 1px solid rgba(255,255,255,.10);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255,255,255,.12);
 }
 
-/* Make nav items WHITE while on hero */
+/* WHITE TEXT ON HERO */
 #siteHeader.on-hero nav.desktop a,
 #siteHeader.on-hero .dd > button{
-  color: rgba(255,255,255,.92);
+  color: rgba(255,255,255,.95);
 }
 
-#siteHeader.on-hero nav.desktop a{ opacity: .88; }
-#siteHeader.on-hero nav.desktop a:hover{ opacity: 1; }
-
-/* Search button & burger on hero */
+/* Buttons on hero */
 #siteHeader.on-hero .searchBtn,
 #siteHeader.on-hero .burger{
   background: rgba(255,255,255,.08);
   border-color: rgba(255,255,255,.18);
 }
-#siteHeader.on-hero .burger span{ background: rgba(255,255,255,.92); }
-
-/* Solid state (after leaving hero) */
-#siteHeader.scrolled{
-  background: rgba(255,255,255,.92);
-  border-bottom: 1px solid rgba(2,8,23,.06);
+#siteHeader.on-hero .burger span{
+  background: rgba(255,255,255,.95);
 }
+
+/* ===== SCROLLED = FULL SOLID ===== */
+#siteHeader.scrolled{
+  background: #ffffff;   /* 🔥 TRUE SOLID */
+  border-bottom: 1px solid rgba(2,8,23,.10);
+  box-shadow: 0 10px 24px rgba(2,8,23,.08);
+  backdrop-filter: none; /* removes glass transparency */
+}
+
+/* Dark text after scroll */
 #siteHeader.scrolled nav.desktop a,
 #siteHeader.scrolled .dd > button{
   color: #0b1220;
 }
-#siteHeader.scrolled .burger span{ background: #0b1220; }
-
-/* Header while on HERO (blends into hero like premium sites) */
-header.on-hero{
-  background: rgba(6, 18, 38, 0.25);      /* only background transparent */
-  border-bottom: 1px solid rgba(255,255,255,.12);
+#siteHeader.scrolled .burger span{
+  background: #0b1220;
 }
 
 
