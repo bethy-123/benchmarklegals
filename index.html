@@ -26,13 +26,13 @@
       --radius: 18px;
       --radius2: 22px;
 
-      /* typography */
       --serif: ui-serif, Georgia, "Times New Roman", serif;
       --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
     }
 
     *{ box-sizing:border-box; }
     html,body{ height:100%; }
+    html{ scroll-behavior:smooth; }
     body{
       margin:0;
       font-family: var(--sans);
@@ -44,6 +44,11 @@
     img{ max-width:100%; display:block; }
     a{ color: inherit; text-decoration:none; }
     button{ font:inherit; }
+    /* Prevent invisible overlays blocking clicks */
+    body, main, header, section, footer { position: relative; }
+
+    /* Anchor offset for sticky header */
+    [id]{ scroll-margin-top: 98px; }
 
     /* ---------- utilities ---------- */
     .container{
@@ -147,7 +152,6 @@
     }
     .social a:hover{ background: rgba(255,255,255,.08); }
 
-    /* mobile topbar: single-line scroll (no 2 lines wrap) */
     @media (max-width: 820px){
       .topbar .inner{
         flex-direction:column;
@@ -167,57 +171,15 @@
       }
     }
 
-    /* ===== HEADER / NAV (SOLID BRAND NAVY — NO TRANSPARENCY EVER) ===== */
-
-#siteHeader{
-  position: sticky;
-  top: 0;
-  z-index: 999;
-
-  /* BRAND DARK NAVY — ALWAYS */
-  background: #081a33;
-  border-bottom: 1px solid rgba(255,255,255,.08);
-  box-shadow: 0 10px 24px rgba(0,0,0,.25);
-}
-
-/* ===== LOGO ===== */
-#siteHeader .brand img{
-  filter: brightness(0) invert(1); /* makes logo white if dark */
-}
-
-/* ===== MENU TEXT DEFAULT = WHITE ===== */
-#siteHeader nav.desktop a,
-#siteHeader .dd > button{
-  color: rgba(255,255,255,.92);
-}
-
-#siteHeader nav.desktop a:hover{
-  color: #ffffff;
-}
-
-/* ===== GOLD ITEMS (Home + Immigration) ===== */
-
-#siteHeader nav.desktop a.active{
-  color: var(--gold);
-  opacity: 1;
-}
-
-/* Immigration dropdown button gold */
-#siteHeader .dd > button{
-  color: var(--gold);
-}
-
-/* ===== SEARCH + BURGER ===== */
-#siteHeader .searchBtn,
-#siteHeader .burger{
-  background: rgba(255,255,255,.08);
-  border-color: rgba(255,255,255,.18);
-}
-
-#siteHeader .burger span{
-  background: #ffffff;
-}
-
+    /* ===== HEADER / NAV — ALWAYS SOLID NAVY ===== */
+    #siteHeader{
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: var(--navy);               /* ALWAYS solid */
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      box-shadow: 0 10px 24px rgba(0,0,0,.25);
+    }
 
     .navwrap{
       display:flex;
@@ -242,6 +204,7 @@
       max-height: 70px;
       width:auto;
       object-fit:contain;
+      filter: brightness(0) invert(1); /* makes logo white if dark */
     }
 
     nav.desktop{
@@ -254,12 +217,16 @@
     }
     nav.desktop a{
       padding: 10px 4px;
-      opacity:.82;
+      opacity:.92;
       transition:.15s ease;
+      color: rgba(255,255,255,.92);
     }
-    nav.desktop a:hover{ opacity:1; }
+    nav.desktop a:hover{ opacity:1; color:#fff; }
+
+    /* HOME + IMMIGRATION gold */
     nav.desktop a.active{
-      opacity:1;
+      color: var(--gold);
+      opacity: 1;
       position:relative;
     }
     nav.desktop a.active::after{
@@ -279,14 +246,15 @@
 
     .searchBtn{
       width:42px;height:42px;border-radius:999px;
-      border:1px solid rgba(2,8,23,.10);
-      background:#fff;
+      border:1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.08);
       display:grid;place-items:center;
       cursor:pointer;
       transition:.18s ease;
       -webkit-tap-highlight-color: transparent;
+      color:#fff;
     }
-    .searchBtn:hover{ box-shadow: var(--shadow2); transform: translateY(-1px); }
+    .searchBtn:hover{ background: rgba(255,255,255,.12); transform: translateY(-1px); }
 
     /* Mega dropdown (Immigration) */
     .dd{ position:relative; }
@@ -298,13 +266,13 @@
       font:inherit;
       text-transform:inherit;
       letter-spacing:inherit;
-      color:inherit;
-      opacity:.82;
+      opacity:1;
       display:inline-flex;
       align-items:center;
       gap:6px;
+      color: var(--gold); /* Immigration gold */
     }
-    .dd > button:hover{ opacity:1; }
+    .dd > button:hover{ color: var(--gold2); }
     .dd > button:focus{ outline:none; }
     .dd > button:focus-visible{
       outline: 3px solid rgba(215,181,109,.35);
@@ -312,14 +280,15 @@
       border-radius: 10px;
     }
     .caret{
-      width:10px;height:10px; opacity:.7;
+      width:10px;height:10px; opacity:.9;
       transform: translateY(1px);
     }
+
     .mega{
       position:absolute;
       left:50%;
       transform: translateX(-50%);
-      top: 48px;
+      top: 52px;
       width: 760px;
       background: linear-gradient(180deg, #071a36, #06152b);
       border: 1px solid rgba(255,255,255,.12);
@@ -363,8 +332,8 @@
     .burger{
       display:none;
       width:44px;height:44px;border-radius:12px;
-      border:1px solid rgba(2,8,23,.10);
-      background:#fff;
+      border:1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.08);
       cursor:pointer;
       -webkit-tap-highlight-color: transparent;
     }
@@ -373,38 +342,13 @@
       width:18px;height:2px;
       margin:4px auto;
       border-radius:999px;
+      background:#fff;
     }
-
-    /* Hero colours for nav text/icons */
-    #siteHeader.on-hero nav.desktop a,
-    #siteHeader.on-hero .dd > button{
-      color: rgba(255,255,255,.92);
-    }
-    #siteHeader.on-hero nav.desktop a{ opacity:.88; }
-    #siteHeader.on-hero nav.desktop a:hover{ opacity:1; }
-
-    #siteHeader.on-hero .searchBtn,
-    #siteHeader.on-hero .burger{
-      background: rgba(255,255,255,.10);
-      border-color: rgba(255,255,255,.18);
-    }
-    #siteHeader.on-hero .burger span{ background: rgba(255,255,255,.92); }
-
-    /* Solid (scrolled) nav colours */
-    #siteHeader.scrolled nav.desktop a,
-    #siteHeader.scrolled .dd > button{
-      color: #0b1220;
-    }
-    #siteHeader.scrolled .burger{
-      background: #ffffff;
-      border-color: rgba(2,8,23,.12);
-    }
-    #siteHeader.scrolled .burger span{ background:#0b1220; }
 
     .mobilePanel{
       display:none;
-      border-top:1px solid rgba(2,8,23,.06);
-      background:#fff;
+      border-top:1px solid rgba(255,255,255,.10);
+      background: var(--navy);
     }
     .mobilePanel .inner{
       padding: 12px 0 18px;
@@ -414,17 +358,17 @@
     .mLink{
       padding: 12px 12px;
       border-radius: 14px;
-      border:1px solid rgba(2,8,23,.08);
-      background: #fff;
-      font-weight:600;
-      color:#0b1220;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      font-weight:700;
+      color:#fff;
       display:flex;
       align-items:center;
       justify-content:space-between;
       -webkit-tap-highlight-color: transparent;
       cursor:pointer;
     }
-    .mLink:hover{ box-shadow: var(--shadow2); }
+    .mLink:hover{ background: rgba(255,255,255,.10); }
     .mSub{
       display:none;
       padding: 0 12px 12px;
@@ -434,13 +378,13 @@
       display:block;
       padding: 10px 12px;
       border-radius: 12px;
-      border:1px solid rgba(2,8,23,.08);
-      background: #f8fafc;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
       margin-top: 8px;
-      font-weight: 600;
-      color:#0f172a;
+      font-weight: 700;
+      color:#fff;
     }
-    .mSub a:hover{ background:#fff; }
+    .mSub a:hover{ background: rgba(255,255,255,.10); }
     .mRow{
       display:flex;
       gap: 10px;
@@ -499,7 +443,6 @@
       margin-top: 18px;
     }
 
-    /* Right badge block */
     .regRow{
       display:flex;
       justify-content:flex-end;
@@ -523,7 +466,7 @@
     }
     .regNumber{
       font-size: 13px;
-      font-weight: 600;
+      font-weight: 700;
       color: #0b2346;
       text-align:center;
       letter-spacing: .04em;
@@ -593,13 +536,13 @@
     }
     .casesBadge .big{
       font-family: var(--serif);
-      font-weight: 700;
+      font-weight: 800;
       font-size: 46px;
       line-height:1;
       margin-bottom: 10px;
     }
     .casesBadge .small{
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing:.02em;
       opacity:.95;
     }
@@ -673,6 +616,8 @@
       display:grid;place-items:center;
       margin-top: 2px;
       border:1px solid rgba(215,181,109,.35);
+      font-weight:900;
+      color:#7a5d1b;
     }
     .welcomeBtns{
       display:flex;
@@ -840,11 +785,11 @@
       letter-spacing:.16em;
       text-transform: uppercase;
       color: rgba(16,32,58,.85);
-      font-weight: 700;
+      font-weight: 800;
     }
     .speakRight .cta{
       font-family: var(--serif);
-      font-weight: 700;
+      font-weight: 800;
       color:#10203a;
       font-size: 20px;
       line-height:1.2;
@@ -860,7 +805,7 @@
       border-radius:999px;
       padding: 10px 14px;
       cursor:pointer;
-      font-weight:700;
+      font-weight:800;
       -webkit-tap-highlight-color: transparent;
     }
     .speakRight .miniBtn:hover{ opacity:.92; }
@@ -900,15 +845,9 @@
       justify-content:space-between;
       align-items:center;
       gap: 10px;
-      font-weight:700;
+      font-weight:800;
       color:#0f172a;
       -webkit-tap-highlight-color: transparent;
-    }
-    .accBtn:focus{ outline:none; }
-    .accBtn:focus-visible{
-      outline: 3px solid rgba(215,181,109,.35);
-      outline-offset: 3px;
-      border-radius: 14px;
     }
     .accBtn .plus{
       width:26px;height:26px;border-radius:10px;
@@ -917,6 +856,7 @@
       color:#0f172a;
       background:#fff;
       flex:0 0 auto;
+      font-weight:900;
     }
     .accPanel{
       display:none;
@@ -929,6 +869,98 @@
     .accItem.open .plus{
       background: rgba(215,181,109,.12);
       border-color: rgba(215,181,109,.35);
+    }
+
+    /* ---------- CONTACT / BOOKING ---------- */
+    .contact{
+      background: var(--soft);
+      border-top:1px solid rgba(2,8,23,.06);
+    }
+    .contactGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      align-items:start;
+    }
+    @media (max-width: 980px){
+      .contactGrid{ grid-template-columns: 1fr; }
+    }
+
+    .card{
+      border-radius: 22px;
+      background:#fff;
+      border: 1px solid rgba(2,8,23,.08);
+      box-shadow: var(--shadow2);
+      padding: 22px;
+    }
+    .card h3{
+      font-family: var(--serif);
+      margin: 0 0 10px;
+      font-size: 26px;
+      letter-spacing:-.01em;
+    }
+    .card p{
+      margin:0 0 14px;
+      color: rgba(15,23,42,.72);
+      line-height:1.7;
+      font-size: 14.6px;
+    }
+    .fields{
+      display:grid;
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .row2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    @media (max-width: 560px){
+      .row2{ grid-template-columns: 1fr; }
+    }
+    label{
+      display:block;
+      font-size: 12px;
+      letter-spacing:.14em;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: rgba(15,23,42,.60);
+      margin: 0 0 6px;
+    }
+    input, select, textarea{
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(2,8,23,.12);
+      background:#fff;
+      font:inherit;
+      outline:none;
+      transition: .15s ease;
+    }
+    textarea{ min-height: 120px; resize: vertical; }
+    input:focus, select:focus, textarea:focus{
+      border-color: rgba(215,181,109,.70);
+      box-shadow: 0 0 0 4px rgba(215,181,109,.20);
+    }
+    .consent{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      margin-top: 10px;
+      color: rgba(15,23,42,.72);
+      font-size: 13.8px;
+      line-height:1.5;
+    }
+    .consent input{
+      width: 18px;
+      height: 18px;
+      margin-top: 2px;
+    }
+    .note{
+      font-size: 12.8px;
+      color: rgba(15,23,42,.60);
+      margin-top: 10px;
+      line-height:1.5;
     }
 
     /* ---------- footer ---------- */
@@ -1012,7 +1044,6 @@
       font-size: 12.6px;
     }
 
-    /* Mobile footer accordion */
     @media (max-width: 980px){
       .footGrid{ grid-template-columns: 1fr; gap: 12px; }
       .footCol{
@@ -1098,10 +1129,10 @@
   </div>
 
   <!-- HEADER -->
-  <header id="siteHeader" class="on-hero">
+  <header id="siteHeader">
     <div class="container">
       <div class="navwrap">
-        <a class="brand" href="index.html" aria-label="Benchmark Legals Home">
+        <a class="brand" href="#top" aria-label="Benchmark Legals Home">
           <div class="logoBox">
             <img src="assets/logo1.png" alt="Benchmark Legals logo" />
           </div>
@@ -1109,7 +1140,7 @@
 
         <!-- DESKTOP NAV -->
         <nav class="desktop" aria-label="Primary">
-          <a class="active" href="index.html">Home</a>
+          <a class="active" href="#top">Home</a>
           <a href="#about">About</a>
 
           <div class="dd" id="ddImm">
@@ -1121,33 +1152,33 @@
             <div class="mega" role="menu" aria-label="Immigration services">
               <div class="grid">
                 <div class="col">
-                  <a href="#services">Business Visa <small>→</small></a>
-                  <a href="#services">Family Visa <small>→</small></a>
-                  <a href="#services">Global Talent Visa <small>→</small></a>
-                  <a href="#services">Skilled Worker Visa <small>→</small></a>
-                  <a href="#services">Self-Sponsorship Visa <small>→</small></a>
+                  <a href="#book">Business Visa <small>→</small></a>
+                  <a href="#book">Family Visa <small>→</small></a>
+                  <a href="#book">Global Talent Visa <small>→</small></a>
+                  <a href="#book">Skilled Worker Visa <small>→</small></a>
+                  <a href="#book">Self-Sponsorship Visa <small>→</small></a>
                 </div>
                 <div class="divider" aria-hidden="true"></div>
                 <div class="col">
-                  <a href="#services">Visitor Visa <small>→</small></a>
-                  <a href="#services">Extension Visas <small>→</small></a>
-                  <a href="#services">Settlement & Naturalisation <small>→</small></a>
-                  <a href="#services">Graduate Visa <small>→</small></a>
-                  <a href="#services">Innovator Founder Visa <small>→</small></a>
+                  <a href="#book">Visitor Visa <small>→</small></a>
+                  <a href="#book">Extension Visas <small>→</small></a>
+                  <a href="#book">Settlement & Naturalisation <small>→</small></a>
+                  <a href="#book">Graduate Visa <small>→</small></a>
+                  <a href="#book">Innovator Founder Visa <small>→</small></a>
                 </div>
               </div>
             </div>
           </div>
 
           <a href="#faq">FAQ</a>
-          <a href="#contact">Contact</a>
+          <a href="#book">Contact</a>
         </nav>
 
         <div class="navActions">
           <button class="searchBtn" type="button" aria-label="Search (coming soon)">
             <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="1.7"/><path d="M16.5 16.5 21 21" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
           </button>
-          <a class="btn primary" href="#contact">Book Appointment</a>
+          <a class="btn primary" href="#book">Book Appointment</a>
 
           <button class="burger" id="burger" type="button" aria-label="Open menu">
             <span></span><span></span><span></span>
@@ -1158,7 +1189,7 @@
       <!-- MOBILE PANEL -->
       <div class="mobilePanel" id="mobilePanel">
         <div class="inner">
-          <a class="mLink" href="index.html">Home</a>
+          <a class="mLink" href="#top">Home</a>
           <a class="mLink" href="#about">About</a>
 
           <button class="mLink" id="mImmBtn" type="button" aria-expanded="false">
@@ -1167,194 +1198,622 @@
           </button>
 
           <div class="mSub" id="mImmSub">
-            <a href="#services">Business Visa</a>
-            <a href="#services">Family Visa</a>
-            <a href="#services">Global Talent Visa</a>
-            <a href="#services">Skilled Worker Visa</a>
-            <a href="#services">Self-Sponsorship Visa</a>
-            <a href="#services">Visitor Visa</a>
-            <a href="#services">Extension Visas</a>
-            <a href="#services">Settlement & Naturalisation</a>
-            <a href="#services">Graduate Visa</a>
-            <a href="#services">Innovator Founder Visa</a>
+            <a href="#book">Business Visa</a>
+            <a href="#book">Family Visa</a>
+            <a href="#book">Global Talent Visa</a>
+            <a href="#book">Skilled Worker Visa</a>
+            <a href="#book">Self-Sponsorship Visa</a>
+            <a href="#book">Visitor Visa</a>
+            <a href="#book">Extension Visas</a>
+            <a href="#book">Settlement & Naturalisation</a>
+            <a href="#book">Graduate Visa</a>
+            <a href="#book">Innovator Founder Visa</a>
           </div>
 
           <a class="mLink" href="#faq">FAQ</a>
-          <a class="mLink" href="#contact">Contact</a>
+          <a class="mLink" href="#book">Contact</a>
 
           <div class="mRow">
             <a class="btn light" href="mailto:info@benchmarklegals.co.uk">Email</a>
             <a class="btn light" href="tel:+447903004158">Call</a>
-            <a class="btn primary" href="#contact">Book Appointment</a>
+            <a class="btn primary" href="#book">Book Appointment</a>
           </div>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero" id="top">
-    <div class="container">
-      <div class="heroInner">
-        <div>
-          <div class="kicker"><span class="line"></span> UK Immigration & Legal Support</div>
-          <h1>Benchmark Legals<br/>Immigration Law<br/>Services</h1>
-          <p>
-            Migrating to the United Kingdom? We provide premium, structured guidance for individuals and businesses—focused on clarity,
-            compliance, and a smooth client journey.
-          </p>
+  <main>
 
-          <div class="heroActions">
-            <a class="btn ghost" href="#about">Learn More</a>
-            <a class="btn primary" href="#contact">Free 15-min Online Consultation</a>
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="container">
+        <div class="heroInner">
+          <div>
+            <div class="kicker"><span class="line"></span> UK Immigration & Legal Support</div>
+            <h1>Benchmark Legals<br/>Immigration Law<br/>Services</h1>
+            <p>
+              Migrating to the United Kingdom? We provide premium, structured guidance for individuals and businesses—focused on clarity,
+              compliance, and a smooth client journey.
+            </p>
+
+            <div class="heroActions">
+              <a class="btn ghost" href="#about">Learn More</a>
+              <a class="btn primary" href="#book">Free 15-min Online Consultation</a>
+            </div>
+          </div>
+
+          <div class="regRow">
+            <div class="regLogoSimple">
+              <img src="assets/iaa1.png" alt="IAA badge" />
+              <div class="regNumber">IAA Reg No: F202538075</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- WELCOME / ABOUT -->
+    <section class="welcome" id="about">
+      <div class="container">
+        <div class="welcomeGrid">
+          <div class="welcomeImg" aria-label="Welcome image">
+            <img
+              src="assets/her-law.png"
+              alt="Law firm consultation"
+              onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(180deg,#0b2346,#081a33)';"
+            />
+            <div class="casesBadge" aria-label="Successful cases">
+              <div class="big">500+</div>
+              <div class="small">Successful<br/>Cases</div>
+            </div>
+          </div>
+
+          <div class="welcomeCard">
+            <div class="mini"><span class="line"></span> Benchmark Legals</div>
+            <h3>Welcome to the Immigration Law Firm</h3>
+            <p>
+              Benchmark Legals provides immigration legal services to individuals and businesses. We support clients with
+              visa applications, settlement and naturalisation, sponsorship routes, and global talent applications—delivered with
+              careful case management and premium client service.
+            </p>
+
+            <ul class="checklist">
+              <li><span class="tick">✓</span> Expert Immigration Advice and Legal Assistance</li>
+              <li><span class="tick">✓</span> Tailored Strategies for Every Client</li>
+              <li><span class="tick">✓</span> Efficient Case Management & Documentation</li>
+              <li><span class="tick">✓</span> Transparent Practice and Ethical Support</li>
+            </ul>
+
+            <div class="welcomeBtns">
+              <a class="btn primary" href="#book">Get a Quote</a>
+              <a class="btn light" href="#book">About Us</a>
+            </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="regRow">
-          <div class="regLogoSimple">
+    <!-- UK VISA SERVICES -->
+    <section class="services" id="services">
+      <div class="container">
+        <div class="sectionTitle">
+          <div class="top"><span class="line"></span> UK Immigration</div>
+          <h2>UK Visa Services</h2>
+        </div>
+
+        <div class="svcGrid" aria-label="UK Visa Services">
+
+          <div class="svc" role="link" tabindex="0" data-go="#book" aria-label="Business visas">
+            <div class="ico c1">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M7 7h10v12H7V7Z" stroke="currentColor" stroke-width="1.8"/><path d="M9 7V5h6v2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </div>
+            <h4>Business Visas - Global Business Mobility Visas</h4>
+            <div class="arrow">→</div>
+          </div>
+
+          <div class="svc" role="link" tabindex="0" data-go="#book" aria-label="Skilled worker visa">
+            <div class="ico c2">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Z" stroke="currentColor" stroke-width="1.8"/><path d="M4 21c1.5-4 14.5-4 16 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </div>
+            <h4>Skilled Worker Sponsorship and Visa</h4>
+            <div class="arrow">→</div>
+          </div>
+
+          <div class="svc" role="link" tabindex="0" data-go="#book" aria-label="Global talent visa">
+            <div class="ico c4">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2.6 6.2L21 9l-4.7 4.2L17.5 21 12 17.9 6.5 21l1.2-7.8L3 9l6.4-.8L12 2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            </div>
+            <h4>Global Talent Visa</h4>
+            <div class="arrow">→</div>
+          </div>
+
+          <div class="svc" role="link" tabindex="0" data-go="#book" aria-label="Self sponsorship">
+            <div class="ico c5">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M6 9h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M7 21h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </div>
+            <h4>Self-Sponsorship Skilled Worker Visa</h4>
+            <div class="arrow">→</div>
+          </div>
+
+          <div class="svc" role="link" tabindex="0" data-go="#book" aria-label="Family visas">
+            <div class="ico c3">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M7 11a3 3 0 1 0-3-3 3 3 0 0 0 3 3Z" stroke="currentColor" stroke-width="1.8"/><path d="M17 11a3 3 0 1 0-3-3 3 3 0 0 0 3 3Z" stroke="currentColor" stroke-width="1.8"/><path d="M2 21c.8-3.3 8.2-3.3 9 0M13 21c.8-3.3 8.2-3.3 9 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </div>
+            <h4>Family Visas</h4>
+            <div class="arrow">→</div>
+          </div>
+
+          <div class="svc" role="link" tabindex="0" data-go="#book" aria-label="Innovator visas">
+            <div class="ico c4">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M9 21h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M12 2a7 7 0 0 0-4 12c.8.7 1 1.2 1 2h6c0-.8.2-1.3 1-2A7 7 0 0 0 12 2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+            </div>
+            <h4>Innovator Visas</h4>
+            <div class="arrow">→</div>
+          </div>
+
+          <div class="svc" role="link" tabindex="0" data-go="#book" aria-label="Graduate visa">
+            <div class="ico c1">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M3 7l9-4 9 4-9 4-9-4Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M7 10v7c2 2 8 2 10 0v-7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+            </div>
+            <h4>Graduate Visa</h4>
+            <div class="arrow">→</div>
+          </div>
+
+          <div class="svc" role="link" tabindex="0" data-go="#book" aria-label="Extension visas">
+            <div class="ico c2">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M7 3h10v18H7V3Z" stroke="currentColor" stroke-width="1.8"/><path d="M9 8h6M9 12h6M9 16h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </div>
+            <h4>Extension Visas</h4>
+            <div class="arrow">→</div>
+          </div>
+
+          <div class="svc" role="link" tabindex="0" data-go="#book" aria-label="Settlement and naturalisation">
+            <div class="ico c5">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M4 12h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M6 7h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M8 17h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </div>
+            <h4>Settlement and Naturalisation</h4>
+            <div class="arrow">→</div>
+          </div>
+
+          <div class="svc" role="link" tabindex="0" data-go="#book" aria-label="UK visitor visa">
+            <div class="ico c3">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4 7-10V6l-7-3-7 3v5c0 6 7 10 7 10Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+            </div>
+            <h4>UK Visitor Visa</h4>
+            <div class="arrow">→</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SPEAK WITH OUR TEAM -->
+    <section class="speak" id="speak">
+      <div class="container">
+        <div class="speakBox">
+          <div class="speakLeft">
+            <h3>Speak with our team</h3>
+            <p>
+              Prefer a call back? Book an appointment below with your preferred date and time, and our team will contact you.
+              We aim to respond promptly during working hours.
+            </p>
+          </div>
+          <div class="speakRight">
+            <div class="tiny">Quick Contact</div>
+            <div class="cta">Book your call-back appointment</div>
+            <div class="miniRow">
+              <a class="miniBtn" href="tel:+447903004158">Call Now</a>
+              <a class="miniBtn" href="#book">Book Appointment</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+      <div class="container">
+        <div class="sectionTitle">
+          <div class="top"><span class="line"></span> Frequently Asked Questions</div>
+          <h2>Common Queries</h2>
+        </div>
+
+        <div class="faqGrid">
+          <div>
+            <h3 style="margin:0 0 10px;font-family:var(--serif);font-size:30px;letter-spacing:-.01em;">Common Queries</h3>
+            <p style="margin:0;color:rgba(15,23,42,.72);line-height:1.75;max-width:58ch;">
+              Understanding immigration law can be daunting. If you’re seeking visa advice, information on our services and fees,
+              or assistance with an application, we’re ready to offer clear answers.
+            </p>
+            <div style="margin-top:18px;">
+              <a class="btn primary" href="#book">Get Started Now →</a>
+            </div>
+          </div>
+
+          <div class="accordion" aria-label="FAQ accordion">
+            <div class="accItem">
+              <button class="accBtn" type="button">
+                What types of visas can you help with?
+                <span class="plus">+</span>
+              </button>
+              <div class="accPanel">
+                We provide consultancy across a range of routes including work and family visas, visitor visas,
+                settlement and nationality applications, global talent applications, and more.
+              </div>
+            </div>
+
+            <div class="accItem">
+              <button class="accBtn" type="button">
+                How can I get in touch to discuss my case?
+                <span class="plus">+</span>
+              </button>
+              <div class="accPanel">
+                You can book an appointment below and request a call-back, or contact us via phone or email.
+              </div>
+            </div>
+
+            <div class="accItem">
+              <button class="accBtn" type="button">
+                What are your fees?
+                <span class="plus">+</span>
+              </button>
+              <div class="accPanel">
+                We operate transparently. After an initial assessment, we provide a clear quote agreed in advance.
+              </div>
+            </div>
+
+            <div class="accItem">
+              <button class="accBtn" type="button">
+                Do you offer asylum application consultancy?
+                <span class="plus">+</span>
+              </button>
+              <div class="accPanel">
+                Please book a consultation so we can review your circumstances and confirm how we can support you.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT / BOOK APPOINTMENT -->
+    <section class="contact" id="book">
+      <div class="container">
+        <div class="sectionTitle">
+          <div class="top"><span class="line"></span> Contact</div>
+          <h2>Book Appointment</h2>
+        </div>
+
+        <div class="contactGrid">
+          <div class="card">
+            <h3>Request a call-back</h3>
+            <p>
+              Choose a preferred date/time and send your enquiry. Our team will contact you to confirm the appointment.
+            </p>
+
+            <!--
+              ✅ This version submits via mailto (works on any static hosting).
+              If you want real submissions (recommended), use Formspree:
+              1) Create a Formspree form
+              2) Replace action with: action="https://formspree.io/f/xxxxxx" method="POST"
+              3) Remove the JS handler below (or keep it disabled)
+            -->
+            <form id="bookingForm">
+              <div class="fields">
+                <div class="row2">
+                  <div>
+                    <label for="fullName">Full name</label>
+                    <input id="fullName" name="fullName" type="text" placeholder="Your name" required />
+                  </div>
+                  <div>
+                    <label for="phone">Phone</label>
+                    <input id="phone" name="phone" type="tel" placeholder="+44..." required />
+                  </div>
+                </div>
+
+                <div class="row2">
+                  <div>
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" placeholder="you@email.com" required />
+                  </div>
+                  <div>
+                    <label for="service">Service</label>
+                    <select id="service" name="service" required>
+                      <option value="" selected disabled>Select</option>
+                      <option>Skilled Worker Visa</option>
+                      <option>Global Talent Visa</option>
+                      <option>Business Visa</option>
+                      <option>Family Visa</option>
+                      <option>Visitor Visa</option>
+                      <option>Settlement & Naturalisation</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="row2">
+                  <div>
+                    <label for="datetime">Preferred date & time</label>
+                    <input id="datetime" name="datetime" type="datetime-local" required />
+                  </div>
+                  <div>
+                    <label for="timezone">Time zone</label>
+                    <input id="timezone" name="timezone" type="text" placeholder="e.g. UK (GMT)" />
+                  </div>
+                </div>
+
+                <div>
+                  <label for="message">Brief details</label>
+                  <textarea id="message" name="message" placeholder="Tell us what you need help with..." required></textarea>
+                </div>
+
+                <div class="consent">
+                  <input id="consent" type="checkbox" required />
+                  <div>
+                    I consent to being contacted about my enquiry and understand my information will be used to respond to my request.
+                  </div>
+                </div>
+
+                <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;">
+                  <button class="btn primary" type="submit">Send Enquiry</button>
+                  <a class="btn light" href="mailto:info@benchmarklegals.co.uk">Email instead</a>
+                  <a class="btn light" href="tel:+447903004158">Call now</a>
+                </div>
+
+                <div class="note">
+                  If your device doesn’t open an email app on submit, tell me what platform you’re hosting on (Wix/WordPress/custom)
+                  and I’ll switch this form to a proper submission method.
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="card">
+            <h3>Contact details</h3>
+            <p>
+              Benchmark Legals — Immigration Law Services
+            </p>
+
+            <div style="display:grid;gap:10px;margin-top:10px;color:rgba(15,23,42,.74);">
+              <div><strong>Address:</strong> 124 City Road, London, EC1V 2NX</div>
+              <div><strong>Phone:</strong> <a href="tel:+447903004158">+44 7903 004158</a></div>
+              <div><strong>Email:</strong> <a href="mailto:info@benchmarklegals.co.uk">info@benchmarklegals.co.uk</a></div>
+              <div><strong>Working hours:</strong> Mon–Fri 9:00–17:30</div>
+              <div><strong>IAA Reg:</strong> F202538075</div>
+            </div>
+
+            <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap;">
+              <a class="btn primary" href="#top">Back to top</a>
+              <a class="btn light" href="#services">View services</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="container">
+      <div class="footGrid">
+        <div class="footBrand">
+          <img src="assets/logo1.png" alt="Benchmark Legals logo" />
+          <p>
+            Benchmark Legals provides immigration advice with a warm and professional approach, supporting individuals and businesses
+            navigating the United Kingdom immigration system.
+          </p>
+
+          <div class="footCard">
             <img src="assets/iaa1.png" alt="IAA badge" />
-            <div class="regNumber">IAA Reg No: F202538075</div>
+            <div class="txt">
+              Office of the Immigration Services Commissioner<br/>
+              Register No: <strong>F202538075</strong>
+            </div>
           </div>
         </div>
 
+        <div class="footCol">
+          <h4>Contact Us</h4>
+          <div class="content">
+            <div>124 City Road, London, EC1V 2NX</div>
+            <a href="tel:+447903004158">+44 7903 004158</a>
+            <a href="mailto:info@benchmarklegals.co.uk">info@benchmarklegals.co.uk</a>
+          </div>
+        </div>
+
+        <div class="footCol">
+          <h4>UK Immigration</h4>
+          <div class="content">
+            <a href="#services">Skilled Worker Visa</a>
+            <a href="#services">Business Visa</a>
+            <a href="#services">Global Talent Visa</a>
+            <a href="#services">Innovator Founder Visa</a>
+            <a href="#services">Graduate Visa</a>
+            <a href="#services">Family Visa</a>
+            <a href="#services">Settlement & Naturalisation</a>
+            <a href="#services">Extension Visas</a>
+          </div>
+        </div>
+
+        <div class="footCol">
+          <h4>Working Hours</h4>
+          <div class="content">
+            <div>Mon–Fri: 9:00 – 17:30</div>
+            <div>Saturday: Closed</div>
+            <div>Sunday: Closed</div>
+            <div style="margin-top:6px;color:rgba(255,255,255,.65);font-size:12.8px;line-height:1.45;">
+              Working hours may vary on bank holidays.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footLine"></div>
+
+      <div class="copyright">
+        <div>© <span id="year"></span> Benchmark Legals. All rights reserved.</div>
+        <div>
+          <a href="#top" style="color:rgba(255,255,255,.70)">Back to top ↑</a>
+        </div>
       </div>
     </div>
-  </section>
+  </footer>
 
-  <!-- WELCOME / ABOUT -->
-  <section class="welcome" id="about">
-    <div class="container">
-      <div class="welcomeGrid">
-        <div class="welcomeImg" aria-label="Welcome image">
-          <img
-            src="assets/her-law.png"
-            alt="Law firm consultation"
-            onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(180deg,#0b2346,#081a33)';"
-          />
-          <div class="casesBadge" aria-label="Successful cases">
-            <div class="big">500+</div>
-            <div class="small">Successful<br/>Cases</div>
-          </div>
-        </div>
+  <!-- Floating WhatsApp -->
+  <a class="waFloat" href="https://wa.me/447903004158" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M20 12a8 8 0 0 1-11.9 7L4 20l1.1-4.1A8 8 0 1 1 20 12Zm-4.6 2.2c-.2-.1-1.3-.6-1.5-.7-.2-.1-.4-.1-.6.1-.2.2-.6.7-.7.8-.1.1-.3.2-.5.1-.2-.1-.9-.3-1.7-1.1-.6-.6-1.1-1.4-1.2-1.6-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.6 0-.2-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2 0 1.2.8 2.3 1 2.5.1.2 1.6 2.4 3.9 3.4.5.2.9.4 1.2.5.5.1 1 .1 1.4.1.4-.1 1.3-.5 1.5-1 .2-.5.2-.9.1-1 0-.1-.2-.2-.4-.3Z"/>
+    </svg>
+  </a>
 
-        <div class="welcomeCard">
-          <div class="mini"><span class="line"></span> Benchmark Legals</div>
-          <h3>Welcome to the Immigration Law Firm</h3>
-          <p>
-            Benchmark Legals provides immigration legal services to individuals and businesses. We support clients with
-            visa applications, settlement and naturalisation, sponsorship routes, and global talent applications—delivered with
-            careful case management and premium client service.
-          </p>
+  <script>
+    // ====== Helpers ======
+    const qs = (s, el=document) => el.querySelector(s);
+    const qsa = (s, el=document) => Array.from(el.querySelectorAll(s));
 
-          <ul class="checklist">
-            <li><span class="tick">✓</span> Expert Immigration Advice and Legal Assistance</li>
-            <li><span class="tick">✓</span> Tailored Strategies for Every Client</li>
-            <li><span class="tick">✓</span> Efficient Case Management & Documentation</li>
-            <li><span class="tick">✓</span> Transparent Practice and Ethical Support</li>
-          </ul>
+    // ====== Year in footer ======
+    qs('#year').textContent = new Date().getFullYear();
 
-          <div class="welcomeBtns">
-            <a class="btn primary" href="#contact">Get a Quote</a>
-            <a class="btn light" href="#contact">About Us</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    // ====== Desktop Immigration dropdown ======
+    const dd = qs('#ddImm');
+    const ddBtn = dd ? qs('button', dd) : null;
 
-  <!-- UK VISA SERVICES -->
-  <section class="services" id="services">
-    <div class="container">
-      <div class="sectionTitle">
-        <div class="top"><span class="line"></span> UK Immigration</div>
-        <h2>UK Visa Services</h2>
-      </div>
+    function closeDropdown(){
+      if(!dd) return;
+      dd.classList.remove('open');
+      ddBtn?.setAttribute('aria-expanded', 'false');
+    }
+    function toggleDropdown(){
+      if(!dd) return;
+      const open = dd.classList.toggle('open');
+      ddBtn?.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    ddBtn?.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleDropdown();
+    });
+    dd?.addEventListener('mouseenter', () => {
+      if (window.matchMedia('(hover:hover)').matches) {
+        dd.classList.add('open');
+        ddBtn?.setAttribute('aria-expanded','true');
+      }
+    });
+    dd?.addEventListener('mouseleave', () => {
+      if (window.matchMedia('(hover:hover)').matches) {
+        closeDropdown();
+      }
+    });
 
-      <div class="svcGrid" aria-label="UK Visa Services">
+    // Close dropdown on outside click / escape
+    document.addEventListener('click', (e) => {
+      if(dd && dd.classList.contains('open') && !dd.contains(e.target)) closeDropdown();
+    });
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape') closeDropdown();
+    });
 
-        <div class="svc" role="link" tabindex="0" data-go="#contact" aria-label="Business visas">
-          <div class="ico c1">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M7 7h10v12H7V7Z" stroke="currentColor" stroke-width="1.8"/><path d="M9 7V5h6v2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-          </div>
-          <h4>Business Visas - Global Business Mobility Visas</h4>
-          <div class="arrow">→</div>
-        </div>
+    // ====== Mobile menu ======
+    const header = qs('#siteHeader');
+    const burger = qs('#burger');
+    burger?.addEventListener('click', () => {
+      header.classList.toggle('menuOpen');
+    });
 
-        <div class="svc" role="link" tabindex="0" data-go="#contact" aria-label="Skilled worker visa">
-          <div class="ico c2">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Z" stroke="currentColor" stroke-width="1.8"/><path d="M4 21c1.5-4 14.5-4 16 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-          </div>
-          <h4>Skilled Worker Sponsorship and Visa</h4>
-          <div class="arrow">→</div>
-        </div>
+    // Close mobile menu when clicking a link
+    qsa('.mobilePanel a').forEach(a => {
+      a.addEventListener('click', () => header.classList.remove('menuOpen'));
+    });
 
-        <div class="svc" role="link" tabindex="0" data-go="#contact" aria-label="Global talent visa">
-          <div class="ico c4">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2.6 6.2L21 9l-4.7 4.2L17.5 21 12 17.9 6.5 21l1.2-7.8L3 9l6.4-.8L12 2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-          </div>
-          <h4>Global Talent Visa</h4>
-          <div class="arrow">→</div>
-        </div>
+    // Mobile Immigration submenu
+    const mImmBtn = qs('#mImmBtn');
+    const mImmSub = qs('#mImmSub');
+    mImmBtn?.addEventListener('click', () => {
+      const open = mImmSub.style.display === 'block';
+      mImmSub.style.display = open ? 'none' : 'block';
+      mImmBtn.setAttribute('aria-expanded', open ? 'false' : 'true');
+    });
 
-        <div class="svc" role="link" tabindex="0" data-go="#contact" aria-label="Self sponsorship">
-          <div class="ico c5">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M6 9h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M7 21h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-          </div>
-          <h4>Self-Sponsorship Skilled Worker Visa</h4>
-          <div class="arrow">→</div>
-        </div>
+    // ====== Service cards click -> go to booking ======
+    qsa('.svc').forEach(card => {
+      const go = card.getAttribute('data-go');
+      const handler = () => {
+        if(go) location.hash = go;
+      };
+      card.addEventListener('click', handler);
+      card.addEventListener('keydown', (e) => {
+        if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handler(); }
+      });
+    });
 
-        <div class="svc" role="link" tabindex="0" data-go="#contact" aria-label="Family visas">
-          <div class="ico c3">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M7 11a3 3 0 1 0-3-3 3 3 0 0 0 3 3Z" stroke="currentColor" stroke-width="1.8"/><path d="M17 11a3 3 0 1 0-3-3 3 3 0 0 0 3 3Z" stroke="currentColor" stroke-width="1.8"/><path d="M2 21c.8-3.3 8.2-3.3 9 0M13 21c.8-3.3 8.2-3.3 9 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-          </div>
-          <h4>Family Visas</h4>
-          <div class="arrow">→</div>
-        </div>
+    // ====== FAQ accordion ======
+    qsa('.accItem').forEach(item => {
+      const btn = qs('.accBtn', item);
+      btn?.addEventListener('click', () => {
+        item.classList.toggle('open');
+      });
+    });
 
-        <div class="svc" role="link" tabindex="0" data-go="#contact" aria-label="Innovator visas">
-          <div class="ico c4">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M9 21h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M12 2a7 7 0 0 0-4 12c.8.7 1 1.2 1 2h6c0-.8.2-1.3 1-2A7 7 0 0 0 12 2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
-          </div>
-          <h4>Innovator Visas</h4>
-          <div class="arrow">→</div>
-        </div>
+    // ====== Footer accordion on mobile ======
+    function footerAccordionInit(){
+      const isMobile = window.matchMedia('(max-width: 980px)').matches;
+      qsa('footer .footCol').forEach(col => {
+        const h = qs('h4', col);
+        const content = qs('.content', col);
+        if(!content) return;
 
-        <div class="svc" role="link" tabindex="0" data-go="#contact" aria-label="Graduate visa">
-          <div class="ico c1">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M3 7l9-4 9 4-9 4-9-4Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M7 10v7c2 2 8 2 10 0v-7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
-          </div>
-          <h4>Graduate Visa</h4>
-          <div class="arrow">→</div>
-        </div>
+        if(isMobile){
+          // Ensure content container exists / is hidden by default
+          col.classList.remove('open');
+          // Make sure repeated bindings do not stack
+          h.onclick = () => col.classList.toggle('open');
+        } else {
+          // Desktop: always open
+          col.classList.add('open');
+          h.onclick = null;
+        }
+      });
+    }
+    footerAccordionInit();
+    window.addEventListener('resize', footerAccordionInit);
 
-        <div class="svc" role="link" tabindex="0" data-go="#contact" aria-label="Extension visas">
-          <div class="ico c2">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M7 3h10v18H7V3Z" stroke="currentColor" stroke-width="1.8"/><path d="M9 8h6M9 12h6M9 16h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-          </div>
-          <h4>Extension Visas</h4>
-          <div class="arrow">→</div>
-        </div>
+    // ====== Booking form submit (mailto) ======
+    const form = qs('#bookingForm');
+    form?.addEventListener('submit', (e) => {
+      e.preventDefault();
 
-        <div class="svc" role="link" tabindex="0" data-go="#contact" aria-label="Settlement and naturalisation">
-          <div class="ico c5">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M4 12h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M6 7h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M8 17h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-          </div>
-          <h4>Settlement and Naturalisation</h4>
-          <div class="arrow">→</div>
-        </div>
+      const name = qs('#fullName').value.trim();
+      const phone = qs('#phone').value.trim();
+      const email = qs('#email').value.trim();
+      const service = qs('#service').value;
+      const dt = qs('#datetime').value;
+      const tz = qs('#timezone').value.trim();
+      const msg = qs('#message').value.trim();
 
-        <div class="svc" role="link" tabindex="0" data-go="#contact" aria-label="UK visitor visa">
-          <div class="ico c3">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4 7-10V6l-7-3-7 3v5c0 6 7 10 7 10Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
-          </div>
-          <h4>UK Visitor Visa</h4>
-          <div class="arrow">→</div>
-        </div>
+      const subject = encodeURIComponent(`Appointment Request — ${name}`);
+      const body = encodeURIComponent(
+`New appointment enquiry:
 
-      </div>
-    </div>
-  </section>
+Name: ${name}
+Phone: ${phone}
+Email: ${email}
+Service: ${service}
+Preferred date/time: ${dt}${tz ? " ("+tz+")" : ""}
 
-  <!-- SPEAK WITH OUR TEAM -->
-  <section class="s
+Message:
+${msg}
+
+— Sent from website booking form`
+      );
+
+      // Opens user's email client
+      window.location.href = `mailto:info@benchmarklegals.co.uk?subject=${subject}&body=${body}`;
+    });
+  </script>
+
+</body>
+</html>
