@@ -3,1289 +3,1139 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Benchmark Legals | UK Immigration Advice</title>
-  <meta name="description" content="Benchmark Legals provides UK immigration advice and assistance, authorised and regulated by the Immigration Advice Authority (IAA)." />
+  <meta name="theme-color" content="#0b1f3a" />
+  <title>Benchmark Legals | Immigration Law Services</title>
+  <meta name="description" content="Benchmark Legals provides premium UK immigration advice and legal support for individuals and businesses." />
 
-  <!-- Favicon (tab icon) -->
-  <link rel="icon" type="image/png" href="assets/tablogo.png" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="tablogo.png" />
 
+  <!-- Fonts (premium + minimal) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --navy:#071a2b;
-      --navy2:#0b243b;
-      --ink:#0b1f33;
-      --muted:#5b6775;
-      --paper:#ffffff;
-      --soft:#f5f6f8;
-
-      /* Gold header like your inspiration */
-      --gold:#c9a24d;
-      --gold2:#b78c2e;
-      --goldDark:#9a7322;
-
-      --max:1180px;
-      --radius:18px;
-      --shadow:0 18px 46px rgba(7,26,43,.14);
-      --shadow2:0 10px 26px rgba(7,26,43,.10);
-      --line:rgba(255,255,255,.14);
+      --navy:#0b1f3a;
+      --navy2:#0a1a31;
+      --gold:#c7a35a;
+      --gold2:#e3c77c;
+      --ink:#0e1420;
+      --muted:#5a6475;
+      --bg:#ffffff;
+      --line:rgba(15, 25, 40, .10);
+      --shadow: 0 18px 50px rgba(10, 26, 49, .12);
+      --radius:16px;
+      --max: 1160px;
     }
 
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0}
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
     body{
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color:var(--ink);
-      background:var(--paper);
-      line-height:1.6;
+      background:var(--bg);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
-    a{color:inherit}
-    img{max-width:100%;display:block}
-    .wrap{max-width:var(--max); margin:0 auto; padding:0 24px;}
-    /* ===== Top bar (premium like reference) ===== */
-.topbar{
-  background:linear-gradient(180deg, var(--navy2), var(--navy));
-  color:rgba(255,255,255,.92);
-  font-size:13px;
-  border-bottom:1px solid rgba(255,255,255,.10);
-}
+    a{ color:inherit; text-decoration:none; }
+    img{ max-width:100%; height:auto; display:block; }
 
-.topbar-inner{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:14px;
-  padding:10px 0;
-  flex-wrap:wrap;
-}
+    .container{ width:min(var(--max), calc(100% - 48px)); margin:0 auto; }
 
-.topbar-left{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  flex-wrap:wrap;
-}
-
-.topbar-link{
-  color:rgba(255,255,255,.92);
-  text-decoration:none;
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  font-weight:600;
-}
-
-.topbar-link:hover{ color:#fff; }
-
-.topbar-text{
-  color:rgba(255,255,255,.92);
-  font-weight:600;
-}
-
-.topbar-text strong{ color:#fff; font-weight:800; }
-
-.sep{
-  color:rgba(255,255,255,.35);
-  margin:0 2px;
-}
-
-.ico{
-  opacity:.95;
-  transform:translateY(-.5px);
-}
-
-/* socials on the right */
-.topbar-right{
-  display:flex;
-  align-items:center;
-  gap:14px;
-}
-
-.social{
-  width:28px;
-  height:28px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:8px;
-  text-decoration:none;
-  color:rgba(255,255,255,.92);
-  font-weight:900;
-  letter-spacing:-.2px;
-  border:1px solid rgba(255,255,255,.14);
-  background:rgba(255,255,255,.04);
-}
-
-.social:hover{
-  background:rgba(255,255,255,.10);
-  border-color:rgba(255,255,255,.22);
-  color:#fff;
-}
-
-
-/* ===== Premium Transparent Gold Header ===== */
-
-header{
-  position:sticky;
-  top:0;
-  z-index:100;
-
-  /* Transparent luxury gold */
-  background:rgba(201,162,77,.88);
-
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-
-  border-bottom:1px solid rgba(0,0,0,.08);
-  box-shadow:0 8px 24px rgba(7,26,43,.12);
-
-  transition: all .35s ease;
-}
-
-.nav{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:16px 0;
-}
-
-/* ===== Logo ===== */
-
-.brand img{
-  height:68px;
-  width:auto;
-}
-
-/* ===== Menu ===== */
-
-.menu{
-  display:flex;
-  gap:28px;
-}
-
-.menu a{
-  font-weight:700;
-  font-size:13px;
-  letter-spacing:.6px;
-  text-decoration:none;
-  color:#0b1f33;
-  opacity:.85;
-  transition:.25s;
-}
-
-.menu a:hover{
-  opacity:1;
-}
-    header::after{
-  content:"";
-  position:absolute;
-  bottom:0;
-  left:0;
-  right:0;
-  height:1px;
-  background:linear-gradient(
-    to right,
-    transparent,
-    rgba(255,255,255,.4),
-    transparent
-  );
-}
-
-
-/* ===== CTA Buttons ===== */
-
-.cta{
-  display:flex;
-  gap:12px;
-}
-
-.btn{
-  height:44px;
-  padding:0 20px;
-  border-radius:999px;
-  font-weight:700;
-  font-size:13px;
-  border:1px solid rgba(11,31,51,.15);
-  background:rgba(255,255,255,.35);
-  backdrop-filter: blur(8px);
-}
-
-.btn.primary{
-  background:#071a2b;
-  color:white;
-  border:none;
-}
-
-    .burger{
-      display:none;
-      background:rgba(255,255,255,.22);
-      border:1px solid rgba(10,22,34,.18);
-      color:#0a1622;
-      padding:8px;
-      cursor:pointer;
-      border-radius:12px;
-    }
-    .burger:hover{background:rgba(255,255,255,.34)}
-    .burger svg{width:26px; height:26px}
-
-    /* Desktop dropdown */
-    .dropdown{position:relative}
-    .dropdown > a{display:inline-flex; gap:8px; align-items:center}
-    .dropdown .panel{
-      position:absolute;
-      top:52px;
-      left:0;
-      width:560px;
-      background:#0a1622;
-      border:1px solid rgba(255,255,255,.14);
-      border-radius:16px;
-      box-shadow:var(--shadow);
-      padding:14px;
-      display:none;
-    }
-    .dropdown:hover .panel{display:block}
-    .panel .cols{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:8px 16px;
-      padding:6px;
-    }
-    .panel a{
-      display:flex;
-      padding:10px 10px;
-      border-radius:12px;
-      color:rgba(255,255,255,.92);
-      text-decoration:none;
-      font-weight:800;
+    /* Top bar */
+    .topbar{
+      background: linear-gradient(180deg, var(--navy), var(--navy2));
+      color:#eaf0ff;
       font-size:13px;
+      letter-spacing:.2px;
     }
-    .panel a:hover{background:rgba(255,255,255,.10); color:#fff}
-
-    /* Mobile menu */
-    .mobile{
-      display:none;
-      border-top:1px solid rgba(0,0,0,.10);
-      padding:10px 0 14px;
-    }
-    .mobile a{
-      display:block;
-      padding:10px 12px;
-      color:#0a1622;
-      text-decoration:none;
-      font-weight:900;
-      border-radius:12px;
-      background:rgba(255,255,255,.18);
-      margin-bottom:8px;
-    }
-    .mobile a:hover{background:rgba(255,255,255,.28)}
-    .mobile .sub{
-      margin-top:8px;
-      padding-left:10px;
-      border-left:2px solid rgba(10,22,34,.18);
-    }
-    .mobile .sub a{font-weight:800; font-size:13px; opacity:.95}
-
-    /* ===== Hero (premium like inspiration) ===== */
-    .hero{
-      position:relative;
-      background:var(--navy);
-      color:#fff;
-      overflow:hidden;
-    }
-    .hero-bg{
-      position:absolute; inset:0;
-      background-image:url("assets/hero-1.jpg");
-      background-size:cover;
-      background-position:center;
-      transform:scale(1.03);
-      filter:saturate(.95);
-    }
-    .hero-overlay{
-      position:absolute; inset:0;
-      background:linear-gradient(90deg, rgba(7,26,43,.86), rgba(7,26,43,.58) 60%, rgba(7,26,43,.35));
-    }
-    .hero .content{
-      position:relative;
-      min-height:78vh;
+    .topbar-inner{
       display:flex;
       align-items:center;
-      padding:68px 0 58px;
+      justify-content:space-between;
+      gap:16px;
+      padding:10px 0;
+    }
+    .topbar-left, .topbar-right{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      opacity:.95;
+      white-space:nowrap;
+    }
+    .chip svg{ width:15px; height:15px; opacity:.95; }
+    .social{
+      display:flex; align-items:center; gap:12px;
+    }
+    .social a{
+      width:34px; height:34px;
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:999px;
+      display:grid; place-items:center;
+      transition: all .2s ease;
+      opacity:.95;
+    }
+    .social a:hover{ transform: translateY(-1px); border-color:rgba(255,255,255,.28); opacity:1; }
+
+    /* Header */
+    header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:rgba(255,255,255,.92);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      padding:14px 0;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width: 220px;
+    }
+    .brand .logo-wrap{
+      background: #fff;
+      border:1px solid rgba(15,25,40,.08);
+      border-radius:14px;
+      padding:10px 12px;
+      box-shadow: 0 10px 30px rgba(10,26,49,.08);
+    }
+    .brand img{
+      width: 170px;           /* bigger logo */
+      height:auto;
+      max-height: 44px;
+      object-fit:contain;
+    }
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:22px;
+      font-size:13px;
+      letter-spacing:.7px;
+      text-transform:uppercase;
+      color:#1f2b3f;
+    }
+    .nav-links a{
+      padding:10px 6px;
+      position:relative;
+      opacity:.9;
+      transition:opacity .2s ease;
+    }
+    .nav-links a:hover{ opacity:1; }
+    .nav-links a.active::after{
+      content:"";
+      position:absolute;
+      left:6px; right:6px; bottom:6px;
+      height:2px;
+      background: linear-gradient(90deg, var(--gold), var(--gold2));
+      border-radius:99px;
+      opacity:.95;
+    }
+
+    .nav-actions{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width: 220px;
+      justify-content:flex-end;
+    }
+    .icon-btn{
+      width:42px; height:42px;
+      border-radius:999px;
+      border:1px solid rgba(15,25,40,.12);
+      background:#fff;
+      display:grid; place-items:center;
+      transition: all .2s ease;
+    }
+    .icon-btn:hover{ transform: translateY(-1px); box-shadow: 0 10px 30px rgba(10,26,49,.10); }
+    .btn{
+      height:42px;
+      padding:0 16px;
+      border-radius:999px;
+      border:1px solid rgba(15,25,40,.12);
+      background:#fff;
+      font-weight:500;
+      font-size:13px;
+      letter-spacing:.2px;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      transition: all .2s ease;
+      white-space:nowrap;
+    }
+    .btn.primary{
+      border-color:transparent;
+      background: linear-gradient(90deg, var(--gold), var(--gold2));
+      color:#1a1407;
+      box-shadow: 0 12px 30px rgba(199, 163, 90, .25);
+    }
+    .btn.primary:hover{ transform: translateY(-1px); box-shadow: 0 18px 40px rgba(199, 163, 90, .30); }
+    .btn.outline:hover{ transform: translateY(-1px); box-shadow: 0 12px 30px rgba(10,26,49,.10); }
+
+    /* Mobile nav */
+    .burger{ display:none; }
+    .mobile-panel{
+      display:none;
+      border-top:1px solid var(--line);
+      padding:12px 0 18px;
+    }
+    .mobile-panel a{
+      display:block;
+      padding:12px 6px;
+      font-size:13px;
+      letter-spacing:.6px;
+      text-transform:uppercase;
+      color:#1f2b3f;
+      opacity:.92;
+    }
+
+    /* Hero */
+    .hero{
+      position:relative;
+      overflow:hidden;
+      background: linear-gradient(180deg, rgba(11,31,58,.82), rgba(11,31,58,.88));
+      color:#fff;
+    }
+    /* Replace hero-bg.jpg with your own image (e.g., hero1.png) */
+    .hero::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(1200px 600px at 15% 10%, rgba(199,163,90,.18), transparent 60%),
+        radial-gradient(900px 500px at 85% 35%, rgba(227,199,124,.10), transparent 55%),
+        url("hero-bg.jpg") center/cover no-repeat;
+      filter: saturate(1.1) contrast(1.05);
+      opacity:.55;
+      transform: scale(1.03);
+    }
+    .hero::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(90deg, rgba(11,31,58,.92) 0%, rgba(11,31,58,.74) 55%, rgba(11,31,58,.90) 100%);
+    }
+    .hero-inner{
+      position:relative;
+      padding: 88px 0 78px;
     }
     .hero-grid{
-      width:100%;
       display:grid;
-      grid-template-columns:1.1fr .9fr;
-      gap:34px;
+      grid-template-columns: 1.2fr .8fr;
+      gap:40px;
       align-items:center;
     }
     .kicker{
       display:inline-flex;
       align-items:center;
       gap:10px;
-      padding:8px 12px;
-      border-radius:999px;
-      background:rgba(255,255,255,.10);
-      border:1px solid rgba(255,255,255,.16);
-      font-weight:800;
-      font-size:13px;
-      color:rgba(255,255,255,.92);
-      width:fit-content;
-    }
-    .hero h1{
-      font-size:58px;
-      line-height:1.02;
-      margin:16px 0 14px;
-      letter-spacing:-1px;
-      text-transform:uppercase;
-    }
-    .hero p{
-      margin:0 0 24px;
-      font-size:17px;
-      color:rgba(255,255,255,.88);
-      max-width:60ch;
-    }
-    .hero-actions{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
-    .hero .btn{
-      height:48px;
-      padding:0 18px;
-      font-size:13px;
-      border-color:rgba(255,255,255,.20);
-      color:#fff;
-      background:rgba(255,255,255,.08);
-    }
-    .hero .btn:hover{background:rgba(255,255,255,.14)}
-    .hero .btn.primary{
-      background:var(--gold);
-      border-color:var(--gold);
-      color:#0a1622;
-    }
-    .hero .btn.primary:hover{background:var(--gold2); border-color:var(--gold2)}
-
-    /* Hero trust card (IAA block) */
-    .trust{
-      background:rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.16);
-      border-radius:var(--radius);
-      padding:18px;
-      box-shadow:var(--shadow2);
-      backdrop-filter: blur(6px);
-    }
-    .trust .row{display:flex; gap:14px; align-items:center}
-    .trust img{
-      height:66px; /* bigger */
-      width:auto;
-      border-radius:14px;
-      background:#fff;
-      padding:8px;
-    }
-    .trust .meta{font-size:13px; color:rgba(255,255,255,.86)}
-    .trust .meta strong{color:#fff}
-    .mini{
-      margin-top:14px;
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:10px;
-    }
-    .mini .card{
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.10);
-      border-radius:14px;
-      padding:12px;
-      font-size:13px;
-      color:rgba(255,255,255,.86);
-    }
-    .mini .card strong{color:#fff}
-
-    /* ===== Sections ===== */
-    section{padding:78px 0}
-    .soft{background:var(--soft)}
-    .section-title{
-      text-align:center;
-      margin-bottom:28px;
-    }
-    .section-title .overline{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      font-weight:900;
-      letter-spacing:.25px;
       font-size:12px;
-      color:rgba(11,31,51,.70);
+      letter-spacing:1.2px;
       text-transform:uppercase;
+      opacity:.9;
     }
-    .section-title .overline:before{
-      content:"";
-      width:44px;
-      height:2px;
-      background:var(--gold);
-      border-radius:999px;
-      display:inline-block;
+    .kicker .line{
+      width:34px; height:2px;
+      background: linear-gradient(90deg, var(--gold), var(--gold2));
+      border-radius:99px;
     }
-    .section-title h2{
-      margin:10px 0 0;
-      font-size:34px;
-      letter-spacing:-.5px;
-      line-height:1.15;
-      text-transform:uppercase;
-    }
-    .section-title p{
-      margin:10px auto 0;
-      color:var(--muted);
-      max-width:70ch;
-      font-size:15px;
-    }
-
-    /* ===== Services - icon grid like inspiration ===== */
-    .services-grid{
-      display:grid;
-      grid-template-columns:repeat(5,1fr);
-      gap:0;
-      border:1px solid rgba(11,31,51,.10);
-      border-radius:18px;
-      overflow:hidden;
-      background:#fff;
-      box-shadow:0 10px 22px rgba(7,26,43,.06);
-    }
-    .service{
-      padding:22px 18px 18px;
-      border-right:1px solid rgba(11,31,51,.08);
-      border-bottom:1px solid rgba(11,31,51,.08);
-      text-align:center;
-      text-decoration:none;
-      color:var(--ink);
-      min-height:190px;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      gap:12px;
-      transition:background .15s ease, transform .15s ease;
-    }
-    .service:hover{
-      background:rgba(201,162,77,.08);
-      transform:translateY(-2px);
-    }
-    .service:nth-child(5),
-    .service:nth-child(10){border-right:none}
-    .service:nth-child(n+6){border-bottom:none}
-
-    .svc-icn{
-      width:54px;
-      height:54px;
-      border-radius:16px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background:rgba(11,31,51,.04);
-      border:1px solid rgba(11,31,51,.08);
-    }
-    .svc-icn svg{width:30px;height:30px}
-    .service h3{
-      margin:0;
-      font-size:14px;
+    h1{
+      margin:14px 0 12px;
+      font-family: "Playfair Display", serif;
+      font-weight:600;
       letter-spacing:.2px;
-      font-weight:900;
-      text-transform:uppercase;
+      line-height:1.05;
+      font-size: clamp(38px, 4.2vw, 56px);
     }
-    .service .arrow{
-      font-weight:900;
-      color:rgba(11,31,51,.65);
-      font-size:18px;
-      margin-top:2px;
+    .hero-sub{
+      max-width: 54ch;
+      color: rgba(234,240,255,.88);
+      font-size:15.5px;
+      line-height:1.7;
+      margin: 0 0 22px;
+      font-weight:300;
     }
-
-    /* ===== About (image + text like inspiration) ===== */
-    .about{
-      display:grid;
-      grid-template-columns:1.05fr .95fr;
-      gap:26px;
-      align-items:stretch;
-    }
-    .about-visual{
-      border-radius:22px;
-      overflow:hidden;
-      box-shadow:var(--shadow);
-      min-height:440px;
-      position:relative;
-      background:#0b1f33;
-    }
-    .about-visual .img{
-      position:absolute; inset:0;
-      background-image:url("assets/hero-2.jpg");
-      background-size:cover;
-      background-position:center;
-      filter:saturate(.95);
-      transform:scale(1.02);
-    }
-    .about-visual .shade{
-      position:absolute; inset:0;
-      background:linear-gradient(180deg, rgba(7,26,43,.10), rgba(7,26,43,.55));
-    }
-    .about-card{
-      background:#fff;
-      border:1px solid rgba(11,31,51,.08);
-      border-radius:22px;
-      padding:28px;
-      box-shadow:0 12px 28px rgba(7,26,43,.07);
-    }
-    .about-card .small{
-      font-weight:900;
-      text-transform:uppercase;
-      font-size:12px;
-      letter-spacing:.25px;
-      color:rgba(11,31,51,.65);
+    .hero-ctas{
       display:flex;
-      align-items:center;
-      gap:10px;
-      margin-bottom:8px;
-    }
-    .about-card .small:before{
-      content:"";
-      width:44px;
-      height:2px;
-      background:var(--gold);
-      border-radius:999px;
-      display:inline-block;
-    }
-    .about-card h3{
-      margin:0 0 10px;
-      font-size:30px;
-      line-height:1.12;
-      letter-spacing:-.4px;
-      text-transform:uppercase;
-    }
-    .about-card p{margin:0; color:var(--muted); font-size:15px}
-    .ticks{margin-top:16px; display:grid; gap:10px}
-    .tick{
-      display:flex; gap:10px; align-items:flex-start;
-      color:var(--ink); font-weight:700;
-    }
-    .tick i{
-      width:22px;height:22px;border-radius:8px;
-      background:rgba(201,162,77,.18);
-      color:var(--goldDark);
-      display:flex;align-items:center;justify-content:center;
-      font-style:normal;
-      font-weight:900;
-      margin-top:2px;
-      flex:0 0 auto;
-    }
-    .about-actions{margin-top:18px; display:flex; gap:10px; flex-wrap:wrap}
-    .about-actions .btn{
-      height:46px;
-      background:#fff;
-      border-color:rgba(11,31,51,.14);
-      color:var(--ink);
-    }
-    .about-actions .btn.primary{
-      background:var(--gold);
-      border-color:var(--gold);
-      color:#0a1622;
-    }
-
-    /* ===== FAQ (like inspiration) ===== */
-    .faq{
-      display:grid;
-      grid-template-columns:1fr 1.05fr;
-      gap:34px;
-      align-items:start;
-    }
-    .faq-left h3{
-      margin:8px 0 10px;
-      font-size:34px;
-      letter-spacing:-.5px;
-      text-transform:uppercase;
-      line-height:1.12;
-    }
-    .faq-left p{margin:0; color:var(--muted); max-width:48ch}
-    .faq-left .btn{
-      margin-top:18px;
-      height:48px;
-      background:var(--gold);
-      border-color:var(--gold);
-      color:#0a1622;
-    }
-    .faq-left .btn:hover{background:var(--gold2); border-color:var(--gold2)}
-
-    .acc{display:flex; flex-direction:column; gap:12px;}
-    details{
-      background:#fff;
-      border:1px solid rgba(11,31,51,.10);
-      border-radius:16px;
-      padding:14px 16px;
-      box-shadow:0 10px 22px rgba(7,26,43,.06);
-    }
-    summary{
-      cursor:pointer;
-      list-style:none;
-      font-weight:900;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      font-size:14px;
-    }
-    summary::-webkit-details-marker{display:none}
-    .plus{
-      width:30px;height:30px;border-radius:10px;
-      border:1px solid rgba(11,31,51,.12);
-      display:flex;align-items:center;justify-content:center;
-      font-weight:900;
-      color:var(--goldDark);
-      flex:0 0 auto;
-      background:rgba(201,162,77,.10);
-    }
-    details[open]{
-      border-color:rgba(11,31,51,.18);
-    }
-    details[open] summary{
-      background:#0a1622;
-      color:#fff;
-      padding:12px 12px;
-      border-radius:12px;
-      margin:-6px -6px 10px;
-    }
-    details[open] .plus{
-      background:rgba(255,255,255,.10);
-      border-color:rgba(255,255,255,.20);
-      color:#fff;
-    }
-    details p{
-      margin:10px 0 0;
-      color:var(--muted);
-      font-size:14px;
-    }
-
-    /* ===== Footer (premium, with both logos big like inspiration) ===== */
-    footer{
-      background:var(--navy);
-      color:#fff;
-      padding:64px 0 28px;
-      border-top:1px solid rgba(255,255,255,.10);
-    }
-    .foot{
-      display:grid;
-      grid-template-columns:1.25fr 1fr 1fr 1fr;
-      gap:28px;
-      align-items:start;
-    }
-
-    /* Big tidy logo row */
-    .footer-brand{
-      display:flex;
-      align-items:flex-start;
-      gap:18px;
-      margin-bottom:12px;
-    }
-    .footer-brand .logo-main img{
-      height:72px; /* bigger */
-      width:auto;
-    }
-    .footer-brand .logo-iaa{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      padding:10px 12px;
-      border:1px solid rgba(255,255,255,.14);
-      border-radius:16px;
-      background:rgba(255,255,255,.06);
-    }
-    .footer-brand .logo-iaa img{
-      height:72px; /* BIG & same size feel */
-      width:auto;
-      background:#fff;
-      padding:8px;
-      border-radius:14px;
-    }
-    .footer-brand .logo-iaa .meta{
-      font-size:13px;
-      color:rgba(255,255,255,.88);
-      line-height:1.35;
-    }
-    .footer-brand .logo-iaa .meta strong{color:#fff}
-
-    .foot h4{
-      margin:10px 0 12px;
-      font-size:14px;
-      letter-spacing:.25px;
-      text-transform:uppercase;
-    }
-    .foot a{
-      color:rgba(255,255,255,.82);
-      text-decoration:none;
-      font-size:13px;
-    }
-    .foot a:hover{color:#fff}
-    .foot p{
-      margin:0;
-      color:rgba(255,255,255,.76);
-      font-size:13px;
-    }
-    .foot .list p{margin:0 0 8px}
-
-    .copyright{
-      margin-top:26px;
-      padding-top:18px;
-      border-top:1px solid rgba(255,255,255,.12);
-      display:flex;
-      justify-content:space-between;
       gap:12px;
       flex-wrap:wrap;
-      color:rgba(255,255,255,.66);
+      margin-top: 18px;
+    }
+    .hero-card{
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.14);
+      padding: 18px 18px;
+      box-shadow: var(--shadow);
+    }
+    .hero-card .mini{
       font-size:12px;
+      letter-spacing:1.1px;
+      text-transform:uppercase;
+      color: rgba(234,240,255,.78);
+      margin:0 0 10px;
+    }
+    .hero-card .big{
+      font-family: "Playfair Display", serif;
+      font-size:26px;
+      margin:0 0 8px;
+    }
+    .hero-card p{
+      margin:0;
+      font-size:13.5px;
+      line-height:1.65;
+      color: rgba(234,240,255,.80);
+      font-weight:300;
+    }
+    .hero-card .badge-row{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-top:12px;
+      opacity:.95;
+    }
+    .hero-card .badge-row img{
+      width:56px; height:auto;
+      filter: drop-shadow(0 10px 18px rgba(0,0,0,.25));
+    }
+    .hero-card .badge-row span{
+      font-size:12.5px;
+      color: rgba(234,240,255,.86);
+      line-height:1.25;
     }
 
-    /* WhatsApp floating */
-    .whatsapp{
+    /* Sections */
+    section{ padding: 72px 0; }
+    .section-head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:22px;
+      margin-bottom: 26px;
+    }
+    .section-title{
+      margin:0;
+      font-family:"Playfair Display", serif;
+      font-size: 30px;
+      letter-spacing:.2px;
+    }
+    .section-lead{
+      margin:0;
+      color: var(--muted);
+      max-width: 62ch;
+      line-height:1.75;
+      font-size:14.5px;
+      font-weight:300;
+    }
+
+    /* About split */
+    .split{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:32px;
+      align-items:center;
+    }
+    .photo{
+      border-radius: var(--radius);
+      overflow:hidden;
+      border:1px solid var(--line);
+      box-shadow: 0 20px 60px rgba(10,26,49,.10);
+      background:#f6f7fb;
+      min-height: 420px;
+      position:relative;
+    }
+    /* Replace about-bg.jpg with your own image if you want */
+    .photo::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(900px 400px at 25% 25%, rgba(199,163,90,.18), transparent 60%),
+        url("about-bg.jpg") center/cover no-repeat;
+      opacity:.95;
+      filter: saturate(1.02);
+    }
+    .photo::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, rgba(11,31,58,.08), rgba(11,31,58,.00));
+    }
+    .about-card{
+      border-radius: var(--radius);
+      border:1px solid var(--line);
+      padding: 22px 22px;
+      background:#fff;
+      box-shadow: 0 16px 50px rgba(10,26,49,.08);
+    }
+    .ticks{
+      margin: 14px 0 18px;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:10px;
+    }
+    .ticks li{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      color:#243049;
+      font-size:13.8px;
+      line-height:1.6;
+      font-weight:300;
+    }
+    .tick{
+      margin-top:2px;
+      width:18px; height:18px;
+      flex: 0 0 18px;
+      border-radius:999px;
+      background: rgba(199,163,90,.20);
+      border:1px solid rgba(199,163,90,.35);
+      display:grid; place-items:center;
+    }
+    .tick svg{ width:12px; height:12px; color:#6b4b18; }
+
+    .btn-row{ display:flex; gap:12px; flex-wrap:wrap; margin-top: 8px; }
+
+    /* Services grid */
+    .services{
+      background: #fbfcff;
+      border-top:1px solid rgba(15,25,40,.06);
+      border-bottom:1px solid rgba(15,25,40,.06);
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap:14px;
+    }
+    .card{
+      border-radius: var(--radius);
+      border:1px solid var(--line);
+      background:#fff;
+      padding: 16px 14px;
+      min-height: 146px;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+      box-shadow: 0 10px 30px rgba(10,26,49,.06);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+    .card:hover{
+      transform: translateY(-2px);
+      border-color: rgba(199,163,90,.35);
+      box-shadow: 0 20px 50px rgba(10,26,49,.10);
+    }
+    .card .icon{
+      width:42px; height:42px;
+      border-radius:14px;
+      background: rgba(11,31,58,.04);
+      border:1px solid rgba(11,31,58,.10);
+      display:grid; place-items:center;
+    }
+    .card .icon svg{ width:20px; height:20px; color: var(--navy); }
+    .card h3{
+      margin: 10px 0 0;
+      font-size:12.5px;
+      letter-spacing:.9px;
+      text-transform:uppercase;
+      font-weight:600;
+      color:#1a253a;
+      line-height:1.35;
+    }
+    .card .arrow{
+      width:32px; height:32px;
+      border-radius:999px;
+      border:1px solid rgba(15,25,40,.10);
+      display:grid; place-items:center;
+      margin-top: 10px;
+      align-self:flex-start;
+      opacity:.85;
+    }
+
+    /* FAQ */
+    .faq-wrap{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:26px;
+      align-items:flex-start;
+    }
+    .faq-left p{ margin-top:10px; }
+    .accordion{
+      border-radius: var(--radius);
+      border:1px solid var(--line);
+      overflow:hidden;
+      background:#fff;
+      box-shadow: 0 16px 50px rgba(10,26,49,.08);
+    }
+    details{
+      border-top:1px solid var(--line);
+      padding:0;
+    }
+    details:first-child{ border-top:none; }
+    summary{
+      list-style:none;
+      cursor:pointer;
+      padding: 16px 16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      font-size:13.5px;
+      font-weight:500;
+      color:#18243a;
+    }
+    summary::-webkit-details-marker{ display:none; }
+    .plus{
+      width:34px; height:34px;
+      border-radius:999px;
+      border:1px solid rgba(15,25,40,.10);
+      display:grid; place-items:center;
+      flex: 0 0 34px;
+      transition: transform .2s ease, background .2s ease;
+      background:#fff;
+    }
+    details[open] summary{
+      background: linear-gradient(180deg, rgba(11,31,58,.06), rgba(11,31,58,.02));
+    }
+    details[open] .plus{ transform: rotate(45deg); background: rgba(199,163,90,.10); border-color: rgba(199,163,90,.30); }
+    .answer{
+      padding: 0 16px 16px;
+      color: var(--muted);
+      line-height:1.7;
+      font-size:14px;
+      font-weight:300;
+    }
+
+    /* Footer */
+    footer{
+      background: linear-gradient(180deg, var(--navy2), var(--navy));
+      color:#eaf0ff;
+      padding: 54px 0 36px;
+      border-top: 1px solid rgba(255,255,255,.08);
+    }
+    .footer-grid{
+      display:grid;
+      grid-template-columns: 1.2fr 1fr 1fr 1fr;
+      gap:24px;
+      align-items:start;
+    }
+    .foot-brand{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+    .foot-brand .foot-logo{
+      width:180px; height:auto;
+      background:#fff;
+      padding:12px 14px;
+      border-radius:14px;
+      display:inline-block;
+    }
+    .foot-note{
+      color: rgba(234,240,255,.78);
+      line-height:1.75;
+      font-size:13.5px;
+      font-weight:300;
+      margin:0;
+      max-width: 42ch;
+    }
+    .foot-badge{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-top:6px;
+    }
+    .foot-badge img{ width:64px; height:auto; }
+    .foot-badge .reg{
+      font-size:12.5px;
+      color: rgba(234,240,255,.85);
+      line-height:1.35;
+      font-weight:300;
+    }
+
+    .foot-col h4{
+      margin:0 0 12px;
+      font-size:12px;
+      letter-spacing:1px;
+      text-transform:uppercase;
+      color: rgba(234,240,255,.92);
+      font-weight:600;
+    }
+    .foot-links a, .foot-col p{
+      color: rgba(234,240,255,.78);
+      font-size:13.5px;
+      line-height:1.85;
+      font-weight:300;
+    }
+    .foot-links a:hover{ color:#fff; }
+    .foot-sep{
+      border-top:1px solid rgba(255,255,255,.10);
+      margin-top: 28px;
+      padding-top: 18px;
+      display:flex;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+      color: rgba(234,240,255,.70);
+      font-size:12.5px;
+      font-weight:300;
+    }
+
+    /* Floating WhatsApp */
+    .wa-float{
       position:fixed;
       right:18px;
       bottom:18px;
-      z-index:120;
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-    .wa-pill{
-      background:#0b1f33;
-      color:#fff;
-      border:1px solid rgba(255,255,255,.12);
-      border-radius:999px;
-      padding:10px 12px;
-      font-weight:900;
-      font-size:12px;
-      box-shadow:var(--shadow2);
-    }
-    .wa-btn{
-      width:54px; height:54px;
+      z-index:60;
+      width:56px; height:56px;
       border-radius:999px;
       background:#25D366;
-      border:0;
-      display:flex; align-items:center; justify-content:center;
-      box-shadow:var(--shadow);
-      cursor:pointer;
+      box-shadow: 0 20px 55px rgba(0,0,0,.22);
+      display:grid;
+      place-items:center;
+      transition: transform .2s ease, box-shadow .2s ease;
     }
-    .wa-btn svg{width:26px;height:26px; fill:#fff}
-    .wa-btn:active{transform:translateY(1px)}
+    .wa-float:hover{ transform: translateY(-2px); box-shadow: 0 26px 70px rgba(0,0,0,.26); }
+    .wa-float svg{ width:26px; height:26px; color:#fff; }
 
     /* Responsive */
-    @media (max-width: 1100px){
-      .services-grid{grid-template-columns:repeat(3,1fr)}
-      .service:nth-child(3), .service:nth-child(6), .service:nth-child(9){border-right:none}
-      .service:nth-child(5), .service:nth-child(10){border-right:1px solid rgba(11,31,51,.08)}
-      .service:nth-child(n+7){border-bottom:none}
+    @media (max-width: 1020px){
+      .grid{ grid-template-columns: repeat(3, 1fr); }
+      .hero-grid{ grid-template-columns: 1fr; }
+      .hero-card{ max-width: 520px; }
+      .split{ grid-template-columns: 1fr; }
+      .photo{ min-height: 320px; }
+      .faq-wrap{ grid-template-columns: 1fr; }
+      .footer-grid{ grid-template-columns: 1fr 1fr; }
+      .nav-links{ display:none; }
+      .burger{ display:inline-grid; }
     }
-    @media (max-width: 980px){
-      .menu{display:none}
-      .burger{display:block}
-      .mobile.open{display:block}
-
-      .hero-grid{grid-template-columns:1fr}
-      .hero h1{font-size:44px}
-      .about{grid-template-columns:1fr}
-      .faq{grid-template-columns:1fr}
-      .foot{grid-template-columns:1fr 1fr}
-    }
-    @media (max-width: 560px){
-      .services-grid{grid-template-columns:1fr}
-      .service{border-right:none !important; border-bottom:1px solid rgba(11,31,51,.08)}
-      .service:last-child{border-bottom:none}
-      .foot{grid-template-columns:1fr}
-      .brand img{height:58px}
-      .hero h1{font-size:38px}
-      .footer-brand{flex-direction:column; align-items:flex-start}
-      .footer-brand .logo-iaa{width:100%}
+    @media (max-width: 640px){
+      .container{ width: min(var(--max), calc(100% - 32px)); }
+      .topbar-inner{ flex-direction:column; align-items:flex-start; }
+      .grid{ grid-template-columns: repeat(2, 1fr); }
+      .nav-actions .btn.primary{ display:none; } /* keep minimal on tiny screens */
+      .brand img{ width: 150px; }
+      .footer-grid{ grid-template-columns: 1fr; }
     }
   </style>
 </head>
 
 <body>
+  <!-- Top bar -->
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-inner">
+        <div class="topbar-left">
+          <a class="chip" href="mailto:info@benchmarklegals.co.uk" aria-label="Email Benchmark Legals">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 7.5v9A2.5 2.5 0 0 0 6.5 19h11A2.5 2.5 0 0 0 20 16.5v-9A2.5 2.5 0 0 0 17.5 5h-11A2.5 2.5 0 0 0 4 7.5Z" stroke="currentColor" stroke-width="1.6"/><path d="m6.5 7 5.1 4.3a1.5 1.5 0 0 0 1.9 0L18.6 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            info@benchmarklegals.co.uk
+          </a>
 
-  <!-- Top bar (premium, like reference) -->
-<div class="topbar">
-  <div class="wrap">
-    <div class="topbar-inner">
+          <a class="chip" href="tel:+447903004158" aria-label="Call Benchmark Legals">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M7.5 3.5h1.3c.6 0 1.1.4 1.2 1l.6 3c.1.5-.1 1.1-.6 1.4l-1.1.7c1.1 2.3 2.9 4.1 5.2 5.2l.7-1.1c.3-.5.9-.7 1.4-.6l3 .6c.6.1 1 .6 1 1.2v1.3c0 .7-.5 1.3-1.2 1.4-1 .2-2.2.3-3.5-.1-3.8-1.2-7.7-5.1-8.9-8.9-.4-1.3-.3-2.5-.1-3.5.1-.7.7-1.2 1.4-1.2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            +44 7903 004158
+          </a>
 
-      <div class="topbar-left">
-        <a class="topbar-link" href="mailto:info@benchmarklegals.co.uk" aria-label="Email">
-          <span class="ico" aria-hidden="true">✉</span>
-          info@benchmarklegals.co.uk
-        </a>
+          <span class="chip" aria-label="IAA registration number">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M6.5 4.5h11A2.5 2.5 0 0 1 20 7v12.5H7A3 3 0 0 1 4 16.5V7A2.5 2.5 0 0 1 6.5 4.5Z" stroke="currentColor" stroke-width="1.6"/><path d="M7 19.5V7.5A3 3 0 0 0 4 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M9.5 9h7M9.5 12h7M9.5 15h5.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            IAA Reg No: F202538075
+          </span>
+        </div>
 
-        <span class="sep" aria-hidden="true">|</span>
-
-        <a class="topbar-link" href="tel:+447903004158" aria-label="Phone">
-          <span class="ico" aria-hidden="true">📞</span>
-          +44 7903 004158
-        </a>
-
-        <span class="sep" aria-hidden="true">|</span>
-
-        <div class="topbar-text">
-          IAA Reg No: <strong>F202538075</strong>
+        <div class="topbar-right">
+          <div class="social" aria-label="Social links">
+            <!-- Replace # with real links when ready -->
+            <a href="#" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M14 8.5V7.4c0-.8.6-1.4 1.4-1.4H17V3h-2.1A4.4 4.4 0 0 0 10.5 7.4v1.1H8v3h2.5V21h3.5v-9.5H17l.8-3H14Z" fill="currentColor" opacity=".9"/></svg>
+            </a>
+            <a href="#" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M6.5 9.5H3.8V21h2.7V9.5ZM5.1 3.3a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2ZM20.8 21h-2.7v-5.9c0-1.4-.5-2.3-1.8-2.3-1 0-1.6.7-1.9 1.3-.1.3-.1.7-.1 1.1V21h-2.7V9.5h2.7v1.6c.4-.8 1.4-1.9 3.3-1.9 2.4 0 4.2 1.6 4.2 5.1V21Z" fill="currentColor" opacity=".9"/></svg>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M7.2 3.5h9.6A3.7 3.7 0 0 1 20.5 7.2v9.6a3.7 3.7 0 0 1-3.7 3.7H7.2a3.7 3.7 0 0 1-3.7-3.7V7.2A3.7 3.7 0 0 1 7.2 3.5Z" stroke="currentColor" stroke-width="1.6"/><path d="M12 16.2a4.2 4.2 0 1 0 0-8.4 4.2 4.2 0 0 0 0 8.4Z" stroke="currentColor" stroke-width="1.6"/><path d="M17.2 6.9h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+            </a>
+          </div>
         </div>
       </div>
-
-      <div class="topbar-right">
-        <a class="social" href="#" aria-label="Facebook" title="Facebook">f</a>
-        <a class="social" href="#" aria-label="LinkedIn" title="LinkedIn">in</a>
-        <a class="social" href="#" aria-label="Instagram" title="Instagram">⌁</a>
-      </div>
-
     </div>
   </div>
-</div>
 
-
-  <!-- GOLD sticky header -->
+  <!-- Header / Nav -->
   <header>
-    <div class="wrap">
+    <div class="container">
       <div class="nav">
-        <a class="brand" href="index.html" aria-label="Benchmark Legals Home">
-          <img src="assets/logo1.png" alt="Benchmark Legals logo">
+        <a class="brand" href="#" aria-label="Benchmark Legals home">
+          <div class="logo-wrap">
+            <img src="logo1.png" alt="Benchmark Legals" />
+          </div>
         </a>
 
-        <nav class="menu" aria-label="Primary navigation">
-          <a href="index.html">HOME</a>
-          <a href="#about">ABOUT</a>
-
-          <div class="dropdown">
-            <a href="#services">IMMIGRATION ▾</a>
-            <div class="panel" role="menu" aria-label="Immigration services">
-              <div class="cols">
-                <a href="services.html#skilled-worker">Skilled Worker Visa</a>
-                <a href="services.html#business">Business Visas</a>
-                <a href="services.html#global-talent">Global Talent Visa</a>
-                <a href="services.html#family">Family Visas</a>
-                <a href="services.html#visitor">UK Visitor Visa</a>
-                <a href="services.html#extensions">Extension Visas</a>
-                <a href="services.html#settlement">Settlement & Naturalisation</a>
-                <a href="services.html#student">Student / Graduate Routes</a>
-              </div>
-            </div>
-          </div>
-
-          <a href="services.html">SERVICES</a>
-          <a href="contact.html">CONTACT</a>
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a class="active" href="#">Home</a>
+          <a href="#about">About</a>
+          <a href="#services">Immigration</a>
+          <a href="#business">Legal &amp; Business Services</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Contact</a>
         </nav>
 
-        <div class="cta">
-          <a class="btn" href="contact.html">Get a Quote</a>
-          <a class="btn primary" href="contact.html">Book Appointment</a>
-          <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            </svg>
+        <div class="nav-actions">
+          <button class="icon-btn" id="searchBtn" aria-label="Search (demo)">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M10.5 18.5a8 8 0 1 1 0-16 8 8 0 0 1 0 16Z" stroke="currentColor" stroke-width="1.6"/><path d="M16.8 16.8 21 21" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </button>
+
+          <a class="btn primary" href="#contact" aria-label="Book appointment">
+            Book Appointment
+            <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="m13 6 6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+
+          <button class="icon-btn burger" id="burger" aria-label="Open menu">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M5 7h14M5 12h14M5 17h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
           </button>
         </div>
       </div>
 
-      <!-- Mobile menu -->
-      <div class="mobile" id="mobileMenu">
-        <a href="index.html">HOME</a>
-        <a href="#about">ABOUT</a>
-        <a href="#services">IMMIGRATION</a>
-        <div class="sub">
-          <a href="services.html#skilled-worker">Skilled Worker Visa</a>
-          <a href="services.html#business">Business Visas</a>
-          <a href="services.html#global-talent">Global Talent Visa</a>
-          <a href="services.html#family">Family Visas</a>
-          <a href="services.html#visitor">UK Visitor Visa</a>
-          <a href="services.html#extensions">Extension Visas</a>
-          <a href="services.html#settlement">Settlement & Naturalisation</a>
-          <a href="services.html#student">Student / Graduate Routes</a>
-        </div>
-        <a href="services.html">SERVICES</a>
-        <a href="contact.html">CONTACT</a>
+      <div class="mobile-panel" id="mobilePanel" aria-label="Mobile navigation">
+        <a href="#">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Immigration</a>
+        <a href="#business">Legal &amp; Business Services</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+        <a class="btn outline" href="#contact" style="width:max-content;margin-top:8px;">Book Appointment</a>
       </div>
-
     </div>
   </header>
 
   <!-- Hero -->
-  <section class="hero" aria-label="Hero">
-    <div class="hero-bg" aria-hidden="true"></div>
-    <div class="hero-overlay" aria-hidden="true"></div>
-
-    <div class="wrap">
-      <div class="content">
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
         <div class="hero-grid">
           <div>
-            <div class="kicker">Authorised & regulated by the Immigration Advice Authority (IAA)</div>
-            <h1>UK Immigration<br>Advice with<br>Clarity & Confidence</h1>
-            <p>
-              Professional immigration advice and application support with transparent communication,
-              careful document checks, and a client-first approach — from first consultation to outcome.
+            <div class="kicker"><span class="line"></span> UK Immigration &amp; Legal Support</div>
+            <h1>Benchmark Legals<br/>Immigration Law Services</h1>
+            <p class="hero-sub">
+              Migrating to the United Kingdom? We provide premium, structured guidance for individuals and businesses—focused on clarity,
+              compliance, and a smooth client journey.
             </p>
 
-            <div class="hero-actions">
-              <a class="btn primary" href="contact.html">Free Initial Enquiry</a>
-              <a class="btn" href="services.html">Explore Services</a>
+            <div class="hero-ctas">
+              <a class="btn outline" href="#services" style="border-color:rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:#fff;">
+                Learn More
+              </a>
+              <a class="btn primary" href="#contact">
+                Free 15-min Online Consultation
+              </a>
             </div>
           </div>
 
-          <div class="trust">
-            <div class="row">
-              <img src="assets/iaa.png" alt="Immigration Advice Authority (IAA) logo">
-              <div class="meta">
-                <strong>Immigration Advice Authority</strong><br>
-                Registration No: <strong>F202538075</strong>
-              </div>
-            </div>
+          <div class="hero-card" aria-label="Regulatory and location card">
+            <p class="mini">Regulatory Information</p>
+            <p class="big">IAA Registered</p>
+            <p>
+              IAA Reg No: <strong>F202538075</strong><br/>
+              124 City Road, London, EC1V 2NX
+            </p>
 
-            <div class="mini">
-              <div class="card"><strong>Fast</strong><br>clear next steps</div>
-              <div class="card"><strong>Transparent</strong><br>fees & scope</div>
-              <div class="card"><strong>Careful</strong><br>document checks</div>
-              <div class="card"><strong>Direct</strong><br>client updates</div>
+            <div class="badge-row">
+              <img src="iaa1.png" alt="IAA badge" />
+              <span>
+                Committed to professional standards<br/>
+                and transparent client care.
+              </span>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- UK Visa Services (icon tiles like inspiration) -->
-  <section id="services" class="soft">
-    <div class="wrap">
-      <div class="section-title">
-        <div class="overline">UK Immigration</div>
-        <h2>UK Visa Services</h2>
-        <p>Choose a route below to learn more. Each tile links to a dedicated section on your Services page.</p>
-      </div>
-
-      <div class="services-grid" role="list">
-        <!-- 1 -->
-        <a class="service" role="listitem" href="services.html#business">
-          <div class="svc-icn" aria-hidden="true">
-            <!-- briefcase -->
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M9 7V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1" stroke="#0b1f33" stroke-width="2" stroke-linecap="round"/>
-              <path d="M4 9h16v8a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V9Z" stroke="#0b1f33" stroke-width="2"/>
-              <path d="M4 12h16" stroke="#c9a24d" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <h3>Business Visas</h3>
-          <div class="arrow">→</div>
-        </a>
-
-        <!-- 2 -->
-        <a class="service" role="listitem" href="services.html#skilled-worker">
-          <div class="svc-icn" aria-hidden="true">
-            <!-- id card -->
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M4 7a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7Z" stroke="#0b1f33" stroke-width="2"/>
-              <path d="M8 10h4" stroke="#c9a24d" stroke-width="2" stroke-linecap="round"/>
-              <path d="M8 14h8" stroke="#0b1f33" stroke-width="2" stroke-linecap="round"/>
-              <path d="M15.5 9.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" stroke="#0b1f33" stroke-width="2"/>
-            </svg>
-          </div>
-          <h3>Skilled Worker Visa</h3>
-          <div class="arrow">→</div>
-        </a>
-
-        <!-- 3 -->
-        <a class="service" role="listitem" href="services.html#global-talent">
-          <div class="svc-icn" aria-hidden="true">
-            <!-- star -->
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M12 3l2.5 6.2 6.5.5-5 4.2 1.6 6.4L12 17l-5.6 3.3 1.6-6.4-5-4.2 6.5-.5L12 3Z"
-                    stroke="#0b1f33" stroke-width="2" stroke-linejoin="round"/>
-              <path d="M12 7.2v7.6" stroke="#c9a24d" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <h3>Global Talent</h3>
-          <div class="arrow">→</div>
-        </a>
-
-        <!-- 4 -->
-        <a class="service" role="listitem" href="services.html#extensions">
-          <div class="svc-icn" aria-hidden="true">
-            <!-- document -->
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M7 3h7l3 3v15a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z" stroke="#0b1f33" stroke-width="2"/>
-              <path d="M14 3v4h4" stroke="#0b1f33" stroke-width="2" stroke-linecap="round"/>
-              <path d="M8 12h8" stroke="#c9a24d" stroke-width="2" stroke-linecap="round"/>
-              <path d="M8 16h8" stroke="#0b1f33" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <h3>Extension Visas</h3>
-          <div class="arrow">→</div>
-        </a>
-
-        <!-- 5 -->
-        <a class="service" role="listitem" href="services.html#family">
-          <div class="svc-icn" aria-hidden="true">
-            <!-- family -->
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M8.5 11.5a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z" stroke="#0b1f33" stroke-width="2"/>
-              <path d="M20.5 11.5a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z" stroke="#0b1f33" stroke-width="2"/>
-              <path d="M14 9.5a2 2 0 1 0-4 0 2 2 0 0 0 4 0Z" stroke="#c9a24d" stroke-width="2"/>
-              <path d="M2.8 20a5 5 0 0 1 6.2-3.1" stroke="#0b1f33" stroke-width="2" stroke-linecap="round"/>
-              <path d="M21.2 20a5 5 0 0 0-6.2-3.1" stroke="#0b1f33" stroke-width="2" stroke-linecap="round"/>
-              <path d="M9 20a4.5 4.5 0 0 1 6 0" stroke="#c9a24d" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <h3>Family Visas</h3>
-          <div class="arrow">→</div>
-        </a>
-
-        <!-- 6 -->
-        <a class="service" role="listitem" href="services.html#visitor">
-          <div class="svc-icn" aria-hidden="true">
-            <!-- passport -->
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M7 4h8a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z" stroke="#0b1f33" stroke-width="2"/>
-              <path d="M9 8h4" stroke="#c9a24d" stroke-width="2" stroke-linecap="round"/>
-              <path d="M12 11.5a2.2 2.2 0 1 0 0 4.4 2.2 2.2 0 0 0 0-4.4Z" stroke="#0b1f33" stroke-width="2"/>
-            </svg>
-          </div>
-          <h3>UK Visitor Visa</h3>
-          <div class="arrow">→</div>
-        </a>
-
-        <!-- 7 -->
-        <a class="service" role="listitem" href="services.html#student">
-          <div class="svc-icn" aria-hidden="true">
-            <!-- cap -->
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M12 4 2.5 9 12 14l9.5-5L12 4Z" stroke="#0b1f33" stroke-width="2" stroke-linejoin="round"/>
-              <path d="M6.5 11.2V16c0 1.7 2.5 3 5.5 3s5.5-1.3 5.5-3v-4.8" stroke="#c9a24d" stroke-width="2" stroke-linecap="round"/>
-              <path d="M21.5 9v6" stroke="#0b1f33" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <h3>Student / Graduate</h3>
-          <div class="arrow">→</div>
-        </a>
-
-        <!-- 8 -->
-        <a class="service" role="listitem" href="services.html#settlement">
-          <div class="svc-icn" aria-hidden="true">
-            <!-- home -->
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M4 11.5 12 5l8 6.5V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8.5Z" stroke="#0b1f33" stroke-width="2" stroke-linejoin="round"/>
-              <path d="M9 22v-7h6v7" stroke="#c9a24d" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <h3>Settlement & Citizenship</h3>
-          <div class="arrow">→</div>
-        </a>
-
-        <!-- 9 -->
-        <a class="service" role="listitem" href="services.html#business">
-          <div class="svc-icn" aria-hidden="true">
-            <!-- globe -->
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z" stroke="#0b1f33" stroke-width="2"/>
-              <path d="M2 12h20" stroke="#c9a24d" stroke-width="2" stroke-linecap="round"/>
-              <path d="M12 2c3 2.6 3 17.4 0 20" stroke="#0b1f33" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <h3>Business Mobility</h3>
-          <div class="arrow">→</div>
-        </a>
-
-        <!-- 10 -->
-        <a class="service" role="listitem" href="contact.html">
-          <div class="svc-icn" aria-hidden="true">
-            <!-- chat -->
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M21 12a8 8 0 0 1-8 8H7l-4 2 1.4-4.2A8 8 0 1 1 21 12Z" stroke="#0b1f33" stroke-width="2" stroke-linejoin="round"/>
-              <path d="M8 12h8" stroke="#c9a24d" stroke-width="2" stroke-linecap="round"/>
-              <path d="M8 9h5" stroke="#0b1f33" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <h3>Not sure which route?</h3>
-          <div class="arrow">→</div>
-        </a>
       </div>
     </div>
   </section>
 
   <!-- About -->
   <section id="about">
-    <div class="wrap">
-      <div class="about">
-        <div class="about-visual" aria-hidden="true">
-          <div class="img"></div>
-          <div class="shade"></div>
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="kicker" style="color:#1a253a; opacity:1;"><span class="line"></span> Benchmark Legals</p>
+          <h2 class="section-title">Welcome to the Immigration Law Firm</h2>
         </div>
+        <p class="section-lead">
+          Premium support for visa applications, sponsorship guidance, settlement and nationality matters—delivered with a calm,
+          detail-focused approach.
+        </p>
+      </div>
+
+      <div class="split">
+        <div class="photo" aria-label="About image placeholder"></div>
 
         <div class="about-card">
-          <div class="small">Leading with clarity</div>
-          <h3>Welcome to Benchmark Legals</h3>
-          <p>
-            We provide immigration advice and application support with a careful, document-led approach.
-            You’ll receive clear next steps, transparent scope, and professional communication throughout.
+          <p class="section-lead" style="margin:0;color:#394356;">
+            Benchmark Legals provides legal support for individuals and businesses navigating UK immigration routes.
+            We focus on clear advice, strong documentation, and consistent case management from start to finish.
           </p>
 
-          <div class="ticks">
-            <div class="tick"><i>✓</i> Clear eligibility checks and realistic guidance</div>
-            <div class="tick"><i>✓</i> Structured document review and preparation support</div>
-            <div class="tick"><i>✓</i> High standards of professionalism and confidentiality</div>
-            <div class="tick"><i>✓</i> Authorised and regulated by the IAA</div>
-          </div>
+          <ul class="ticks">
+            <li>
+              <span class="tick">
+                <svg viewBox="0 0 24 24" fill="none"><path d="m6 12 4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              Expert guidance with a structured, premium client experience
+            </li>
+            <li>
+              <span class="tick">
+                <svg viewBox="0 0 24 24" fill="none"><path d="m6 12 4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              Tailored strategies for individuals, families, and employers
+            </li>
+            <li>
+              <span class="tick">
+                <svg viewBox="0 0 24 24" fill="none"><path d="m6 12 4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              Transparent communication, ethical practice, and careful attention to detail
+            </li>
+          </ul>
 
-          <div class="about-actions">
-            <a class="btn primary" href="contact.html">Get a Quote</a>
-            <a class="btn" href="services.html">View Services</a>
+          <div class="btn-row">
+            <a class="btn primary" href="#contact">Get a Quote
+              <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="m13 6 6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="btn outline" href="#about" aria-label="About us">About Us
+              <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="m13 6 6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FAQ (NO asylum) -->
-  <section class="soft" id="faq">
-    <div class="wrap">
-      <div class="faq">
+  <!-- Services -->
+  <section id="services" class="services">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="kicker" style="color:#1a253a; opacity:1;"><span class="line"></span> UK Immigration</p>
+          <h2 class="section-title">UK Visa Services</h2>
+        </div>
+        <p class="section-lead">
+          A clean, premium overview—click-through pages can be built next (each service can become its own route/page).
+        </p>
+      </div>
+
+      <div class="grid" role="list">
+        <!-- Card 1 -->
+        <a class="card" href="#contact" role="listitem" aria-label="Business visas">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M7 7h10v14H7V7Z" stroke="currentColor" stroke-width="1.6"/><path d="M9 7V5.8A2.8 2.8 0 0 1 11.8 3h.4A2.8 2.8 0 0 1 15 5.8V7" stroke="currentColor" stroke-width="1.6"/><path d="M9 11h6M9 14h6M9 17h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Business Visas – Global Business Mobility</h3>
+          <div class="arrow">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M9 12h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="m15 6 6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </a>
+
+        <!-- Card 2 -->
+        <a class="card" href="#contact" role="listitem" aria-label="Skilled worker sponsorship">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 20h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M7 20V8l5-3 5 3v12" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M10 12h4M10 15h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Skilled Worker Sponsorship &amp; Visa</h3>
+          <div class="arrow">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M9 12h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="m15 6 6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </a>
+
+        <!-- Card 3 -->
+        <a class="card" href="#contact" role="listitem" aria-label="Global talent visa">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 2 9.2 8.3 2.5 9l5 4.5-1.4 6.8L12 17l5.9 3.3-1.4-6.8 5-4.5-6.7-.7L12 2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Global Talent Visa</h3>
+          <div class="arrow">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M9 12h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="m15 6 6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </a>
+
+        <!-- Card 4 -->
+        <a class="card" href="#contact" role="listitem" aria-label="Self-sponsorship skilled worker">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Z" stroke="currentColor" stroke-width="1.6"/><path d="M4 21a8 8 0 0 1 16 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M18.5 8.5 21 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M18.5 6 21 8.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Self-Sponsorship Skilled Worker</h3>
+          <div class="arrow">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M9 12h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="m15 6 6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </a>
+
+        <!-- Card 5 -->
+        <a class="card" href="#contact" role="listitem" aria-label="Family visas">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M8.5 11a3 3 0 1 0-3-3 3 3 0 0 0 3 3Z" stroke="currentColor" stroke-width="1.6"/><path d="M16 12a3.2 3.2 0 1 0-3.2-3.2A3.2 3.2 0 0 0 16 12Z" stroke="currentColor" stroke-width="1.6"/><path d="M3 21a6.5 6.5 0 0 1 11-4.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M12 21a5 5 0 0 1 10 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Family Visas</h3>
+          <div class="arrow">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M9 12h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="m15 6 6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </a>
+
+        <!-- Row 2 -->
+        <a class="card" href="#contact" role="listitem" aria-label="Innovator visas">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 3a7 7 0 0 0-4 12.8V19a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-3.2A7 7 0 0 0 12 3Z" stroke="currentColor" stroke-width="1.6"/><path d="M9.5 22h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Innovator Visas</h3>
+          <div class="arrow">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M9 12h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="m15 6 6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </a>
+
+        <a class="card" href="#contact" role="listitem" aria-label="Graduate visa">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M3 7.5 12 3l9 4.5-9 4.5L3 7.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M7 10.5V16c0 1.7 2.2 3 5 3s5-1.3 5-3v-5.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Graduate Visa</h3>
+          <div class="arrow">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M9 12h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="m15 6 6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </a>
+
+        <a class="card" href="#contact" role="listitem" aria-label="Extension visas">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M7 3h10v18H7V3Z" stroke="currentColor" stroke-width="1.6"/><path d="M9.5 7h5M9.5 10h5M9.5 13h3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Extension Visas</h3>
+          <div class="arrow">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M9 12h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="m15 6 6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </a>
+
+        <a class="card" href="#contact" role="listitem" aria-label="Settlement and naturalisation">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 2 3 6.5V12c0 5.2 3.3 9.7 9 10 5.7-.3 9-4.8 9-10V6.5L12 2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="m8 12 2.4 2.4L16.5 8.3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Settlement &amp; Naturalisation</h3>
+          <div class="arrow">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M9 12h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="m15 6 6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </a>
+
+        <a class="card" href="#contact" role="listitem" aria-label="UK visitor visa">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 11.5A7.5 7.5 0 0 1 11.5 4h1A7.5 7.5 0 0 1 20 11.5v1A7.5 7.5 0 0 1 12.5 20h-1A7.5 7.5 0 0 1 4 12.5v-1Z" stroke="currentColor" stroke-width="1.6"/><path d="M8 12h8M12 8v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+          <h3>UK Visitor Visa</h3>
+          <div class="arrow">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M9 12h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="m15 6 6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="faq-wrap">
         <div class="faq-left">
-          <div class="overline" style="justify-content:flex-start; text-align:left; display:flex;">Frequently Asked Questions</div>
-          <h3>Common Queries</h3>
-          <p>
-            Understanding immigration law can feel overwhelming. If you’re seeking visa advice or support with an application,
-            we’re here to provide clear answers and next steps.
+          <p class="kicker" style="color:#1a253a; opacity:1;"><span class="line"></span> Frequently Asked Questions</p>
+          <h2 class="section-title">Common Queries</h2>
+          <p class="section-lead">
+            Understanding immigration law can be daunting. If you’re seeking visa advice, information on our services and fees,
+            or assistance with an application, we’re ready to help.
           </p>
-          <a class="btn" href="contact.html">Get Started Now</a>
+
+          <div class="btn-row" style="margin-top:18px;">
+            <a class="btn primary" href="#contact">Get Started Now
+              <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="m13 6 6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
         </div>
 
-        <div class="acc">
+        <div class="accordion" aria-label="FAQ accordion">
           <details>
             <summary>
-              What types of visas can you help with?
+              What types of visas can you help with at Benchmark Legals?
               <span class="plus">+</span>
             </summary>
-            <p>
-              [Add your answer here]
-            </p>
+            <div class="answer">
+              We support a wide range of UK immigration routes including work visas, family visas, visitor visas, settlement and nationality applications, and more.
+              (Service pages can be expanded next.)
+            </div>
           </details>
 
           <details>
             <summary>
-              How can I get in touch to discuss my situation?
+              How can I get in touch to discuss my immigration needs?
               <span class="plus">+</span>
             </summary>
-            <p>
-              [Add your answer here]
-            </p>
+            <div class="answer">
+              You can email us at <a href="mailto:info@benchmarklegals.co.uk"><strong>info@benchmarklegals.co.uk</strong></a> or call
+              <a href="tel:+447903004158"><strong>+44 7903 004158</strong></a>. You can also message us on WhatsApp via the floating button.
+            </div>
           </details>
 
-          <details>
+          <details open>
             <summary>
               What are your fees?
               <span class="plus">+</span>
             </summary>
-            <p>
-              [Add your answer here]
-            </p>
+            <div class="answer">
+              We aim for clarity and transparency. Fees are typically agreed in advance after a brief assessment of your situation and the support required.
+              We can provide an initial quote following a short consultation.
+            </div>
           </details>
 
           <details>
             <summary>
-              How long does the process usually take?
+              Do you offer consultancy for asylum applications?
               <span class="plus">+</span>
             </summary>
-            <p>
-              [Add your answer here]
-            </p>
+            <div class="answer">
+              If your matter involves protection or asylum-related issues, contact us and we will confirm whether we can assist, or signpost you appropriately.
+            </div>
           </details>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer (premium, big logos) -->
-  <footer>
-    <div class="wrap">
-      <div class="foot">
+  <!-- Contact anchor (simple placeholder for now) -->
+  <section id="contact" style="padding-top:30px;">
+    <div class="container">
+      <div class="section-head" style="margin-bottom:14px;">
         <div>
-          <div class="footer-brand">
-            <div class="logo-main">
-              <img src="assets/logo1.png" alt="Benchmark Legals logo">
-            </div>
+          <p class="kicker" style="color:#1a253a; opacity:1;"><span class="line"></span> Contact</p>
+          <h2 class="section-title">Speak with our team</h2>
+        </div>
+        <p class="section-lead">Email or call to arrange a consultation. A full contact form section can be added next.</p>
+      </div>
 
-            <div class="logo-iaa">
-              <img src="assets/iaa.png" alt="Immigration Advice Authority (IAA) logo">
-              <div class="meta">
-                <strong>Immigration Advice Authority</strong><br>
-                Registration No: <strong>F202538075</strong>
-              </div>
+      <div class="about-card" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start;">
+        <div>
+          <p style="margin:0 0 8px;color:#243049;font-weight:500;">Benchmark Legals</p>
+          <p style="margin:0;color:#5a6475;line-height:1.8;font-weight:300;">
+            124 City Road, London, EC1V 2NX<br/>
+            <a href="mailto:info@benchmarklegals.co.uk"><strong>info@benchmarklegals.co.uk</strong></a><br/>
+            <a href="tel:+447903004158"><strong>+44 7903 004158</strong></a><br/>
+            <span>IAA Reg No: <strong>F202538075</strong></span>
+          </p>
+        </div>
+        <div>
+          <p style="margin:0 0 10px;color:#243049;font-weight:500;">Fast contact</p>
+          <div class="btn-row" style="margin:0;">
+            <a class="btn primary" href="mailto:info@benchmarklegals.co.uk">Email Us</a>
+            <a class="btn outline" href="tel:+447903004158">Call Us</a>
+            <a class="btn outline" href="https://wa.me/447903004158" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="foot-brand">
+          <div class="foot-logo">
+            <img src="logo1.png" alt="Benchmark Legals" />
+          </div>
+          <p class="foot-note">
+            Benchmark Legals provides immigration advice with a premium, calm approach—supporting individuals and businesses across UK routes.
+          </p>
+
+          <div class="foot-badge">
+            <img src="iaa1.png" alt="IAA badge" />
+            <div class="reg">
+              IAA Reg No: <strong>F202538075</strong><br/>
+              124 City Road, London, EC1V 2NX
             </div>
           </div>
+        </div>
 
-          <p>
-            Benchmark Legals provides UK immigration advice with a structured and professional approach.
-            We are authorised and regulated by the Immigration Advice Authority (IAA).
+        <div class="foot-col">
+          <h4>Contact Us</h4>
+          <p style="margin:0;">
+            <strong>124 City Road</strong><br/>
+            London, EC1V 2NX<br/>
+            <a href="tel:+447903004158">+44 7903 004158</a><br/>
+            <a href="mailto:info@benchmarklegals.co.uk">info@benchmarklegals.co.uk</a>
           </p>
         </div>
 
-        <div class="list">
-          <h4>Contact Us</h4>
-          <p>124 City Road<br>London, EC1V 2NX</p>
-          <p style="margin-top:10px"><a href="tel:+447903004158">+44 7903 004158</a></p>
-          <p style="margin-top:8px"><a href="mailto:info@benchmarklegals.co.uk">info@benchmarklegals.co.uk</a></p>
-          <p style="margin-top:8px"><a href="contact.html">Send an enquiry</a></p>
-        </div>
-
-        <div class="list">
+        <div class="foot-col">
           <h4>UK Immigration</h4>
-          <p><a href="services.html#skilled-worker">Skilled Worker Visa</a></p>
-          <p><a href="services.html#business">Business Visas</a></p>
-          <p><a href="services.html#global-talent">Global Talent</a></p>
-          <p><a href="services.html#family">Family Visas</a></p>
-          <p><a href="services.html#visitor">UK Visitor Visa</a></p>
-          <p><a href="services.html#extensions">Extension Visas</a></p>
-          <p><a href="services.html#settlement">Settlement & Citizenship</a></p>
-          <p><a href="services.html#student">Student / Graduate</a></p>
+          <div class="foot-links">
+            <a href="#services">Skilled Worker Visa</a><br/>
+            <a href="#services">Business Visas</a><br/>
+            <a href="#services">Global Talent Visa</a><br/>
+            <a href="#services">Graduate Visa</a><br/>
+            <a href="#services">Family Visa</a><br/>
+            <a href="#services">Settlement &amp; Naturalisation</a><br/>
+            <a href="#services">Extension Visas</a>
+          </div>
         </div>
 
-        <div class="list">
+        <div class="foot-col">
           <h4>Working Hours</h4>
-          <p>Mon – Fri: 9:00 – 17:30</p>
-          <p>Weekends: Closed</p>
-
-          <h4 style="margin-top:18px">Quick Links</h4>
-          <p><a href="index.html">Home</a></p>
-          <p><a href="services.html">Services</a></p>
-          <p><a href="#faq">FAQ</a></p>
-          <p><a href="contact.html">Contact</a></p>
+          <p style="margin:0;">
+            Mon – Fri: 09:00 – 17:30<br/>
+            Saturday: Closed<br/>
+            Sunday: Closed<br/>
+            <span style="color:rgba(234,240,255,.70);">Working hours may vary on bank holidays.</span>
+          </p>
         </div>
       </div>
 
-      <div class="copyright">
-        <span>© <span id="year"></span> Benchmark Legals. All rights reserved.</span>
-        <span>IAA Reg: F202538075</span>
+      <div class="foot-sep">
+        <div>© <span id="year"></span> Benchmark Legals. All rights reserved.</div>
+        <div>IAA Reg No: F202538075</div>
       </div>
     </div>
   </footer>
 
-  <!-- WhatsApp Floating -->
-  <div class="whatsapp" aria-label="WhatsApp contact">
-    <div class="wa-pill">WhatsApp us</div>
-    <a class="wa-btn"
-       href="https://wa.me/447903004158?text=Hello%20Benchmark%20Legals%20-%20I%20need%20immigration%20advice"
-       target="_blank" rel="noopener"
-       aria-label="Chat on WhatsApp">
-      <svg viewBox="0 0 32 32" aria-hidden="true">
-        <path d="M19.11 17.53c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.62.14-.18.27-.71.88-.87 1.06-.16.18-.32.2-.59.07-.27-.14-1.14-.42-2.17-1.34-.8-.71-1.34-1.6-1.5-1.87-.16-.27-.02-.42.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.5-.85-2.06-.22-.53-.45-.46-.62-.47l-.53-.01c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.29 0 1.35.98 2.66 1.12 2.85.14.18 1.94 2.96 4.7 4.15.66.28 1.18.45 1.58.58.66.21 1.26.18 1.73.11.53-.08 1.6-.65 1.82-1.28.23-.62.23-1.15.16-1.28-.07-.12-.25-.2-.52-.34ZM16.02 27.2h-.01c-1.9 0-3.76-.51-5.38-1.49l-.39-.23-4 1.05 1.07-3.9-.25-.4a11.1 11.1 0 0 1-1.71-5.9c0-6.12 4.99-11.1 11.13-11.1a11.1 11.1 0 0 1 7.86 3.25 11.05 11.05 0 0 1 3.26 7.85c0 6.12-4.99 11.1-11.58 11.87Zm9.46-21.77A13.29 13.29 0 0 0 16.49 2.3C9.02 2.3 2.95 8.36 2.95 15.83c0 2.34.62 4.62 1.79 6.63L2.3 30.3l8.03-2.1a13.43 13.43 0 0 0 6.16 1.5h.01c7.47 0 13.54-6.07 13.54-13.54 0-3.61-1.41-7.0-3.96-9.53Z"/>
-      </svg>
-    </a>
-  </div>
+  <!-- Floating WhatsApp -->
+  <a class="wa-float" href="https://wa.me/447903004158" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="none">
+      <path d="M20.5 11.7a8.5 8.5 0 0 1-12.5 7.5L3.5 20.5l1.4-4.1A8.5 8.5 0 1 1 20.5 11.7Z" fill="currentColor" opacity=".18"/>
+      <path d="M12 3.7a8 8 0 0 0-6.9 12l-.9 2.6 2.7-.9A8 8 0 1 0 12 3.7Z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/>
+      <path d="M9.2 8.7c.2-.4.4-.4.7-.4h.6c.2 0 .4.1.5.4l.6 1.4c.1.3.1.5-.1.7l-.4.4c-.2.2-.1.4 0 .6.4.8 1.5 2 2.9 2.5.2.1.4.1.6-.1l.5-.6c.2-.2.5-.3.7-.2l1.5.7c.3.1.4.4.4.6 0 .4-.2 1-.7 1.4-.5.4-1.3.6-2.3.3-1.1-.3-2.4-.9-3.6-2.1-1.3-1.2-2.1-2.7-2.4-3.9-.3-1 .1-1.8.4-2.3Z" fill="#fff"/>
+    </svg>
+  </a>
 
   <script>
-    // year
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // Year
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-    // mobile menu
-    const burger = document.getElementById('burger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    burger.addEventListener('click', () => {
-      const open = mobileMenu.classList.toggle('open');
-      burger.setAttribute('aria-expanded', String(open));
-    });
+    // Mobile menu toggle
+    const burger = document.getElementById("burger");
+    const panel = document.getElementById("mobilePanel");
+    if (burger) {
+      burger.addEventListener("click", () => {
+        const shown = panel.style.display === "block";
+        panel.style.display = shown ? "none" : "block";
+      });
+    }
+
+    // Demo search button (replace later with real search/modal)
+    const searchBtn = document.getElementById("searchBtn");
+    if (searchBtn) {
+      searchBtn.addEventListener("click", () => {
+        alert("Search feature can be added next (modal + site-wide search).");
+      });
+    }
   </script>
-
 </body>
 </html>
