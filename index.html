@@ -483,62 +483,54 @@
       line-height: 1.6;
       margin-bottom: 14px;
     }
-    .regRow{
-  display:flex;
-  align-items:center;
-  gap: 22px;
+   .regRow{
   border-top: 1px solid rgba(255,255,255,.12);
   padding-top: 18px;
 }
 
-.regLogo{
+/* WHITE TILE */
+.regLogoSimple{
   background: #ffffff;
   border-radius: 18px;
-  padding: 20px;
-  width: 170px;          /* makes the left block big */
-  height: 120px;         /* gives it presence */
+  padding: 26px 22px;
+  width: 240px;
   display:flex;
+  flex-direction: column;
   align-items:center;
   justify-content:center;
-  box-shadow: 0 12px 28px rgba(0,0,0,.18);
-  flex: 0 0 auto;
+  gap: 12px;
+  box-shadow: 0 16px 35px rgba(0,0,0,.18);
 }
 
-.regLogo img{
-  width: 130px;          /* BIG logo */
-  height: auto;
+/* BIG LOGO */
+.regLogoSimple img{
+  width: 160px;
+  height:auto;
   object-fit: contain;
 }
 
-    }
-    .regText{
-  flex:1;
-}
-
-.regText .note{
-  font-size: 14.5px;
-  color: rgba(255,255,255,.78);
-  line-height: 1.55;
+/* REG NUMBER */
+.regNumber{
+  font-size: 13px;
+  font-weight: 600;
+  color: #0b2346;
+  text-align:center;
+  letter-spacing: .04em;
 }
 
     }
 
- @media (max-width: 600px){
-  .regRow{
-    flex-direction: row;       /* keep side-by-side on mobile too */
-    align-items:center;
-    gap: 14px;
+@media (max-width: 600px){
+  .regLogoSimple{
+    width: 200px;
+    padding: 18px;
   }
 
-  .regLogo{
-    width: 120px;
-    height: 92px;
-    padding: 14px;
+  .regLogoSimple img{
+    width: 130px;
   }
-
-  .regLogo img{
-    width: 95px;
-  }
+}
+}
 }
 
     }
@@ -1256,11 +1248,12 @@
             124 City Road, London, EC1V 2NX
           </div>
           <div class="regRow">
-            <img src="assets/iaa1.png" alt="IAA badge" />
-            <div class="note">
-              Committed to professional standards and transparent client care.
-            </div>
-          </div>
+  <div class="regLogoSimple">
+    <img src="assets/iaa1.png" alt="IAA badge" />
+    <div class="regNumber">IAA Reg No: F202538075</div>
+  </div>
+</div>
+
         </div>
       </div>
     </div>
