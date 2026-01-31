@@ -7,9 +7,8 @@
 
   <!-- FAVICON -->
   <link rel="icon" type="image/png" href="assets/tablogo.png" />
-<link rel="shortcut icon" type="image/png" href="assets/tablogo.png" />
-<link rel="apple-touch-icon" href="assets/tablogo.png" />
-
+  <link rel="shortcut icon" type="image/png" href="assets/tablogo.png" />
+  <link rel="apple-touch-icon" href="assets/tablogo.png" />
 
   <style>
     :root{
@@ -90,20 +89,6 @@
     }
     .btn.light:hover{ box-shadow: var(--shadow2); transform: translateY(-1px); }
 
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:.6rem;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border:1px solid rgba(255,255,255,.18);
-      color: rgba(255,255,255,.88);
-      font-size: 12px;
-      letter-spacing:.08em;
-      text-transform: uppercase;
-      background: rgba(255,255,255,.06);
-      backdrop-filter: blur(6px);
-    }
     .kicker{
       display:flex;
       align-items:center;
@@ -162,7 +147,7 @@
     }
     .social a:hover{ background: rgba(255,255,255,.08); }
 
-    /* mobile topbar: single-line scroll (no 2 lines ugly wrap) */
+    /* mobile topbar: single-line scroll (no 2 lines wrap) */
     @media (max-width: 820px){
       .topbar .inner{
         flex-direction:column;
@@ -182,65 +167,36 @@
       }
     }
 
-    /* ---------- header/nav ---------- */
-/* ===== HEADER / NAV (hero blend → solid on scroll) ===== */
-#siteHeader{
-  position: sticky;
-  top: 0;
-  z-index: 999;
+    /* ---------- header/nav (hero blend → solid on scroll) ---------- */
+    #siteHeader{
+      position: sticky;
+      top: 0;
+      z-index: 999;
 
-  /* DEFAULT (TOP OF PAGE) = transparent over hero */
-  background: transparent;
-  border-bottom: 1px solid rgba(255,255,255,.12);
-  box-shadow: none;
-  backdrop-filter: none;
+      /* TOP OF PAGE = part of hero (tinted transparent) */
+      background: rgba(6, 18, 38, 0.18);
+      border-bottom: 1px solid rgba(255,255,255,.12);
+      box-shadow: none;
+      backdrop-filter: blur(10px);
 
-  transition: background .25s ease, border-color .25s ease, box-shadow .25s ease, backdrop-filter .25s ease;
-}
+      transition: background .25s ease, border-color .25s ease, box-shadow .25s ease, backdrop-filter .25s ease;
+    }
 
-/* While on hero: add a light navy tint so it's readable but still part of hero */
-#siteHeader.on-hero{
-  background: rgba(6, 18, 38, 0.18);
-  backdrop-filter: blur(10px);
-}
+    /* While on hero (same as default, but kept for clarity) */
+    #siteHeader.on-hero{
+      background: rgba(6, 18, 38, 0.18);
+      border-bottom: 1px solid rgba(255,255,255,.12);
+      box-shadow: none;
+      backdrop-filter: blur(10px);
+    }
 
-/* NAV text/icons WHITE while on hero */
-#siteHeader.on-hero nav.desktop a,
-#siteHeader.on-hero .dd > button{
-  color: rgba(255,255,255,.92);
-}
-
-#siteHeader.on-hero nav.desktop a{ opacity:.88; }
-#siteHeader.on-hero nav.desktop a:hover{ opacity:1; }
-
-/* buttons on hero */
-#siteHeader.on-hero .searchBtn,
-#siteHeader.on-hero .burger{
-  background: rgba(255,255,255,.10);
-  border-color: rgba(255,255,255,.18);
-}
-#siteHeader.on-hero .burger span{ background: rgba(255,255,255,.92); }
-
-/* AFTER SCROLL (leaving hero) = solid white + NOT transparent */
-#siteHeader.scrolled{
-  background: #ffffff;                 /* fully solid */
-  border-bottom: 1px solid rgba(2,8,23,.08);
-  box-shadow: 0 10px 24px rgba(2,8,23,.08);
-  backdrop-filter: none;               /* remove the glassy look */
-}
-
-/* nav text dark when scrolled */
-#siteHeader.scrolled nav.desktop a,
-#siteHeader.scrolled .dd > button{
-  color: #0b1220;
-}
-
-#siteHeader.scrolled .burger{
-  background: #ffffff;
-  border-color: rgba(2,8,23,.12);
-}
-#siteHeader.scrolled .burger span{ background:#0b1220; }
-
+    /* After leaving hero = SOLID WHITE */
+    #siteHeader.scrolled{
+      background: #ffffff !important;
+      border-bottom: 1px solid rgba(2,8,23,.08);
+      box-shadow: 0 10px 24px rgba(2,8,23,.08);
+      backdrop-filter: none;
+    }
 
     .navwrap{
       display:flex;
@@ -256,18 +212,16 @@
       min-width: 200px;
     }
     .brand .logoBox{
-  width: 240px;
-  height: 70px;
-  display:flex;
-  align-items:center;
-}
-
-.brand img{
-  max-height: 70px;
-  width:auto;
-  object-fit:contain;
-}
-
+      width: 240px;
+      height: 70px;
+      display:flex;
+      align-items:center;
+    }
+    .brand img{
+      max-height: 70px;
+      width:auto;
+      object-fit:contain;
+    }
 
     nav.desktop{
       display:flex;
@@ -276,7 +230,6 @@
       font-size: 13px;
       letter-spacing:.08em;
       text-transform: uppercase;
-      color: #0b1220;
     }
     nav.desktop a{
       padding: 10px 4px;
@@ -315,9 +268,7 @@
     .searchBtn:hover{ box-shadow: var(--shadow2); transform: translateY(-1px); }
 
     /* Mega dropdown (Immigration) */
-    .dd{
-      position:relative;
-    }
+    .dd{ position:relative; }
     .dd > button{
       border:none;
       background:transparent;
@@ -398,9 +349,36 @@
     }
     .burger span{
       display:block;
-      width:18px;height:2px;background:#0b1220;
-      margin:4px auto;border-radius:999px;
+      width:18px;height:2px;
+      margin:4px auto;
+      border-radius:999px;
     }
+
+    /* Hero colours for nav text/icons */
+    #siteHeader.on-hero nav.desktop a,
+    #siteHeader.on-hero .dd > button{
+      color: rgba(255,255,255,.92);
+    }
+    #siteHeader.on-hero nav.desktop a{ opacity:.88; }
+    #siteHeader.on-hero nav.desktop a:hover{ opacity:1; }
+
+    #siteHeader.on-hero .searchBtn,
+    #siteHeader.on-hero .burger{
+      background: rgba(255,255,255,.10);
+      border-color: rgba(255,255,255,.18);
+    }
+    #siteHeader.on-hero .burger span{ background: rgba(255,255,255,.92); }
+
+    /* Solid (scrolled) nav colours */
+    #siteHeader.scrolled nav.desktop a,
+    #siteHeader.scrolled .dd > button{
+      color: #0b1220;
+    }
+    #siteHeader.scrolled .burger{
+      background: #ffffff;
+      border-color: rgba(2,8,23,.12);
+    }
+    #siteHeader.scrolled .burger span{ background:#0b1220; }
 
     .mobilePanel{
       display:none;
@@ -423,6 +401,7 @@
       align-items:center;
       justify-content:space-between;
       -webkit-tap-highlight-color: transparent;
+      cursor:pointer;
     }
     .mLink:hover{ box-shadow: var(--shadow2); }
     .mSub{
@@ -459,21 +438,13 @@
 
     /* ---------- HERO ---------- */
     .hero{
-  position: relative;
-
-  /* IMAGE + DARK BLUE OVERLAY */
- background:
-  linear-gradient(
-    rgba(6, 18, 38, 0.65),
-    rgba(6, 18, 38, 0.75)
-  ),
-
-    url("assets/hero-legal-woman.png") center / cover no-repeat;
-
-  color: #fff;
-  overflow: hidden;
-}
-
+      position: relative;
+      background:
+        linear-gradient(rgba(6, 18, 38, 0.65), rgba(6, 18, 38, 0.75)),
+        url("assets/hero-legal-woman.png") center / cover no-repeat;
+      color: #fff;
+      overflow: hidden;
+    }
 
     .heroInner{
       position:relative;
@@ -507,85 +478,40 @@
       margin-top: 18px;
     }
 
-    /* right card */
-    .regCard{
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.14);
-      border-radius: var(--radius2);
-      box-shadow: 0 16px 40px rgba(0,0,0,.18);
-      padding: 18px;
-      backdrop-filter: blur(10px);
-      min-height: 240px;
+    /* Right badge block */
+    .regRow{
+      display:flex;
+      justify-content:flex-end;
     }
-    .regCard .title{
-      font-size: 12px;
-      letter-spacing:.14em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.70);
-      margin-bottom: 10px;
+    .regLogoSimple{
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 26px 22px;
+      width: 240px;
+      display:flex;
+      flex-direction: column;
+      align-items:center;
+      justify-content:center;
+      gap: 12px;
+      box-shadow: 0 16px 35px rgba(0,0,0,.18);
     }
-    .regCard h3{
-      font-family: var(--serif);
+    .regLogoSimple img{
+      width: 160px;
+      height:auto;
+      object-fit: contain;
+    }
+    .regNumber{
+      font-size: 13px;
       font-weight: 600;
-      font-size: 24px;
-      margin: 0 0 8px;
+      color: #0b2346;
+      text-align:center;
+      letter-spacing: .04em;
     }
-    .regCard .meta{
-      color: rgba(255,255,255,.72);
-      font-size: 13.5px;
-      line-height: 1.6;
-      margin-bottom: 14px;
-    }
-   .regRow{
-  border-top: 1px solid rgba(255,255,255,.12);
-  padding-top: 18px;
-}
-
-/* WHITE TILE */
-.regLogoSimple{
-  background: #ffffff;
-  border-radius: 18px;
-  padding: 26px 22px;
-  width: 240px;
-  display:flex;
-  flex-direction: column;
-  align-items:center;
-  justify-content:center;
-  gap: 12px;
-  box-shadow: 0 16px 35px rgba(0,0,0,.18);
-}
-
-/* BIG LOGO */
-.regLogoSimple img{
-  width: 160px;
-  height:auto;
-  object-fit: contain;
-}
-
-/* REG NUMBER */
-.regNumber{
-  font-size: 13px;
-  font-weight: 600;
-  color: #0b2346;
-  text-align:center;
-  letter-spacing: .04em;
-}
-
-    }
-
-@media (max-width: 600px){
-  .regLogoSimple{
-    width: 200px;
-    padding: 18px;
-  }
-
-  .regLogoSimple img{
-    width: 130px;
-  }
-}
-}
-}
-
+    @media (max-width: 600px){
+      .heroInner{ grid-template-columns: 1fr; }
+      .regRow{ justify-content:flex-start; }
+      .regLogoSimple{ width: 200px; padding: 18px; }
+      .regLogoSimple img{ width: 130px; }
     }
 
     /* ---------- SECTION BASE ---------- */
@@ -612,10 +538,8 @@
       font-size: clamp(28px, 3vw, 40px);
     }
 
-    /* ---------- WELCOME (inspiration-like) ---------- */
-    .welcome{
-      background: #fff;
-    }
+    /* ---------- WELCOME ---------- */
+    .welcome{ background: #fff; }
     .welcomeGrid{
       display:grid;
       grid-template-columns: 1.05fr .95fr;
@@ -738,16 +662,14 @@
     }
 
     @media (max-width: 980px){
-      .welcomeGrid{
-        grid-template-columns: 1fr;
-      }
+      .welcomeGrid{ grid-template-columns: 1fr; }
       .welcomeImg{ min-height: 320px; }
       .casesBadge{ width: 160px; }
       .casesBadge .big{ font-size: 40px; }
       .welcomeCard h3{ font-size: 30px; }
     }
 
-    /* ---------- UK VISA SERVICES (grid desktop / swipe carousel mobile) ---------- */
+    /* ---------- SERVICES ---------- */
     .services{
       background: var(--soft);
       border-top:1px solid rgba(2,8,23,.06);
@@ -782,10 +704,8 @@
     .svc:nth-child(5),
     .svc:nth-child(10){ border-right:none; }
     .svc:nth-child(n+6){ border-bottom:none; }
+    .svc:hover{ background: rgba(215,181,109,.06); }
 
-    .svc:hover{
-      background: rgba(215,181,109,.06);
-    }
     .svc .ico{
       width: 46px; height: 46px;
       border-radius: 16px;
@@ -816,15 +736,13 @@
       transform: translateY(-1px);
     }
 
-    /* make icons slightly colourful */
     .svc svg{ width:22px;height:22px; }
-    .c1{ color:#2b6cb0; }    /* cool blue */
-    .c2{ color:#0f766e; }    /* teal */
-    .c3{ color:#b45309; }    /* warm amber */
-    .c4{ color:#6d28d9; }    /* violet */
-    .c5{ color:#0f4c81; }    /* navy-blue */
+    .c1{ color:#2b6cb0; }
+    .c2{ color:#0f766e; }
+    .c3{ color:#b45309; }
+    .c4{ color:#6d28d9; }
+    .c5{ color:#0f4c81; }
 
-    /* responsive grid counts */
     @media (max-width: 1100px){
       .svcGrid{ grid-template-columns: repeat(3, 1fr); }
       .svc:nth-child(3),
@@ -836,11 +754,9 @@
       .svc:nth-child(7),
       .svc:nth-child(8),
       .svc:nth-child(9){ border-bottom:none; }
-      .svc:nth-child(10){ border-right:none; }
-      .svc:nth-child(10){ border-bottom:none; }
+      .svc:nth-child(10){ border-right:none; border-bottom:none; }
     }
 
-    /* mobile becomes swipe carousel */
     @media (max-width: 820px){
       .svcGrid{
         display:flex;
@@ -861,10 +777,8 @@
       .svc{ border-right:none; border-bottom:none; }
     }
 
-    /* ---------- Speak with our team (gold minimal box) ---------- */
-    .speak{
-      background:#fff;
-    }
+    /* ---------- SPEAK ---------- */
+    .speak{ background:#fff; }
     .speakBox{
       border-radius: 22px;
       border: 1px solid rgba(2,8,23,.08);
@@ -934,35 +848,19 @@
       .speakBox{ grid-template-columns: 1fr; }
     }
 
-    /* ---------- FAQ / Common Queries ---------- */
-    .faq{
-      background:#fff;
-    }
+    /* ---------- FAQ ---------- */
+    .faq{ background:#fff; }
     .faqGrid{
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap: 22px;
       align-items:start;
     }
-    .faqIntro h3{
-      font-family: var(--serif);
-      font-size: 34px;
-      margin: 10px 0 8px;
-      font-weight: 600;
-      letter-spacing:-.01em;
-    }
-    .faqIntro p{
-      color: rgba(15,23,42,.70);
-      line-height:1.75;
-      margin: 0 0 14px;
-      max-width: 60ch;
-      font-size: 14.8px;
+    @media (max-width: 980px){
+      .faqGrid{ grid-template-columns: 1fr; }
     }
 
-    .accordion{
-      display:grid;
-      gap: 10px;
-    }
+    .accordion{ display:grid; gap: 10px; }
     .accItem{
       border-radius: 16px;
       border: 1px solid rgba(2,8,23,.08);
@@ -1007,13 +905,12 @@
       font-size: 14.4px;
     }
     .accItem.open .accPanel{ display:block; }
-    .accItem.open .plus{ background: rgba(215,181,109,.12); border-color: rgba(215,181,109,.35); }
-
-    @media (max-width: 980px){
-      .faqGrid{ grid-template-columns: 1fr; }
+    .accItem.open .plus{
+      background: rgba(215,181,109,.12);
+      border-color: rgba(215,181,109,.35);
     }
 
-    /* ---------- footer (desktop great, mobile becomes accordion) ---------- */
+    /* ---------- footer ---------- */
     footer{
       background: var(--navy);
       color:#fff;
@@ -1136,7 +1033,6 @@
     .waFloat:hover{ transform: translateY(-2px); }
     .waFloat svg{ width:26px;height:26px; fill:#fff; }
 
-    /* Reduce motion */
     @media (prefers-reduced-motion: reduce){
       *{ transition:none !important; scroll-behavior:auto !important; }
     }
@@ -1181,7 +1077,7 @@
   </div>
 
   <!-- HEADER -->
-  <header id="siteHeader">
+  <header id="siteHeader" class="on-hero">
     <div class="container">
       <div class="navwrap">
         <a class="brand" href="index.html" aria-label="Benchmark Legals Home">
@@ -1195,7 +1091,6 @@
           <a class="active" href="index.html">Home</a>
           <a href="#about">About</a>
 
-          <!-- Immigration dropdown -->
           <div class="dd" id="ddImm">
             <button type="button" aria-haspopup="true" aria-expanded="false">
               Immigration
@@ -1249,6 +1144,7 @@
             Immigration
             <svg class="caret" viewBox="0 0 12 12" fill="none"><path d="M3 5l3 3 3-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
+
           <div class="mSub" id="mImmSub">
             <a href="#services">Business Visa</a>
             <a href="#services">Family Visa</a>
@@ -1293,15 +1189,13 @@
           </div>
         </div>
 
-        
-          <div class="regRow">
-  <div class="regLogoSimple">
-    <img src="assets/iaa1.png" alt="IAA badge" />
-    <div class="regNumber">IAA Reg No: F202538075</div>
-  </div>
-</div>
-
+        <div class="regRow">
+          <div class="regLogoSimple">
+            <img src="assets/iaa1.png" alt="IAA badge" />
+            <div class="regNumber">IAA Reg No: F202538075</div>
+          </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -1311,8 +1205,11 @@
     <div class="container">
       <div class="welcomeGrid">
         <div class="welcomeImg" aria-label="Welcome image">
-          <!-- Replace with your own hero image later (optional) -->
-          <img src="assets/her-law.png"" alt="Law firm consultation (placeholder). If you don't have this file, replace with your own image." onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(180deg,#0b2346,#081a33)';"/>
+          <img
+            src="assets/her-law.png"
+            alt="Law firm consultation"
+            onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(180deg,#0b2346,#081a33)';"
+          />
           <div class="casesBadge" aria-label="Successful cases">
             <div class="big">500+</div>
             <div class="small">Successful<br/>Cases</div>
@@ -1353,7 +1250,7 @@
       </div>
 
       <div class="svcGrid" aria-label="UK Visa Services">
-        <!-- 1 -->
+
         <div class="svc" role="link" tabindex="0" data-go="#contact" aria-label="Business visas">
           <div class="ico c1">
             <svg viewBox="0 0 24 24" fill="none"><path d="M7 7h10v12H7V7Z" stroke="currentColor" stroke-width="1.8"/><path d="M9 7V5h6v2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
@@ -1362,7 +1259,6 @@
           <div class="arrow">→</div>
         </div>
 
-        <!-- 2 -->
         <div class="svc" role="link" tabindex="0" data-go="#contact" aria-label="Skilled worker visa">
           <div class="ico c2">
             <svg viewBox="0 0 24 24" fill="none"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Z" stroke="currentColor" stroke-width="1.8"/><path d="M4 21c1.5-4 14.5-4 16 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
@@ -1371,7 +1267,6 @@
           <div class="arrow">→</div>
         </div>
 
-        <!-- 3 -->
         <div class="svc" role="link" tabindex="0" data-go="#contact" aria-label="Global talent visa">
           <div class="ico c4">
             <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2.6 6.2L21 9l-4.7 4.2L17.5 21 12 17.9 6.5 21l1.2-7.8L3 9l6.4-.8L12 2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
@@ -1380,7 +1275,6 @@
           <div class="arrow">→</div>
         </div>
 
-        <!-- 4 -->
         <div class="svc" role="link" tabindex="0" data-go="#contact" aria-label="Self sponsorship">
           <div class="ico c5">
             <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M6 9h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M7 21h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
@@ -1389,7 +1283,6 @@
           <div class="arrow">→</div>
         </div>
 
-        <!-- 5 -->
         <div class="svc" role="link" tabindex="0" data-go="#contact" aria-label="Family visas">
           <div class="ico c3">
             <svg viewBox="0 0 24 24" fill="none"><path d="M7 11a3 3 0 1 0-3-3 3 3 0 0 0 3 3Z" stroke="currentColor" stroke-width="1.8"/><path d="M17 11a3 3 0 1 0-3-3 3 3 0 0 0 3 3Z" stroke="currentColor" stroke-width="1.8"/><path d="M2 21c.8-3.3 8.2-3.3 9 0M13 21c.8-3.3 8.2-3.3 9 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
@@ -1398,7 +1291,6 @@
           <div class="arrow">→</div>
         </div>
 
-        <!-- 6 -->
         <div class="svc" role="link" tabindex="0" data-go="#contact" aria-label="Innovator visas">
           <div class="ico c4">
             <svg viewBox="0 0 24 24" fill="none"><path d="M9 21h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M12 2a7 7 0 0 0-4 12c.8.7 1 1.2 1 2h6c0-.8.2-1.3 1-2A7 7 0 0 0 12 2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
@@ -1407,7 +1299,6 @@
           <div class="arrow">→</div>
         </div>
 
-        <!-- 7 -->
         <div class="svc" role="link" tabindex="0" data-go="#contact" aria-label="Graduate visa">
           <div class="ico c1">
             <svg viewBox="0 0 24 24" fill="none"><path d="M3 7l9-4 9 4-9 4-9-4Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M7 10v7c2 2 8 2 10 0v-7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
@@ -1416,7 +1307,6 @@
           <div class="arrow">→</div>
         </div>
 
-        <!-- 8 -->
         <div class="svc" role="link" tabindex="0" data-go="#contact" aria-label="Extension visas">
           <div class="ico c2">
             <svg viewBox="0 0 24 24" fill="none"><path d="M7 3h10v18H7V3Z" stroke="currentColor" stroke-width="1.8"/><path d="M9 8h6M9 12h6M9 16h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
@@ -1425,7 +1315,6 @@
           <div class="arrow">→</div>
         </div>
 
-        <!-- 9 -->
         <div class="svc" role="link" tabindex="0" data-go="#contact" aria-label="Settlement and naturalisation">
           <div class="ico c5">
             <svg viewBox="0 0 24 24" fill="none"><path d="M4 12h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M6 7h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M8 17h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
@@ -1434,7 +1323,6 @@
           <div class="arrow">→</div>
         </div>
 
-        <!-- 10 -->
         <div class="svc" role="link" tabindex="0" data-go="#contact" aria-label="UK visitor visa">
           <div class="ico c3">
             <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4 7-10V6l-7-3-7 3v5c0 6 7 10 7 10Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
@@ -1442,315 +1330,10 @@
           <h4>UK Visitor Visa</h4>
           <div class="arrow">→</div>
         </div>
+
       </div>
     </div>
   </section>
 
   <!-- SPEAK WITH OUR TEAM -->
-  <section class="speak" id="contact">
-    <div class="container">
-      <div class="speakBox">
-        <div class="speakLeft">
-          <h3>Speak with our team</h3>
-          <p>
-            Tell us what you need and we’ll respond quickly with a clear next step.
-            Premium support, transparent process, and careful handling of your documents.
-          </p>
-        </div>
-        <div class="speakRight" aria-label="Quick contact">
-          <div class="tiny">Quick Access</div>
-          <div class="cta">Book a consultation in minutes.</div>
-          <div class="miniRow">
-            <button class="miniBtn" type="button" id="callBtn">Call Now</button>
-            <button class="miniBtn" type="button" id="emailBtn">Email Us</button>
-            <button class="miniBtn" type="button" id="waBtn">WhatsApp</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ / COMMON QUERIES -->
-  <section class="faq" id="faq">
-    <div class="container">
-      <div class="faqGrid">
-        <div class="faqIntro">
-          <div class="sectionTitle" style="text-align:left;margin-bottom:0;">
-            <div class="top"><span class="line"></span> Frequently Asked Questions</div>
-            <h2 style="margin-top:10px;">Common Queries</h2>
-          </div>
-          <p style="margin-top:10px;">
-            Understanding immigration law can be daunting. If you’re seeking visa advice, information on our services and fees,
-            or assistance with an application, we’re ready to offer direct answers.
-          </p>
-          <a class="btn primary" href="#contact">Get Started Now</a>
-        </div>
-
-        <div class="accordion" aria-label="FAQ accordion">
-          <div class="accItem">
-            <button class="accBtn" type="button">
-              What types of visas can you help with in Benchmark Legals?
-              <span class="plus">+</span>
-            </button>
-            <div class="accPanel">
-              We provide consultancy for a wide range of visa applications including work visas, family visas, visitor visas,
-              settlement and naturalisation, global talent, and more. We are an IAA-registered immigration firm.
-            </div>
-          </div>
-
-          <div class="accItem">
-            <button class="accBtn" type="button">
-              How can I get in touch with your firm to discuss my immigration needs?
-              <span class="plus">+</span>
-            </button>
-            <div class="accPanel">
-              You can email us, call us, or message us on WhatsApp. We’ll respond promptly and guide you through the next step.
-            </div>
-          </div>
-
-          <div class="accItem">
-            <button class="accBtn" type="button">
-              What are your fees?
-              <span class="plus">+</span>
-            </button>
-            <div class="accPanel">
-              We operate a fixed-fee model agreed in advance. We begin with a short needs assessment and provide a clear quote with no obligation.
-            </div>
-          </div>
-
-          <!-- Asylum item removed (your request) -->
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <div class="footGrid">
-
-        <div class="footBrand">
-          <img src="assets/logo1.png" alt="Benchmark Legals logo (footer)" />
-          <p>
-            Benchmark Legals provides immigration advice with a premium and structured approach to help individuals
-            and companies navigate their UK journey with clarity.
-          </p>
-
-          <div class="footCard">
-           <img src="assets/iaa1.png" alt="IAA badge" />
-            <div class="txt">
-              <strong>Immigration Advice Authority</strong><br/>
-              Register No: <strong>F202538075</strong>
-            </div>
-          </div>
-        </div>
-
-        <div class="footCol" id="fContact">
-          <h4>Contact Us</h4>
-          <div class="content">
-            <div>
-              <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M12 22s7-5 7-12a7 7 0 1 0-14 0c0 7 7 12 7 12Z" stroke="currentColor" stroke-width="1.7"/><path d="M12 10.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" stroke="currentColor" stroke-width="1.7"/></svg>
-              124 City Road, London, EC1V 2NX
-            </div>
-            <a href="tel:+447903004158">
-              <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M7 3h3l2 6-2 1c1.3 2.5 3.5 4.7 6 6l1-2 6 2v3c0 1-1 2-2 2C10 21 3 14 3 5c0-1 1-2 2-2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
-              +44 7903 004158
-            </a>
-            <a href="mailto:info@benchmarklegals.co.uk">
-              <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M4 6h16v12H4V6Z" stroke="currentColor" stroke-width="1.7"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.7"/></svg>
-              info@benchmarklegals.co.uk
-            </a>
-          </div>
-        </div>
-
-        <div class="footCol" id="fImm">
-          <h4>UK Immigration</h4>
-          <div class="content">
-            <a href="#services">Skilled Worker Visa</a>
-            <a href="#services">Business Visa</a>
-            <a href="#services">Global Talent Visa</a>
-            <a href="#services">Innovator Founder Visa</a>
-            <a href="#services">Graduate Visa</a>
-            <a href="#services">Self-Sponsorship Visa</a>
-            <a href="#services">Family Visa</a>
-            <a href="#services">Settlement & Naturalisation</a>
-            <a href="#services">Extension Visas</a>
-          </div>
-        </div>
-
-        <div class="footCol" id="fHours">
-          <h4>Working Hours</h4>
-          <div class="content">
-            <div>Mon – Fri: 09:00 – 17:30</div>
-            <div>Saturday: Closed</div>
-            <div>Sunday: Closed</div>
-            <div style="opacity:.85;">Hours may vary on bank holidays.</div>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="footLine"></div>
-
-      <div class="copyright">
-        <div>© <span id="year"></span> Benchmark Legals. All rights reserved.</div>
-        <div>IAA Reg No: F202538075</div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- FLOATING WHATSAPP -->
-  <a class="waFloat" href="https://wa.me/447903004158" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-    <svg viewBox="0 0 32 32" aria-hidden="true">
-      <path d="M19.11 17.44c-.27-.14-1.58-.78-1.83-.87-.24-.09-.42-.14-.6.14-.18.27-.69.87-.85 1.05-.16.18-.31.2-.58.07-.27-.14-1.12-.41-2.13-1.3-.79-.7-1.32-1.56-1.48-1.83-.16-.27-.02-.42.12-.55.12-.12.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.34-.02-.47-.07-.14-.6-1.45-.82-1.98-.22-.53-.44-.46-.6-.47h-.52c-.18 0-.47.07-.71.34-.24.27-.94.92-.94 2.25 0 1.33.96 2.61 1.09 2.79.14.18 1.9 2.9 4.6 4.07.64.28 1.14.45 1.52.57.64.2 1.22.17 1.68.1.51-.08 1.58-.65 1.8-1.28.22-.63.22-1.17.16-1.28-.06-.11-.24-.18-.51-.31zM16.02 5.33c-5.77 0-10.46 4.69-10.46 10.46 0 1.84.48 3.64 1.4 5.22L5.5 26.67l5.81-1.52a10.42 10.42 0 0 0 4.71 1.13h.01c5.77 0 10.46-4.69 10.46-10.46S21.79 5.33 16.02 5.33zm0 18.19h-.01c-1.55 0-3.07-.42-4.39-1.22l-.31-.18-3.45.9.92-3.36-.2-.35a8.65 8.65 0 0 1-1.32-4.56c0-4.78 3.89-8.67 8.67-8.67 4.78 0 8.67 3.89 8.67 8.67 0 4.78-3.89 8.67-8.67 8.67z"/>
-    </svg>
-  </a>
-
-  <script>
-    // year
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // desktop dropdown open/close
-    const dd = document.getElementById("ddImm");
-    const ddBtn = dd?.querySelector("button");
-
-    function closeDD(){
-      dd.classList.remove("open");
-      ddBtn?.setAttribute("aria-expanded","false");
-    }
-
-    if(dd){
-      dd.addEventListener("mouseenter", () => {
-        dd.classList.add("open");
-        ddBtn.setAttribute("aria-expanded","true");
-      });
-      dd.addEventListener("mouseleave", closeDD);
-      ddBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        const isOpen = dd.classList.contains("open");
-        dd.classList.toggle("open", !isOpen);
-        ddBtn.setAttribute("aria-expanded", String(!isOpen));
-      });
-
-      document.addEventListener("click", (e) => {
-        if(!dd.contains(e.target)) closeDD();
-      });
-      document.addEventListener("keydown", (e) => {
-        if(e.key === "Escape") closeDD();
-      });
-    }
-
-    // mobile burger
-    const header = document.getElementById("siteHeader");
-   // Make header blend into hero at top, then turn solid on scroll
-const heroSection = document.querySelector(".hero");
-
-const header = document.getElementById("siteHeader");
-const heroSection = document.querySelector(".hero");
-
-function setHeaderMode(){
-  if(!header || !heroSection) return;
-
-  const heroBottom = heroSection.getBoundingClientRect().bottom;
-
-  // If hero is still behind header (top area)
-  const onHero = heroBottom > 80;
-
-  header.classList.toggle("on-hero", onHero);
-  header.classList.toggle("scrolled", !onHero);
-}
-
-setHeaderMode();
-window.addEventListener("scroll", setHeaderMode, { passive: true });
-window.addEventListener("resize", setHeaderMode);
-
-
-
-setHeaderMode();
-window.addEventListener("scroll", setHeaderMode, { passive: true });
-window.addEventListener("resize", setHeaderMode);
-
-
-    const burger = document.getElementById("burger");
-    burger?.addEventListener("click", () => {
-      header.classList.toggle("menuOpen");
-      burger.setAttribute("aria-label", header.classList.contains("menuOpen") ? "Close menu" : "Open menu");
-    });
-
-    // mobile immigration accordion
-    const mImmBtn = document.getElementById("mImmBtn");
-    const mImmSub = document.getElementById("mImmSub");
-    mImmBtn?.addEventListener("click", () => {
-      const open = mImmSub.style.display === "block";
-      mImmSub.style.display = open ? "none" : "block";
-      mImmBtn.setAttribute("aria-expanded", String(!open));
-    });
-
-    // FAQ accordion
-    document.querySelectorAll(".accItem").forEach(item => {
-      const btn = item.querySelector(".accBtn");
-      btn.addEventListener("click", () => item.classList.toggle("open"));
-    });
-
-    // services cards click
-    document.querySelectorAll("[data-go]").forEach(el => {
-      el.addEventListener("click", () => {
-        const t = el.getAttribute("data-go");
-        if(t) window.location.hash = t;
-      });
-      el.addEventListener("keydown", (e) => {
-        if(e.key === "Enter" || e.key === " ") el.click();
-      });
-    });
-
-    // quick contact buttons
-    document.getElementById("callBtn")?.addEventListener("click", () => {
-      window.location.href = "tel:+447903004158";
-    });
-    document.getElementById("emailBtn")?.addEventListener("click", () => {
-      window.location.href = "mailto:info@benchmarklegals.co.uk";
-    });
-    document.getElementById("waBtn")?.addEventListener("click", () => {
-      window.open("https://wa.me/447903004158", "_blank", "noopener");
-    });
-
-    // Footer mobile accordion
-    function initFooterAccordion(){
-      const isMobile = window.matchMedia("(max-width: 980px)").matches;
-      const cols = document.querySelectorAll("footer .footCol");
-      cols.forEach(col => {
-        const title = col.querySelector("h4");
-        const content = col.querySelector(".content");
-        if(!content) return;
-
-        if(isMobile){
-          // make content collapsible
-          if(!col.dataset.acc){
-            col.dataset.acc = "1";
-            title.addEventListener("click", () => col.classList.toggle("open"));
-            col.classList.remove("open");
-          }
-        }else{
-          // open on desktop
-          col.classList.add("open");
-          content.style.display = "block";
-        }
-      });
-
-      if(!isMobile){
-        cols.forEach(col => {
-          const content = col.querySelector(".content");
-          if(content) content.style.display = "block";
-        });
-      }else{
-        cols.forEach(col => {
-          const content = col.querySelector(".content");
-          if(content) content.style.display = "";
-        });
-      }
-    }
-    initFooterAccordion();
-    window.addEventListener("resize", initFooterAccordion);
-  </script>
-</body>
-</html>
+  <section class="s
