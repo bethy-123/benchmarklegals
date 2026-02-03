@@ -673,14 +673,18 @@
     .svc:nth-child(n+6){ border-bottom:none; }
     .svc:hover{ background: rgba(215,181,109,.06); }
 
-    .svc .ico{
-      width: 46px; height: 46px;
-      border-radius: 16px;
-      display:grid;
-      place-items:center;
-      background: rgba(8,26,51,.06);
-      border:1px solid rgba(8,26,51,.10);
-    }
+   .svc .ico{
+  width: 46px; height: 46px;
+  border-radius: 16px;
+  display:grid;
+  place-items:center;
+
+  /* premium glassy gold feel */
+  background: rgba(215,181,109,.10);
+  border: 1px solid rgba(215,181,109,.28);
+  box-shadow: 0 10px 22px rgba(2,8,23,.08);
+}
+
     .svc h4{
       margin: 4px 0 0;
       font-size: 12.5px;
@@ -703,12 +707,20 @@
       transform: translateY(-1px);
     }
 
-    .svc svg{ width:22px;height:22px; }
-    .c1{ color:#2b6cb0; }
-    .c2{ color:#0f766e; }
-    .c3{ color:#b45309; }
-    .c4{ color:#6d28d9; }
-    .c5{ color:#0f4c81; }
+    /* Make all icons feel premium and consistent */
+.svc svg{
+  width:22px;
+  height:22px;
+  stroke: currentColor;
+}
+.svc svg *{
+  stroke-width: 1.7 !important;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.c1, .c2, .c3, .c4, .c5{ color: var(--gold2); }
+
 
     @media (max-width: 1100px){
       .svcGrid{ grid-template-columns: repeat(3, 1fr); }
