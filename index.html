@@ -1068,108 +1068,176 @@
     }
 
     /* ---------- footer ---------- */
-    footer{
-      background: var(--navy);
-      color:#fff;
-      padding: 54px 0 28px;
-    }
-    .footGrid{
-      display:grid;
-      grid-template-columns: 1.3fr 1fr 1fr 1fr;
-      gap: 18px;
-      align-items:start;
-    }
-    .footBrand img{
-      max-height: 46px;
-      width:auto;
-      object-fit:contain;
-      filter: brightness(0) invert(1);
-      opacity:.95;
-    }
-    .footBrand p{
-      color: rgba(255,255,255,.70);
-      line-height:1.75;
-      font-size: 13.8px;
-      margin: 12px 0 0;
-      max-width: 40ch;
-    }
-    .footCard{
-      margin-top: 14px;
-      display:flex;
-      gap: 12px;
-      align-items:center;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      border-radius: 16px;
-      padding: 12px;
-    }
-    .footCard img{
-      width:64px;height:64px;
-      object-fit:contain;
-      border-radius: 14px;
-      background: rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.10);
-      padding: 10px;
-    }
-    .footCard .txt{
-      font-size: 12.8px;
-      color: rgba(255,255,255,.72);
-      line-height:1.45;
-    }
+/* ---------- FOOTER (inspiration-style) ---------- */
+footer{
+  background: var(--navy);
+  color:#fff;
+  padding: 62px 0 28px;
+}
 
-    .footCol h4{
-      margin: 6px 0 10px;
-      font-size: 13px;
-      letter-spacing:.14em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.80);
-    }
-    .footCol a, .footCol div{
-      display:flex;
-      align-items:center;
-      gap: 10px;
-      color: rgba(255,255,255,.70);
-      padding: 7px 0;
-      font-size: 13.8px;
-      line-height:1.4;
-    }
-    .footCol a:hover{ color:#fff; }
-    .footLine{
-      height:1px;
-      background: rgba(255,255,255,.10);
-      margin: 22px 0 14px;
-    }
-    .copyright{
-      display:flex;
-      justify-content:space-between;
-      gap: 14px;
-      flex-wrap:wrap;
-      color: rgba(255,255,255,.65);
-      font-size: 12.6px;
-    }
+.footGridPro{
+  display:grid;
+  grid-template-columns: 1.55fr 1fr 1fr 1fr;
+  gap: 42px;
+  align-items:start;
+}
 
-    @media (max-width: 980px){
-      .footGrid{ grid-template-columns: 1fr; gap: 12px; }
-      .footCol{
-        border:1px solid rgba(255,255,255,.12);
-        background: rgba(255,255,255,.04);
-        border-radius: 16px;
-        overflow:hidden;
-      }
-      .footCol h4{
-        margin:0;
-        padding: 14px 14px;
-        display:flex;
-        justify-content:space-between;
-        align-items:center;
-        cursor:pointer;
-      }
-      .footCol .content{
-        display:none;
-        padding: 0 14px 12px;
-      }
-      .footCol.open .content{ display:block; }
-    }
+/* LEFT column */
+.footBrandPro{
+  display:flex;
+  flex-direction:column;
+  gap: 16px;
+}
+
+/* BIG Benchmark logo – force white */
+.brandLogoBig{
+  width: 280px;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);  /* makes it white */
+  opacity: .98;
+}
+
+/* IAA block like reference: badge on white + text */
+.oiscRow{
+  display:flex;
+  gap: 14px;
+  align-items:center;
+}
+
+.oiscBadge{
+  width: 120px;
+  height: 120px;
+  border-radius: 18px;
+  background: #ffffff;             /* lawful white background */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow: 0 12px 30px rgba(0,0,0,.22);
+}
+
+.oiscImg{
+  width: 92px;
+  height: auto;
+  object-fit: contain;
+  filter: none !important;          /* DO NOT recolour IAA */
+  opacity: 1;
+}
+
+.oiscText{
+  line-height: 1.35;
+}
+
+.oiscTitle{
+  font-weight: 800;
+  color: rgba(255,255,255,.92);
+  font-size: 13.5px;
+}
+
+.oiscReg{
+  margin-top: 6px;
+  color: rgba(255,255,255,.72);
+  font-size: 13px;
+}
+
+.footAbout{
+  color: rgba(255,255,255,.72);
+  line-height: 1.75;
+  font-size: 13.8px;
+  margin: 2px 0 0;
+  max-width: 48ch;
+}
+
+/* Column headings */
+.footColPro h4{
+  margin: 6px 0 14px;
+  font-size: 13px;
+  letter-spacing:.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.88);
+}
+
+/* Lists */
+.footList{
+  display:flex;
+  flex-direction:column;
+  gap: 8px;
+}
+
+.footItem{
+  color: rgba(255,255,255,.72);
+  font-size: 13.8px;
+  line-height: 1.6;
+}
+
+a.footItem:hover{
+  color:#fff;
+}
+
+.footNote{
+  margin-top: 6px;
+  color: rgba(255,255,255,.62);
+  font-size: 12.8px;
+  line-height: 1.5;
+}
+
+/* Optional social row (clean + subtle) */
+.footSocial{
+  display:flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+.footSocial a{
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  display:grid;
+  place-items:center;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.06);
+  color:#fff;
+  transition:.18s ease;
+}
+.footSocial a:hover{
+  background: rgba(255,255,255,.10);
+  transform: translateY(-1px);
+}
+
+/* Bottom line + copyright */
+.footLine{
+  height:1px;
+  background: rgba(255,255,255,.10);
+  margin: 34px 0 18px;
+}
+
+.copyright{
+  display:flex;
+  justify-content:space-between;
+  gap: 14px;
+  flex-wrap:wrap;
+  color: rgba(255,255,255,.65);
+  font-size: 12.8px;
+}
+
+.backTopLink{
+  color: rgba(255,255,255,.70);
+}
+.backTopLink:hover{ color:#fff; }
+
+/* Mobile */
+@media (max-width: 980px){
+  .footGridPro{
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .brandLogoBig{
+    width: 240px;
+  }
+  .oiscRow{
+    align-items:flex-start;
+  }
+}
 
     /* Floating WhatsApp */
     .waFloat{
@@ -1747,18 +1815,18 @@
   </main>
 
   <!-- FOOTER -->
-  <footer id="contact">
+<footer id="contact">
   <div class="container">
 
     <div class="footGridPro">
 
-      <!-- LEFT: BIG LOGO + IAA CARD + SHORT ABOUT -->
+      <!-- LEFT: BIG LOGO + IAA + ABOUT -->
       <div class="footBrandPro">
         <img class="brandLogoBig" src="assets/logo1.png" alt="Benchmark Legals logo" />
 
         <div class="oiscRow">
           <div class="oiscBadge">
-            <!-- IMPORTANT: we do NOT recolour this image. -->
+            <!-- IMPORTANT: do NOT recolour this image -->
             <img class="oiscImg" src="assets/iaa1.png" alt="IAA badge" />
           </div>
 
@@ -1777,7 +1845,6 @@
       <!-- CONTACT US -->
       <div class="footColPro">
         <h4>Contact Us</h4>
-
         <div class="footList">
           <div class="footItem">124 City Road, London, EC1V 2NX</div>
           <a class="footItem" href="tel:+447903004158">+44 7903 004158</a>
@@ -1801,7 +1868,6 @@
       <!-- UK IMMIGRATION -->
       <div class="footColPro">
         <h4>UK Immigration</h4>
-
         <div class="footList">
           <a class="footItem" href="#services">Skilled Worker Visa</a>
           <a class="footItem" href="#services">Business Visa</a>
@@ -1809,7 +1875,7 @@
           <a class="footItem" href="#services">Innovator Founder Visa</a>
           <a class="footItem" href="#services">Graduate Visa</a>
           <a class="footItem" href="#services">Family Visa</a>
-          <a class="footItem" href="#services">Settlement &amp; Naturalisation don’t</a>
+          <a class="footItem" href="#services">Settlement &amp; Naturalisation</a>
           <a class="footItem" href="#services">Extension Visas</a>
         </div>
       </div>
@@ -1817,7 +1883,6 @@
       <!-- WORKING HOURS -->
       <div class="footColPro">
         <h4>Working Hours</h4>
-
         <div class="footList">
           <div class="footItem">Mon–Fri: 9:00 – 17:30</div>
           <div class="footItem">Saturday: Closed</div>
@@ -1837,6 +1902,8 @@
 
   </div>
 </footer>
+
+
 
 
   <!-- Floating WhatsApp -->
