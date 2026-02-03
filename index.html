@@ -1192,6 +1192,73 @@
     @media (prefers-reduced-motion: reduce){
       *{ transition:none !important; scroll-behavior:auto !important; }
     }
+    /* ===== FOOTER — PREMIUM LAYOUT UPGRADE ===== */
+
+.footGrid{
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: 40px;
+}
+
+.footBrand{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+/* Large logo like reference site */
+.footBrand img{
+  max-height: 110px;
+  filter: none;              /* keep original logo colours */
+  opacity: 1;
+}
+
+/* IAA card — white lawful background */
+.footCard{
+  background:#ffffff;
+  border: none;
+  padding:18px;
+  border-radius:18px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.25);
+}
+
+.footCard img{
+  width:90px;
+  height:90px;
+  background:#fff;           /* white background — allowed */
+  border:none;
+  padding:8px;
+}
+
+.footCard .txt{
+  color:#0b2346;
+  font-weight:600;
+  font-size:13px;
+}
+
+/* Headings stronger like reference */
+.footCol h4{
+  font-size:14px;
+  letter-spacing:.18em;
+  color:#ffffff;
+  margin-bottom:14px;
+}
+
+/* Links cleaner */
+.footCol a{
+  padding:6px 0;
+  font-size:14px;
+}
+
+/* Bottom bar spacing */
+.footLine{
+  margin: 34px 0 18px;
+  opacity:.6;
+}
+
+.copyright{
+  font-size:13px;
+}
+
   </style>
 </head>
 
@@ -1681,70 +1748,96 @@
 
   <!-- FOOTER -->
   <footer id="contact">
-    <div class="container">
-      <div class="footGrid">
-        <div class="footBrand">
-          <img src="assets/logo1.png" alt="Benchmark Legals logo" />
-          <p>
-            Benchmark Legals provides immigration advice with a warm and professional approach, supporting individuals and businesses
-            navigating the United Kingdom immigration system.
-          </p>
+  <div class="container">
 
-          <div class="footCard">
-            <img src="assets/iaa1.png" alt="IAA badge" />
-            <div class="txt">
-              Office of the Immigration Services Commissioner<br/>
-              Register No: <strong>F202538075</strong>
-            </div>
+    <div class="footGridPro">
+
+      <!-- LEFT: BIG LOGO + IAA CARD + SHORT ABOUT -->
+      <div class="footBrandPro">
+        <img class="brandLogoBig" src="assets/logo1.png" alt="Benchmark Legals logo" />
+
+        <div class="oiscRow">
+          <div class="oiscBadge">
+            <!-- IMPORTANT: we do NOT recolour this image. -->
+            <img class="oiscImg" src="assets/iaa1.png" alt="IAA badge" />
+          </div>
+
+          <div class="oiscText">
+            <div class="oiscTitle">Office of the Immigration Services Commissioner</div>
+            <div class="oiscReg">Register No: <strong>F202538075</strong></div>
           </div>
         </div>
 
-        <div class="footCol">
-          <h4>Contact Us</h4>
-          <div class="content">
-            <div>124 City Road, London, EC1V 2NX</div>
-            <a href="tel:+447903004158">+44 7903 004158</a>
-            <a href="mailto:info@benchmarklegals.co.uk">info@benchmarklegals.co.uk</a>
-          </div>
+        <p class="footAbout">
+          Benchmark Legals provides immigration advice with a warm and professional approach, supporting individuals and businesses
+          navigating the United Kingdom immigration system.
+        </p>
+      </div>
+
+      <!-- CONTACT US -->
+      <div class="footColPro">
+        <h4>Contact Us</h4>
+
+        <div class="footList">
+          <div class="footItem">124 City Road, London, EC1V 2NX</div>
+          <a class="footItem" href="tel:+447903004158">+44 7903 004158</a>
+          <a class="footItem" href="mailto:info@benchmarklegals.co.uk">info@benchmarklegals.co.uk</a>
         </div>
 
-        <div class="footCol">
-          <h4>UK Immigration</h4>
-          <div class="content">
-            <a href="#services">Skilled Worker Visa</a>
-            <a href="#services">Business Visa</a>
-            <a href="#services">Global Talent Visa</a>
-            <a href="#services">Innovator Founder Visa</a>
-            <a href="#services">Graduate Visa</a>
-            <a href="#services">Family Visa</a>
-            <a href="#services">Settlement & Naturalisation</a>
-            <a href="#services">Extension Visas</a>
-          </div>
-        </div>
-
-        <div class="footCol">
-          <h4>Working Hours</h4>
-          <div class="content">
-            <div>Mon–Fri: 9:00 – 17:30</div>
-            <div>Saturday: Closed</div>
-            <div>Sunday: Closed</div>
-            <div style="margin-top:6px;color:rgba(255,255,255,.65);font-size:12.8px;line-height:1.45;">
-              Working hours may vary on bank holidays.
-            </div>
-          </div>
+        <!-- Optional social row (keep or delete) -->
+        <div class="footSocial">
+          <a href="#" aria-label="Facebook" title="Facebook">
+            <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M14 8h2V5h-2c-2 0-4 2-4 4v2H8v3h2v7h3v-7h2.2l.8-3H13V9c0-.6.4-1 1-1Z" fill="currentColor"/></svg>
+          </a>
+          <a href="#" aria-label="LinkedIn" title="LinkedIn">
+            <svg class="icon" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M6.5 9H3.9v11h2.6V9ZM5.2 3.8a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3ZM20.2 20h-2.6v-5.6c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9V20H11V9h2.5v1.5h.1c.4-.7 1.4-1.7 3-1.7 3.2 0 3.7 2.1 3.7 4.8V20Z"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram" title="Instagram">
+            <svg class="icon" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3Zm-5 4a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.5-.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0Z"/></svg>
+          </a>
         </div>
       </div>
 
-      <div class="footLine"></div>
+      <!-- UK IMMIGRATION -->
+      <div class="footColPro">
+        <h4>UK Immigration</h4>
 
-      <div class="copyright">
-        <div>© <span id="year"></span> Benchmark Legals. All rights reserved.</div>
-        <div>
-          <a href="#top" style="color:rgba(255,255,255,.70)">Back to top ↑</a>
+        <div class="footList">
+          <a class="footItem" href="#services">Skilled Worker Visa</a>
+          <a class="footItem" href="#services">Business Visa</a>
+          <a class="footItem" href="#services">Global Talent Visa</a>
+          <a class="footItem" href="#services">Innovator Founder Visa</a>
+          <a class="footItem" href="#services">Graduate Visa</a>
+          <a class="footItem" href="#services">Family Visa</a>
+          <a class="footItem" href="#services">Settlement &amp; Naturalisation don’t</a>
+          <a class="footItem" href="#services">Extension Visas</a>
         </div>
       </div>
+
+      <!-- WORKING HOURS -->
+      <div class="footColPro">
+        <h4>Working Hours</h4>
+
+        <div class="footList">
+          <div class="footItem">Mon–Fri: 9:00 – 17:30</div>
+          <div class="footItem">Saturday: Closed</div>
+          <div class="footItem">Sunday: Closed</div>
+          <div class="footNote">Working hours may vary on bank holidays.</div>
+        </div>
+      </div>
+
     </div>
-  </footer>
+
+    <div class="footLine"></div>
+
+    <div class="copyright">
+      <div>© <span id="year"></span> Benchmark Legals. All rights reserved.</div>
+      <div><a href="#top" class="backTopLink">Back to top ↑</a></div>
+    </div>
+
+  </div>
+</footer>
+
 
   <!-- Floating WhatsApp -->
   <a class="waFloat" href="https://wa.me/447903004158" target="_blank" rel="noopener" aria-label="WhatsApp">
