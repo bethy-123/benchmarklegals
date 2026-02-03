@@ -1327,6 +1327,75 @@ a.footItem:hover{
   font-size:13px;
 }
 
+    /* ===== FOOTER ALIGNMENT + SPACING FIX ===== */
+
+/* make all footer columns align to top */
+.footGridPro{
+  align-items: start !important;
+}
+
+/* left brand column tighter */
+.footBrandPro{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:flex-start;
+  gap:14px;                 /* tighter vertical spacing */
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* Benchmark logo size + remove gap */
+.brandLogoBig{
+  max-height: 86px;         /* was too big → reduce */
+  width:auto;
+  display:block;
+  margin: 0 0 6px 0;        /* remove top gap */
+  filter: brightness(0) invert(1);  /* force white logo on navy */
+}
+
+/* IAA row sits directly under logo */
+.oiscRow{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-top: 4px;
+}
+
+/* white badge box stays compact */
+.oiscBadge{
+  background:#fff;
+  border-radius:14px;
+  padding:10px;
+  flex:0 0 auto;
+  box-shadow: 0 10px 24px rgba(0,0,0,.25);
+}
+
+.oiscImg{
+  width:72px;
+  height:auto;
+  display:block;
+}
+
+/* text next to badge */
+.oiscText{
+  margin:0;
+  padding:0;
+  line-height:1.35;
+}
+
+/* paragraph spacing tighter */
+.footAbout{
+  margin-top: 6px;
+  max-width: 44ch;
+}
+
+/* make other columns also start from same top line */
+.footColPro{
+  margin-top: 0;
+  padding-top: 0;
+}
+
   </style>
 </head>
 
