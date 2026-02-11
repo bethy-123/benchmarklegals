@@ -10,488 +10,126 @@
   <link rel="shortcut icon" type="image/png" href="assets/tablogo.png" />
   <link rel="apple-touch-icon" href="assets/tablogo.png" />
 
+  <!-- If you have a global CSS file, link it here.
+       If you only use inline CSS, keep page-specific CSS below. -->
+
   <style>
+    /* ✅ PAGE ONLY (keep your global styles in header partial or main css) */
+
     :root{
       --navy:#081a33;
       --navy2:#0b2346;
       --ink:#0e1526;
-      --muted:#6b7280;
-      --line:rgba(15, 23, 42, .10);
-      --paper:#ffffff;
       --soft:#f6f7fb;
       --gold:#d7b56d;
       --gold2:#caa353;
-      --shadow: 0 16px 40px rgba(2,8,23,.12);
-      --shadow2: 0 10px 24px rgba(2,8,23,.10);
-      --radius: 18px;
-      --radius2: 22px;
-
       --serif: ui-serif, Georgia, "Times New Roman", serif;
       --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      --shadow2: 0 10px 24px rgba(2,8,23,.10);
     }
 
-    *{ box-sizing:border-box; }
-    html,body{ height:100%; }
-    html{ scroll-behavior:smooth; }
-    body{
-      margin:0;
-      font-family: var(--sans);
-      color: var(--ink);
-      background: var(--paper);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-    }
+    body{ margin:0; font-family:var(--sans); color:var(--ink); background:#fff; }
+    a{ color:inherit; text-decoration:none; }
     img{ max-width:100%; display:block; }
-    a{ color: inherit; text-decoration:none; }
-    button{ font:inherit; }
-    body, main, header, section, footer { position: relative; }
-    [id]{ scroll-margin-top: 98px; }
 
-    /* ---------- utilities ---------- */
     .container{
       width:min(1180px, calc(100% - 40px));
       margin:0 auto;
     }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:.55rem;
-      padding: 12px 18px;
-      border-radius: 999px;
-      border:1px solid transparent;
-      cursor:pointer;
-      transition:.18s ease;
-      font-weight:600;
-      letter-spacing:.01em;
-      background:transparent;
-      user-select:none;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .btn:focus{ outline:none; }
-    .btn:focus-visible{
-      outline: 3px solid rgba(215,181,109,.35);
-      outline-offset: 3px;
-    }
-    .btn.primary{
-      background: var(--gold);
-      color:#10203a;
-      box-shadow: 0 10px 24px rgba(215,181,109,.22);
-    }
-    .btn.primary:hover{ background: var(--gold2); }
-    .btn.ghost{
-      border-color: rgba(255,255,255,.35);
-      color:#fff;
-    }
-    .btn.ghost:hover{ background: rgba(255,255,255,.08); }
-    .btn.light{
-      border-color: rgba(2,8,23,.10);
-      color:#111827;
-      background:#fff;
-    }
-    .btn.light:hover{ box-shadow: var(--shadow2); transform: translateY(-1px); }
 
-    .icon{ width:16px;height:16px; opacity:.9; }
-
-    /* ---------- top info bar ---------- */
-    .topbar{
-      background: var(--navy);
-      color:#fff;
-      font-size: 13px;
-      border-bottom: 1px solid rgba(255,255,255,.08);
-    }
-    .topbar .inner{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 14px;
-      padding: 10px 0;
-    }
-    .topbar .left, .topbar .right{
-      display:flex;
-      align-items:center;
-      gap: 16px;
-      min-width: 0;
-    }
-    .topbar a{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      color: rgba(255,255,255,.92);
-      white-space:nowrap;
-    }
-    .topbar .badge{
-      color: rgba(255,255,255,.80);
-      white-space:nowrap;
-    }
-    .social{
-      display:flex; align-items:center; gap:10px;
-    }
-    .social a{
-      width:32px;height:32px;border-radius:10px;
-      display:grid;place-items:center;
-      border:1px solid rgba(255,255,255,.14);
-      transition:.18s ease;
-    }
-    .social a:hover{ background: rgba(255,255,255,.08); }
-
-    @media (max-width: 820px){
-      .topbar .inner{
-        flex-direction:column;
-        align-items:stretch;
-        gap:10px;
-      }
-      .topbar .left{
-        overflow-x:auto;
-        -webkit-overflow-scrolling:touch;
-        scrollbar-width:none;
-        white-space:nowrap;
-        padding-bottom: 2px;
-      }
-      .topbar .left::-webkit-scrollbar{ display:none; }
-      .topbar .right{
-        justify-content:flex-end;
-      }
-    }
-
-    /* ===== HEADER / NAV — ALWAYS SOLID NAVY ===== */
-    #siteHeader{
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      background: var(--navy);
-      border-bottom: 1px solid rgba(255,255,255,.08);
-      box-shadow: 0 10px 24px rgba(0,0,0,.25);
-    }
-
-    .navwrap{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 14px;
-      padding: 12px 0;
-    }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap: 12px;
-      min-width: 200px;
-    }
-    .brand .logoBox{
-      width: 240px;
-      height: 70px;
-      display:flex;
-      align-items:center;
-    }
-    .brand img{
-      max-height: 70px;
-      width:auto;
-      object-fit:contain;
-      filter: brightness(0) invert(1);
-    }
-
-    nav.desktop{
-      display:flex;
-      align-items:center;
-      gap: 20px;
-      font-size: 13px;
-      letter-spacing:.08em;
-      text-transform: uppercase;
-    }
-    nav.desktop a{
-      padding: 10px 4px;
-      opacity:.92;
-      transition:.15s ease;
-      color: rgba(255,255,255,.92);
-    }
-    nav.desktop a:hover{ opacity:1; color:#fff; }
-
-    nav.desktop a.active{
-      color: var(--gold);
-      opacity: 1;
-      position:relative;
-    }
-    nav.desktop a.active::after{
-      content:"";
-      position:absolute;
-      left:4px; right:4px; bottom:6px;
-      height:2px;
-      background: var(--gold);
-      border-radius: 999px;
-    }
-
-    .navActions{
-      display:flex;
-      align-items:center;
-      gap: 10px;
-    }
-
-    .searchBtn{
-      width:42px;height:42px;border-radius:999px;
-      border:1px solid rgba(255,255,255,.18);
-      background: rgba(255,255,255,.08);
-      display:grid;place-items:center;
-      cursor:pointer;
-      transition:.18s ease;
-      -webkit-tap-highlight-color: transparent;
-      color:#fff;
-    }
-    .searchBtn:hover{ background: rgba(255,255,255,.12); transform: translateY(-1px); }
-
-    /* Mega dropdown */
-    .dd{ position:relative; }
-    .dd > button{
-      border:none;
-      background:transparent;
-      cursor:pointer;
-      padding: 10px 4px;
-      font:inherit;
-      text-transform:inherit;
-      letter-spacing:inherit;
-      opacity:1;
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      color: rgba(255,255,255,.92);
-    }
-    .dd > button:hover{ color: #fff; }
-    .dd > button:focus{ outline:none; }
-    .dd > button:focus-visible{
-      outline: 3px solid rgba(215,181,109,.35);
-      outline-offset: 4px;
-      border-radius: 10px;
-    }
-    .caret{ width:10px;height:10px; opacity:.9; transform: translateY(1px); }
-
-    .mega{
-      position:absolute;
-      left:50%;
-      transform: translateX(-50%);
-      top: 52px;
-      width: 760px;
-      background: linear-gradient(180deg, #071a36, #06152b);
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: 16px;
-      box-shadow: 0 18px 50px rgba(2,8,23,.22);
-      padding: 18px;
-      display:none;
-    }
-    .mega .grid{
-      display:grid;
-      grid-template-columns: 1fr 1px 1fr;
-      gap: 18px;
-      align-items:start;
-    }
-    .mega .divider{ background: rgba(255,255,255,.16); height:100%; }
-    .mega a{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding: 10px 12px;
-      border-radius: 12px;
-      color: rgba(255,255,255,.92);
-      text-transform:none;
-      letter-spacing:0;
-      font-size: 14px;
-      opacity:1;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
-    }
-    .mega a:hover{
-      background: rgba(255,255,255,.08);
-      border-color: rgba(255,255,255,.18);
-    }
-    .mega small{ color: rgba(255,255,255,.65); font-size: 12px; }
-    .dd.open .mega{ display:block; }
-
-    /* Mobile nav */
-    .burger{
-      display:none;
-      width:44px;height:44px;border-radius:12px;
-      border:1px solid rgba(255,255,255,.18);
-      background: rgba(255,255,255,.08);
-      cursor:pointer;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .burger span{
-      display:block;
-      width:18px;height:2px;
-      margin:4px auto;
-      border-radius:999px;
-      background:#fff;
-    }
-
-    .mobilePanel{
-      display:none;
-      border-top:1px solid rgba(255,255,255,.10);
-      background: var(--navy);
-    }
-    .mobilePanel .inner{
-      padding: 12px 0 18px;
-      display:grid;
-      gap: 10px;
-    }
-    .mLink{
-      padding: 12px 12px;
-      border-radius: 14px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-      font-weight:700;
-      color:#fff;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      -webkit-tap-highlight-color: transparent;
-      cursor:pointer;
-    }
-    .mLink:hover{ background: rgba(255,255,255,.10); }
-    .mSub{
-      display:none;
-      padding: 0 12px 12px;
-      margin-top: -6px;
-    }
-    .mSub a{
-      display:block;
-      padding: 10px 12px;
-      border-radius: 12px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.05);
-      margin-top: 8px;
-      font-weight: 700;
-      color:#fff;
-    }
-    .mSub a:hover{ background: rgba(255,255,255,.10); }
-    .mRow{
-      display:flex;
-      gap: 10px;
-      flex-wrap:wrap;
-      padding: 8px 0 0;
-    }
-
-    @media (max-width: 980px){
-      nav.desktop{ display:none; }
-      .burger{ display:block; }
-      .brand{ min-width:auto; }
-      .brand .logoBox{ width: 150px; }
-      .navActions .searchBtn{ display:none; }
-    }
-    header.menuOpen .mobilePanel{ display:block; }
-
-    /* ===== CONTACT PAGE HERO ===== */
+    /* Hero like the reference screenshot */
     .pageHero{
       background:
-        linear-gradient(rgba(6, 18, 38, 0.75), rgba(6, 18, 38, 0.80)),
-        url("assets/hero-legal-woman.png") center / cover no-repeat;
+        linear-gradient(rgba(6, 18, 38, 0.55), rgba(6, 18, 38, 0.78)),
+        url("assets/uk.png") center / cover no-repeat;
       color:#fff;
-      padding: 70px 0 60px;
+      overflow:hidden;
+    }
+    .pageHeroInner{
+      padding: 58px 0 68px;
     }
     .crumbs{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      font-weight:700;
-      color: rgba(255,255,255,.75);
+      display:flex; align-items:center; gap:10px;
+      font-size:14px;
+      color: rgba(255,255,255,.82);
     }
-    .crumbs a{ color: rgba(255,255,255,.92); }
-    .crumbs span{ opacity:.7; }
-    .pageHero h1{
+    .crumbs .arrow{ opacity:.8; }
+    .crumbs a{ color: rgba(255,255,255,.88); }
+    .crumbs a:hover{ color:#fff; }
+    .pageTitle{
+      margin:16px 0 0;
       font-family: var(--serif);
       font-weight: 700;
-      margin: 14px 0 10px;
-      font-size: clamp(34px, 4vw, 52px);
       letter-spacing:-.01em;
-      text-shadow: 0 12px 40px rgba(0,0,0,.22);
-    }
-    .pageHero p{
-      max-width: 65ch;
-      color: rgba(255,255,255,.78);
-      line-height: 1.7;
-      margin:0;
-      font-size: 15.5px;
+      font-size: clamp(34px, 4vw, 54px);
+      line-height:1.05;
+      text-shadow: 0 14px 40px rgba(0,0,0,.25);
     }
 
-    /* ===== CONTACT CARDS ===== */
-    .contactCards{
-      padding: 38px 0 0;
-      background: #fff;
-    }
-    .cardsGrid{
-      margin-top: -40px;
-      display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-    .cCard{
-      background:#fff;
-      border: 1px solid rgba(2,8,23,.08);
-      box-shadow: var(--shadow2);
-      border-radius: 18px;
-      padding: 22px;
-      text-align:center;
-    }
-    .cIcon{
-      width:52px;height:52px;
-      border-radius:16px;
-      background: rgba(215,181,109,.14);
-      border: 1px solid rgba(215,181,109,.35);
-      display:grid;place-items:center;
-      margin: 0 auto 12px;
-      font-size: 20px;
-    }
-    .cCard h3{
-      margin: 0 0 8px;
-      font-size: 14px;
-      letter-spacing:.10em;
-      text-transform: uppercase;
-    }
-    .cCard a, .cCard .mut{
-      color: rgba(15,23,42,.70);
-      font-weight: 700;
-      font-size: 13.8px;
-      line-height: 1.5;
-    }
-    @media (max-width: 980px){
-      .cardsGrid{ grid-template-columns: 1fr 1fr; margin-top: -28px; }
-    }
-    @media (max-width: 560px){
-      .cardsGrid{ grid-template-columns: 1fr; }
-    }
-
-    /* ---------- SECTION BASE ---------- */
+    /* Main section */
     section{ padding: 64px 0; }
     .sectionTitle{
       text-align:center;
-      margin-bottom: 26px;
+      margin-bottom: 28px;
     }
-    .sectionTitle .top{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      color: rgba(15,23,42,.55);
-      font-size: 12px;
-      letter-spacing:.18em;
-      text-transform: uppercase;
-    }
-    .sectionTitle .top .line{ width:40px;height:1px;background: rgba(15,23,42,.18); }
     .sectionTitle h2{
+      margin:0;
       font-family: var(--serif);
-      font-weight: 600;
+      font-weight:700;
       letter-spacing:-.01em;
-      margin: 10px 0 0;
-      font-size: clamp(28px, 3vw, 40px);
+      font-size: clamp(26px, 3vw, 38px);
     }
 
-    /* ---------- CONTACT / BOOKING (your navy card style) ---------- */
+    /* Contact cards row (optional like screenshot) */
+    .infoRow{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin: 26px 0 42px;
+    }
+    .infoCard{
+      background:#fff;
+      border-radius: 22px;
+      box-shadow: var(--shadow2);
+      border: 1px solid rgba(2,8,23,.08);
+      padding: 22px;
+      text-align:center;
+    }
+    .infoIcon{
+      width:54px;height:54px;border-radius:18px;
+      margin: 0 auto 12px;
+      display:grid; place-items:center;
+      background: rgba(215,181,109,.10);
+      border: 1px solid rgba(215,181,109,.28);
+      color: var(--gold2);
+    }
+    .infoCard h3{
+      margin: 0 0 6px;
+      font-size: 14px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:#0f172a;
+    }
+    .infoCard p{
+      margin:0;
+      color: rgba(15,23,42,.68);
+      line-height:1.6;
+      font-size: 14px;
+    }
+
+    @media (max-width: 980px){
+      .infoRow{ grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 560px){
+      .infoRow{ grid-template-columns: 1fr; }
+    }
+
+    /* ✅ The enquiry form – same as home */
     .contact{
       background: var(--soft);
       border-top: 1px solid rgba(2,8,23,.06);
     }
-    .contactGrid{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: 22px;
-      align-items:start;
-    }
+    .contactGrid{ display:grid; grid-template-columns: 1fr; }
     .card{
       border-radius: 22px;
       background: var(--navy2);
@@ -499,11 +137,13 @@
       box-shadow: 0 18px 60px rgba(0,0,0,.35);
       color:#fff;
       padding: 22px;
+      max-width: 760px;
+      margin: 0 auto;
     }
     .card h3{
       font-family: var(--serif);
-      margin: 0 0 10px;
-      font-size: 26px;
+      margin:0 0 10px;
+      font-size: 28px;
       letter-spacing:-.01em;
     }
     .card p{
@@ -512,16 +152,6 @@
       line-height:1.7;
       font-size: 14.6px;
     }
-    .fields{ display:grid; gap: 12px; margin-top: 10px; }
-    .row2{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-    @media (max-width: 560px){
-      .row2{ grid-template-columns: 1fr; }
-    }
-
     label{
       display:block;
       font-size: 12px;
@@ -535,365 +165,185 @@
       width:100%;
       padding: 12px 12px;
       border-radius: 14px;
-      border:1px solid rgba(255,255,255,.16);
+      border: 1px solid rgba(255,255,255,.16);
       background: rgba(255,255,255,.06);
       color:#fff;
       font:inherit;
       outline:none;
-      transition: .15s ease;
+      transition:.15s ease;
     }
+    select option{ background:#fff; color:#0f172a; }
     textarea{ min-height: 120px; resize: vertical; }
-    input::placeholder, textarea::placeholder{ color: rgba(255,255,255,.55); }
     input:focus, select:focus, textarea:focus{
       border-color: rgba(215,181,109,.70);
       box-shadow: 0 0 0 4px rgba(215,181,109,.20);
     }
-    select option{
-      background:#fff;
-      color:#0f172a;
-    }
+    .fields{ display:grid; gap: 12px; margin-top: 10px; }
+    .row2{ display:grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width:560px){ .row2{ grid-template-columns: 1fr; } }
 
     .consent{
-      display:flex;
-      gap:10px;
-      align-items:flex-start;
+      display:flex; gap:10px; align-items:flex-start;
       margin-top: 10px;
       color: rgba(255,255,255,.75);
       font-size: 13.8px;
       line-height:1.5;
     }
-    .consent input{
-      width: 18px;
-      height: 18px;
-      margin-top: 2px;
-    }
+    .consent input{ width:18px; height:18px; margin-top:2px; }
+    .btnRow{ display:flex; gap:10px; flex-wrap:wrap; margin-top:10px; }
 
-    .contactActions{
-      margin-top: 22px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      width: 100%;
-    }
-    .contact .btn.light{
-      background: rgba(255,255,255,.06) !important;
-      border: 1px solid rgba(255,255,255,.22) !important;
-      color: #fff !important;
-    }
-    .contact .btn.light:hover{
-      background: rgba(255,255,255,.10) !important;
-      transform: translateY(-1px);
-    }
-
-    /* ---------- FOOTER (your same footer) ---------- */
-    footer{
-      background: var(--navy);
-      color:#fff;
-      padding: 62px 0 28px;
-    }
-    .footGridPro{
-      display:grid;
-      grid-template-columns: 1.55fr 1fr 1fr 1fr;
-      gap: 42px;
-      align-items:start;
-    }
-    .footBrandPro{
-      display:flex;
-      flex-direction:column;
-      gap:14px;
-      align-items:flex-start;
-      justify-content:flex-start;
-      margin-top: 0;
-      padding-top: 0;
-    }
-    .brandLogoBig{
-      max-height: 86px;
-      width:auto;
-      display:block;
-      margin: 0 0 6px 0;
-      filter: brightness(0) invert(1);
-      opacity: .98;
-    }
-    .oiscRow{
-      display:flex;
-      gap:14px;
-      align-items:center;
-      margin-top: 4px;
-    }
-    .oiscBadge{
-      background:#fff;
-      border-radius:14px;
-      padding:10px;
-      flex:0 0 auto;
-      box-shadow: 0 10px 24px rgba(0,0,0,.25);
-    }
-    .oiscImg{
-      width:72px;
-      height:auto;
-      display:block;
-      filter: none !important;
-      opacity: 1;
-    }
-    .oiscText{ line-height:1.35; }
-    .oiscTitle{
-      font-weight: 800;
-      color: rgba(255,255,255,.92);
-      font-size: 13.5px;
-    }
-    .oiscReg{
-      margin-top: 6px;
-      color: rgba(255,255,255,.72);
-      font-size: 13px;
-    }
-    .footAbout{
-      color: rgba(255,255,255,.72);
-      line-height: 1.75;
-      font-size: 13.8px;
-      margin: 2px 0 0;
-      max-width: 48ch;
-    }
-    .footColPro h4{
-      margin: 6px 0 14px;
-      font-size: 13px;
-      letter-spacing:.18em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.88);
-    }
-    .footList{
-      display:flex;
-      flex-direction:column;
-      gap: 8px;
-    }
-    .footItem{
-      color: rgba(255,255,255,.72);
-      font-size: 13.8px;
-      line-height: 1.6;
-    }
-    a.footItem:hover{ color:#fff; }
-    .footNote{
-      margin-top: 6px;
-      color: rgba(255,255,255,.62);
-      font-size: 12.8px;
-      line-height: 1.5;
-    }
-    .footSocial{
-      display:flex;
-      gap: 10px;
-      margin-top: 14px;
-    }
-    .footSocial a{
-      width: 36px;
-      height: 36px;
-      border-radius: 12px;
-      display:grid;
-      place-items:center;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-      color:#fff;
-      transition:.18s ease;
-    }
-    .footSocial a:hover{
-      background: rgba(255,255,255,.10);
-      transform: translateY(-1px);
-    }
-    .footLine{
-      height:1px;
-      background: rgba(255,255,255,.10);
-      margin: 34px 0 18px;
-    }
-    .copyright{
-      display:flex;
-      justify-content:space-between;
-      gap: 14px;
-      flex-wrap:wrap;
-      color: rgba(255,255,255,.65);
-      font-size: 12.8px;
-    }
-    .backTopLink{ color: rgba(255,255,255,.70); }
-    .backTopLink:hover{ color:#fff; }
-
-    @media (max-width: 980px){
-      .footGridPro{ grid-template-columns: 1fr; gap: 18px; }
-      .brandLogoBig{ width: 240px; }
-      .oiscRow{ align-items:flex-start; }
-    }
-
-    /* Floating WhatsApp */
-    .waFloat{
-      position:fixed;
-      right: 18px;
-      bottom: 18px;
-      width: 56px;
-      height: 56px;
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:.55rem; padding: 12px 18px;
       border-radius: 999px;
-      background: #25D366;
-      display:grid;
-      place-items:center;
-      box-shadow: 0 16px 38px rgba(0,0,0,.20);
-      z-index: 60;
+      border:1px solid transparent;
+      cursor:pointer;
       transition:.18s ease;
+      font-weight:700;
+      letter-spacing:.01em;
+      background:transparent;
     }
-    .waFloat:hover{ transform: translateY(-2px); }
-    .waFloat svg{ width:26px;height:26px; fill:#fff; }
-
-    @media (prefers-reduced-motion: reduce){
-      *{ transition:none !important; scroll-behavior:auto !important; }
+    .btn.primary{ background: var(--gold); color:#10203a; }
+    .btn.primary:hover{ background: var(--gold2); }
+    .btn.light{
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.22);
+      color:#fff;
     }
+    .btn.light:hover{ background: rgba(255,255,255,.10); transform: translateY(-1px); }
   </style>
 </head>
 
 <body>
 
-  <!-- TOP BAR -->
-  <div class="topbar">
-    <div class="container">
-      <div class="inner">
-        <div class="left">
-          <a href="mailto:info@benchmarklegals.co.uk" aria-label="Email">
-            <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M4 6h16v12H4V6Z" stroke="currentColor" stroke-width="1.7"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.7"/></svg>
-            info@benchmarklegals.co.uk
-          </a>
-          <a href="tel:+447903004158" aria-label="Phone">
-            <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M7 3h3l2 6-2 1c1.3 2.5 3.5 4.7 6 6l1-2 6 2v3c0 1-1 2-2 2C10 21 3 14 3 5c0-1 1-2 2-2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
-            +44 7903 004158
-          </a>
-          <div class="badge">
-            IAA Reg No: <strong>F202538075</strong> • 124 City Road, London, EC1V 2NX
-          </div>
-        </div>
-
-        <div class="right">
-          <div class="social" aria-label="Social links">
-            <a href="#" aria-label="Facebook" title="Facebook">
-              <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M14 8h2V5h-2c-2 0-4 2-4 4v2H8v3h2v7h3v-7h2.2l.8-3H13V9c0-.6.4-1 1-1Z" fill="currentColor"/></svg>
-            </a>
-            <a href="#" aria-label="LinkedIn" title="LinkedIn">
-              <svg class="icon" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M6.5 9H3.9v11h2.6V9ZM5.2 3.8a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3ZM20.2 20h-2.6v-5.6c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9V20H11V9h2.5v1.5h.1c.4-.7 1.4-1.7 3-1.7 3.2 0 3.7 2.1 3.7 4.8V20Z"/></svg>
-            </a>
-            <a href="#" aria-label="Instagram" title="Instagram">
-              <svg class="icon" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3Zm-5 4a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.5-.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0Z"/></svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- HEADER -->
-  <header id="siteHeader">
-    <div class="container">
-      <div class="navwrap">
-        <a class="brand" href="index.html" aria-label="Benchmark Legals Home">
-          <div class="logoBox">
-            <img src="assets/logo1.png" alt="Benchmark Legals logo" />
-          </div>
-        </a>
-
-        <!-- DESKTOP NAV -->
-        <nav class="desktop" aria-label="Primary">
-          <a href="index.html">Home</a>
-          <a href="about.html">About</a>
-
-          <div class="dd" id="ddImm">
-            <button type="button" aria-haspopup="true" aria-expanded="false">
-              Immigration
-              <svg class="caret" viewBox="0 0 12 12" fill="none"><path d="M3 5l3 3 3-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-
-            <div class="mega" role="menu" aria-label="Immigration services">
-              <div class="grid">
-                <div class="col">
-                  <a href="immigration-business.html">Business Visa <small>→</small></a>
-                  <a href="immigration-family.html">Family Visa <small>→</small></a>
-                  <a href="immigration-global-talent.html">Global Talent Visa <small>→</small></a>
-                  <a href="immigration-skilled-worker.html">Skilled Worker Visa <small>→</small></a>
-                  <a href="immigration-self-sponsorship.html">Self-Sponsorship Visa <small>→</small></a>
-                </div>
-                <div class="divider" aria-hidden="true"></div>
-                <div class="col">
-                  <a href="immigration-visitor.html">Visitor Visa <small>→</small></a>
-                  <a href="immigration-extension.html">Extension Visas <small>→</small></a>
-                  <a href="immigration-settlement.html">Settlement &amp; Naturalisation <small>→</small></a>
-                  <a href="immigration-graduate.html">Graduate Visa <small>→</small></a>
-                  <a href="immigration-innovator.html">Innovator Founder Visa <small>→</small></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <a class="active" href="contact.html">Contact</a>
-        </nav>
-
-        <div class="navActions">
-          <button class="searchBtn" type="button" aria-label="Search (coming soon)">
-            <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="1.7"/><path d="M16.5 16.5 21 21" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
-          </button>
-          <a class="btn primary" href="#book">Book Appointment</a>
-
-          <button class="burger" id="burger" type="button" aria-label="Open menu">
-            <span></span><span></span><span></span>
-          </button>
-        </div>
-      </div>
-
-      <!-- MOBILE PANEL -->
-      <div class="mobilePanel" id="mobilePanel">
-        <div class="inner">
-          <a class="mLink" href="index.html">Home</a>
-          <a class="mLink" href="about.html">About</a>
-
-          <button class="mLink" id="mImmBtn" type="button" aria-expanded="false">
-            Immigration
-            <svg class="caret" viewBox="0 0 12 12" fill="none"><path d="M3 5l3 3 3-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-
-          <div class="mSub" id="mImmSub">
-            <a href="immigration-business.html">Business Visa</a>
-            <a href="immigration-family.html">Family Visa</a>
-            <a href="immigration-global-talent.html">Global Talent Visa</a>
-            <a href="immigration-skilled-worker.html">Skilled Worker Visa</a>
-            <a href="immigration-self-sponsorship.html">Self-Sponsorship Visa</a>
-            <a href="immigration-visitor.html">Visitor Visa</a>
-            <a href="immigration-extension.html">Extension Visas</a>
-            <a href="immigration-settlement.html">Settlement &amp; Naturalisation</a>
-            <a href="immigration-graduate.html">Graduate Visa</a>
-            <a href="immigration-innovator.html">Innovator Founder Visa</a>
-          </div>
-
-          <a class="mLink" href="contact.html">Contact</a>
-
-          <div class="mRow">
-            <a class="btn light" href="mailto:info@benchmarklegals.co.uk">Email</a>
-            <a class="btn light" href="tel:+447903004158">Call</a>
-            <a class="btn primary" href="#book">Book Appointment</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
+  <!-- ✅ Header/Topbar injected from partials/header.html -->
+  <div id="site-header"></div>
 
   <main>
 
-    <!-- HERO -->
-    <section class="pageHero" id="top">
+    <!-- HERO with uk.png -->
+    <section class="pageHero">
       <div class="container">
-        <div class="crumbs">
-          <a href="index.html">Home</a>
-          <span>→</span>
-          <strong>Contact</strong>
+        <div class="pageHeroInner">
+          <div class="crumbs">
+            <a href="index.html">Home</a>
+            <span class="arrow">→</span>
+            <span>Contact</span>
+          </div>
+          <h1 class="pageTitle">Contact Us</h1>
         </div>
-        <h1>Contact Us</h1>
-        <p>Speak with our immigration legal team — we respond promptly during working hours.</p>
       </div>
     </section>
 
-    <!-- CONTACT CARDS -->
-    <section class="contactCards">
+    <!-- Optional info cards (like the reference screenshot) -->
+    <section>
       <div class="container">
-        <div class="cardsGrid">
-          <div class="cCard">
-            <div class="cIcon">📞</div>
-            <h3>Phone Number</h3>
-            <a href="tel:+447903004158">+
+        <div class="sectionTitle">
+          <h2>Contact Us</h2>
+        </div>
+
+        <div class="infoRow">
+          <div class="infoCard">
+            <div class="infoIcon">☎</div>
+            <h3>Phone</h3>
+            <p><a href="tel:+447903004158">+44 7903 004158</a></p>
+          </div>
+
+          <div class="infoCard">
+            <div class="infoIcon">✉</div>
+            <h3>Email</h3>
+            <p><a href="mailto:info@benchmarklegals.co.uk">info@benchmarklegals.co.uk</a></p>
+          </div>
+
+          <div class="infoCard">
+            <div class="infoIcon">📍</div>
+            <h3>Location</h3>
+            <p>124 City Road, London, EC1V 2NX</p>
+          </div>
+
+          <div class="infoCard">
+            <div class="infoIcon">⌁</div>
+            <h3>Social</h3>
+            <p>Facebook • Instagram • LinkedIn</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ✅ SAME enquiry form from home (copy/paste exact if you want) -->
+    <section class="contact" id="book">
+      <div class="container">
+        <div class="contactGrid">
+          <div class="card">
+            <h3>Request a call-back</h3>
+            <p>Choose a preferred date/time and send your enquiry. Our team will contact you to confirm the appointment.</p>
+
+            <form action="https://formspree.io/f/xykdgdwd" method="POST">
+              <input type="hidden" name="_subject" value="New enquiry — Benchmark Legals website" />
+              <input type="hidden" name="_next" value="https://bethy-123.github.io/benchmarklegals/thanks.html">
+
+              <div class="fields">
+                <div class="row2">
+                  <div>
+                    <label for="fullName">Full name</label>
+                    <input id="fullName" name="fullName" type="text" placeholder="Your name" required />
+                  </div>
+                  <div>
+                    <label for="phone">Phone</label>
+                    <input id="phone" name="phone" type="tel" placeholder="+44..." required />
+                  </div>
+                </div>
+
+                <div class="row2">
+                  <div>
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" placeholder="you@email.com" required />
+                  </div>
+                  <div>
+                    <label for="service">Service</label>
+                    <select id="service" name="service" required>
+                      <option value="" selected disabled>Select</option>
+                      <option>Skilled Worker Visa</option>
+                      <option>Global Talent Visa</option>
+                      <option>Business Visa</option>
+                      <option>Family Visa</option>
+                      <option>Visitor Visa</option>
+                      <option>Settlement & Naturalisation</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label for="message">Brief details</label>
+                  <textarea id="message" name="message" placeholder="Tell us what you need help with..." required></textarea>
+                </div>
+
+                <div class="consent">
+                  <input id="consent" type="checkbox" required />
+                  <div>
+                    I consent to being contacted about my enquiry and understand my information will be used to respond to my request.
+                  </div>
+                </div>
+
+                <div class="btnRow">
+                  <button class="btn primary" type="submit">Send Enquiry</button>
+                  <a class="btn light" href="mailto:info@benchmarklegals.co.uk">Email instead</a>
+                  <a class="btn light" href="tel:+447903004158">Call now</a>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ✅ Footer injected from partials/footer.html -->
+  <div id="site-footer"></div>
+
+  <!-- ✅ Your global site JS (this should handle dropdown, burger, year, etc.) -->
+  <script src="assets/site.js"></script>
+</body>
+</html>
