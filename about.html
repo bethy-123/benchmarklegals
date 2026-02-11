@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Benchmark Legals | About</title>
+
+  <link rel="icon" type="image/png" href="assets/tablogo.png" />
+  <link rel="shortcut icon" type="image/png" href="assets/tablogo.png" />
+  <link rel="apple-touch-icon" href="assets/tablogo.png" />
+
+  <!-- ✅ Shared CSS (the one you created) -->
+  <link rel="stylesheet" href="assets/shared.css" />
+
+  <!-- ✅ About page-only styles -->
+  <style>
+    /* If your shared.css already defines these variables, this will just reuse them */
+    :root{
+      --navy:#081a33;
+      --navy2:#0b2346;
+      --ink:#0e1526;
+      --soft:#f6f7fb;
+      --gold:#d7b56d;
+      --gold2:#caa353;
+      --shadow: 0 16px 40px rgba(2,8,23,.12);
+      --shadow2: 0 10px 24px rgba(2,8,23,.10);
+      --serif: ui-serif, Georgia, "Times New Roman", serif;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    }
+
+    /* If shared.css already has these, they’ll match anyway */
+    body{ font-family: var(--sans); color: var(--ink); background:#fff; margin:0; }
+    .container{ width:min(1180px, calc(100% - 40px)); margin:0 auto; }
+    [id]{ scroll-margin-top: 98px; }
+
+    /* HERO */
+    .hero{
+      position: relative;
+      background:
+        linear-gradient(rgba(6, 18, 38, 0.68), rgba(6, 18, 38, 0.78)),
+        url("assets/uk2.png") center / cover no-repeat; /* ✅ hero image */
+      color:#fff;
+      overflow:hidden;
+    }
+    .heroInner{
+      padding: 64px 0 64px;
+      display:grid;
+      gap: 12px;
+    }
+    .crumbs{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-size: 14px;
+      color: rgba(255,255,255,.78);
+    }
+    .crumbs a{ color: rgba(255,255,255,.92); text-decoration:none; }
+    .crumbs span{ color: rgba(255,255,255,.55); }
+    .hero h1{
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: clamp(40px, 4.2vw, 60px);
+      line-height: 1.02;
+      margin: 6px 0 0;
+      letter-spacing:-.01em;
+      text-shadow: 0 12px 40px rgba(0,0,0,.22);
+    }
+    .hero p{
+      margin:0;
+      max-width: 70ch;
+      color: rgba(255,255,255,.78);
+      font-size: 15.5px;
+      line-height: 1.75;
+    }
+
+    section{ padding: 64px 0; }
+
+    .sectionTitle{
+      text-align:center;
+      margin-bottom: 26px;
+    }
+    .sectionTitle .top{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      color: rgba(15,23,42,.55);
+      font-size: 12px;
+      letter-spacing:.18em;
+      text-transform: uppercase;
+    }
+    .sectionTitle .top .line{ width:40px;height:1px;background: rgba(15,23,42,.18); }
+    .sectionTitle h2{
+      font-family: var(--serif);
+      font-weight: 600;
+      letter-spacing:-.01em;
+      margin: 10px 0 0;
+      font-size: clamp(28px, 3vw, 40px);
+    }
+
+    /* ABOUT GRID */
+    .aboutWrap{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 26px;
+      align-items: center;
+    }
+    @media (max-width: 980px){
+      .aboutWrap{ grid-template-columns: 1fr; }
+    }
+
+    .aboutCard{
+      background:#fff;
+      border:1px solid rgba(2,8,23,.08);
+      box-shadow: var(--shadow2);
+      border-radius: 22px;
+      padding: 26px;
+    }
+    .aboutCard h3{
+      font-family: var(--serif);
+      font-size: 30px;
+      margin: 0 0 10px;
+      letter-spacing:-.01em;
+    }
+    .aboutCard p{
+      margin: 0 0 12px;
+      color: rgba(15,23,42,.78);
+      line-height: 1.85;
+      font-size: 15px;
+    }
+    .aboutActions{
+      margin-top: 18px;
+      display:flex;
+      gap: 10px;
+      flex-wrap:wrap;
+    }
+
+    .aboutImg{
+      border-radius: 22px;
+      overflow:hidden;
+      border: 1px solid rgba(2,8,23,.08);
+      box-shadow: var(--shadow);
+      background:#fff;
+      min-height: 340px;
+    }
+    .aboutImg img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      display:block;
+    }
+
+    /* WHY US */
+    .why{
+      background: var(--soft);
+      border-top: 1px solid rgba(2,8,23,.06);
+      border-bottom: 1px solid rgba(2,8,23,.06);
+    }
+
+    .whyGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 18px;
+      margin-top: 18px;
+    }
+    @media (max-width: 980px){
+      .whyGrid{ grid-template-columns: 1fr; }
+    }
+
+    .whyCol{
+      background:#fff;
+      border:1px solid rgba(2,8,23,.08);
+      box-shadow: var(--shadow2);
+      border-radius: 22px;
+      padding: 18px;
+    }
+    .whyCol h4{
+      margin: 6px 0 12px;
+      font-size: 12px;
+      letter-spacing:.18em;
+      text-transform: uppercase;
+      color: rgba(15,23,42,.70);
+    }
+    .whyLinks{
+      display:grid;
+      gap: 10px;
+    }
+    .whyLinks a{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding: 12px 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(2,8,23,.08);
+      background: #fff;
+      transition: .18s ease;
+      font-weight: 700;
+      color: rgba(15,23,42,.88);
+      text-decoration:none;
+    }
+    .whyLinks a:hover{
+      transform: translateY(-1px);
+      box-shadow: var(--shadow2);
+      border-color: rgba(215,181,109,.45);
+    }
+    .whyLinks small{
+      font-weight: 800;
+      color: rgba(15,23,42,.35);
+    }
+
+    /* CTA */
+    .cta{
+      padding: 56px 0;
+    }
+    .ctaBox{
+      background: linear-gradient(180deg, var(--navy2), var(--navy));
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: 0 18px 60px rgba(0,0,0,.25);
+      border-radius: 22px;
+      padding: 26px;
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 14px;
+      flex-wrap:wrap;
+    }
+    .ctaBox h3{
+      font-family: var(--serif);
+      margin: 0;
+      font-size: 26px;
+      letter-spacing:-.01em;
+    }
+    .ctaBox p{
+      margin: 8px 0 0;
+      color: rgba(255,255,255,.72);
+      line-height: 1.7;
+      max-width: 70ch;
+      font-size: 14.6px;
+    }
+
+    /* WhatsApp (same style as your contact page) */
+    .waFloat{
+      position:fixed;
+      right: 18px;
+      bottom: 18px;
+      width: 56px;
+      height: 56px;
+      border-radius: 999px;
+      background: #25D366;
+      display:grid;
+      place-items:center;
+      box-shadow: 0 16px 38px rgba(0,0,0,.20);
+      z-index: 60;
+      transition:.18s ease;
+      text-decoration:none;
+    }
+    .waFloat:hover{ transform: translateY(-2px); }
+    .waFloat svg{ width:26px;height:26px; fill:#fff; }
+  </style>
+</head>
+
+<body>
+
+  <!-- ✅ injected header -->
+  <div id="headerMount"></div>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <div class="heroInner">
+          <div class="crumbs">
+            <a href="index.html">Home</a>
+            <span>→</span>
+            <span>About</span>
+          </div>
+          <h1>About Us</h1>
+          <p>Benchmark Legals provides immigration advice with a warm and professional approach, supporting individuals and businesses navigating the United Kingdom immigration system.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT CONTENT -->
+    <section>
+      <div class="container">
+
+        <div class="aboutWrap">
+          <div class="aboutCard">
+            <div style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:rgba(15,23,42,.55);font-weight:800;">
+              Benchmark Legals
+            </div>
+
+            <h3>Trusted immigration support</h3>
+
+            <p>
+              We assist clients with UK immigration matters by providing clear, practical guidance and careful case preparation.
+              Our approach is professional, responsive, and focused on helping you move forward with confidence.
+            </p>
+
+            <p>
+              Whether you are applying as an individual or a business, our team supports you from initial assessment to submission,
+              ensuring your documents and requirements are handled with attention to detail.
+            </p>
+
+            <div class="aboutActions">
+              <a class="btn primary" href="contact.html#book">Contact Us</a>
+              <a class="btn light" href="immigration.html">View Immigration Services</a>
+            </div>
+          </div>
+
+          <div class="aboutImg" aria-label="About image">
+            <!-- ✅ side image -->
+            <img src="assets/uk1.png" alt="UK lifestyle" />
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- WHY US -->
+    <section class="why" id="why">
+      <div class="container">
+        <div class="sectionTitle">
+          <div class="top"><span class="line"></span> Why us</div>
+          <h2>We can help with</h2>
+        </div>
+
+        <div class="whyGrid">
+
+          <div class="whyCol">
+            <h4>Immigration services</h4>
+            <div class="whyLinks">
+              <a href="immigration.html#business">Business Visa <small>→</small></a>
+              <a href="immigration.html#family">Family Visa <small>→</small></a>
+              <a href="immigration.html#global-talent">Global Talent Visa <small>→</small></a>
+              <a href="immigration.html#skilled-worker">Skilled Worker Visa <small>→</small></a>
+            </div>
+          </div>
+
+          <div class="whyCol">
+            <h4>More visa routes</h4>
+            <div class="whyLinks">
+              <a href="immigration.html#self-sponsorship">Self-Sponsorship Visa <small>→</small></a>
+              <a href="immigration.html#visitor">Visitor Visa <small>→</small></a>
+              <a href="immigration.html#extensions">Extension Visas <small>→</small></a>
+              <a href="immigration.html#graduate">Graduate Visa <small>→</small></a>
+            </div>
+          </div>
+
+          <div class="whyCol">
+            <h4>Settlement</h4>
+            <div class="whyLinks">
+              <a href="immigration.html#settlement">Settlement &amp; Naturalisation <small>→</small></a>
+              <a href="immigration.html#innovator">Innovator Founder Visa <small>→</small></a>
+              <a href="contact.html#book">Request a call-back <small>→</small></a>
+              <a href="contact.html#book">Book Appointment <small>→</small></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <div class="container">
+        <div class="ctaBox">
+          <div>
+            <h3>Ready to speak with us?</h3>
+            <p>Send your enquiry and we’ll respond promptly during working hours to confirm the next steps.</p>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <a class="btn primary" href="contact.html#book">Book Appointment</a>
+            <a class="btn light" href="mailto:info@benchmarklegals.co.uk">Email</a>
+            <a class="btn light" href="tel:+447903004158">Call</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ✅ injected footer -->
+  <div id="footerMount"></div>
+
+  <!-- WhatsApp -->
+  <a class="waFloat" href="https://wa.me/447903004158" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M20 12a8 8 0 0 1-11.9 7L4 20l1.1-4.1A8 8 0 1 1 20 12Zm-4.6 2.2c-.2-.1-1.3-.6-1.5-.7-.2-.1-.4-.1-.6.1-.2.2-.6.7-.7.8-.1.1-.3.2-.5.1-.2-.1-.9-.3-1.7-1.1-.6-.6-1.1-1.4-1.2-1.6-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.6 0-.2-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2 0 1.2.8 2.3 1 2.5.1.2 1.6 2.4 3.9 3.4.5.2.9.4 1.2.5.5.1 1 .1 1.4.1.4-.1 1.3-.5 1.5-1 .2-.5.2-.9.1-1 0-.1-.2-.2-.4-.3Z"/>
+    </svg>
+  </a>
+
+  <!-- ✅ inject header/footer -->
+  <script src="assets/site.js"></script>
+
+</body>
+</html>
