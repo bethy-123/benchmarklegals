@@ -1,1 +1,553 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Benchmark Legals | Immigration</title>
 
+  <link rel="icon" type="image/png" href="assets/tablogo.png" />
+  <link rel="shortcut icon" type="image/png" href="assets/tablogo.png" />
+  <link rel="apple-touch-icon" href="assets/tablogo.png" />
+
+  <!-- ✅ SHARED CSS (header + footer + global styles) -->
+  <link rel="stylesheet" href="assets/shared.css" />
+
+  <!-- ✅ IMMIGRATION PAGE ONLY CSS -->
+  <style>
+    /* =========================
+       IMMIGRATION PAGE STYLES ONLY
+       ========================= */
+
+    /* HERO (same style language as contact page) */
+    .hero{
+      position: relative;
+      background:
+        linear-gradient(rgba(6, 18, 38, 0.68), rgba(6, 18, 38, 0.78)),
+        url("assets/uk11.png") center / cover no-repeat;
+      color:#fff;
+      overflow:hidden;
+    }
+    .heroInner{
+      padding: 64px 0 64px;
+      display:grid;
+      gap: 12px;
+    }
+    .crumbs{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-size: 14px;
+      color: rgba(255,255,255,.78);
+      flex-wrap: wrap;
+    }
+    .crumbs a{ color: rgba(255,255,255,.92); }
+    .crumbs span{ color: rgba(255,255,255,.55); }
+    .crumbs .current{ color: rgba(215,181,109,.95); font-weight: 700; }
+
+    .hero h1{
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: clamp(40px, 4.2vw, 60px);
+      line-height: 1.02;
+      margin: 6px 0 0;
+      letter-spacing:-.01em;
+      text-shadow: 0 12px 40px rgba(0,0,0,.22);
+    }
+    .hero p{
+      margin:0;
+      max-width: 70ch;
+      color: rgba(255,255,255,.78);
+      font-size: 15.5px;
+      line-height: 1.75;
+    }
+
+    section{ padding: 54px 0; }
+
+    /* Layout: left content + right sticky list */
+    .immWrap{
+      padding: 52px 0 70px;
+      background: #fff;
+    }
+    .immGrid{
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap: 28px;
+      align-items:start;
+    }
+    @media (max-width: 980px){
+      .immGrid{ grid-template-columns: 1fr; }
+    }
+
+    /* LEFT content tabs */
+    .visaPanel{
+      display:none;
+      padding: 6px 0 0;
+    }
+    .visaPanel.isActive{ display:block; }
+
+    .visaTitle{
+      font-family: var(--serif);
+      font-weight: 600;
+      letter-spacing:-.01em;
+      font-size: clamp(34px, 3.2vw, 52px);
+      margin: 0 0 10px;
+      line-height:1.05;
+      color:#0b1b33;
+    }
+    .visaSubtitle{
+      font-weight: 800;
+      color:#0b1b33;
+      font-size: 18px;
+      margin: 0 0 18px;
+    }
+    .visaText{
+      color: rgba(15,23,42,.86);
+      line-height: 1.85;
+      font-size: 15.5px;
+      max-width: 78ch;
+      margin: 0 0 18px;
+    }
+    .visaH2{
+      font-family: var(--serif);
+      font-weight: 600;
+      margin: 26px 0 10px;
+      font-size: 24px;
+      color:#0b1b33;
+    }
+    .visaList{
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: rgba(15,23,42,.86);
+      line-height: 1.75;
+      font-size: 15.5px;
+    }
+    .visaList li{ margin: 7px 0; }
+
+    .visaCtas{
+      margin-top: 20px;
+      display:flex;
+      gap: 10px;
+      flex-wrap:wrap;
+    }
+
+    /* RIGHT sticky menu */
+    .sideBox{
+      position: sticky;
+      top: 110px; /* adjust if your header is taller */
+      border-radius: 22px;
+      background: var(--navy2);
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: 0 18px 60px rgba(0,0,0,.18);
+      overflow:hidden;
+    }
+    @media (max-width: 980px){
+      .sideBox{ position: relative; top: 0; }
+    }
+
+    .sideTitle{
+      padding: 18px 18px 10px;
+      font-weight: 900;
+      letter-spacing:.08em;
+      text-transform: uppercase;
+      color: rgba(215,181,109,.95);
+      font-size: 13px;
+    }
+    .sideNav{
+      display:flex;
+      flex-direction:column;
+      padding: 10px;
+      gap: 0;
+    }
+    .sideLink{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      padding: 14px 12px;
+      border-radius: 14px;
+      text-decoration:none;
+      font-weight: 800;
+      color: rgba(255,255,255,.92);
+      border: 1px solid transparent;
+      transition: .15s ease;
+    }
+    .sideLink:hover{
+      background: rgba(255,255,255,.06);
+    }
+    .sideLink.isActive{
+      color: rgba(215,181,109,.98);
+      background: rgba(215,181,109,.10);
+      border-color: rgba(215,181,109,.22);
+    }
+    .sideLink .chev{
+      opacity:.9;
+      font-weight: 900;
+      width: 14px;
+      text-align:center;
+      flex: 0 0 14px;
+    }
+    .sideDivider{
+      height: 1px;
+      background: rgba(215,181,109,.32);
+      opacity: .75;
+      margin: 6px 10px;
+      border-radius: 999px;
+    }
+
+    /* Optional: smooth */
+    html{ scroll-behavior: smooth; }
+  </style>
+</head>
+
+<body>
+
+  <!-- ✅ injected header -->
+  <div id="headerMount"></div>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <div class="heroInner">
+          <div class="crumbs" aria-label="Breadcrumb">
+            <a href="index.html">Home</a>
+            <span>→</span>
+            <a href="index.html#services">Immigration</a>
+            <span>→</span>
+            <span class="current" id="crumbCurrent">Business Visa</span>
+          </div>
+
+          <h1>Immigration</h1>
+          <p>Select a visa route from the menu to view key information and how our legal team can support your application.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="immWrap">
+      <div class="container">
+        <div class="immGrid">
+
+          <!-- LEFT: PANELS -->
+          <div class="immLeft">
+
+            <!-- Business -->
+            <article class="visaPanel" id="business" data-title="Business Visa">
+              <h2 class="visaTitle">Business Visa</h2>
+              <div class="visaSubtitle">Business Visas • Global Business Mobility Visas</div>
+              <p class="visaText">
+                Add your Business Visa overview here (your own words). This panel will show when the user clicks “Business Visa”.
+              </p>
+
+              <h3 class="visaH2">What are the sub-categories of the Global Business Mobility route?</h3>
+              <ul class="visaList">
+                <li>Senior or Specialist Worker Visa</li>
+                <li>Graduate Trainee Visa</li>
+                <li>UK Expansion Worker Visa</li>
+                <li>Service Supplier Visa</li>
+                <li>Secondment Worker Visa</li>
+              </ul>
+
+              <div class="visaCtas">
+                <a class="btn primary" href="contact.html#book">Book Appointment</a>
+                <a class="btn light" href="contact.html">Contact Us</a>
+              </div>
+            </article>
+
+            <!-- Skilled Worker -->
+            <article class="visaPanel" id="skilled-worker" data-title="Skilled Worker Visa">
+              <h2 class="visaTitle">Skilled Worker Visa</h2>
+              <div class="visaSubtitle">Sponsorship Licence to employ workers from outside of the UK</div>
+              <p class="visaText">Add your Skilled Worker Visa overview here.</p>
+
+              <h3 class="visaH2">Sponsor licence requirements</h3>
+              <ul class="visaList">
+                <li>Be genuine, operating, and trading lawfully in the UK</li>
+                <li>Be UK-based</li>
+                <li>Not represent a threat to immigration control</li>
+                <li>Have key personnel who are “honest and dependable”</li>
+                <li>Have adequate HR systems to meet sponsor duties</li>
+              </ul>
+
+              <div class="visaCtas">
+                <a class="btn primary" href="contact.html#book">Book Appointment</a>
+                <a class="btn light" href="contact.html">Contact Us</a>
+              </div>
+            </article>
+
+            <!-- Global Talent -->
+            <article class="visaPanel" id="global-talent" data-title="Global Talent Visa">
+              <h2 class="visaTitle">UK Global Talent Visa</h2>
+              <div class="visaSubtitle">An unsponsored work route for leaders and potential leaders</div>
+              <p class="visaText">Add your Global Talent overview here.</p>
+
+              <h3 class="visaH2">UK Global Talent Visa Requirements</h3>
+              <ul class="visaList">
+                <li>Be aged 18 or over</li>
+                <li>Hold an endorsement from an approved endorsing body (or eligible prize route)</li>
+                <li>Meet general grounds (no refusal reasons)</li>
+                <li>TB certificate may be required depending on country</li>
+              </ul>
+
+              <div class="visaCtas">
+                <a class="btn primary" href="contact.html#book">Book Appointment</a>
+                <a class="btn light" href="contact.html">Contact Us</a>
+              </div>
+            </article>
+
+            <!-- Self Sponsorship -->
+            <article class="visaPanel" id="self-sponsorship" data-title="Self-Sponsorship Visa">
+              <h2 class="visaTitle">UK Self-Sponsorship Visa</h2>
+              <div class="visaSubtitle">Self-sponsorship as a Skilled Worker</div>
+              <p class="visaText">Add your Self-Sponsorship overview here.</p>
+
+              <h3 class="visaH2">Stage 1 – Sponsor licence</h3>
+              <ul class="visaList">
+                <li>Set up a UK company (or already have one)</li>
+                <li>Apply for a sponsor licence for your company</li>
+                <li>Prepare compliant HR systems and evidence</li>
+              </ul>
+
+              <div class="visaCtas">
+                <a class="btn primary" href="contact.html#book">Book Appointment</a>
+                <a class="btn light" href="contact.html">Contact Us</a>
+              </div>
+            </article>
+
+            <!-- Graduate -->
+            <article class="visaPanel" id="graduate" data-title="Graduate Visa">
+              <h2 class="visaTitle">UK Graduate Visa</h2>
+              <div class="visaSubtitle">Stay in the UK for at least 2 years after completing your course</div>
+              <p class="visaText">Add your Graduate Visa overview here.</p>
+
+              <h3 class="visaH2">UK Graduate Visa Requirements</h3>
+              <ul class="visaList">
+                <li>Be in the UK at the time of application</li>
+                <li>Have successfully completed an eligible course</li>
+                <li>Hold a valid Student visa/permission</li>
+              </ul>
+
+              <div class="visaCtas">
+                <a class="btn primary" href="contact.html#book">Book Appointment</a>
+                <a class="btn light" href="contact.html">Contact Us</a>
+              </div>
+            </article>
+
+            <!-- Innovator Founder -->
+            <article class="visaPanel" id="innovator" data-title="Innovator Founder Visa">
+              <h2 class="visaTitle">Innovator Founder Visa</h2>
+              <div class="visaSubtitle">For entrepreneurs establishing an innovative business in the UK</div>
+              <p class="visaText">Add your Innovator Founder overview here.</p>
+
+              <h3 class="visaH2">Eligibility</h3>
+              <ul class="visaList">
+                <li>New: You cannot join a business already trading</li>
+                <li>Innovative: Original idea different from the market</li>
+                <li>Viable: Evidence it can work and grow</li>
+                <li>Scalable: Planning for job creation and expansion</li>
+              </ul>
+
+              <div class="visaCtas">
+                <a class="btn primary" href="contact.html#book">Book Appointment</a>
+                <a class="btn light" href="contact.html">Contact Us</a>
+              </div>
+            </article>
+
+            <!-- Extensions -->
+            <article class="visaPanel" id="extensions" data-title="Extension Visa">
+              <h2 class="visaTitle">Extension Visas</h2>
+              <div class="visaSubtitle">Further leave to remain in specific categories</div>
+              <p class="visaText">Add your Extension Visa overview here.</p>
+
+              <h3 class="visaH2">We help with applications for further leave to remain in:</h3>
+              <ul class="visaList">
+                <li>Skilled Worker Visa</li>
+                <li>Family and Spouse Visas</li>
+                <li>Global Business Mobility Visas</li>
+                <li>Innovator routes</li>
+                <li>Global Talent routes</li>
+              </ul>
+
+              <div class="visaCtas">
+                <a class="btn primary" href="contact.html#book">Book Appointment</a>
+                <a class="btn light" href="contact.html">Contact Us</a>
+              </div>
+            </article>
+
+            <!-- Visitor -->
+            <article class="visaPanel" id="visitor" data-title="Visitor Visa">
+              <h2 class="visaTitle">UK Visitor Visa</h2>
+              <div class="visaSubtitle">Travel to the UK for short stays and permitted activities</div>
+              <p class="visaText">Add your Visitor Visa overview here.</p>
+
+              <h3 class="visaH2">How long does a UK visitor visa last?</h3>
+              <ul class="visaList">
+                <li>Standard Visitor Visa usually allows up to 6 months per visit</li>
+                <li>Long-term visitor visas may be available (2, 5, or 10 years)</li>
+                <li>You normally can’t stay longer than 6 months at a time</li>
+              </ul>
+
+              <div class="visaCtas">
+                <a class="btn primary" href="contact.html#book">Book Appointment</a>
+                <a class="btn light" href="contact.html">Contact Us</a>
+              </div>
+            </article>
+
+            <!-- Settlement -->
+            <article class="visaPanel" id="settlement" data-title="Settlement & Naturalisation">
+              <h2 class="visaTitle">Settlement and Naturalisation</h2>
+              <div class="visaSubtitle">Settlement (Indefinite Leave to Remain) and British Citizenship</div>
+              <p class="visaText">Add your Settlement & Naturalisation overview here.</p>
+
+              <h3 class="visaH2">Dependants</h3>
+              <ul class="visaList">
+                <li>Routes may allow partners and children to apply as dependants</li>
+                <li>Eligibility depends on your immigration route and circumstances</li>
+              </ul>
+
+              <div class="visaCtas">
+                <a class="btn primary" href="contact.html#book">Book Appointment</a>
+                <a class="btn light" href="contact.html">Contact Us</a>
+              </div>
+            </article>
+
+            <!-- Family -->
+            <article class="visaPanel" id="family" data-title="Family Visa">
+              <h2 class="visaTitle">Family Visa</h2>
+              <div class="visaSubtitle">Partner and family visas</div>
+              <p class="visaText">Add your Family Visa overview here.</p>
+
+              <h3 class="visaH2">The requirements (example)</h3>
+              <ul class="visaList">
+                <li>Your relationship is genuine and subsisting</li>
+                <li>You intend to live together permanently in the UK</li>
+                <li>Meet financial and accommodation requirements (where applicable)</li>
+                <li>Meet English language requirements (where applicable)</li>
+              </ul>
+
+              <div class="visaCtas">
+                <a class="btn primary" href="contact.html#book">Book Appointment</a>
+                <a class="btn light" href="contact.html">Contact Us</a>
+              </div>
+            </article>
+
+          </div>
+
+          <!-- RIGHT: MENU -->
+          <aside class="immRight" aria-label="UK Immigration menu">
+            <div class="sideBox">
+              <div class="sideTitle">UK Immigration</div>
+
+              <nav class="sideNav">
+                <a class="sideLink" href="#business" data-target="business"><span class="chev">›</span> Business Visa</a>
+                <div class="sideDivider"></div>
+
+                <a class="sideLink" href="#skilled-worker" data-target="skilled-worker"><span class="chev">›</span> Skilled Worker Visa</a>
+                <div class="sideDivider"></div>
+
+                <a class="sideLink" href="#global-talent" data-target="global-talent"><span class="chev">›</span> Global Talent Visa</a>
+                <div class="sideDivider"></div>
+
+                <a class="sideLink" href="#self-sponsorship" data-target="self-sponsorship"><span class="chev">›</span> Self-Sponsorship Visa</a>
+                <div class="sideDivider"></div>
+
+                <a class="sideLink" href="#graduate" data-target="graduate"><span class="chev">›</span> Graduate Visa</a>
+                <div class="sideDivider"></div>
+
+                <a class="sideLink" href="#innovator" data-target="innovator"><span class="chev">›</span> Innovator Founder Visa</a>
+                <div class="sideDivider"></div>
+
+                <a class="sideLink" href="#extensions" data-target="extensions"><span class="chev">›</span> Extension Visa</a>
+                <div class="sideDivider"></div>
+
+                <a class="sideLink" href="#visitor" data-target="visitor"><span class="chev">›</span> Visitor Visa</a>
+                <div class="sideDivider"></div>
+
+                <a class="sideLink" href="#settlement" data-target="settlement"><span class="chev">›</span> Settlement and Naturalisation</a>
+                <div class="sideDivider"></div>
+
+                <a class="sideLink" href="#family" data-target="family"><span class="chev">›</span> Family Visa</a>
+              </nav>
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ✅ injected footer -->
+  <div id="footerMount"></div>
+
+  <!-- ✅ injects header/footer -->
+  <script src="assets/site.js"></script>
+
+  <!-- ✅ PAGE SCRIPT: makes right menu switch left content + update hash + breadcrumb -->
+  <script>
+    (function(){
+      const DEFAULT_ID = "business";
+
+      const panels = Array.from(document.querySelectorAll(".visaPanel"));
+      const links  = Array.from(document.querySelectorAll(".sideLink"));
+      const crumbCurrent = document.getElementById("crumbCurrent");
+
+      function normaliseId(raw){
+        if(!raw) return DEFAULT_ID;
+        const id = raw.replace("#","").trim();
+        return id || DEFAULT_ID;
+      }
+
+      function setActive(id, {pushHash = true} = {}){
+        const panel = document.getElementById(id);
+        if(!panel) id = DEFAULT_ID;
+
+        // panels
+        panels.forEach(p => p.classList.toggle("isActive", p.id === id));
+
+        // menu active
+        links.forEach(a => a.classList.toggle("isActive", a.dataset.target === id));
+
+        // breadcrumb current text
+        const activePanel = document.getElementById(id);
+        const title = activePanel?.dataset?.title || activePanel?.querySelector(".visaTitle")?.textContent || "Immigration";
+        if(crumbCurrent) crumbCurrent.textContent = title;
+
+        // update document title (nice touch)
+        document.title = `Benchmark Legals | ${title}`;
+
+        // update URL hash without jumping weirdly
+        if(pushHash){
+          history.replaceState(null, "", `#${id}`);
+        }
+
+        // scroll to top of content area on small screens (optional)
+        if(window.matchMedia("(max-width: 980px)").matches){
+          const top = document.querySelector(".immWrap");
+          if(top) top.scrollIntoView({behavior:"smooth", block:"start"});
+        }
+      }
+
+      // click on menu
+      links.forEach(a => {
+        a.addEventListener("click", (e) => {
+          e.preventDefault();
+          const id = a.dataset.target;
+          setActive(id, {pushHash:true});
+        });
+      });
+
+      // open correct panel on load / hash change
+      function syncFromHash(){
+        const id = normaliseId(location.hash);
+        setActive(id, {pushHash:false});
+      }
+      window.addEventListener("hashchange", syncFromHash);
+
+      // init
+      syncFromHash();
+    })();
+  </script>
+
+</body>
+</html>
