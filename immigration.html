@@ -195,6 +195,23 @@
 
     /* Optional: smooth */
     html{ scroll-behavior: smooth; }
+    /* WhatsApp */
+.waFloat{
+  position:fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  background: #25D366;
+  display:grid;
+  place-items:center;
+  box-shadow: 0 16px 38px rgba(0,0,0,.20);
+  z-index: 60;
+  transition:.18s ease;
+}
+.waFloat:hover{ transform: translateY(-2px); }
+.waFloat svg{ width:26px;height:26px; fill:#fff; }
   </style>
 </head>
 
@@ -548,6 +565,11 @@
       syncFromHash();
     })();
   </script>
-
+<!-- WhatsApp -->
+<a class="waFloat" href="https://wa.me/447903004158" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M20 12a8 8 0 0 1-11.9 7L4 20l1.1-4.1A8 8 0 1 1 20 12Zm-4.6 2.2c-.2-.1-1.3-.6-1.5-.7-.2-.1-.4-.1-.6.1-.2.2-.6.7-.7.8-.1.1-.3.2-.5.1-.2-.1-.9-.3-1.7-1.1-.6-.6-1.1-1.4-1.2-1.6-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.6 0-.2-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2 0 1.2.8 2.3 1 2.5.1.2 1.6 2.4 3.9 3.4.5.2.9.4 1.2.5.5.1 1 .1 1.4.1.4-.1 1.3-.5 1.5-1 .2-.5.2-.9.1-1 0-.1-.2-.2-.4-.3Z"/>
+  </svg>
+</a>
 </body>
 </html>
