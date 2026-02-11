@@ -47,7 +47,7 @@
         <a data-nav="home" href="index.html">Home</a>
         <a data-nav="about" href="about.html">About</a>
 
-        <!-- ✅ Immigration: text is clickable (goes to home section) + caret opens dropdown -->
+        <!-- Immigration: gold + clickable + stable dropdown -->
         <div class="dd" id="ddImm">
           <div class="ddHead">
             <a class="ddLink" href="index.html#services">Immigration</a>
@@ -102,8 +102,8 @@
         <a class="mLink" data-nav="home" href="index.html">Home</a>
         <a class="mLink" data-nav="about" href="about.html">About</a>
 
-        <!-- ✅ Mobile: Immigration text goes to section; separate button opens submenu -->
-        <a class="mLink" href="index.html#immigration">
+        <!-- Mobile Immigration text goes to SERVICES -->
+        <a class="mLink" href="index.html#services">
           Immigration
           <span aria-hidden="true">→</span>
         </a>
@@ -137,3 +137,93 @@
     </div>
   </div>
 </header>
+
+<!-- ✅ DROPDOWN + GOLD FIX (you can later move this into your CSS file) -->
+<style>
+  /* Immigration dropdown stability */
+  .dd { position: relative; display: inline-flex; align-items: center; }
+  .ddHead { display: inline-flex; align-items: center; gap: 8px; }
+
+  .dd .mega{
+    position:absolute;
+    top:calc(100% + 12px);
+    left:0;
+    min-width:520px;
+    z-index:9999;
+
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(6px);
+    transition: opacity 180ms ease, transform 180ms ease, visibility 180ms ease;
+  }
+
+  /* Hover bridge to prevent menu collapsing while moving mouse */
+  .dd .mega::before{
+    content:"";
+    position:absolute;
+    top:-12px;
+    left:0;
+    right:0;
+    height:12px;
+  }
+
+  /* Show on hover or keyboard focus */
+  .dd:hover .mega,
+  .dd:focus-within .mega,
+  .dd.open .mega{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+  }
+
+  /* Gold Immigration */
+  .ddLink{
+    color:#C9A227;
+    font-weight:600;
+  }
+  .dd:hover .ddLink,
+  .ddLink:hover,
+  .dd:focus-within .ddLink{
+    color:#C9A227;
+  }
+
+  /* Caret gold (optional but looks consistent) */
+  .ddToggle{
+    color:#C9A227;
+    background:transparent;
+    border:0;
+    padding:2px 4px;
+    display:inline-flex;
+    align-items:center;
+    cursor:pointer;
+  }
+  .ddToggle:focus{ outline: none; }
+
+  /* Make dropdown links clickable */
+  .dd .mega, .dd .mega *{ pointer-events:auto; }
+</style>
+
+<!-- ✅ OPTIONAL: click caret to open dropdown too (hover still works) -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const dd = document.getElementById("ddImm");
+    if (!dd) return;
+
+    const toggle = dd.querySelector(".ddToggle");
+
+    const close = () => {
+      dd.classList.remove("open");
+      toggle?.setAttribute("aria-expanded", "false");
+    };
+
+    toggle?.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const isOpen = dd.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+
+    document.addEventListener("click", close);
+    dd.addEventListener("mouseleave", close);
+  });
+</script>
