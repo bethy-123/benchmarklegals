@@ -1534,72 +1534,97 @@
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section class="faq" id="faq">
-      <div class="container">
-        <div class="sectionTitle">
-          <div class="top"><span class="line"></span> Frequently Asked Questions</div>
-          <h2>Common Queries</h2>
-        </div>
+  <!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="sectionTitle">
+      <div class="top"><span class="line"></span> Frequently Asked Questions</div>
+      <h2>Common Queries</h2>
+    </div>
 
-        <div class="faqGrid">
-          <div>
-            <h3 style="margin:0 0 10px;font-family:var(--serif);font-size:30px;letter-spacing:-.01em;">Common Queries</h3>
-            <p style="margin:0;color:rgba(15,23,42,.72);line-height:1.75;max-width:58ch;">
-              Understanding immigration law can be daunting. If you’re seeking visa advice, information on our services and fees,
-              or assistance with an application, we’re ready to offer clear answers.
-            </p>
-            <div style="margin-top:18px;">
-              <a class="btn primary" href="#book">Get Started Now →</a>
-            </div>
-          </div>
-
-          <div class="accordion" aria-label="FAQ accordion">
-            <div class="accItem">
-              <button class="accBtn" type="button">
-                What types of visas can you help with?
-                <span class="plus">+</span>
-              </button>
-              <div class="accPanel">
-                We provide consultancy across a range of routes including work and family visas, visitor visas,
-                settlement and nationality applications, global talent applications, and more.
-              </div>
-            </div>
-
-            <div class="accItem">
-              <button class="accBtn" type="button">
-                How can I get in touch to discuss my case?
-                <span class="plus">+</span>
-              </button>
-              <div class="accPanel">
-                You can book an appointment below and request a call-back, or contact us via phone or email.
-              </div>
-            </div>
-
-            <div class="accItem">
-              <button class="accBtn" type="button">
-                What are your fees?
-                <span class="plus">+</span>
-              </button>
-              <div class="accPanel">
-                We operate transparently. After an initial assessment, we provide a clear quote agreed in advance.
-              </div>
-            </div>
-
-            <div class="accItem">
-              <button class="accBtn" type="button">
-                Do you offer asylum application consultancy?
-                <span class="plus">+</span>
-              </button>
-              <div class="accPanel">
-                Please book a consultation so we can review your circumstances and confirm how we can support you.
-              </div>
-            </div>
-          </div>
-
+    <div class="faqGrid">
+      <div>
+        <h3 style="margin:0 0 10px;font-family:var(--serif);font-size:30px;letter-spacing:-.01em;">Common Queries</h3>
+        <p style="margin:0;color:rgba(15,23,42,.72);line-height:1.75;max-width:58ch;">
+          Understanding immigration law can be daunting. If you’re seeking visa advice, information on our services and fees,
+          or assistance with an application, we’re ready to offer clear answers.
+        </p>
+        <div style="margin-top:18px;">
+          <a class="btn primary" href="#book">Get Started Now →</a>
         </div>
       </div>
-    </section>
+
+      <div class="accordion" aria-label="FAQ accordion">
+        <div class="accItem">
+          <button class="accBtn" type="button">
+            What types of visas can you help with?
+            <span class="plus">+</span>
+          </button>
+          <div class="accPanel">
+            We provide consultancy across a range of routes including work and family visas, visitor visas,
+            settlement and nationality applications, global talent applications, and more.
+          </div>
+        </div>
+
+        <div class="accItem">
+          <button class="accBtn" type="button">
+            How can I get in touch to discuss my case?
+            <span class="plus">+</span>
+          </button>
+          <div class="accPanel">
+            You can book an appointment below and request a call-back, or contact us via phone or email.
+          </div>
+        </div>
+
+        <div class="accItem">
+          <button class="accBtn" type="button">
+            What are your fees?
+            <span class="plus">+</span>
+          </button>
+          <div class="accPanel">
+            We operate transparently. After an initial assessment, we provide a clear quote agreed in advance.
+          </div>
+        </div>
+
+        <div class="accItem">
+          <button class="accBtn" type="button">
+            Do you offer asylum application consultancy?
+            <span class="plus">+</span>
+          </button>
+          <div class="accPanel">
+            Please book a consultation so we can review your circumstances and confirm how we can support you.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Accordion functionality (added, no layout/text changes) -->
+  <script>
+    (function () {
+      const root = document.getElementById('faq');
+      if (!root) return;
+
+      const panels = root.querySelectorAll('.accordion .accPanel');
+      panels.forEach(p => { p.style.display = 'none'; });
+
+      root.querySelectorAll('.accordion .accBtn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const item = btn.closest('.accItem');
+          const panel = item && item.querySelector('.accPanel');
+          if (!panel) return;
+
+          const isOpen = panel.style.display === 'block';
+          panel.style.display = isOpen ? 'none' : 'block';
+
+          const plus = btn.querySelector('.plus');
+          if (plus) plus.textContent = isOpen ? '+' : '−';
+        });
+      });
+    })();
+  </script>
+</section>
 
     <!-- CONTACT / BOOK APPOINTMENT -->
     <section class="contact" id="book">
