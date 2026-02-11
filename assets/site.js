@@ -36,7 +36,8 @@ function wireHeaderBehaviour() {
 
   // Desktop dropdown
   const dd = qs("#ddImm");
-  const ddBtn = dd ? qs("button", dd) : null;
+  const ddBtn = dd ? qs(".ddToggle", dd) : null;
+
 
   function closeDropdown(){
     if(!dd) return;
