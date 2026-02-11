@@ -47,19 +47,17 @@
         <a data-nav="home" href="index.html">Home</a>
         <a data-nav="about" href="about.html">About</a>
 
+        <!-- ✅ Immigration: text is clickable (goes to home section) + caret opens dropdown -->
         <div class="dd" id="ddImm">
-  <div class="ddHead">
-    <!-- CLICK THIS = goes to Home page Immigration section -->
-    <a class="ddLink" data-nav="immigration" href="index.html#services">Immigration</a>
+          <div class="ddHead">
+            <a class="ddLink" href="index.html#immigration">Immigration</a>
 
-    <!-- CLICK THIS caret = opens dropdown -->
-    <button class="ddToggle" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Open Immigration menu">
-      <svg class="caret" viewBox="0 0 12 12" fill="none">
-        <path d="M3 5l3 3 3-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </button>
-  </div>
-
+            <button class="ddToggle" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Open Immigration menu">
+              <svg class="caret" viewBox="0 0 12 12" fill="none">
+                <path d="M3 5l3 3 3-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
 
           <div class="mega" role="menu" aria-label="Immigration services">
             <div class="grid">
@@ -90,7 +88,6 @@
           <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="1.7"/><path d="M16.5 16.5 21 21" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
         </button>
 
-        <!-- default: takes user to contact booking on every page -->
         <a class="btn primary" href="contact.html#book">Book Appointment</a>
 
         <button class="burger" id="burger" type="button" aria-label="Open menu">
@@ -105,8 +102,14 @@
         <a class="mLink" data-nav="home" href="index.html">Home</a>
         <a class="mLink" data-nav="about" href="about.html">About</a>
 
-        <button class="mLink" id="mImmBtn" type="button" aria-expanded="false">
+        <!-- ✅ Mobile: Immigration text goes to section; separate button opens submenu -->
+        <a class="mLink" href="index.html#immigration">
           Immigration
+          <span aria-hidden="true">→</span>
+        </a>
+
+        <button class="mLink" id="mImmBtn" type="button" aria-expanded="false">
+          Immigration Services
           <svg class="caret" viewBox="0 0 12 12" fill="none"><path d="M3 5l3 3 3-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
 
