@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Benchmark Legals | Contact</title>
 
-  <!-- FAVICON -->
   <link rel="icon" type="image/png" href="assets/tablogo.png" />
   <link rel="shortcut icon" type="image/png" href="assets/tablogo.png" />
   <link rel="apple-touch-icon" href="assets/tablogo.png" />
@@ -15,16 +14,11 @@
       --navy:#081a33;
       --navy2:#0b2346;
       --ink:#0e1526;
-      --muted:#6b7280;
-      --line:rgba(15, 23, 42, .10);
-      --paper:#ffffff;
       --soft:#f6f7fb;
       --gold:#d7b56d;
       --gold2:#caa353;
       --shadow: 0 16px 40px rgba(2,8,23,.12);
       --shadow2: 0 10px 24px rgba(2,8,23,.10);
-      --radius: 18px;
-
       --serif: ui-serif, Georgia, "Times New Roman", serif;
       --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
     }
@@ -36,15 +30,13 @@
       margin:0;
       font-family: var(--sans);
       color: var(--ink);
-      background: var(--paper);
+      background:#fff;
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
     }
     a{ color: inherit; text-decoration:none; }
     img{ max-width:100%; display:block; }
-    button{ font:inherit; }
 
-    /* Anchor offset for sticky header (your injected header is sticky) */
     [id]{ scroll-margin-top: 98px; }
 
     .container{
@@ -52,20 +44,19 @@
       margin:0 auto;
     }
 
-    /* ---------- HERO (Contact) ---------- */
+    /* HERO */
     .hero{
       position: relative;
       background:
         linear-gradient(rgba(6, 18, 38, 0.68), rgba(6, 18, 38, 0.78)),
         url("assets/uk.png") center / cover no-repeat;
-      color: #fff;
-      overflow: hidden;
+      color:#fff;
+      overflow:hidden;
     }
     .heroInner{
       padding: 64px 0 64px;
       display:grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
+      gap: 12px;
     }
     .crumbs{
       display:flex;
@@ -76,12 +67,13 @@
     }
     .crumbs a{ color: rgba(255,255,255,.92); }
     .crumbs span{ color: rgba(255,255,255,.55); }
+
     .hero h1{
       font-family: var(--serif);
       font-weight: 600;
       font-size: clamp(40px, 4.2vw, 60px);
       line-height: 1.02;
-      margin: 6px 0 6px;
+      margin: 6px 0 0;
       letter-spacing:-.01em;
       text-shadow: 0 12px 40px rgba(0,0,0,.22);
     }
@@ -93,66 +85,7 @@
       line-height: 1.75;
     }
 
-    /* ---------- Contact info tiles ---------- */
     section{ padding: 64px 0; }
-    .info{
-      background: #fff;
-    }
-    .infoGrid{
-      display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-      margin-top: 6px;
-    }
-    @media (max-width: 980px){
-      .infoGrid{ grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 560px){
-      .infoGrid{ grid-template-columns: 1fr; }
-    }
-
-    .tile{
-      border-radius: 22px;
-      background:#fff;
-      border: 1px solid rgba(2,8,23,.08);
-      box-shadow: var(--shadow2);
-      padding: 22px;
-      text-align:center;
-      display:flex;
-      flex-direction:column;
-      gap: 10px;
-      min-height: 170px;
-      justify-content:center;
-    }
-    .tile .ico{
-      width: 52px;
-      height: 52px;
-      border-radius: 18px;
-      margin: 0 auto;
-      display:grid;
-      place-items:center;
-      background: rgba(215,181,109,.12);
-      border: 1px solid rgba(215,181,109,.28);
-      color: #7a5d1b;
-    }
-    .tile h3{
-      margin: 4px 0 0;
-      font-size: 12.5px;
-      letter-spacing:.14em;
-      text-transform: uppercase;
-      color:#0f172a;
-    }
-    .tile .val{
-      font-weight: 800;
-      color: rgba(15,23,42,.82);
-      font-size: 14.5px;
-      line-height: 1.6;
-    }
-    .tile .val a{
-      color: rgba(15,23,42,.82);
-      text-decoration: none;
-    }
-    .tile .val a:hover{ text-decoration: underline; }
 
     .sectionTitle{
       text-align:center;
@@ -176,18 +109,59 @@
       font-size: clamp(28px, 3vw, 40px);
     }
 
-    /* ---------- CONTACT / BOOKING (same as home page) ---------- */
+    /* Info tiles */
+    .infoGrid{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 6px;
+    }
+    @media (max-width: 980px){ .infoGrid{ grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px){ .infoGrid{ grid-template-columns: 1fr; } }
+
+    .tile{
+      border-radius: 22px;
+      background:#fff;
+      border: 1px solid rgba(2,8,23,.08);
+      box-shadow: var(--shadow2);
+      padding: 22px;
+      text-align:center;
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+      min-height: 170px;
+      justify-content:center;
+    }
+    .tile .ico{
+      width: 52px; height: 52px;
+      border-radius: 18px;
+      margin: 0 auto;
+      display:grid; place-items:center;
+      background: rgba(215,181,109,.12);
+      border: 1px solid rgba(215,181,109,.28);
+      color: #7a5d1b;
+      font-weight:900;
+    }
+    .tile h3{
+      margin: 4px 0 0;
+      font-size: 12.5px;
+      letter-spacing:.14em;
+      text-transform: uppercase;
+      color:#0f172a;
+    }
+    .tile .val{
+      font-weight: 800;
+      color: rgba(15,23,42,.82);
+      font-size: 14.5px;
+      line-height: 1.6;
+    }
+    .tile .val a:hover{ text-decoration: underline; }
+
+    /* Form section (same look as your home form) */
     .contact{
       background: var(--soft);
       border-top: 1px solid rgba(2,8,23,.06);
     }
-    .contactGrid{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: 22px;
-      align-items:start;
-    }
-
     .card{
       border-radius: 22px;
       background: var(--navy2);
@@ -210,16 +184,13 @@
       line-height:1.7;
       font-size: 14.6px;
     }
-
     .fields{ display:grid; gap: 12px; margin-top: 10px; }
     .row2{
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
     }
-    @media (max-width: 560px){
-      .row2{ grid-template-columns: 1fr; }
-    }
+    @media (max-width: 560px){ .row2{ grid-template-columns: 1fr; } }
 
     label{
       display:block;
@@ -247,10 +218,7 @@
       border-color: rgba(215,181,109,.70);
       box-shadow: 0 0 0 4px rgba(215,181,109,.20);
     }
-    select option{
-      background:#ffffff;
-      color:#0f172a;
-    }
+    select option{ background:#fff; color:#0f172a; }
 
     .consent{
       display:flex;
@@ -261,11 +229,7 @@
       font-size: 13.8px;
       line-height:1.5;
     }
-    .consent input{
-      width: 18px;
-      height: 18px;
-      margin-top: 2px;
-    }
+    .consent input{ width: 18px; height: 18px; margin-top: 2px; }
 
     .btn{
       display:inline-flex;
@@ -278,7 +242,6 @@
       cursor:pointer;
       transition:.18s ease;
       font-weight:600;
-      letter-spacing:.01em;
       background:transparent;
       user-select:none;
       -webkit-tap-highlight-color: transparent;
@@ -294,22 +257,17 @@
       border: 1px solid rgba(255,255,255,.22);
       color: #fff;
     }
-    .btn.light:hover{
-      background: rgba(255,255,255,.10);
-      transform: translateY(-1px);
-    }
+    .btn.light:hover{ background: rgba(255,255,255,.10); transform: translateY(-1px); }
 
     .contactActions{
       margin-top: 22px;
       display:flex;
       justify-content:center;
-      align-items:center;
       gap: 12px;
       flex-wrap:wrap;
-      width: 100%;
     }
 
-    /* Floating WhatsApp (same as home) */
+    /* WhatsApp */
     .waFloat{
       position:fixed;
       right: 18px;
@@ -326,21 +284,16 @@
     }
     .waFloat:hover{ transform: translateY(-2px); }
     .waFloat svg{ width:26px;height:26px; fill:#fff; }
-
-    @media (prefers-reduced-motion: reduce){
-      *{ transition:none !important; scroll-behavior:auto !important; }
-    }
   </style>
 </head>
 
 <body>
 
-  <!-- ✅ SHARED HEADER (Topbar + Nav injected by assets/site.js) -->
+  <!-- ✅ injected header -->
   <div id="headerMount"></div>
 
   <main id="top">
 
-    <!-- HERO -->
     <section class="hero">
       <div class="container">
         <div class="heroInner">
@@ -355,115 +308,106 @@
       </div>
     </section>
 
-    <!-- CONTACT INFO -->
-    <section class="info">
+    <section>
       <div class="container">
         <div class="sectionTitle">
           <div class="top"><span class="line"></span> Get in touch</div>
           <h2>Contact Details</h2>
         </div>
 
-        <div class="infoGrid" aria-label="Contact details">
+        <div class="infoGrid">
           <div class="tile">
-            <div class="ico" aria-hidden="true">☎</div>
+            <div class="ico">☎</div>
             <h3>Phone</h3>
             <div class="val"><a href="tel:+447903004158">+44 7903 004158</a></div>
           </div>
 
           <div class="tile">
-            <div class="ico" aria-hidden="true">✉</div>
+            <div class="ico">✉</div>
             <h3>Email</h3>
             <div class="val"><a href="mailto:info@benchmarklegals.co.uk">info@benchmarklegals.co.uk</a></div>
           </div>
 
           <div class="tile">
-            <div class="ico" aria-hidden="true">📍</div>
+            <div class="ico">📍</div>
             <h3>Location</h3>
             <div class="val">124 City Road, London, EC1V 2NX</div>
           </div>
 
           <div class="tile">
-            <div class="ico" aria-hidden="true">◎</div>
+            <div class="ico">◎</div>
             <h3>Social</h3>
-            <div class="val">
-              <a href="#" aria-label="Facebook">Facebook</a> •
-              <a href="#" aria-label="Instagram">Instagram</a> •
-              <a href="#" aria-label="LinkedIn">LinkedIn</a>
-            </div>
+            <div class="val">Facebook • Instagram • LinkedIn</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- BOOK / FORM (exact same as home) -->
+    <!-- ✅ EXACT SAME FORM FROM YOUR HOME PAGE -->
     <section class="contact" id="book">
       <div class="container">
         <div class="sectionTitle">
-          <div class="top"><span class="line"></span> Enquiry</div>
+          <div class="top"><span class="line"></span> Contact</div>
           <h2>Book Appointment</h2>
         </div>
 
-        <div class="contactGrid">
-          <div class="card">
-            <h3>Request a call-back</h3>
-            <p>Choose a preferred date/time and send your enquiry. Our team will contact you to confirm the appointment.</p>
+        <div class="card">
+          <h3>Request a call-back</h3>
+          <p>Choose a preferred date/time and send your enquiry. Our team will contact you to confirm the appointment.</p>
 
-            <form action="https://formspree.io/f/xykdgdwd" method="POST">
-              <input type="hidden" name="_subject" value="New enquiry — Benchmark Legals website" />
-              <input type="hidden" name="_next" value="https://bethy-123.github.io/benchmarklegals/thanks.html">
+          <form action="https://formspree.io/f/xykdgdwd" method="POST">
+            <input type="hidden" name="_subject" value="New enquiry — Benchmark Legals website" />
+            <input type="hidden" name="_next" value="https://bethy-123.github.io/benchmarklegals/thanks.html">
 
-              <div class="fields">
-                <div class="row2">
-                  <div>
-                    <label for="fullName">Full name</label>
-                    <input id="fullName" name="fullName" type="text" placeholder="Your name" required />
-                  </div>
-                  <div>
-                    <label for="phone">Phone</label>
-                    <input id="phone" name="phone" type="tel" placeholder="+44..." required />
-                  </div>
-                </div>
-
-                <div class="row2">
-                  <div>
-                    <label for="email">Email</label>
-                    <input id="email" name="email" type="email" placeholder="you@email.com" required />
-                  </div>
-                  <div>
-                    <label for="service">Service</label>
-                    <select id="service" name="service" required>
-                      <option value="" selected disabled>Select</option>
-                      <option>Skilled Worker Visa</option>
-                      <option>Global Talent Visa</option>
-                      <option>Business Visa</option>
-                      <option>Family Visa</option>
-                      <option>Visitor Visa</option>
-                      <option>Settlement & Naturalisation</option>
-                      <option>Other</option>
-                    </select>
-                  </div>
-                </div>
-
+            <div class="fields">
+              <div class="row2">
                 <div>
-                  <label for="message">Brief details</label>
-                  <textarea id="message" name="message" placeholder="Tell us what you need help with..." required></textarea>
+                  <label for="fullName">Full name</label>
+                  <input id="fullName" name="fullName" type="text" placeholder="Your name" required />
                 </div>
-
-                <div class="consent">
-                  <input id="consent" type="checkbox" required />
-                  <div>
-                    I consent to being contacted about my enquiry and understand my information will be used to respond to my request.
-                  </div>
-                </div>
-
-                <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;">
-                  <button class="btn primary" type="submit">Send Enquiry</button>
-                  <a class="btn light" href="mailto:info@benchmarklegals.co.uk">Email instead</a>
-                  <a class="btn light" href="tel:+447903004158">Call now</a>
+                <div>
+                  <label for="phone">Phone</label>
+                  <input id="phone" name="phone" type="tel" placeholder="+44..." required />
                 </div>
               </div>
-            </form>
-          </div>
+
+              <div class="row2">
+                <div>
+                  <label for="email">Email</label>
+                  <input id="email" name="email" type="email" placeholder="you@email.com" required />
+                </div>
+                <div>
+                  <label for="service">Service</label>
+                  <select id="service" name="service" required>
+                    <option value="" selected disabled>Select</option>
+                    <option>Skilled Worker Visa</option>
+                    <option>Global Talent Visa</option>
+                    <option>Business Visa</option>
+                    <option>Family Visa</option>
+                    <option>Visitor Visa</option>
+                    <option>Settlement & Naturalisation</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label for="message">Brief details</label>
+                <textarea id="message" name="message" placeholder="Tell us what you need help with..." required></textarea>
+              </div>
+
+              <div class="consent">
+                <input id="consent" type="checkbox" required />
+                <div>I consent to being contacted about my enquiry and understand my information will be used to respond to my request.</div>
+              </div>
+
+              <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;">
+                <button class="btn primary" type="submit">Send Enquiry</button>
+                <a class="btn light" href="mailto:info@benchmarklegals.co.uk">Email instead</a>
+                <a class="btn light" href="tel:+447903004158">Call now</a>
+              </div>
+            </div>
+          </form>
         </div>
 
         <div class="contactActions">
@@ -475,17 +419,17 @@
 
   </main>
 
-  <!-- ✅ SHARED FOOTER (injected by assets/site.js) -->
+  <!-- ✅ injected footer -->
   <div id="footerMount"></div>
 
-  <!-- Floating WhatsApp -->
+  <!-- WhatsApp -->
   <a class="waFloat" href="https://wa.me/447903004158" target="_blank" rel="noopener" aria-label="WhatsApp">
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <path d="M20 12a8 8 0 0 1-11.9 7L4 20l1.1-4.1A8 8 0 1 1 20 12Zm-4.6 2.2c-.2-.1-1.3-.6-1.5-.7-.2-.1-.4-.1-.6.1-.2.2-.6.7-.7.8-.1.1-.3.2-.5.1-.2-.1-.9-.3-1.7-1.1-.6-.6-1.1-1.4-1.2-1.6-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.6 0-.2-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2 0 1.2.8 2.3 1 2.5.1.2 1.6 2.4 3.9 3.4.5.2.9.4 1.2.5.5.1 1 .1 1.4.1.4-.1 1.3-.5 1.5-1 .2-.5.2-.9.1-1 0-.1-.2-.2-.4-.3Z"/>
     </svg>
   </a>
 
-  <!-- ✅ This is what makes header/footer appear -->
+  <!-- ✅ This must exist, otherwise header/footer won't inject -->
   <script src="assets/site.js"></script>
 
 </body>
