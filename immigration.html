@@ -107,21 +107,6 @@
       max-width: 78ch;
       margin: 0 0 18px;
     }
-    .visaH2{
-      font-family: var(--serif);
-      font-weight: 600;
-      margin: 26px 0 10px;
-      font-size: 24px;
-      color:#0b1b33;
-    }
-    .visaList{
-      margin: 10px 0 0;
-      padding-left: 18px;
-      color: rgba(15,23,42,.86);
-      line-height: 1.75;
-      font-size: 15.5px;
-    }
-    .visaList li{ margin: 7px 0; }
 
     .visaCtas{
       margin-top: 20px;
@@ -195,23 +180,80 @@
 
     /* Optional: smooth */
     html{ scroll-behavior: smooth; }
+
+    /* ===== ACCORDION INSIDE VISA PANELS ===== */
+    .acc{
+      border: 1px solid rgba(2,8,23,.10);
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: var(--shadow2);
+      overflow: hidden;
+      margin: 14px 0;
+    }
+    .acc details{
+      border-top: 1px solid rgba(2,8,23,.08);
+    }
+    .acc details:first-child{ border-top: 0; }
+
+    .acc summary{
+      list-style: none;
+      cursor: pointer;
+      padding: 16px 16px;
+      font-weight: 900;
+      color: #0b1b33;
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+    .acc summary::-webkit-details-marker{ display:none; }
+
+    .acc summary .label{
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+    .acc summary .dot{
+      width: 10px; height: 10px;
+      border-radius: 999px;
+      background: rgba(215,181,109,.9);
+      box-shadow: 0 0 0 4px rgba(215,181,109,.18);
+      flex: 0 0 10px;
+    }
+    .acc summary .chev{
+      transition: transform .18s ease;
+      color: rgba(15,23,42,.65);
+      font-weight: 900;
+    }
+    .acc details[open] summary .chev{ transform: rotate(90deg); }
+
+    .acc .body{
+      padding: 0 16px 16px;
+      color: rgba(15,23,42,.86);
+      line-height: 1.85;
+      font-size: 15.5px;
+    }
+    .acc .body p{ margin: 10px 0; }
+    .acc .body ul{ margin: 10px 0 0; padding-left: 18px; }
+    .acc .body li{ margin: 7px 0; }
+
     /* WhatsApp */
-.waFloat{
-  position:fixed;
-  right: 18px;
-  bottom: 18px;
-  width: 56px;
-  height: 56px;
-  border-radius: 999px;
-  background: #25D366;
-  display:grid;
-  place-items:center;
-  box-shadow: 0 16px 38px rgba(0,0,0,.20);
-  z-index: 60;
-  transition:.18s ease;
-}
-.waFloat:hover{ transform: translateY(-2px); }
-.waFloat svg{ width:26px;height:26px; fill:#fff; }
+    .waFloat{
+      position:fixed;
+      right: 18px;
+      bottom: 18px;
+      width: 56px;
+      height: 56px;
+      border-radius: 999px;
+      background: #25D366;
+      display:grid;
+      place-items:center;
+      box-shadow: 0 16px 38px rgba(0,0,0,.20);
+      z-index: 60;
+      transition:.18s ease;
+    }
+    .waFloat:hover{ transform: translateY(-2px); }
+    .waFloat svg{ width:26px;height:26px; fill:#fff; }
   </style>
 </head>
 
@@ -250,155 +292,313 @@
 
             <!-- Business -->
             <article class="visaPanel" id="business" data-title="Business Visa">
+              <h2 class="visaTitle">Business Visa</h2>
+              <div class="visaSubtitle">Business Visas • Global Business Mobility Visas</div>
 
-  <h2 class="visaTitle">Business Visa</h2>
-  <div class="visaSubtitle">Global Business Mobility Routes</div>
+              <div class="acc">
+                <details open>
+                  <summary>
+                    <span class="label"><span class="dot"></span> Overview</span>
+                    <span class="chev">›</span>
+                  </summary>
+                  <div class="body">
+                    <p>
+                      The Global Business Mobility visas are a combined category of five sponsored work routes
+                      for overseas businesses looking to establish, develop, or support UK-based operations.
+                    </p>
+                    <p>
+                      The Global Business Mobility visas replace, iterate, and expand on previous UK business
+                      visas, allowing non-UK organisations to deploy certain personnel to the UK on a temporary basis.
+                      The main purpose of the scheme is to make it easier for organisations outside the UK to do business here.
+                    </p>
+                  </div>
+                </details>
 
-  <p class="visaText">
-    The Global Business Mobility visas are a combined category of five sponsored work routes
-    for overseas businesses looking to establish, develop, or support UK-based operations.
-    These routes replace and expand previous intra-company and business transfer visas and are
-    designed to make it easier for non-UK organisations to operate and grow in the UK market.
-  </p>
+                <details>
+                  <summary>
+                    <span class="label"><span class="dot"></span> Sub-categories</span>
+                    <span class="chev">›</span>
+                  </summary>
+                  <div class="body">
+                    <ul>
+                      <li>Senior or Specialist Worker Visa</li>
+                      <li>Graduate Trainee Visa</li>
+                      <li>UK Expansion Worker Visa</li>
+                      <li>Service Supplier Visa</li>
+                      <li>Secondment Worker Visa</li>
+                    </ul>
+                  </div>
+                </details>
 
-  <p class="visaText">
-    Under this framework, eligible overseas businesses can deploy key personnel to the UK on a
-    temporary basis through approved sponsor arrangements.
-  </p>
+                <details>
+                  <summary>
+                    <span class="label"><span class="dot"></span> Senior or Specialist Worker Visa</span>
+                    <span class="chev">›</span>
+                  </summary>
+                  <div class="body">
+                    <p>
+                      This route replaces the previous Intra-Company Transfer route closed on 11 April 2022.
+                      It is aimed at senior managers and specialist employees undertaking a temporary work assignment in the UK.
+                    </p>
+                    <ul>
+                      <li>Overseas company must be linked by ownership/control to the UK sponsor licence holder (approved by UKVI)</li>
+                      <li>Normally requires at least 12 months overseas employment unless a high earner (£73,900+)</li>
+                      <li>Must score 60 points and hold a valid Certificate of Sponsorship for an eligible role</li>
+                      <li>Salary must be at least £45,800 or the occupation going rate (whichever is higher)</li>
+                      <li>No English language requirement</li>
+                      <li>Maximum stay: 5 years in any 6-year period</li>
+                      <li>Does not lead to settlement (but switching may be possible if eligible)</li>
+                    </ul>
+                  </div>
+                </details>
 
-  <h3 class="visaH2">Global Business Mobility sub-categories</h3>
-  <ul class="visaList">
-    <li>Senior or Specialist Worker Visa</li>
-    <li>Graduate Trainee Visa</li>
-    <li>UK Expansion Worker Visa</li>
-    <li>Service Supplier Visa</li>
-    <li>Secondment Worker Visa</li>
-  </ul>
+                <details>
+                  <summary>
+                    <span class="label"><span class="dot"></span> Graduate Trainee Visa</span>
+                    <span class="chev">›</span>
+                  </summary>
+                  <div class="body">
+                    <p>
+                      For workers transferred to the UK as part of a structured graduate training programme
+                      leading to a managerial or specialist role within the organisation.
+                    </p>
+                    <ul>
+                      <li>Overseas and UK businesses must be linked (approved by UKVI)</li>
+                      <li>Must have worked for the sponsor outside the UK for at least 3 months before application</li>
+                      <li>Must have a Certificate of Sponsorship for an eligible occupation</li>
+                      <li>Minimum salary: £24,220 per year</li>
+                      <li>No English language requirement</li>
+                      <li>Visa length: 12 months</li>
+                    </ul>
+                  </div>
+                </details>
 
-  <!-- ===================== -->
-  <!-- Senior or Specialist -->
-  <!-- ===================== -->
+                <details>
+                  <summary>
+                    <span class="label"><span class="dot"></span> UK Expansion Worker Visa</span>
+                    <span class="chev">›</span>
+                  </summary>
+                  <div class="body">
+                    <p>
+                      A UK Expansion Worker visa allows an individual to come to the UK to set up a branch of an overseas
+                      business that has not started trading in the UK yet.
+                    </p>
+                    <ul>
+                      <li>Applicant must already work for the overseas business as a senior manager or specialist employee</li>
+                      <li>Requires a valid Certificate of Sponsorship</li>
+                      <li>Normally requires 12 months overseas employment unless exceptions apply (e.g., high earner £73,900+)</li>
+                      <li>Minimum salary: £45,800 or the going rate (whichever is higher)</li>
+                      <li>Initial stay: up to 12 months</li>
+                      <li>Maximum stay: 2 years</li>
+                    </ul>
+                  </div>
+                </details>
 
-  <h3 class="visaH2">Senior or Specialist Worker Visa</h3>
-  <p class="visaText">
-    This route replaced the former Intra-Company Transfer route. It is designed for senior
-    managers and specialist employees assigned to a UK business linked to their overseas employer.
-  </p>
+                <details>
+                  <summary>
+                    <span class="label"><span class="dot"></span> Service Supplier Visa</span>
+                    <span class="chev">›</span>
+                  </summary>
+                  <div class="body">
+                    <p>
+                      Allows employees of overseas companies or self-employed professionals to come to the UK and carry out
+                      services covered by a UK international trade agreement.
+                    </p>
+                    <ul>
+                      <li>Requires a valid Certificate of Sponsorship from a UK registered sponsor authorised by the Home Office</li>
+                      <li>Must be an overseas employee or a self-employed professional based overseas</li>
+                      <li>Must provide services under a contract covered by an international trade agreement</li>
+                      <li>Must have 12 months overseas work for employer (or 12 months experience if self-employed)</li>
+                      <li>Must work in an eligible job/occupation code and meet qualification/experience requirements</li>
+                      <li>Stay allowed: 6 or 12 months, or CoS period + 14 days (whichever is shorter)</li>
+                    </ul>
+                  </div>
+                </details>
 
-  <ul class="visaList">
-    <li>UK sponsor must hold an approved Sponsor Licence</li>
-    <li>Overseas and UK entities must be linked by ownership or control</li>
-    <li>Normally 12 months prior overseas employment required (unless high earner £73,900+)</li>
-    <li>Minimum salary: £45,800 or occupation going rate (whichever is higher)</li>
-    <li>No English language requirement</li>
-    <li>Does not directly lead to settlement (but switching may be possible)</li>
-    <li>Maximum stay: 5 years in any 6-year period</li>
-  </ul>
+                <details>
+                  <summary>
+                    <span class="label"><span class="dot"></span> Secondment Worker Visa</span>
+                    <span class="chev">›</span>
+                  </summary>
+                  <div class="body">
+                    <p>
+                      The UK Secondment Worker Visa allows overseas businesses to transfer staff to work in a different company
+                      in the UK to fulfil a high-value contract.
+                    </p>
+                    <ul>
+                      <li>High-value contract must be approved by the Home Office</li>
+                      <li>Must have worked for overseas employer for at least 12 months outside the UK</li>
+                      <li>Requires a Certificate of Sponsorship and an eligible occupation</li>
+                      <li>Stay allowed: 12 months from job start date or CoS period + 14 days (whichever is shorter)</li>
+                      <li>Extension possible by 12 months; maximum time on this route is 2 years</li>
+                    </ul>
+                  </div>
+                </details>
+              </div>
 
-  <!-- ===================== -->
-  <!-- Graduate Trainee -->
-  <!-- ===================== -->
-
-  <h3 class="visaH2">Graduate Trainee Visa</h3>
-  <p class="visaText">
-    For workers transferred to the UK as part of a structured graduate training programme
-    leading to managerial or specialist roles.
-  </p>
-
-  <ul class="visaList">
-    <li>Must be employed by linked overseas business</li>
-    <li>Minimum 3 months overseas employment before application</li>
-    <li>Role must be on eligible occupation list</li>
-    <li>Minimum salary: £24,220 per year</li>
-    <li>No English language requirement</li>
-    <li>Visa length: up to 12 months</li>
-  </ul>
-
-  <!-- ===================== -->
-  <!-- UK Expansion -->
-  <!-- ===================== -->
-
-  <h3 class="visaH2">UK Expansion Worker Visa</h3>
-  <p class="visaText">
-    Allows overseas businesses to send senior managers or specialists to the UK to establish a
-    branch or subsidiary that has not yet started trading.
-  </p>
-
-  <ul class="visaList">
-    <li>For new UK market entry by overseas company</li>
-    <li>Applicant must already work for overseas business</li>
-    <li>Normally 12 months prior employment required (exceptions for high earners / Japanese route)</li>
-    <li>Minimum salary: £45,800 or going rate</li>
-    <li>Initial stay: up to 12 months</li>
-    <li>Maximum stay: 2 years</li>
-  </ul>
-
-  <!-- ===================== -->
-  <!-- Service Supplier -->
-  <!-- ===================== -->
-
-  <h3 class="visaH2">Service Supplier Visa</h3>
-  <p class="visaText">
-    For overseas employees or self-employed professionals delivering services in the UK under an
-    eligible international trade agreement.
-  </p>
-
-  <ul class="visaList">
-    <li>Requires UK sponsor authorised for this route</li>
-    <li>Must be overseas employee or self-employed provider</li>
-    <li>12 months overseas work experience (or professional experience if self-employed)</li>
-    <li>Must meet occupation code and qualification requirements</li>
-    <li>Stay length: 6–12 months depending on agreement</li>
-  </ul>
-
-  <!-- ===================== -->
-  <!-- Secondment -->
-  <!-- ===================== -->
-
-  <h3 class="visaH2">Secondment Worker Visa</h3>
-  <p class="visaText">
-    Allows overseas businesses to second staff to a UK company to fulfil an approved high-value
-    contract.
-  </p>
-
-  <ul class="visaList">
-    <li>High-value contract must be Home Office approved</li>
-    <li>Minimum 12 months overseas employment required</li>
-    <li>UK role must be on eligible occupation list</li>
-    <li>Initial stay: up to 12 months</li>
-    <li>Extension possible up to maximum 2 years</li>
-  </ul>
-
-  <!-- CTA -->
-
-  <h3 class="visaH2">Which Business Route Is Right for You?</h3>
-  <p class="visaText">
-    Choosing the correct business immigration route depends on your company structure,
-    sponsorship position, and role type. Our team can assess your case and guide you to the most
-    suitable pathway.
-  </p>
-
-  <div class="visaCtas">
-    <a class="btn primary" href="contact.html#book">Book Appointment</a>
-    <a class="btn light" href="contact.html">Contact Us</a>
-  </div>
-
-</article>
+              <div class="visaCtas">
+                <a class="btn primary" href="contact.html#book">Book Appointment</a>
+                <a class="btn light" href="contact.html">Contact Us</a>
+              </div>
+            </article>
 
             <!-- Skilled Worker -->
             <article class="visaPanel" id="skilled-worker" data-title="Skilled Worker Visa">
               <h2 class="visaTitle">Skilled Worker Visa</h2>
-              <div class="visaSubtitle">Sponsorship Licence to employ workers from outside of the UK</div>
-              <p class="visaText">Add your Skilled Worker Visa overview here.</p>
+              <div class="visaSubtitle">Sponsorship Licence To Employ Workers From Outside Of The UK</div>
 
-              <h3 class="visaH2">Sponsor licence requirements</h3>
-              <ul class="visaList">
-                <li>Be genuine, operating, and trading lawfully in the UK</li>
-                <li>Be UK-based</li>
-                <li>Not represent a threat to immigration control</li>
-                <li>Have key personnel who are “honest and dependable”</li>
-                <li>Have adequate HR systems to meet sponsor duties</li>
-              </ul>
+              <div class="acc">
+                <details open>
+                  <summary>
+                    <span class="label"><span class="dot"></span> What is the UK Skilled Worker Sponsorship Licence?</span>
+                    <span class="chev">›</span>
+                  </summary>
+                  <div class="body">
+                    <p>
+                      UK Skilled Worker Sponsorship Licence enables you to bring and employ workers with the necessary skills
+                      to work in the UK for licensed UK employers. Licensed UK businesses can issue Certificates of Sponsorship
+                      (CoS) to eligible non-UK nationals, whether located within the UK or outside the UK, enabling them to apply
+                      for a work visa (e.g. Skilled Worker Visa).
+                    </p>
+                    <p>
+                      From April 2024, the requirement to renew the sponsor licence every four years has been removed.
+                      Licences with an expiry date on or after 6 April 2024 are automatically extended for an additional 10 years.
+                    </p>
+                  </div>
+                </details>
+
+                <details>
+                  <summary>
+                    <span class="label"><span class="dot"></span> Sponsor licence requirements</span>
+                    <span class="chev">›</span>
+                  </summary>
+                  <div class="body">
+                    <ul>
+                      <li>Be genuine, operating, and trading lawfully in the UK</li>
+                      <li>Be UK based</li>
+                      <li>Not represent a threat to immigration control</li>
+                      <li>Have key personnel who are “honest and dependable”</li>
+                      <li>Have an adequate HR system in place to carry out sponsor obligations efficiently</li>
+                    </ul>
+                  </div>
+                </details>
+
+                <details>
+                  <summary>
+                    <span class="label"><span class="dot"></span> Business eligibility requirements</span>
+                    <span class="chev">›</span>
+                  </summary>
+                  <div class="body">
+                    <p>
+                      Businesses applying for a sponsor licence must be genuine and legally operating in the UK as a PLC, Ltd,
+                      LLP or Sole Trader. A start up business may apply.
+                    </p>
+                    <p>
+                      Businesses trading for less than 18 months must provide evidence of a current corporate bank account
+                      with an FCA and PRA-registered UK bank.
+                    </p>
+                  </div>
+                </details>
+
+                <details>
+                  <summary>
+                    <span class="label"><span class="dot"></span> Suitability requirements</span>
+                    <span class="chev">›</span>
+                  </summary>
+                  <div class="body">
+                    <ul>
+                      <li>Have suitable HR systems in place to meet sponsor duties</li>
+                      <li>Be ready for UKVI compliance visits (announced or unannounced)</li>
+                      <li>Have no unspent criminal convictions for previous immigration offences or tax evasion</li>
+                      <li>Have no evidence of non-compliance with previous sponsorship licences</li>
+                    </ul>
+                  </div>
+                </details>
+
+                <details>
+                  <summary>
+                    <span class="label"><span class="dot"></span> Genuine business need</span>
+                    <span class="chev">›</span>
+                  </summary>
+                  <div class="body">
+                    <p>
+                      Businesses must show a genuine need to hire overseas workers. They must intend to sponsor workers for eligible
+                      roles and meet the skill and salary requirements for each job type. The Home Office checks the roles make sense
+                      for the business and its existing jobs. This test applies at application stage and throughout the licence period.
+                    </p>
+                  </div>
+                </details>
+
+                <details>
+                  <summary>
+                    <span class="label"><span class="dot"></span> Key personnel</span>
+                    <span class="chev">›</span>
+                  </summary>
+                  <div class="body">
+                    <ul>
+                      <li><strong>Authorising officer:</strong> senior competent person responsible for actions of staff and SMS</li>
+                      <li><strong>Key contact:</strong> main contact with UKVI</li>
+                      <li><strong>Level 1 and Level 2 users:</strong> day-to-day management of the licence</li>
+                    </ul>
+                  </div>
+                </details>
+
+                <details>
+                  <summary>
+                    <span class="label"><span class="dot"></span> Required documents (Appendix A)</span>
+                    <span class="chev">›</span>
+                  </summary>
+                  <div class="body">
+                    <p>
+                      Required documents are explained in Appendix A. In most cases, you will be asked to submit a minimum of 4 documents.
+                      Depending on your business and the type of licence, UKVI may request additional evidence.
+                    </p>
+                    <ul>
+                      <li>Accounts for the most recent financial year</li>
+                      <li>Contracts for goods/services covering at least 12 months before application</li>
+                      <li>Evidence of a UK corporate bank account (FCA/PRA-registered)</li>
+                      <li>VAT registration certificate</li>
+                      <li>Evidence of registration</li>
+                      <li>Endorsement from a governing body (if applicable)</li>
+                      <li>Proof of ownership or lease of premises</li>
+                    </ul>
+                  </div>
+                </details>
+
+                <details>
+                  <summary>
+                    <span class="label"><span class="dot"></span> Additional supporting documents (examples)</span>
+                    <span class="chev">›</span>
+                  </summary>
+                  <div class="body">
+                    <ul>
+                      <li>Organisation hierarchy chart</li>
+                      <li>Employer’s liability insurance certificate (£5m minimum)</li>
+                      <li>Self-assessment tax return to HMRC (SA300 or SA302)</li>
+                      <li>Company Tax Return (CT620 or CT600)</li>
+                      <li>Premises alcohol licence (if relevant)</li>
+                    </ul>
+                    <p>Please note: this list is not exhaustive.</p>
+                  </div>
+                </details>
+
+                <details>
+                  <summary>
+                    <span class="label"><span class="dot"></span> Fees</span>
+                    <span class="chev">›</span>
+                  </summary>
+                  <div class="body">
+                    <p><strong>Small or charitable sponsor fee:</strong> £536.00</p>
+                    <p>To be classed as small/charitable, meet at least two:</p>
+                    <ul>
+                      <li>Annual turnover £10.2m or less</li>
+                      <li>Total assets £5.1m or less</li>
+                      <li>50 employees or less</li>
+                    </ul>
+                    <p><strong>Medium or large sponsor fee:</strong> £1,476.00</p>
+                  </div>
+                </details>
+              </div>
 
               <div class="visaCtas">
                 <a class="btn primary" href="contact.html#book">Book Appointment</a>
@@ -412,14 +612,6 @@
               <div class="visaSubtitle">An unsponsored work route for leaders and potential leaders</div>
               <p class="visaText">Add your Global Talent overview here.</p>
 
-              <h3 class="visaH2">UK Global Talent Visa Requirements</h3>
-              <ul class="visaList">
-                <li>Be aged 18 or over</li>
-                <li>Hold an endorsement from an approved endorsing body (or eligible prize route)</li>
-                <li>Meet general grounds (no refusal reasons)</li>
-                <li>TB certificate may be required depending on country</li>
-              </ul>
-
               <div class="visaCtas">
                 <a class="btn primary" href="contact.html#book">Book Appointment</a>
                 <a class="btn light" href="contact.html">Contact Us</a>
@@ -431,13 +623,6 @@
               <h2 class="visaTitle">UK Self-Sponsorship Visa</h2>
               <div class="visaSubtitle">Self-sponsorship as a Skilled Worker</div>
               <p class="visaText">Add your Self-Sponsorship overview here.</p>
-
-              <h3 class="visaH2">Stage 1 – Sponsor licence</h3>
-              <ul class="visaList">
-                <li>Set up a UK company (or already have one)</li>
-                <li>Apply for a sponsor licence for your company</li>
-                <li>Prepare compliant HR systems and evidence</li>
-              </ul>
 
               <div class="visaCtas">
                 <a class="btn primary" href="contact.html#book">Book Appointment</a>
@@ -451,13 +636,6 @@
               <div class="visaSubtitle">Stay in the UK for at least 2 years after completing your course</div>
               <p class="visaText">Add your Graduate Visa overview here.</p>
 
-              <h3 class="visaH2">UK Graduate Visa Requirements</h3>
-              <ul class="visaList">
-                <li>Be in the UK at the time of application</li>
-                <li>Have successfully completed an eligible course</li>
-                <li>Hold a valid Student visa/permission</li>
-              </ul>
-
               <div class="visaCtas">
                 <a class="btn primary" href="contact.html#book">Book Appointment</a>
                 <a class="btn light" href="contact.html">Contact Us</a>
@@ -469,14 +647,6 @@
               <h2 class="visaTitle">Innovator Founder Visa</h2>
               <div class="visaSubtitle">For entrepreneurs establishing an innovative business in the UK</div>
               <p class="visaText">Add your Innovator Founder overview here.</p>
-
-              <h3 class="visaH2">Eligibility</h3>
-              <ul class="visaList">
-                <li>New: You cannot join a business already trading</li>
-                <li>Innovative: Original idea different from the market</li>
-                <li>Viable: Evidence it can work and grow</li>
-                <li>Scalable: Planning for job creation and expansion</li>
-              </ul>
 
               <div class="visaCtas">
                 <a class="btn primary" href="contact.html#book">Book Appointment</a>
@@ -490,15 +660,6 @@
               <div class="visaSubtitle">Further leave to remain in specific categories</div>
               <p class="visaText">Add your Extension Visa overview here.</p>
 
-              <h3 class="visaH2">We help with applications for further leave to remain in:</h3>
-              <ul class="visaList">
-                <li>Skilled Worker Visa</li>
-                <li>Family and Spouse Visas</li>
-                <li>Global Business Mobility Visas</li>
-                <li>Innovator routes</li>
-                <li>Global Talent routes</li>
-              </ul>
-
               <div class="visaCtas">
                 <a class="btn primary" href="contact.html#book">Book Appointment</a>
                 <a class="btn light" href="contact.html">Contact Us</a>
@@ -510,13 +671,6 @@
               <h2 class="visaTitle">UK Visitor Visa</h2>
               <div class="visaSubtitle">Travel to the UK for short stays and permitted activities</div>
               <p class="visaText">Add your Visitor Visa overview here.</p>
-
-              <h3 class="visaH2">How long does a UK visitor visa last?</h3>
-              <ul class="visaList">
-                <li>Standard Visitor Visa usually allows up to 6 months per visit</li>
-                <li>Long-term visitor visas may be available (2, 5, or 10 years)</li>
-                <li>You normally can’t stay longer than 6 months at a time</li>
-              </ul>
 
               <div class="visaCtas">
                 <a class="btn primary" href="contact.html#book">Book Appointment</a>
@@ -530,12 +684,6 @@
               <div class="visaSubtitle">Settlement (Indefinite Leave to Remain) and British Citizenship</div>
               <p class="visaText">Add your Settlement & Naturalisation overview here.</p>
 
-              <h3 class="visaH2">Dependants</h3>
-              <ul class="visaList">
-                <li>Routes may allow partners and children to apply as dependants</li>
-                <li>Eligibility depends on your immigration route and circumstances</li>
-              </ul>
-
               <div class="visaCtas">
                 <a class="btn primary" href="contact.html#book">Book Appointment</a>
                 <a class="btn light" href="contact.html">Contact Us</a>
@@ -547,14 +695,6 @@
               <h2 class="visaTitle">Family Visa</h2>
               <div class="visaSubtitle">Partner and family visas</div>
               <p class="visaText">Add your Family Visa overview here.</p>
-
-              <h3 class="visaH2">The requirements (example)</h3>
-              <ul class="visaList">
-                <li>Your relationship is genuine and subsisting</li>
-                <li>You intend to live together permanently in the UK</li>
-                <li>Meet financial and accommodation requirements (where applicable)</li>
-                <li>Meet English language requirements (where applicable)</li>
-              </ul>
 
               <div class="visaCtas">
                 <a class="btn primary" href="contact.html#book">Book Appointment</a>
@@ -679,11 +819,29 @@
       syncFromHash();
     })();
   </script>
-<!-- WhatsApp -->
-<a class="waFloat" href="https://wa.me/447903004158" target="_blank" rel="noopener" aria-label="WhatsApp">
-  <svg viewBox="0 0 24 24" aria-hidden="true">
-    <path d="M20 12a8 8 0 0 1-11.9 7L4 20l1.1-4.1A8 8 0 1 1 20 12Zm-4.6 2.2c-.2-.1-1.3-.6-1.5-.7-.2-.1-.4-.1-.6.1-.2.2-.6.7-.7.8-.1.1-.3.2-.5.1-.2-.1-.9-.3-1.7-1.1-.6-.6-1.1-1.4-1.2-1.6-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.6 0-.2-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2 0 1.2.8 2.3 1 2.5.1.2 1.6 2.4 3.9 3.4.5.2.9.4 1.2.5.5.1 1 .1 1.4.1.4-.1 1.3-.5 1.5-1 .2-.5.2-.9.1-1 0-.1-.2-.2-.4-.3Z"/>
-  </svg>
-</a>
-</body>
-</html>
+
+  <!-- ✅ Accordion: only 1 open at a time per visa panel -->
+  <script>
+    document.addEventListener("click", (e) => {
+      const sum = e.target.closest("summary");
+      if(!sum) return;
+
+      const details = sum.parentElement;
+      if(!details || details.tagName !== "DETAILS") return;
+
+      const wrapper = details.closest(".acc");
+      if(!wrapper) return;
+
+      // If it is opening, close siblings
+      if(!details.hasAttribute("open")) {
+        wrapper.querySelectorAll("details[open]").forEach(d => {
+          if(d !== details) d.removeAttribute("open");
+        });
+      }
+    });
+  </script>
+
+  <!-- WhatsApp -->
+  <a class="waFloat" href="https://wa.me/447903004158" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M20 12a8 8 0 0 1-11.9 7L4 20l1.1-4.1A8 8 0 1 1 20 12Zm-4.6 2.2c-.2-.1-1.3-.6-1.5-.7-.2-.1-.4-.1-.6.1-.2.2-.6.7-.7.8-.1.1-.3.2-.5.1-.2-.1-.9-.3-1.7-1.1-.6-.6-1.1-1.4-1.2-1.6-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.6 0-.2-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2
