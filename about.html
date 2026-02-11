@@ -9,25 +9,22 @@
   <link rel="shortcut icon" type="image/png" href="assets/tablogo.png" />
   <link rel="apple-touch-icon" href="assets/tablogo.png" />
 
-  <!-- ✅ Your shared CSS (header/footer/buttons/etc) -->
+  <!-- ✅ Use your shared CSS (the one you just created) -->
   <link rel="stylesheet" href="assets/shared.css" />
 
+  <!-- ✅ About-page-only styles -->
   <style>
-    /* Page spacing */
-    section{ padding: 70px 0; }
-    .tight{ padding: 54px 0; }
-
-    /* HERO (uses uk2) */
+    /* HERO */
     .hero{
       position: relative;
       background:
-        linear-gradient(rgba(6, 18, 38, 0.70), rgba(6, 18, 38, 0.82)),
+        linear-gradient(rgba(6, 18, 38, 0.70), rgba(6, 18, 38, 0.80)),
         url("assets/uk2.png") center / cover no-repeat;
       color:#fff;
       overflow:hidden;
     }
     .heroInner{
-      padding: 64px 0;
+      padding: 64px 0 64px;
       display:grid;
       gap: 12px;
     }
@@ -52,209 +49,235 @@
     }
     .hero p{
       margin:0;
-      max-width: 72ch;
-      color: rgba(255,255,255,.80);
+      max-width: 70ch;
+      color: rgba(255,255,255,.78);
       font-size: 15.5px;
       line-height: 1.75;
     }
 
-    /* small kicker line like premium sites */
+    section{ padding: 64px 0; }
+
+    .sectionTitle{
+      text-align:center;
+      margin-bottom: 26px;
+    }
+    .sectionTitle .top{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      color: rgba(15,23,42,.55);
+      font-size: 12px;
+      letter-spacing:.18em;
+      text-transform: uppercase;
+    }
+    .sectionTitle .top .line{ width:40px;height:1px;background: rgba(15,23,42,.18); }
+    .sectionTitle h2{
+      font-family: var(--serif);
+      font-weight: 600;
+      letter-spacing:-.01em;
+      margin: 10px 0 0;
+      font-size: clamp(28px, 3vw, 40px);
+    }
+
+    /* ABOUT SPLIT (premium like your reference) */
+    .aboutWrap{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 28px;
+      align-items:center;
+    }
+    @media (max-width: 980px){
+      .aboutWrap{ grid-template-columns: 1fr; }
+    }
+
+    .aboutCard{
+      background:#fff;
+      border: 1px solid rgba(2,8,23,.08);
+      border-radius: 22px;
+      box-shadow: var(--shadow2);
+      padding: 28px;
+    }
     .kicker{
-      display:inline-block;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
       font-size: 12px;
       letter-spacing:.18em;
       text-transform: uppercase;
       color: rgba(15,23,42,.55);
-      font-weight: 800;
       margin-bottom: 10px;
     }
-
-    /* ABOUT SPLIT (no big box) */
-    .aboutSplit{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 56px;
-      align-items:start;
-    }
-    @media (max-width: 980px){
-      .aboutSplit{ grid-template-columns: 1fr; gap: 26px; }
-    }
-
-    .aboutText h2{
+    .kicker .line{ width:40px;height:1px;background: rgba(15,23,42,.18); }
+    .aboutCard h2{
       font-family: var(--serif);
-      font-weight: 650;
+      margin: 0 0 10px;
       letter-spacing:-.01em;
-      margin: 0 0 12px;
-      font-size: clamp(30px, 3.2vw, 46px);
-      line-height: 1.08;
-      color: #0f172a;
+      font-size: clamp(28px, 3vw, 40px);
     }
-    .aboutText p{
-      margin: 0;
-      color: rgba(15,23,42,.72);
-      line-height: 1.9;
-      font-size: 15.6px;
-      max-width: 70ch;
+    .aboutCard p{
+      margin:0;
+      color: rgba(15,23,42,.76);
+      line-height: 1.8;
+      font-size: 15px;
     }
-    .aboutText p + p{ margin-top: 14px; }
+    .aboutCard p + p{ margin-top: 12px; }
 
     .aboutActions{
       display:flex;
+      gap: 10px;
+      flex-wrap:wrap;
+      margin-top: 18px;
+    }
+
+    .aboutImg{
+      border-radius: 26px;
+      overflow:hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(2,8,23,.10);
+      background:#fff;
+    }
+    .aboutImg img{
+      width:100%;
+      height: 560px;
+      object-fit: cover;
+      display:block;
+    }
+    @media (max-width: 980px){
+      .aboutImg img{ height: 420px; }
+    }
+
+    /* WHY US (clickable links like header dropdown) */
+    .why{
+      background: var(--soft);
+      border-top: 1px solid rgba(2,8,23,.06);
+      border-bottom: 1px solid rgba(2,8,23,.06);
+    }
+    .whyGrid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+    @media (max-width: 980px){ .whyGrid{ grid-template-columns: 1fr; } }
+
+    .whyLink{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid rgba(2,8,23,.08);
+      box-shadow: var(--shadow2);
+      transition:.18s ease;
+      font-weight: 800;
+      color: rgba(15,23,42,.84);
+    }
+    .whyLink:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 16px 40px rgba(2,8,23,.12);
+      border-color: rgba(215,181,109,.35);
+    }
+    .whyLink .arrow{
+      width: 34px; height: 34px;
+      border-radius: 12px;
+      display:grid; place-items:center;
+      background: rgba(215,181,109,.14);
+      border: 1px solid rgba(215,181,109,.30);
+      color: #7a5d1b;
+      flex: 0 0 auto;
+    }
+    .whyIntro{
+      text-align:center;
+      max-width: 85ch;
+      margin: 0 auto;
+      color: rgba(15,23,42,.72);
+      line-height: 1.75;
+      font-size: 15px;
+    }
+
+    /* CORE VALUES */
+    .valuesGrid{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 18px;
+    }
+    @media (max-width: 980px){ .valuesGrid{ grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px){ .valuesGrid{ grid-template-columns: 1fr; } }
+
+    .valueCard{
+      border-radius: 22px;
+      background:#fff;
+      border: 1px solid rgba(2,8,23,.08);
+      box-shadow: var(--shadow2);
+      padding: 22px;
+      text-align:center;
+      display:grid;
+      gap: 10px;
+    }
+    .valueIcon{
+      width: 62px; height: 62px;
+      border-radius: 20px;
+      margin: 0 auto;
+      display:grid; place-items:center;
+      background: rgba(215,181,109,.12);
+      border: 1px solid rgba(215,181,109,.30);
+      color: #7a5d1b;
+    }
+    .valueCard h3{
+      margin: 6px 0 0;
+      font-size: 13px;
+      letter-spacing:.16em;
+      text-transform: uppercase;
+      color:#0f172a;
+    }
+    .valueCard p{
+      margin:0;
+      color: rgba(15,23,42,.72);
+      line-height: 1.7;
+      font-size: 14.6px;
+    }
+
+    /* FEES CTA (premium) */
+    .fees{
+      background: var(--navy2);
+      color:#fff;
+      position: relative;
+      overflow:hidden;
+    }
+    .fees .sectionTitle .top{ color: rgba(255,255,255,.70); }
+    .fees .sectionTitle .top .line{ background: rgba(255,255,255,.20); }
+    .fees .sectionTitle h2{ color:#fff; }
+
+    .feesCard{
+      width: min(980px, 100%);
+      margin: 0 auto;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      box-shadow: 0 18px 60px rgba(0,0,0,.35);
+      padding: 26px;
+      text-align:center;
+    }
+    .feesCard p{
+      margin: 0 auto;
+      max-width: 92ch;
+      color: rgba(255,255,255,.75);
+      line-height: 1.75;
+      font-size: 15px;
+    }
+    .feesCard p + p{ margin-top: 12px; }
+    .feesActions{
+      display:flex;
+      justify-content:center;
       gap: 12px;
       flex-wrap:wrap;
       margin-top: 18px;
     }
 
-    .aboutImage{
-      border-radius: 22px;
-      overflow:hidden;
-      box-shadow: 0 18px 60px rgba(2,8,23,.12);
-      border: 1px solid rgba(2,8,23,.08);
-      background:#fff;
-    }
-    .aboutImage img{
-      width:100%;
-      height: 430px;
-      object-fit: cover;
-      display:block;
-    }
-    @media (max-width: 980px){
-      .aboutImage img{ height: 360px; }
-    }
-
-    /* WHY US (simple, premium list) */
-    .whyTitle{
-      margin-top: 34px;
-    }
-    .whyTitle h3{
-      margin: 0 0 6px;
-      font-family: var(--serif);
-      font-weight: 650;
-      letter-spacing:-.01em;
-      font-size: clamp(22px, 2.2vw, 30px);
-      color:#0f172a;
-    }
-    .whyTitle p{
-      margin:0;
-      color: rgba(15,23,42,.70);
-      line-height:1.7;
-      font-size: 14.8px;
-    }
-
-    .whyGrid{
-      margin-top: 18px;
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px 26px;
-    }
-    @media (max-width: 980px){ .whyGrid{ grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 560px){ .whyGrid{ grid-template-columns: 1fr; } }
-
-    .whyGrid a{
-      display:flex;
-      align-items:center;
-      gap: 10px;
-      padding: 10px 0;
-      font-weight: 750;
-      color: rgba(15,23,42,.86);
-      border-bottom: 1px solid rgba(15,23,42,.08);
-      transition: .15s ease;
-    }
-    .whyGrid a:hover{
-      color:#0f172a;
-      border-bottom-color: rgba(215,181,109,.55);
-      transform: translateY(-1px);
-    }
-    .arrow{
-      width: 20px;
-      height: 20px;
-      border-radius: 999px;
-      display:grid;
-      place-items:center;
-      background: rgba(15,23,42,.06);
-      color: rgba(15,23,42,.7);
-      font-weight: 900;
-      flex: 0 0 auto;
-    }
-
-    /* CORE VALUES (no boxes – clean row) */
-    .values{
-      background: #fff;
-      border-top: 1px solid rgba(2,8,23,.06);
-    }
-    .valuesHead{
-      text-align:center;
-      margin-bottom: 22px;
-    }
-    .valuesHead h2{
-      font-family: var(--serif);
-      font-weight: 650;
-      letter-spacing:-.01em;
-      margin: 0;
-      font-size: clamp(26px, 2.8vw, 40px);
-    }
-    .valuesRow{
-      display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-      align-items:start;
-    }
-    @media (max-width: 980px){ .valuesRow{ grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 560px){ .valuesRow{ grid-template-columns: 1fr; } }
-
-    .valItem{
-      text-align:center;
-      padding: 10px 6px;
-    }
-    .valIcon{
-      width: 64px;
-      height: 64px;
-      border-radius: 999px;
-      margin: 0 auto 12px;
-      display:grid;
-      place-items:center;
-      border: 1px solid rgba(15,23,42,.10);
-      background: rgba(15,23,42,.03);
-      font-size: 22px;
-      color: #0f172a;
-    }
-    .valItem h4{
-      margin: 0 0 6px;
-      font-weight: 850;
-      color:#0f172a;
-    }
-    .valItem p{
-      margin:0;
-      color: rgba(15,23,42,.70);
-      line-height: 1.7;
-      font-size: 14.6px;
-    }
-
-    /* FEES (simple, centred) */
-    .fees{
-      background: var(--soft);
-      border-top: 1px solid rgba(2,8,23,.06);
-    }
-    .feesInner{
-      text-align:center;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .feesInner h2{
-      font-family: var(--serif);
-      font-weight: 650;
-      letter-spacing:-.01em;
-      margin: 0 0 12px;
-      font-size: clamp(26px, 2.8vw, 40px);
-    }
-    .feesInner p{
-      margin: 0 auto 18px;
-      color: rgba(15,23,42,.72);
-      line-height: 1.9;
-      font-size: 15.4px;
-    }
-
-    /* WhatsApp (same as contact) */
+    /* WhatsApp (keep same as your contact page) */
     .waFloat{
       position:fixed;
       right: 18px;
@@ -294,114 +317,185 @@
             <span>→</span>
             <span>About</span>
           </div>
-          <h1>About Us</h1>
-          <p>Professional, responsive immigration advice for individuals and businesses with careful preparation and clear guidance.</p>
+          <h1>About Benchmark Legals</h1>
+          <p>Warm, professional immigration support — built around clarity, trust, and careful case preparation.</p>
         </div>
       </div>
     </section>
 
-    <!-- ABOUT SECTION (simple premium like your inspiration) -->
+    <!-- ABOUT -->
     <section>
       <div class="container">
+        <div class="aboutWrap">
 
-        <div class="aboutSplit">
-          <div class="aboutText">
-            <div class="kicker">BENCHMARK LEGALS</div>
-            <h2>About Us</h2>
+          <div class="aboutCard">
+            <div class="kicker"><span class="line"></span> Benchmark Legals</div>
+            <h2>Trusted immigration support</h2>
 
             <p>
-              Benchmark Legals is a forward-thinking immigration firm offering comprehensive support for clients navigating the United Kingdom immigration system.
+              We support individuals and businesses with UK immigration matters through clear guidance, meticulous attention to detail,
+              and careful case preparation.
             </p>
             <p>
-              We approach every matter with meticulous attention to detail and clear communication — providing practical advice and careful preparation from assessment to submission.
+              Whether you are applying as an individual or a business, our team supports you from initial assessment to submission,
+              ensuring your documents and requirements are handled with care.
             </p>
 
             <div class="aboutActions">
               <a class="btn primary" href="contact.html">Contact Us</a>
-              <a class="btn light" href="immigration.html#services">View Immigration Services</a>
-            </div>
-
-            <div class="whyTitle">
-              <h3>Why us?</h3>
-              <p>We assist with a wide range of UK immigration matters, including:</p>
-            </div>
-
-            <div class="whyGrid">
-              <a href="immigration.html#skilled-worker"><span class="arrow">›</span> Skilled Worker Visa</a>
-              <a href="immigration.html#business"><span class="arrow">›</span> Business Visa</a>
-              <a href="immigration.html#global-talent"><span class="arrow">›</span> Global Talent Visa</a>
-
-              <a href="immigration.html#innovator"><span class="arrow">›</span> Innovator Founder Visa</a>
-              <a href="immigration.html#graduate"><span class="arrow">›</span> Graduate Visa</a>
-              <a href="immigration.html#family"><span class="arrow">›</span> Family Visa</a>
-
-              <a href="immigration.html#settlement"><span class="arrow">›</span> Settlement &amp; Naturalisation</a>
-              <a href="immigration.html#extensions"><span class="arrow">›</span> Extension Visas</a>
-              <a href="immigration.html#visitor"><span class="arrow">›</span> Visitor Visa</a>
-
-              <a href="immigration.html#self-sponsorship"><span class="arrow">›</span> Self-Sponsorship Visa</a>
-              <a href="immigration.html#sponsor-licence"><span class="arrow">›</span> Sponsor Licence</a>
-              <a href="immigration.html#ilr"><span class="arrow">›</span> Indefinite Leave to Remain</a>
+              <a class="btn light" href="immigration.html">View Immigration Services</a>
             </div>
           </div>
 
-          <div class="aboutImage">
-            <img src="assets/uk1.png" alt="UK image" />
+          <div class="aboutImg" aria-label="About image">
+            <!-- ✅ your image next to About text -->
+            <img src="assets/uk1.png" alt="UK street scene" />
           </div>
+
         </div>
-
       </div>
     </section>
 
-    <!-- CORE VALUES (clean, no boxes) -->
-    <section class="values tight">
+    <!-- WHY US -->
+    <section class="why">
       <div class="container">
-        <div class="valuesHead">
-          <div class="kicker">OUR CORE VALUES</div>
-          <h2>How we work</h2>
+        <div class="sectionTitle">
+          <div class="top"><span class="line"></span> Why choose us</div>
+          <h2>How we can help</h2>
         </div>
 
-        <div class="valuesRow">
-          <div class="valItem">
-            <div class="valIcon">✓</div>
-            <h4>Integrity</h4>
-            <p>Clear, honest guidance aligned with regulatory standards.</p>
-          </div>
+        <p class="whyIntro">
+          We assist with UK immigration matters across work, business, family, settlement and extensions.
+          Explore the same service links you see under <strong>Immigration</strong> in the header.
+        </p>
 
-          <div class="valItem">
-            <div class="valIcon">💡</div>
-            <h4>Honest Advice</h4>
-            <p>Transparent expectations and options explained simply.</p>
-          </div>
+        <!-- ✅ EXACT same links as header dropdown -->
+        <div class="whyGrid">
+          <a class="whyLink" href="immigration.html#business">
+            <span>Business Visa</span><span class="arrow">→</span>
+          </a>
+          <a class="whyLink" href="immigration.html#family">
+            <span>Family Visa</span><span class="arrow">→</span>
+          </a>
+          <a class="whyLink" href="immigration.html#global-talent">
+            <span>Global Talent Visa</span><span class="arrow">→</span>
+          </a>
+          <a class="whyLink" href="immigration.html#skilled-worker">
+            <span>Skilled Worker Visa</span><span class="arrow">→</span>
+          </a>
+          <a class="whyLink" href="immigration.html#self-sponsorship">
+            <span>Self-Sponsorship Visa</span><span class="arrow">→</span>
+          </a>
+          <a class="whyLink" href="immigration.html#visitor">
+            <span>Visitor Visa</span><span class="arrow">→</span>
+          </a>
+          <a class="whyLink" href="immigration.html#extensions">
+            <span>Extension Visas</span><span class="arrow">→</span>
+          </a>
+          <a class="whyLink" href="immigration.html#settlement">
+            <span>Settlement &amp; Naturalisation</span><span class="arrow">→</span>
+          </a>
+          <a class="whyLink" href="immigration.html#graduate">
+            <span>Graduate Visa</span><span class="arrow">→</span>
+          </a>
+          <a class="whyLink" href="immigration.html#innovator">
+            <span>Innovator Founder Visa</span><span class="arrow">→</span>
+          </a>
+        </div>
 
-          <div class="valItem">
-            <div class="valIcon">★</div>
-            <h4>High-Quality Service</h4>
-            <p>Meticulous preparation and responsive communication.</p>
-          </div>
-
-          <div class="valItem">
-            <div class="valIcon">£</div>
-            <h4>Reasonable Fees</h4>
-            <p>Fair, clear pricing with no confusion about what’s included.</p>
-          </div>
+        <div style="display:flex;justify-content:center;margin-top:18px;">
+          <a class="btn primary" href="contact.html">Book Appointment</a>
         </div>
       </div>
     </section>
 
-    <!-- FEES (simple premium) -->
+    <!-- CORE VALUES -->
+    <section>
+      <div class="container">
+        <div class="sectionTitle">
+          <div class="top"><span class="line"></span> Our standards</div>
+          <h2>Our Core Values</h2>
+        </div>
+
+        <div class="valuesGrid">
+
+          <div class="valueCard">
+            <div class="valueIcon" aria-hidden="true">
+              <!-- handshake -->
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                <path d="M8 12l2 2 4-4 2 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M3 10l4-4 6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M21 10l-4-4-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M7 14l2 2c1 1 3 1 4 0l1-1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Integrity</h3>
+            <p>Honest guidance, clear expectations, and professionalism throughout your case.</p>
+          </div>
+
+          <div class="valueCard">
+            <div class="valueIcon" aria-hidden="true">
+              <!-- lightbulb -->
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                <path d="M9 18h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M10 22h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M12 2a7 7 0 0 0-4 12c.7.6 1 1.3 1 2h6c0-.7.3-1.4 1-2A7 7 0 0 0 12 2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Clarity</h3>
+            <p>We explain steps and requirements in plain English, so you feel confident.</p>
+          </div>
+
+          <div class="valueCard">
+            <div class="valueIcon" aria-hidden="true">
+              <!-- badge/check -->
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2l3 2 3 .5 1 3 2.5 2.5-2.5 2.5-1 3-3 .5-3 2-3-2-3-.5-1-3L2.5 10 5 7.5l1-3L9 4l3-2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                <path d="M8.5 12l2.2 2.2 4.8-4.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Quality</h3>
+            <p>Meticulous document preparation and careful checks at every stage.</p>
+          </div>
+
+          <div class="valueCard">
+            <div class="valueIcon" aria-hidden="true">
+              <!-- pound/fees -->
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                <path d="M12 21a9 9 0 1 0-9-9 9 9 0 0 0 9 9Z" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M13.5 7.5c-.8-.8-2.7-.7-3.5.2-.7.8-.6 1.9-.1 2.5.6.7 1.6 1 2.5 1.3 1 .3 2 .7 2.3 1.8.2.9-.2 2-1.3 2.5-1 .5-2.6.4-3.4-.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Fair Fees</h3>
+            <p>Transparent pricing and straightforward communication from the start.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FEES -->
     <section class="fees">
       <div class="container">
-        <div class="feesInner">
-          <div class="kicker">OUR FEES</div>
-          <h2>Transparent and fair</h2>
+        <div class="sectionTitle">
+          <div class="top"><span class="line"></span> Pricing</div>
+          <h2>Our Fees</h2>
+        </div>
 
+        <div class="feesCard">
           <p>
-            Our fixed-fee approach covers case preparation, drafting (including representations/cover letters where appropriate),
-            paperwork preparation, and guidance on required supporting documents. We aim to keep the process straightforward, with clarity at every stage.
+            Our fees reflect the complexity and requirements of your application, including case preparation,
+            document review, and submission support. Where ongoing contact is required, we aim to keep the process
+            efficient and responsive.
+          </p>
+          <p>
+            For a clear quote tailored to your situation, contact us and we’ll confirm the scope and next steps.
           </p>
 
-          <a class="btn primary" href="contact.html">Contact Us</a>
+          <div class="feesActions">
+            <a class="btn primary" href="contact.html">Contact Us</a>
+            <a class="btn light" href="contact.html#book">Book Appointment</a>
+          </div>
         </div>
       </div>
     </section>
@@ -418,7 +512,8 @@
     </svg>
   </a>
 
-  <!-- ✅ shared injector -->
+  <!-- ✅ required for header/footer injection + dropdown -->
   <script src="assets/site.js"></script>
+
 </body>
 </html>
