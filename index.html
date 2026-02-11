@@ -670,28 +670,16 @@
       border-bottom:1px solid rgba(2,8,23,.06);
     }
 
-    .svc{
-  padding: 22px 18px;
-  min-height: 170px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  gap: 10px;
-
-  border-right:1px solid rgba(11,35,70,.10);
-  border-bottom:1px solid rgba(11,35,70,.10);
-
-  background: rgba(11,35,70,.03); /* subtle blue tint */
-  transition:.18s ease;
-  cursor:pointer;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.svc:hover{
-  background: rgba(11,35,70,.08); /* blue hover instead of gold */
-}
+    .svcGrid{
+      display:grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      border-radius: 22px;
+      overflow:hidden;
+      border: 1px solid rgba(2,8,23,.08);
+      background:#fff;
+      box-shadow: var(--shadow2);
+    }
     .svc{
       padding: 22px 18px;
       min-height: 170px;
@@ -713,17 +701,14 @@
     .svc:hover{ background: rgba(215,181,109,.06); }
 
     .svc .ico{
-  width: 46px;
-  height: 46px;
-  border-radius: 16px;
-  display:grid;
-  place-items:center;
-
-  background: rgba(11,35,70,.06);
-  border: 1px solid rgba(11,35,70,.18);
-
-  box-shadow: 0 10px 22px rgba(2,8,23,.08);
-}
+      width: 46px; height: 46px;
+      border-radius: 16px;
+      display:grid;
+      place-items:center;
+      background: rgba(215,181,109,.10);
+      border: 1px solid rgba(215,181,109,.28);
+      box-shadow: 0 10px 22px rgba(2,8,23,.08);
+    }
 
     .svc h4{
       margin: 4px 0 0;
