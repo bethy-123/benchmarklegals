@@ -511,139 +511,158 @@
       font-size: clamp(28px, 3vw, 40px);
     }
 
-    /* ---------- WELCOME ---------- */
-    .welcome{ background: #fff; }
-    .welcomeGrid{
-      display:grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap: 26px;
-      align-items:stretch;
-    }
-    .welcomeImg{
-      border-radius: 22px;
-      overflow:hidden;
-      box-shadow: var(--shadow);
-      position:relative;
-      min-height: 420px;
-      background: #0b1730;
-    }
-    .welcomeImg img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-    }
-    .casesBadge{
-      position:absolute;
-      left: 22px;
-      bottom: 22px;
-      width: 180px;
-      background: var(--gold);
-      color:#10203a;
-      border-radius: 14px;
-      padding: 18px 18px;
-      box-shadow: 0 18px 40px rgba(215,181,109,.28);
-    }
-    .casesBadge .big{
-      font-family: var(--serif);
-      font-weight: 800;
-      font-size: 46px;
-      line-height:1;
-      margin-bottom: 10px;
-    }
-    .casesBadge .small{
-      font-weight: 800;
-      letter-spacing:.02em;
-      opacity:.95;
-    }
+   /* ---------- WELCOME ---------- */
+.welcome{ background: #fff; }
 
-    .welcomeCard{
-      border-radius: 22px;
-      background: #fff;
-      border: 1px solid rgba(2,8,23,.08);
-      box-shadow: var(--shadow2);
-      padding: 26px;
-      position:relative;
-      overflow:hidden;
-    }
-    .welcomeCard::after{
-      content:"";
-      position:absolute;
-      right:-40px; top: -40px;
-      width: 300px; height: 300px;
-      background: radial-gradient(circle at 30% 30%, rgba(215,181,109,.18), transparent 55%);
-      transform: rotate(12deg);
-      pointer-events:none;
-    }
-    .welcomeCard .mini{
-      display:flex;
-      align-items:center;
-      gap: 10px;
-      font-size: 12px;
-      letter-spacing:.18em;
-      text-transform: uppercase;
-      color: rgba(15,23,42,.55);
-      margin-bottom: 8px;
-    }
-    .welcomeCard .mini .line{ width:34px;height:1px;background: rgba(15,23,42,.18); }
-    .welcomeCard h3{
-      font-family: var(--serif);
-      font-weight: 600;
-      letter-spacing:-.01em;
-      margin: 0 0 10px;
-      font-size: 34px;
-      line-height:1.05;
-    }
-    .welcomeCard p{
-      color: rgba(15,23,42,.70);
-      line-height:1.75;
-      font-size: 14.8px;
-      margin: 0 0 16px;
-      position:relative;
-      z-index:1;
-    }
-    .checklist{
-      margin: 16px 0 18px;
-      padding:0;
-      list-style:none;
-      display:grid;
-      gap: 10px;
-      position:relative;
-      z-index:1;
-    }
-    .checklist li{
-      display:flex;
-      align-items:flex-start;
-      gap: 10px;
-      color: rgba(15,23,42,.72);
-      font-size: 14px;
-      line-height:1.6;
-    }
-    .tick{
-      width:18px;height:18px; flex:0 0 auto;
-      border-radius: 6px;
-      background: rgba(215,181,109,.20);
-      display:grid;place-items:center;
-      margin-top: 2px;
-      border:1px solid rgba(215,181,109,.35);
-      font-weight:900;
-      color:#7a5d1b;
-    }
-    .welcomeBtns{
-      display:flex;
-      gap: 12px;
-      flex-wrap:wrap;
-      position:relative;
-      z-index:1;
-    }
+.welcomeGrid{
+  display:grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 26px;
+  align-items:stretch;
+}
 
-    @media (max-width: 980px){
-      .welcomeGrid{ grid-template-columns: 1fr; }
-      .welcomeImg{ min-height: 320px; }
-      .casesBadge{ width: 160px; }
-      .casesBadge .big{ font-size: 40px; }
-      .welcomeCard h3{ font-size: 30px; }
-    }
+/* LEFT IMAGE CARD */
+.welcomeImg{
+  border-radius: 22px;
+  overflow:hidden;
+  box-shadow: var(--shadow);
+  position:relative;
+  min-height: 420px;
+  background: #0b1730;
+}
+.welcomeImg img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
 
+/* badge becomes dark blue like your reference */
+.casesBadge{
+  position:absolute;
+  left: 22px;
+  bottom: 22px;
+  width: 190px;
+  background: var(--navy2);
+  color:#fff;
+  border-radius: 18px;
+  padding: 18px 18px;
+  box-shadow: 0 18px 40px rgba(2,8,23,.30);
+}
+.casesBadge .big{
+  font-family: var(--serif);
+  font-weight: 800;
+  font-size: 54px;
+  line-height:1;
+  margin-bottom: 10px;
+}
+.casesBadge .small{
+  font-weight: 800;
+  letter-spacing:.02em;
+  opacity:.95;
+}
+
+/* RIGHT CARD becomes background image + navy overlay */
+.welcomeCard{
+  border-radius: 22px;
+  position:relative;
+  overflow:hidden;
+  border: 1px solid rgba(2,8,23,.08);
+  box-shadow: var(--shadow2);
+
+  background:
+    linear-gradient(180deg, rgba(6,18,38,.82), rgba(6,18,38,.92)),
+    url("assets/ukn.png") center / cover no-repeat;
+
+  padding: 26px;
+  color: #fff;
+}
+
+/* remove the old gold glow effect */
+.welcomeCard::after{ display:none; }
+
+.welcomeCard .mini{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  font-size: 12px;
+  letter-spacing:.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.80);
+  margin-bottom: 8px;
+}
+.welcomeCard .mini .line{
+  width:34px;height:1px;
+  background: rgba(255,255,255,.35);
+}
+
+.welcomeCard h3{
+  font-family: var(--serif);
+  font-weight: 600;
+  letter-spacing:-.01em;
+  margin: 0 0 10px;
+  font-size: 34px;
+  line-height:1.05;
+  color:#fff;
+}
+
+.welcomeCard p{
+  color: rgba(255,255,255,.78);
+  line-height:1.75;
+  font-size: 14.8px;
+  margin: 0 0 16px;
+}
+
+/* checklist becomes white */
+.checklist{
+  margin: 16px 0 18px;
+  padding:0;
+  list-style:none;
+  display:grid;
+  gap: 10px;
+}
+.checklist li{
+  display:flex;
+  align-items:flex-start;
+  gap: 10px;
+  color: rgba(255,255,255,.86);
+  font-size: 14px;
+  line-height:1.6;
+}
+.tick{
+  width:18px;height:18px; flex:0 0 auto;
+  border-radius: 6px;
+  background: rgba(255,255,255,.16);
+  display:grid;place-items:center;
+  margin-top: 2px;
+  border:1px solid rgba(255,255,255,.20);
+  font-weight:900;
+  color:#fff;
+}
+
+.welcomeBtns{
+  display:flex;
+  gap: 12px;
+  flex-wrap:wrap;
+}
+
+/* About Us button becomes white like reference */
+.welcomeBtns .btn.light{
+  background: #fff !important;
+  color: #0b2346 !important;
+  border: none !important;
+}
+.welcomeBtns .btn.light:hover{
+  transform: translateY(-1px);
+  box-shadow: var(--shadow2);
+}
+
+@media (max-width: 980px){
+  .welcomeGrid{ grid-template-columns: 1fr; }
+  .welcomeImg{ min-height: 320px; }
+  .casesBadge{ width: 170px; }
+  .casesBadge .big{ font-size: 46px; }
+  .welcomeCard h3{ font-size: 30px; }
+}
     /* ---------- SERVICES ---------- */
     .services{
       background: var(--soft);
