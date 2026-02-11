@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -438,13 +437,13 @@
       margin: 0 0 18px;
     }
     .langLine{
-  margin: 6px 0 10px;
-  color: rgba(255,255,255,.88);
-  font-weight: 700;
-  font-size: 13px;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-}
+      margin: 6px 0 10px;
+      color: rgba(255,255,255,.88);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
 
     .heroActions{
       display:flex;
@@ -682,17 +681,15 @@
     .svc:nth-child(n+6){ border-bottom:none; }
     .svc:hover{ background: rgba(215,181,109,.06); }
 
-   .svc .ico{
-  width: 46px; height: 46px;
-  border-radius: 16px;
-  display:grid;
-  place-items:center;
-
-  /* premium glassy gold feel */
-  background: rgba(215,181,109,.10);
-  border: 1px solid rgba(215,181,109,.28);
-  box-shadow: 0 10px 22px rgba(2,8,23,.08);
-}
+    .svc .ico{
+      width: 46px; height: 46px;
+      border-radius: 16px;
+      display:grid;
+      place-items:center;
+      background: rgba(215,181,109,.10);
+      border: 1px solid rgba(215,181,109,.28);
+      box-shadow: 0 10px 22px rgba(2,8,23,.08);
+    }
 
     .svc h4{
       margin: 4px 0 0;
@@ -716,20 +713,18 @@
       transform: translateY(-1px);
     }
 
-    /* Make all icons feel premium and consistent */
-.svc svg{
-  width:22px;
-  height:22px;
-  stroke: currentColor;
-}
-.svc svg *{
-  stroke-width: 1.7 !important;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
+    .svc svg{
+      width:22px;
+      height:22px;
+      stroke: currentColor;
+    }
+    .svc svg *{
+      stroke-width: 1.7 !important;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
 
-.c1, .c2, .c3, .c4, .c5{ color: var(--gold2); }
-
+    .c1, .c2, .c3, .c4, .c5{ color: var(--gold2); }
 
     @media (max-width: 1100px){
       .svcGrid{ grid-template-columns: repeat(3, 1fr); }
@@ -893,12 +888,11 @@
       border-color: rgba(215,181,109,.35);
     }
 
-   /* ---------- CONTACT / BOOKING ---------- */
-.contact{
-  background: var(--soft); /* back to light like the rest of the site */
-  border-top: 1px solid rgba(2,8,23,.06);
-}
-
+    /* ---------- CONTACT / BOOKING ---------- */
+    .contact{
+      background: var(--soft);
+      border-top: 1px solid rgba(2,8,23,.06);
+    }
 
     .contactGrid{
       display:grid;
@@ -906,100 +900,92 @@
       gap: 22px;
       align-items:start;
     }
-    /* Make booking single card and styled for navy */
-.contactGrid{
-  grid-template-columns: 1fr; /* one card only */
-}
+    .contactGrid{
+      grid-template-columns: 1fr;
+    }
 
-.contact .card{
-  background: var(--navy2);
-  border: 1px solid rgba(255,255,255,.14);
-  box-shadow: 0 18px 60px rgba(0,0,0,.35);
-  color: #fff;
-}
+    .contact .card{
+      background: var(--navy2);
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: 0 18px 60px rgba(0,0,0,.35);
+      color: #fff;
+    }
 
-.contact .card p{
-  color: rgba(255,255,255,.72);
-}
+    .contact .card p{
+      color: rgba(255,255,255,.72);
+    }
 
-.contact label{
-  color: rgba(255,255,255,.70);
-}
+    .contact label{
+      color: rgba(255,255,255,.70);
+    }
 
-.contact input,
-.contact select,
-.contact textarea{
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.16);
-  color: #fff;
-}
-    /* Fix dropdown list visibility */
-.contact select option{
-  background: #ffffff;
-  color: #0f172a;
-}
+    .contact input,
+    .contact select,
+    .contact textarea{
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.16);
+      color: #fff;
+    }
+    .contact select option{
+      background: #ffffff;
+      color: #0f172a;
+    }
 
     .contact{
-  background: var(--soft);
-  border-top:1px solid rgba(2,8,23,.06);
-}
+      background: var(--soft);
+      border-top:1px solid rgba(2,8,23,.06);
+    }
 
-/* ⭐ ADD THIS RIGHT HERE */
-.contactActions{
-  margin-top: 22px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-  width: 100%;
-}
+    .contactActions{
+      margin-top: 22px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      width: 100%;
+    }
 
+    .contact input::placeholder,
+    .contact textarea::placeholder{
+      color: rgba(255,255,255,.55);
+    }
 
+    .contact .consent{
+      color: rgba(255,255,255,.75);
+    }
 
-.contact input::placeholder,
-.contact textarea::placeholder{
-  color: rgba(255,255,255,.55);
-}
+    .contact .note{
+      color: rgba(255,255,255,.60);
+    }
 
-.contact .consent{
-  color: rgba(255,255,255,.75);
-}
+    .contact .btn.light{
+      background: transparent;
+      border: 1px solid rgba(255,255,255,.22);
+      color: #fff;
+    }
+    .contact .btn.light,
+    .contact .btn.primary{
+      background-clip: padding-box;
+    }
 
-.contact .note{
-  color: rgba(255,255,255,.60);
-}
+    .contact .btn.light{
+      background: rgba(255,255,255,.06) !important;
+      border: 1px solid rgba(255,255,255,.22) !important;
+      color: #fff !important;
+    }
+    .contact .btn.light:hover{
+      background: rgba(255,255,255,.10) !important;
+    }
 
-/* Buttons in this section */
-.contact .btn.light{
-  background: transparent;
-  border: 1px solid rgba(255,255,255,.22);
-  color: #fff;
-}
-    /* Force both buttons to look correct ONLY inside contact section */
-.contact .btn.light,
-.contact .btn.primary{
-  background-clip: padding-box;
-}
-
-/* Make sure light button never turns white in contact section */
-.contact .btn.light{
-  background: rgba(255,255,255,.06) !important;
-  border: 1px solid rgba(255,255,255,.22) !important;
-  color: #fff !important;
-}
-.contact .btn.light:hover{
-  background: rgba(255,255,255,.10) !important;
-}
-
-.contact .btn.light:hover{
-  background: rgba(255,255,255,.08);
-  transform: translateY(-1px);
-}
-.contact .btn.primary{
-  background: var(--gold);
-  color: #10203a;
-}
+    .contact .btn.light:hover{
+      background: rgba(255,255,255,.08);
+      transform: translateY(-1px);
+    }
+    .contact .btn.primary{
+      background: var(--gold);
+      color: #10203a;
+    }
 
     @media (max-width: 980px){
       .contactGrid{ grid-template-columns: 1fr; }
@@ -1083,178 +1069,168 @@
     }
 
     /* ---------- footer ---------- */
-/* ---------- FOOTER (inspiration-style) ---------- */
-footer{
-  background: var(--navy);
-  color:#fff;
-  padding: 62px 0 28px;
-}
+    footer{
+      background: var(--navy);
+      color:#fff;
+      padding: 62px 0 28px;
+    }
 
-.footGridPro{
-  display:grid;
-  grid-template-columns: 1.55fr 1fr 1fr 1fr;
-  gap: 42px;
-  align-items:start;
-}
+    .footGridPro{
+      display:grid;
+      grid-template-columns: 1.55fr 1fr 1fr 1fr;
+      gap: 42px;
+      align-items:start;
+    }
 
-/* LEFT column */
-.footBrandPro{
-  display:flex;
-  flex-direction:column;
-  gap: 16px;
-}
+    .footBrandPro{
+      display:flex;
+      flex-direction:column;
+      gap: 16px;
+    }
 
-/* BIG Benchmark logo – force white */
-.brandLogoBig{
-  width: 280px;
-  max-width: 100%;
-  height: auto;
-  object-fit: contain;
-  filter: brightness(0) invert(1);  /* makes it white */
-  opacity: .98;
-}
+    .brandLogoBig{
+      width: 280px;
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      opacity: .98;
+    }
 
-/* IAA block like reference: badge on white + text */
-.oiscRow{
-  display:flex;
-  gap: 14px;
-  align-items:center;
-}
+    .oiscRow{
+      display:flex;
+      gap: 14px;
+      align-items:center;
+    }
 
-.oiscBadge{
-  width: 120px;
-  height: 120px;
-  border-radius: 18px;
-  background: #ffffff;             /* lawful white background */
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow: 0 12px 30px rgba(0,0,0,.22);
-}
+    .oiscBadge{
+      width: 120px;
+      height: 120px;
+      border-radius: 18px;
+      background: #ffffff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow: 0 12px 30px rgba(0,0,0,.22);
+    }
 
-.oiscImg{
-  width: 92px;
-  height: auto;
-  object-fit: contain;
-  filter: none !important;          /* DO NOT recolour IAA */
-  opacity: 1;
-}
+    .oiscImg{
+      width: 92px;
+      height: auto;
+      object-fit: contain;
+      filter: none !important;
+      opacity: 1;
+    }
 
-.oiscText{
-  line-height: 1.35;
-}
+    .oiscText{
+      line-height: 1.35;
+    }
 
-.oiscTitle{
-  font-weight: 800;
-  color: rgba(255,255,255,.92);
-  font-size: 13.5px;
-}
+    .oiscTitle{
+      font-weight: 800;
+      color: rgba(255,255,255,.92);
+      font-size: 13.5px;
+    }
 
-.oiscReg{
-  margin-top: 6px;
-  color: rgba(255,255,255,.72);
-  font-size: 13px;
-}
+    .oiscReg{
+      margin-top: 6px;
+      color: rgba(255,255,255,.72);
+      font-size: 13px;
+    }
 
-.footAbout{
-  color: rgba(255,255,255,.72);
-  line-height: 1.75;
-  font-size: 13.8px;
-  margin: 2px 0 0;
-  max-width: 48ch;
-}
+    .footAbout{
+      color: rgba(255,255,255,.72);
+      line-height: 1.75;
+      font-size: 13.8px;
+      margin: 2px 0 0;
+      max-width: 48ch;
+    }
 
-/* Column headings */
-.footColPro h4{
-  margin: 6px 0 14px;
-  font-size: 13px;
-  letter-spacing:.18em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,.88);
-}
+    .footColPro h4{
+      margin: 6px 0 14px;
+      font-size: 13px;
+      letter-spacing:.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.88);
+    }
 
-/* Lists */
-.footList{
-  display:flex;
-  flex-direction:column;
-  gap: 8px;
-}
+    .footList{
+      display:flex;
+      flex-direction:column;
+      gap: 8px;
+    }
 
-.footItem{
-  color: rgba(255,255,255,.72);
-  font-size: 13.8px;
-  line-height: 1.6;
-}
+    .footItem{
+      color: rgba(255,255,255,.72);
+      font-size: 13.8px;
+      line-height: 1.6;
+    }
 
-a.footItem:hover{
-  color:#fff;
-}
+    a.footItem:hover{
+      color:#fff;
+    }
 
-.footNote{
-  margin-top: 6px;
-  color: rgba(255,255,255,.62);
-  font-size: 12.8px;
-  line-height: 1.5;
-}
+    .footNote{
+      margin-top: 6px;
+      color: rgba(255,255,255,.62);
+      font-size: 12.8px;
+      line-height: 1.5;
+    }
 
-/* Optional social row (clean + subtle) */
-.footSocial{
-  display:flex;
-  gap: 10px;
-  margin-top: 14px;
-}
-.footSocial a{
-  width: 36px;
-  height: 36px;
-  border-radius: 12px;
-  display:grid;
-  place-items:center;
-  border: 1px solid rgba(255,255,255,.14);
-  background: rgba(255,255,255,.06);
-  color:#fff;
-  transition:.18s ease;
-}
-.footSocial a:hover{
-  background: rgba(255,255,255,.10);
-  transform: translateY(-1px);
-}
+    .footSocial{
+      display:flex;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .footSocial a{
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      display:grid;
+      place-items:center;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color:#fff;
+      transition:.18s ease;
+    }
+    .footSocial a:hover{
+      background: rgba(255,255,255,.10);
+      transform: translateY(-1px);
+    }
 
-/* Bottom line + copyright */
-.footLine{
-  height:1px;
-  background: rgba(255,255,255,.10);
-  margin: 34px 0 18px;
-}
+    .footLine{
+      height:1px;
+      background: rgba(255,255,255,.10);
+      margin: 34px 0 18px;
+    }
 
-.copyright{
-  display:flex;
-  justify-content:space-between;
-  gap: 14px;
-  flex-wrap:wrap;
-  color: rgba(255,255,255,.65);
-  font-size: 12.8px;
-}
+    .copyright{
+      display:flex;
+      justify-content:space-between;
+      gap: 14px;
+      flex-wrap:wrap;
+      color: rgba(255,255,255,.65);
+      font-size: 12.8px;
+    }
 
-.backTopLink{
-  color: rgba(255,255,255,.70);
-}
-.backTopLink:hover{ color:#fff; }
+    .backTopLink{
+      color: rgba(255,255,255,.70);
+    }
+    .backTopLink:hover{ color:#fff; }
 
-/* Mobile */
-@media (max-width: 980px){
-  .footGridPro{
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-  .brandLogoBig{
-    width: 240px;
-  }
-  .oiscRow{
-    align-items:flex-start;
-  }
-}
+    @media (max-width: 980px){
+      .footGridPro{
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+      .brandLogoBig{
+        width: 240px;
+      }
+      .oiscRow{
+        align-items:flex-start;
+      }
+    }
 
-    /* Floating WhatsApp */
     .waFloat{
       position:fixed;
       right: 18px;
@@ -1275,276 +1251,81 @@ a.footItem:hover{
     @media (prefers-reduced-motion: reduce){
       *{ transition:none !important; scroll-behavior:auto !important; }
     }
-    /* ===== FOOTER — PREMIUM LAYOUT UPGRADE ===== */
 
-.footGrid{
-  grid-template-columns: 1.6fr 1fr 1fr 1fr;
-  gap: 40px;
-}
+    .footGrid{ grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 40px; }
+    .footBrand{ display:flex; flex-direction:column; gap:18px; }
+    .footBrand img{ max-height: 110px; filter: none; opacity: 1; }
+    .footCard{ background:#ffffff; border: none; padding:18px; border-radius:18px; box-shadow: 0 12px 30px rgba(0,0,0,.25); }
+    .footCard img{ width:90px; height:90px; background:#fff; border:none; padding:8px; }
+    .footCard .txt{ color:#0b2346; font-weight:600; font-size:13px; }
+    .footCol h4{ font-size:14px; letter-spacing:.18em; color:#ffffff; margin-bottom:14px; }
+    .footCol a{ padding:6px 0; font-size:14px; }
+    .footLine{ margin: 34px 0 18px; opacity:.6; }
+    .copyright{ font-size:13px; }
 
-.footBrand{
-  display:flex;
-  flex-direction:column;
-  gap:18px;
-}
+    .footGridPro{ align-items: start !important; }
+    .footBrandPro{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      justify-content:flex-start;
+      gap:14px;
+      margin-top: 0;
+      padding-top: 0;
+    }
 
-/* Large logo like reference site */
-.footBrand img{
-  max-height: 110px;
-  filter: none;              /* keep original logo colours */
-  opacity: 1;
-}
+    .brandLogoBig{
+      max-height: 86px;
+      width:auto;
+      display:block;
+      margin: 0 0 6px 0;
+      filter: brightness(0) invert(1);
+    }
 
-/* IAA card — white lawful background */
-.footCard{
-  background:#ffffff;
-  border: none;
-  padding:18px;
-  border-radius:18px;
-  box-shadow: 0 12px 30px rgba(0,0,0,.25);
-}
+    .oiscRow{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      margin-top: 4px;
+    }
 
-.footCard img{
-  width:90px;
-  height:90px;
-  background:#fff;           /* white background — allowed */
-  border:none;
-  padding:8px;
-}
+    .oiscBadge{
+      background:#fff;
+      border-radius:14px;
+      padding:10px;
+      flex:0 0 auto;
+      box-shadow: 0 10px 24px rgba(0,0,0,.25);
+    }
 
-.footCard .txt{
-  color:#0b2346;
-  font-weight:600;
-  font-size:13px;
-}
+    .oiscImg{
+      width:72px;
+      height:auto;
+      display:block;
+    }
 
-/* Headings stronger like reference */
-.footCol h4{
-  font-size:14px;
-  letter-spacing:.18em;
-  color:#ffffff;
-  margin-bottom:14px;
-}
+    .oiscText{
+      margin:0;
+      padding:0;
+      line-height:1.35;
+    }
 
-/* Links cleaner */
-.footCol a{
-  padding:6px 0;
-  font-size:14px;
-}
+    .footAbout{
+      margin-top: 6px;
+      max-width: 44ch;
+    }
 
-/* Bottom bar spacing */
-.footLine{
-  margin: 34px 0 18px;
-  opacity:.6;
-}
-
-.copyright{
-  font-size:13px;
-}
-
-    /* ===== FOOTER ALIGNMENT + SPACING FIX ===== */
-
-/* make all footer columns align to top */
-.footGridPro{
-  align-items: start !important;
-}
-
-/* left brand column tighter */
-.footBrandPro{
-  display:flex;
-  flex-direction:column;
-  align-items:flex-start;
-  justify-content:flex-start;
-  gap:14px;                 /* tighter vertical spacing */
-  margin-top: 0;
-  padding-top: 0;
-}
-
-/* Benchmark logo size + remove gap */
-.brandLogoBig{
-  max-height: 86px;         /* was too big → reduce */
-  width:auto;
-  display:block;
-  margin: 0 0 6px 0;        /* remove top gap */
-  filter: brightness(0) invert(1);  /* force white logo on navy */
-}
-
-/* IAA row sits directly under logo */
-.oiscRow{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  margin-top: 4px;
-}
-
-/* white badge box stays compact */
-.oiscBadge{
-  background:#fff;
-  border-radius:14px;
-  padding:10px;
-  flex:0 0 auto;
-  box-shadow: 0 10px 24px rgba(0,0,0,.25);
-}
-
-.oiscImg{
-  width:72px;
-  height:auto;
-  display:block;
-}
-
-/* text next to badge */
-.oiscText{
-  margin:0;
-  padding:0;
-  line-height:1.35;
-}
-
-/* paragraph spacing tighter */
-.footAbout{
-  margin-top: 6px;
-  max-width: 44ch;
-}
-
-/* make other columns also start from same top line */
-.footColPro{
-  margin-top: 0;
-  padding-top: 0;
-}
+    .footColPro{
+      margin-top: 0;
+      padding-top: 0;
+    }
 
   </style>
 </head>
 
 <body>
 
-  <!-- TOP BAR -->
-  <div class="topbar">
-    <div class="container">
-      <div class="inner">
-        <div class="left">
-          <a href="mailto:info@benchmarklegals.co.uk" aria-label="Email">
-            <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M4 6h16v12H4V6Z" stroke="currentColor" stroke-width="1.7"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.7"/></svg>
-            info@benchmarklegals.co.uk
-          </a>
-          <a href="tel:+447903004158" aria-label="Phone">
-            <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M7 3h3l2 6-2 1c1.3 2.5 3.5 4.7 6 6l1-2 6 2v3c0 1-1 2-2 2C10 21 3 14 3 5c0-1 1-2 2-2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
-            +44 7903 004158
-          </a>
-          <div class="badge">
-            IAA Reg No: <strong>F202538075</strong> • 124 City Road, London, EC1V 2NX
-          </div>
-        </div>
-
-        <div class="right">
-          <div class="social" aria-label="Social links">
-            <a href="#" aria-label="Facebook" title="Facebook">
-              <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M14 8h2V5h-2c-2 0-4 2-4 4v2H8v3h2v7h3v-7h2.2l.8-3H13V9c0-.6.4-1 1-1Z" fill="currentColor"/></svg>
-            </a>
-            <a href="#" aria-label="LinkedIn" title="LinkedIn">
-              <svg class="icon" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M6.5 9H3.9v11h2.6V9ZM5.2 3.8a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3ZM20.2 20h-2.6v-5.6c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9V20H11V9h2.5v1.5h.1c.4-.7 1.4-1.7 3-1.7 3.2 0 3.7 2.1 3.7 4.8V20Z"/></svg>
-            </a>
-            <a href="#" aria-label="Instagram" title="Instagram">
-              <svg class="icon" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3Zm-5 4a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.5-.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0Z"/></svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- HEADER -->
-  <header id="siteHeader">
-    <div class="container">
-      <div class="navwrap">
-        <a class="brand" href="#top" aria-label="Benchmark Legals Home">
-          <div class="logoBox">
-            <img src="assets/logo1.png" alt="Benchmark Legals logo" />
-          </div>
-        </a>
-
-        <!-- DESKTOP NAV -->
-      <nav class="desktop" aria-label="Primary">
-  <a class="active" href="index.html">Home</a>
-  <a href="about.html">About</a>
-
-  <div class="dd" id="ddImm">
-    <button type="button" aria-haspopup="true" aria-expanded="false">
-      Immigration
-      <svg class="caret" viewBox="0 0 12 12" fill="none"><path d="M3 5l3 3 3-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </button>
-
-    <div class="mega" role="menu" aria-label="Immigration services">
-      <div class="grid">
-        <div class="col">
-          <a href="immigration.html#business">Business Visa <small>→</small></a>
-          <a href="immigration.html#family">Family Visa <small>→</small></a>
-          <a href="immigration.html#global-talent">Global Talent Visa <small>→</small></a>
-          <a href="immigration.html#skilled-worker">Skilled Worker Visa <small>→</small></a>
-          <a href="immigration.html#self-sponsorship">Self-Sponsorship Visa <small>→</small></a>
-        </div>
-        <div class="divider" aria-hidden="true"></div>
-        <div class="col">
-          <a href="immigration.html#visitor">Visitor Visa <small>→</small></a>
-          <a href="immigration.html#extensions">Extension Visas <small>→</small></a>
-          <a href="immigration.html#settlement">Settlement & Naturalisation <small>→</small></a>
-          <a href="immigration.html#graduate">Graduate Visa <small>→</small></a>
-          <a href="immigration.html#innovator">Innovator Founder Visa <small>→</small></a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <a href="contact.html">Contact</a>
-</nav>
-
-
-        <div class="navActions">
-          <button class="searchBtn" type="button" aria-label="Search (coming soon)">
-            <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="1.7"/><path d="M16.5 16.5 21 21" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
-          </button>
-          <a class="btn primary" href="#book">Book Appointment</a>
-
-          <button class="burger" id="burger" type="button" aria-label="Open menu">
-            <span></span><span></span><span></span>
-          </button>
-        </div>
-      </div>
-
-      <!-- MOBILE PANEL -->
-      <div class="mobilePanel" id="mobilePanel">
-        <div class="inner">
-          <a class="mLink" href="index.html">Home</a>
-<a class="mLink" href="about.html">About</a>
-
-<button class="mLink" id="mImmBtn" type="button" aria-expanded="false">
-  Immigration
-  <svg class="caret" viewBox="0 0 12 12" fill="none"><path d="M3 5l3 3 3-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-</button>
-
-<div class="mSub" id="mImmSub">
-  <a href="immigration.html#business">Business Visa</a>
-  <a href="immigration.html#family">Family Visa</a>
-  <a href="immigration.html#global-talent">Global Talent Visa</a>
-  <a href="immigration.html#skilled-worker">Skilled Worker Visa</a>
-  <a href="immigration.html#self-sponsorship">Self-Sponsorship Visa</a>
-  <a href="immigration.html#visitor">Visitor Visa</a>
-  <a href="immigration.html#extensions">Extension Visas</a>
-  <a href="immigration.html#settlement">Settlement & Naturalisation</a>
-  <a href="immigration.html#graduate">Graduate Visa</a>
-  <a href="immigration.html#innovator">Innovator Founder Visa</a>
-</div>
-
-<a class="mLink" href="contact.html">Contact</a>
-
-
-          <div class="mRow">
-            <a class="btn light" href="mailto:info@benchmarklegals.co.uk">Email</a>
-            <a class="btn light" href="tel:+447903004158">Call</a>
-            <a class="btn primary" href="#book">Book Appointment</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
+  <!-- ✅ SHARED HEADER (Topbar + Header/Nav) -->
+  <div id="headerMount"></div>
 
   <main>
 
@@ -1555,10 +1336,10 @@ a.footItem:hover{
           <div>
             <div class="kicker"><span class="line"></span> UK Immigration & Legal Support</div>
             <h1>Benchmark Legals<br/>Immigration Law<br/>Services</h1>
-           <p class="langLine">English • Turkish • Kurdish speaking team</p>
+            <p class="langLine">English • Turkish • Kurdish speaking team</p>
 
             <p>
-             Our dedicated Immigration Solicitors have an established reputation in providing expert, effective, and efficient legal support for a full range of services to suit your individual needs.
+              Our dedicated Immigration Solicitors have an established reputation in providing expert, effective, and efficient legal support for a full range of services to suit your individual needs.
             </p>
 
             <div class="heroActions">
@@ -1598,7 +1379,7 @@ a.footItem:hover{
             <div class="mini"><span class="line"></span> Benchmark Legals</div>
             <h3>Let Our Experience Be Your Guide!</h3>
             <p>
-            Benchmark Legals provides immigration legal services to individuals and businesses, supporting visa applications, extensions, and UK settlement options through careful case management and a premium client service approach.
+              Benchmark Legals provides immigration legal services to individuals and businesses, supporting visa applications, extensions, and UK settlement options through careful case management and a premium client service approach.
             </p>
 
             <ul class="checklist">
@@ -1816,15 +1597,8 @@ a.footItem:hover{
               Choose a preferred date/time and send your enquiry. Our team will contact you to confirm the appointment.
             </p>
 
-            <!--
-              ✅ This version submits via mailto (works on any static hosting).
-              If you want real submissions (recommended), use Formspree:
-              1) Create a Formspree form
-              2) Replace action with: action="https://formspree.io/f/xxxxxx" method="POST"
-              3) Remove the JS handler below (or keep it disabled)
-            -->
             <form action="https://formspree.io/f/xykdgdwd" method="POST">
-             <input type="hidden" name="_subject" value="New enquiry — Benchmark Legals website" />
+              <input type="hidden" name="_subject" value="New enquiry — Benchmark Legals website" />
               <input type="hidden" name="_next" value="https://bethy-123.github.io/benchmarklegals/thanks.html">
 
               <div class="fields">
@@ -1859,8 +1633,6 @@ a.footItem:hover{
                   </div>
                 </div>
 
-      
-
                 <div>
                   <label for="message">Brief details</label>
                   <textarea id="message" name="message" placeholder="Tell us what you need help with..." required></textarea>
@@ -1879,124 +1651,24 @@ a.footItem:hover{
                   <a class="btn light" href="tel:+447903004158">Call now</a>
                 </div>
 
-                <div class="note">
-                  
-                </div>
+                <div class="note"></div>
               </div>
             </form>
           </div>
+        </div>
 
+        <div class="contactActions">
+          <a class="btn primary" href="#top">Back to top</a>
+          <a class="btn light" href="#services">View services</a>
+        </div>
 
-               </div> <!-- closes card -->
-      </div> <!-- closes contactGrid -->
-
-      <div class="contactActions">
-        <a class="btn primary" href="#top">Back to top</a>
-        <a class="btn light" href="#services">View services</a>
       </div>
-
-    </div> <!-- closes container -->
-  </section>
-
-
     </section>
 
   </main>
 
-  <!-- FOOTER -->
-<footer id="contact">
-  <div class="container">
-
-    <div class="footGridPro">
-
-      <!-- LEFT: BIG LOGO + IAA + ABOUT -->
-      <div class="footBrandPro">
-        <img class="brandLogoBig" src="assets/logo1.png" alt="Benchmark Legals logo" />
-
-        <div class="oiscRow">
-          <div class="oiscBadge">
-            <!-- IMPORTANT: do NOT recolour this image -->
-            <img class="oiscImg" src="assets/iaa1.png" alt="IAA badge" />
-          </div>
-
-          <div class="oiscText">
-            <div class="oiscTitle">Immigration
-              Advice 
-              Authority</div>
-            <div class="oiscReg">Register No:
-              <strong>F202538075</strong></div>
-          </div>
-        </div>
-
-        <p class="footAbout">
-          Benchmark Legals provides immigration advice with a warm and professional approach, supporting individuals and businesses
-          navigating the United Kingdom immigration system.
-        </p>
-      </div>
-
-      <!-- CONTACT US -->
-      <div class="footColPro">
-        <h4>Contact Us</h4>
-        <div class="footList">
-          <div class="footItem">124 City Road, London, EC1V 2NX</div>
-          <a class="footItem" href="tel:+447903004158">+44 7903 004158</a>
-          <a class="footItem" href="mailto:info@benchmarklegals.co.uk">info@benchmarklegals.co.uk</a>
-        </div>
-
-        <!-- Optional social row (keep or delete) -->
-        <div class="footSocial">
-          <a href="#" aria-label="Facebook" title="Facebook">
-            <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M14 8h2V5h-2c-2 0-4 2-4 4v2H8v3h2v7h3v-7h2.2l.8-3H13V9c0-.6.4-1 1-1Z" fill="currentColor"/></svg>
-          </a>
-          <a href="#" aria-label="LinkedIn" title="LinkedIn">
-            <svg class="icon" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M6.5 9H3.9v11h2.6V9ZM5.2 3.8a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3ZM20.2 20h-2.6v-5.6c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9V20H11V9h2.5v1.5h.1c.4-.7 1.4-1.7 3-1.7 3.2 0 3.7 2.1 3.7 4.8V20Z"/></svg>
-          </a>
-          <a href="#" aria-label="Instagram" title="Instagram">
-            <svg class="icon" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3Zm-5 4a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.5-.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0Z"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- UK IMMIGRATION -->
-      <div class="footColPro">
-        <h4>UK Immigration</h4>
-        <div class="footList">
-          <a class="footItem" href="#services">Skilled Worker Visa</a>
-          <a class="footItem" href="#services">Business Visa</a>
-          <a class="footItem" href="#services">Global Talent Visa</a>
-          <a class="footItem" href="#services">Innovator Founder Visa</a>
-          <a class="footItem" href="#services">Graduate Visa</a>
-          <a class="footItem" href="#services">Family Visa</a>
-          <a class="footItem" href="#services">Settlement &amp; Naturalisation</a>
-          <a class="footItem" href="#services">Extension Visas</a>
-        </div>
-      </div>
-
-      <!-- WORKING HOURS -->
-      <div class="footColPro">
-        <h4>Working Hours</h4>
-        <div class="footList">
-          <div class="footItem">Mon–Fri: 9:00 – 17:30</div>
-          <div class="footItem">Saturday: Closed</div>
-          <div class="footItem">Sunday: Closed</div>
-          <div class="footNote">Working hours may vary on bank holidays.</div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="footLine"></div>
-
-    <div class="copyright">
-      <div>© <span id="year"></span> Benchmark Legals. All rights reserved.</div>
-      <div><a href="#top" class="backTopLink">Back to top ↑</a></div>
-    </div>
-
-  </div>
-</footer>
-
-
-
+  <!-- ✅ SHARED FOOTER -->
+  <div id="footerMount"></div>
 
   <!-- Floating WhatsApp -->
   <a class="waFloat" href="https://wa.me/447903004158" target="_blank" rel="noopener" aria-label="WhatsApp">
@@ -2005,150 +1677,8 @@ a.footItem:hover{
     </svg>
   </a>
 
-  <script>
-    // ====== Helpers ======
-    const qs = (s, el=document) => el.querySelector(s);
-    const qsa = (s, el=document) => Array.from(el.querySelectorAll(s));
-
-    // ====== Year in footer ======
-    qs('#year').textContent = new Date().getFullYear();
-
-    // ====== Desktop Immigration dropdown ======
-    const dd = qs('#ddImm');
-    const ddBtn = dd ? qs('button', dd) : null;
-
-    function closeDropdown(){
-      if(!dd) return;
-      dd.classList.remove('open');
-      ddBtn?.setAttribute('aria-expanded', 'false');
-    }
-    function toggleDropdown(){
-      if(!dd) return;
-      const open = dd.classList.toggle('open');
-      ddBtn?.setAttribute('aria-expanded', open ? 'true' : 'false');
-    }
-    ddBtn?.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      toggleDropdown();
-    });
-    dd?.addEventListener('mouseenter', () => {
-      if (window.matchMedia('(hover:hover)').matches) {
-        dd.classList.add('open');
-        ddBtn?.setAttribute('aria-expanded','true');
-      }
-    });
-    dd?.addEventListener('mouseleave', () => {
-      if (window.matchMedia('(hover:hover)').matches) {
-        closeDropdown();
-      }
-    });
-
-    // Close dropdown on outside click / escape
-    document.addEventListener('click', (e) => {
-      if(dd && dd.classList.contains('open') && !dd.contains(e.target)) closeDropdown();
-    });
-    document.addEventListener('keydown', (e) => {
-      if(e.key === 'Escape') closeDropdown();
-    });
-
-    // ====== Mobile menu ======
-    const header = qs('#siteHeader');
-    const burger = qs('#burger');
-    burger?.addEventListener('click', () => {
-      header.classList.toggle('menuOpen');
-    });
-
-    // Close mobile menu when clicking a link
-    qsa('.mobilePanel a').forEach(a => {
-      a.addEventListener('click', () => header.classList.remove('menuOpen'));
-    });
-
-    // Mobile Immigration submenu
-    const mImmBtn = qs('#mImmBtn');
-    const mImmSub = qs('#mImmSub');
-    mImmBtn?.addEventListener('click', () => {
-      const open = mImmSub.style.display === 'block';
-      mImmSub.style.display = open ? 'none' : 'block';
-      mImmBtn.setAttribute('aria-expanded', open ? 'false' : 'true');
-    });
-
-    // ====== Service cards click -> go to booking ======
-    qsa('.svc').forEach(card => {
-      const go = card.getAttribute('data-go');
-      const handler = () => {
-        if(go) location.hash = go;
-      };
-      card.addEventListener('click', handler);
-      card.addEventListener('keydown', (e) => {
-        if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handler(); }
-      });
-    });
-
-    // ====== FAQ accordion ======
-    qsa('.accItem').forEach(item => {
-      const btn = qs('.accBtn', item);
-      btn?.addEventListener('click', () => {
-        item.classList.toggle('open');
-      });
-    });
-
-    // ====== Footer accordion on mobile ======
-    function footerAccordionInit(){
-      const isMobile = window.matchMedia('(max-width: 980px)').matches;
-      qsa('footer .footCol').forEach(col => {
-        const h = qs('h4', col);
-        const content = qs('.content', col);
-        if(!content) return;
-
-        if(isMobile){
-          // Ensure content container exists / is hidden by default
-          col.classList.remove('open');
-          // Make sure repeated bindings do not stack
-          h.onclick = () => col.classList.toggle('open');
-        } else {
-          // Desktop: always open
-          col.classList.add('open');
-          h.onclick = null;
-        }
-      });
-    }
-    footerAccordionInit();
-    window.addEventListener('resize', footerAccordionInit);
-
-    // ====== Booking form submit (mailto) ======
-    const form = qs('#bookingForm');
-    form?.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      const name = qs('#fullName').value.trim();
-      const phone = qs('#phone').value.trim();
-      const email = qs('#email').value.trim();
-      const service = qs('#service').value;
-      const dt = qs('#datetime').value;
-      const tz = qs('#timezone').value.trim();
-      const msg = qs('#message').value.trim();
-
-      const subject = encodeURIComponent(`Appointment Request — ${name}`);
-      const body = encodeURIComponent(
-`New appointment enquiry:
-
-Name: ${name}
-Phone: ${phone}
-Email: ${email}
-Service: ${service}
-Preferred date/time: ${dt}${tz ? " ("+tz+")" : ""}
-
-Message:
-${msg}
-
-— Sent from website booking form`
-      );
-
-      // Opens user's email client
-      window.location.href = `mailto:info@benchmarklegals.co.uk?subject=${subject}&body=${body}`;
-    });
-  </script>
+  <!-- ✅ Shared layout + nav behaviours -->
+  <script src="assets/site.js"></script>
 
 </body>
 </html>
