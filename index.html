@@ -1816,16 +1816,9 @@ a.footItem:hover{
               Choose a preferred date/time and send your enquiry. Our team will contact you to confirm the appointment.
             </p>
 
-            <!--
-              ✅ This version submits via mailto (works on any static hosting).
-              If you want real submissions (recommended), use Formspree:
-              1) Create a Formspree form
-              2) Replace action with: action="https://formspree.io/f/xxxxxx" method="POST"
-              3) Remove the JS handler below (or keep it disabled)
-            -->
-            <form action="https://formspree.io/f/xykdgdwd" method="POST">
+            <form id="bookingForm" action="https://formspree.io/f/xykdgdwd" method="POST">
              <input type="hidden" name="_subject" value="New enquiry — Benchmark Legals website" />
-              <input type="hidden" name="_next" value="https://bethy-123.github.io/benchmarklegals/thanks.html">
+          
 
               <div class="fields">
                 <div class="row2">
@@ -1883,7 +1876,17 @@ a.footItem:hover{
                   
                 </div>
               </div>
+              <div id="thankYouMessage" style="display:none;margin-top:18px;">
+  <h3>Thank you! We’ve received your enquiry.</h3>
+  <p>One of our team will get back to you shortly during working hours.</p>
+
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;">
+    <a class="btn primary" href="#top">Back to home</a>
+    <a class="btn light" href="tel:+447903004158">Call us now</a>
+  </div>
+</div>
             </form>
+
           </div>
 
 
@@ -2116,38 +2119,36 @@ a.footItem:hover{
     footerAccordionInit();
     window.addEventListener('resize', footerAccordionInit);
 
-    // ====== Booking form submit (mailto) ======
-    const form = qs('#bookingForm');
-    form?.addEventListener('submit', (e) => {
-      e.preventDefault();
+   // ====== Formspree submit without redirect ======
+const bookingForm = document.getElementById('bookingForm');
+const thankYou = document.getElementById('thankYouMessage');
 
-      const name = qs('#fullName').value.trim();
-      const phone = qs('#phone').value.trim();
-      const email = qs('#email').value.trim();
-      const service = qs('#service').value;
-      const dt = qs('#datetime').value;
-      const tz = qs('#timezone').value.trim();
-      const msg = qs('#message').value.trim();
+bookingForm?.addEventListener('submit', async (e) => {
+  e.preventDefault();
 
-      const subject = encodeURIComponent(`Appointment Request — ${name}`);
-      const body = encodeURIComponent(
-`New appointment enquiry:
+  try {
+    const formData = new FormData(bookingForm);
 
-Name: ${name}
-Phone: ${phone}
-Email: ${email}
-Service: ${service}
-Preferred date/time: ${dt}${tz ? " ("+tz+")" : ""}
-
-Message:
-${msg}
-
-— Sent from website booking form`
-      );
-
-      // Opens user's email client
-      window.location.href = `mailto:info@benchmarklegals.co.uk?subject=${subject}&body=${body}`;
+    const res = await fetch(bookingForm.action, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
     });
+
+    if (res.ok) {
+      bookingForm.reset();
+      bookingForm.style.display = 'none';
+      thankYou.style.display = 'block';
+      thankYou.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      alert("Something went wrong — please try again.");
+    }
+
+  } catch (err) {
+    alert("Network error — please try again.");
+  }
+});
+
   </script>
 
 </body>
