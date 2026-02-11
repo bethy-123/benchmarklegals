@@ -48,10 +48,18 @@
         <a data-nav="about" href="about.html">About</a>
 
         <div class="dd" id="ddImm">
-          <button type="button" aria-haspopup="true" aria-expanded="false">
-            Immigration
-            <svg class="caret" viewBox="0 0 12 12" fill="none"><path d="M3 5l3 3 3-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
+  <div class="ddHead">
+    <!-- CLICK THIS = goes to Home page Immigration section -->
+    <a class="ddLink" data-nav="immigration" href="index.html#services">Immigration</a>
+
+    <!-- CLICK THIS caret = opens dropdown -->
+    <button class="ddToggle" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Open Immigration menu">
+      <svg class="caret" viewBox="0 0 12 12" fill="none">
+        <path d="M3 5l3 3 3-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+
 
           <div class="mega" role="menu" aria-label="Immigration services">
             <div class="grid">
