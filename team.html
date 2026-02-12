@@ -1,1 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Benchmark Legals | Our Team</title>
 
+  <link rel="icon" type="image/png" href="assets/tablogo.png" />
+  <link rel="shortcut icon" type="image/png" href="assets/tablogo.png" />
+  <link rel="apple-touch-icon" href="assets/tablogo.png" />
+
+  <!-- ✅ SHARED CSS (header + footer + global styles) -->
+  <link rel="stylesheet" href="assets/shared.css?v=6" />
+
+  <!-- ✅ TEAM PAGE ONLY CSS -->
+  <style>
+    /* =========================
+       TEAM PAGE STYLES ONLY
+       ========================= */
+
+    /* HERO (same style language as your other pages) */
+    .hero{
+      position: relative;
+      background:
+        linear-gradient(rgba(6, 18, 38, 0.68), rgba(6, 18, 38, 0.78)),
+        url("assets/team.png") center / cover no-repeat;
+      color:#fff;
+      overflow:hidden;
+    }
+    .heroInner{
+      padding: 64px 0 64px;
+      display:grid;
+      gap: 12px;
+    }
+    .crumbs{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-size: 14px;
+      color: rgba(255,255,255,.78);
+    }
+    .crumbs a{ color: rgba(255,255,255,.92); }
+    .crumbs span{ color: rgba(255,255,255,.55); }
+
+    .hero h1{
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: clamp(40px, 4.2vw, 60px);
+      line-height: 1.02;
+      margin: 6px 0 0;
+      letter-spacing:-.01em;
+      text-shadow: 0 12px 40px rgba(0,0,0,.22);
+    }
+    .hero p{
+      margin:0;
+      max-width: 70ch;
+      color: rgba(255,255,255,.78);
+      font-size: 15.5px;
+      line-height: 1.75;
+    }
+
+    section{ padding: 64px 0; }
+
+    .sectionTitle{
+      text-align:center;
+      margin-bottom: 26px;
+    }
+    .sectionTitle .top{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      color: rgba(15,23,42,.55);
+      font-size: 12px;
+      letter-spacing:.18em;
+      text-transform: uppercase;
+    }
+    .sectionTitle .top .line{ width:40px;height:1px;background: rgba(15,23,42,.18); }
+    .sectionTitle h2{
+      font-family: var(--serif);
+      font-weight: 600;
+      letter-spacing:-.01em;
+      margin: 10px 0 0;
+      font-size: clamp(28px, 3vw, 40px);
+    }
+    .sectionTitle .sub{
+      margin: 10px auto 0;
+      max-width: 78ch;
+      color: rgba(15,23,42,.70);
+      line-height: 1.75;
+      font-size: 14.8px;
+    }
+
+    /* TEAM GRID */
+    .teamWrap{
+      margin-top: 26px;
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    @media (max-width: 1100px){
+      .teamWrap{ grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 560px){
+      .teamWrap{ grid-template-columns: 1fr; }
+    }
+
+    .member{
+      border-radius: 22px;
+      background:#fff;
+      border: 1px solid rgba(2,8,23,.08);
+      box-shadow: var(--shadow2);
+      overflow:hidden;
+    }
+
+    /* image + hover overlay area */
+    .photoBox{
+      position:relative;
+      aspect-ratio: 4 / 5;
+      background: #f3f4f6;
+      overflow:hidden;
+    }
+    .photoBox img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transform: scale(1.02);
+      transition: transform .35s ease;
+    }
+
+    /* overlay */
+    .overlay{
+      position:absolute;
+      inset:0;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-start;
+      gap: 12px;
+      padding: 18px;
+      background: rgba(8, 26, 51, .86);
+      border: 1px solid rgba(255,255,255,.08);
+      opacity:0;
+      transform: translateY(10px);
+      transition: .28s ease;
+      color:#fff;
+    }
+
+    .overlay .mini{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      font-size: 12px;
+      letter-spacing:.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.78);
+    }
+    .overlay .mini .line{
+      width:34px;height:1px;background: rgba(255,255,255,.30);
+    }
+    .overlay p{
+      margin:0;
+      color: rgba(255,255,255,.86);
+      line-height: 1.65;
+      font-size: 14px;
+    }
+
+    .overlay .read{
+      margin-top:auto;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color: rgba(255,255,255,.90);
+      font-weight: 800;
+      letter-spacing:.02em;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255,255,255,.14);
+      font-size: 13.5px;
+    }
+    .overlay .dash{
+      width: 32px;
+      height: 2px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.75);
+    }
+
+    /* hover + keyboard focus */
+    .photoBox:hover img{ transform: scale(1.07); }
+    .photoBox:hover .overlay{ opacity:1; transform: translateY(0); }
+
+    .photoBox:focus-within .overlay{ opacity:1; transform: translateY(0); }
+    .photoBox:focus-within img{ transform: scale(1.07); }
+
+    /* name + title */
+    .meta{
+      padding: 16px 18px 18px;
+    }
+    .meta .name{
+      margin:0;
+      font-weight: 900;
+      color:#0f172a;
+      font-size: 18px;
+      letter-spacing:-.01em;
+    }
+    .meta .title{
+      margin: 8px 0 0;
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      color: rgba(15,23,42,.72);
+      font-size: 14px;
+    }
+    .meta .rule{
+      width: 22px;
+      height: 2px;
+      border-radius: 999px;
+      background: rgba(15,23,42,.18);
+    }
+
+    /* Optional: soft section background like other pages */
+    .teamSection{
+      background: var(--soft);
+      border-top: 1px solid rgba(2,8,23,.06);
+      border-bottom: 1px solid rgba(2,8,23,.06);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ✅ injected header -->
+  <div id="headerMount"></div>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <div class="heroInner">
+          <div class="crumbs">
+            <a href="index.html">Home</a>
+            <span>→</span>
+            <span>Our Team</span>
+          </div>
+          <h1>Our Team</h1>
+          <p>Meet the professionals behind Benchmark Legals — a trusted team focused on clear advice, careful preparation, and strong client support.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section class="teamSection">
+      <div class="container">
+
+        <div class="sectionTitle">
+          <div class="top"><span class="line"></span> Benchmark Legals</div>
+          <h2>Legal Professionals</h2>
+          <p class="sub">Hover over each photo to read a short overview. (You can replace the text anytime with your final bios.)</p>
+        </div>
+
+        <div class="teamWrap">
+
+          <!-- 1) Baran -->
+          <article class="member">
+            <div class="photoBox" tabindex="0" aria-label="Baran Olmez profile">
+              <img src="assets/baran.png" alt="Baran Olmez" loading="lazy" />
+              <div class="overlay" aria-hidden="true">
+                <div class="mini"><span class="line"></span> Solicitor</div>
+                <p>
+                  <!-- ✅ Replace this with your real bio text -->
+                  Baran supports clients with immigration matters using a clear, structured approach and careful attention to detail.
+                </p>
+                <div class="read"><span class="dash"></span> Profile</div>
+              </div>
+            </div>
+            <div class="meta">
+              <h3 class="name">Baran Olmez</h3>
+              <div class="title"><span class="rule"></span> Solicitor</div>
+            </div>
+          </article>
+
+          <!-- 2) Ufuk -->
+          <article class="member">
+            <div class="photoBox" tabindex="0" aria-label="Ufuk Nur Cetin profile">
+              <img src="assets/ufuk.png" alt="Ufuk Nur Cetin" loading="lazy" />
+              <div class="overlay" aria-hidden="true">
+                <div class="mini"><span class="line"></span> Solicitor</div>
+                <p>
+                  <!-- ✅ Replace this with your real bio text -->
+                  Ufuk provides reliable guidance and client-first communication, supporting applications from start to decision.
+                </p>
+                <div class="read"><span class="dash"></span> Profile</div>
+              </div>
+            </div>
+            <div class="meta">
+              <h3 class="name">Ufuk Nur Cetin</h3>
+              <div class="title"><span class="rule"></span> Solicitor</div>
+            </div>
+          </article>
+
+          <!-- 3) Ceren -->
+          <article class="member">
+            <div class="photoBox" tabindex="0" aria-label="Dondu Ceren Simsek Yalcin profile">
+              <img src="assets/ceren.png" alt="Dondu Ceren Simsek Yalcin" loading="lazy" />
+              <div class="overlay" aria-hidden="true">
+                <div class="mini"><span class="line"></span> Solicitor</div>
+                <p>
+                  <!-- ✅ Replace this with your real bio text -->
+                  Ceren focuses on well-prepared submissions, ensuring documents and supporting evidence are presented clearly.
+                </p>
+                <div class="read"><span class="dash"></span> Profile</div>
+              </div>
+            </div>
+            <div class="meta">
+              <h3 class="name">Dondu Ceren Simsek Yalcin</h3>
+              <div class="title"><span class="rule"></span> Solicitor</div>
+            </div>
+          </article>
+
+          <!-- 4) Rojda -->
+          <article class="member">
+            <div class="photoBox" tabindex="0" aria-label="Rojda profile">
+              <img src="assets/rojda.png" alt="Rojda" loading="lazy" />
+              <div class="overlay" aria-hidden="true">
+                <div class="mini"><span class="line"></span> Foreign Lawyer</div>
+                <p>
+                  <!-- ✅ Replace this with your real bio text -->
+                  Rojda supports cross-border understanding and client clarity, helping ensure processes feel simple and guided.
+                </p>
+                <div class="read"><span class="dash"></span> Profile</div>
+              </div>
+            </div>
+            <div class="meta">
+              <h3 class="name">Rojda</h3>
+              <div class="title"><span class="rule"></span> Foreign Lawyer</div>
+            </div>
+          </article>
+
+        </div>
+
+        <div style="display:flex; justify-content:center; margin-top: 28px;">
+          <a class="btn primary" href="contact.html">Book a consultation</a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ✅ injected footer -->
+  <div id="footerMount"></div>
+
+  <!-- ✅ injects header/footer -->
+  <script src="assets/site.js"></script>
+
+</body>
+</html>
