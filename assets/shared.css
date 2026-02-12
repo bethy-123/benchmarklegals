@@ -81,11 +81,14 @@ button{ font:inherit; }
   .topbar .right{ justify-content:flex-end; }
 }
 
-/* ===== HEADER / NAV ===== */
+/* ===== ALWAYS STICKY HEADER (FIXED, RELIABLE) ===== */
 #siteHeader{
   position: fixed;
   top: 0;
-  z-index: 999;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 99999;
   background: var(--navy);
   border-bottom: 1px solid rgba(255,255,255,.08);
   box-shadow: 0 10px 24px rgba(0,0,0,.25);
