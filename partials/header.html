@@ -43,45 +43,47 @@
         </div>
       </a>
 
-      <nav class="desktop" aria-label="Primary">
-        <a data-nav="home" href="index.html">Home</a>
-        <a data-nav="about" href="about.html">About</a>
+     <nav class="desktop" aria-label="Primary">
+  <a data-nav="home" href="index.html">Home</a>
+  <a data-nav="about" href="about.html">About</a>
+  <a data-nav="team" href="team.html">Team</a>
 
-        <!-- Immigration: gold + clickable + stable dropdown -->
-        <div class="dd" id="ddImm">
-          <div class="ddHead">
-            <a class="ddLink" href="index.html#services">Immigration</a>
+  <!-- Immigration: gold + clickable + stable dropdown -->
+  <div class="dd" id="ddImm">
+    <div class="ddHead">
+      <!-- IMPORTANT: add data-nav so "Immigration" can show active if you want later -->
+      <a class="ddLink isGold" href="index.html#services">Immigration</a>
 
-            <button class="ddToggle" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Open Immigration menu">
-              <svg class="caret" viewBox="0 0 12 12" fill="none">
-                <path d="M3 5l3 3 3-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-          </div>
+      <button class="ddToggle" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Open Immigration menu">
+        <svg class="caret" viewBox="0 0 12 12" fill="none">
+          <path d="M3 5l3 3 3-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
 
-          <div class="mega" role="menu" aria-label="Immigration services">
-            <div class="grid">
-              <div class="col">
-                <a href="immigration.html#business">Business Visa <small>→</small></a>
-                <a href="immigration.html#family">Family Visa <small>→</small></a>
-                <a href="immigration.html#global-talent">Global Talent Visa <small>→</small></a>
-                <a href="immigration.html#skilled-worker">Skilled Worker Visa <small>→</small></a>
-                <a href="immigration.html#self-sponsorship">Self-Sponsorship Visa <small>→</small></a>
-              </div>
-              <div class="divider" aria-hidden="true"></div>
-              <div class="col">
-                <a href="immigration.html#visitor">Visitor Visa <small>→</small></a>
-                <a href="immigration.html#extensions">Extension Visas <small>→</small></a>
-                <a href="immigration.html#settlement">Settlement & Naturalisation <small>→</small></a>
-                <a href="immigration.html#graduate">Graduate Visa <small>→</small></a>
-                <a href="immigration.html#innovator">Innovator Founder Visa <small>→</small></a>
-              </div>
-            </div>
-          </div>
+    <div class="mega" role="menu" aria-label="Immigration services">
+      <div class="grid">
+        <div class="col">
+          <a href="immigration.html#business">Business Visa <small>→</small></a>
+          <a href="immigration.html#family">Family Visa <small>→</small></a>
+          <a href="immigration.html#global-talent">Global Talent Visa <small>→</small></a>
+          <a href="immigration.html#skilled-worker">Skilled Worker Visa <small>→</small></a>
+          <a href="immigration.html#self-sponsorship">Self-Sponsorship Visa <small>→</small></a>
         </div>
+        <div class="divider" aria-hidden="true"></div>
+        <div class="col">
+          <a href="immigration.html#visitor">Visitor Visa <small>→</small></a>
+          <a href="immigration.html#extensions">Extension Visas <small>→</small></a>
+          <a href="immigration.html#settlement">Settlement & Naturalisation <small>→</small></a>
+          <a href="immigration.html#graduate">Graduate Visa <small>→</small></a>
+          <a href="immigration.html#innovator">Innovator Founder Visa <small>→</small></a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-        <a data-nav="contact" href="contact.html">Contact</a>
-      </nav>
+  <a data-nav="contact" href="contact.html">Contact</a>
+</nav>
 
       <div class="navActions">
         <button class="searchBtn" type="button" aria-label="Search (coming soon)">
@@ -101,6 +103,7 @@
       <div class="inner">
         <a class="mLink" data-nav="home" href="index.html">Home</a>
         <a class="mLink" data-nav="about" href="about.html">About</a>
+        <a class="mLink" data-nav="team" href="team.html">Team</a>
 
         <!-- Mobile Immigration text goes to SERVICES -->
         <a class="mLink" href="index.html#services">
