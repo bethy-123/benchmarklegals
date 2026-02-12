@@ -83,7 +83,7 @@ button{ font:inherit; }
 
 /* ===== HEADER / NAV ===== */
 #siteHeader{
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 999;
   background: var(--navy);
