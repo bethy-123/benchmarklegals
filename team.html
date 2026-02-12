@@ -89,25 +89,21 @@
       line-height: 1.75;
       font-size: 14.8px;
     }
-    .teamIntro{
-  padding: 72px 0 36px;
-  background:#ffffff;
-}
 
-.teamIntro .introText{
-  max-width: 68ch;
-  margin: 14px auto 0;
-  color:#4b5563;
-  font-size: 16px;
-  line-height: 1.8;
-}
-
-.teamIntro .introLang{
-  margin-top: 12px;
-  font-size: 14px;
-  color:#6b7280;
-  letter-spacing:.04em;
-}
+    /* ✅ Intro text (kept exactly, just not wrapped in a second section anymore) */
+    .introText{
+      max-width: 68ch;
+      margin: 14px auto 0;
+      color:#4b5563;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+    .introLang{
+      margin-top: 12px;
+      font-size: 14px;
+      color:#6b7280;
+      letter-spacing:.04em;
+    }
 
     /* TEAM GRID */
     .teamWrap{
@@ -270,25 +266,13 @@
     <section class="teamSection">
       <div class="container">
 
+        <!-- ✅ FIXED: only ONE Benchmark Legals block (no nested extra section) -->
         <div class="sectionTitle">
           <div class="top"><span class="line"></span> Benchmark Legals</div>
-          <section class="teamIntro">
-  <div class="container">
+          <h2>Our Professionals</h2>
 
-    <div class="sectionTitle">
-      <div class="top"><span class="line"></span> Benchmark Legals</div>
-      <h2>Our Professionals</h2>
-      <p class="introText">
-        Meet our London-based multilingual legal team
-      </p>
-
-      <p class="introLang">
-        Languages available: English · Turkish · Kurdish
-      </p>
-    </div>
-
-  </div>
-</section>
+          <p class="introText">Meet our London-based multilingual legal team.</p>
+          <p class="introLang">Languages available: English · Turkish · Kurdish</p>
         </div>
 
         <div class="teamWrap">
@@ -296,11 +280,11 @@
           <!-- 1) Baran -->
           <article class="member">
             <div class="photoBox" tabindex="0" aria-label="Baran Olmez profile">
-              <img src="assets/baran.jpg" alt="Baran Olmez" loading="lazy" />
+              <!-- ✅ use your real filename: baran.png -->
+              <img src="assets/baran.png" alt="Baran Olmez" loading="lazy" />
               <div class="overlay" aria-hidden="true">
                 <div class="mini"><span class="line"></span> Solicitor</div>
                 <p>
-                  <!-- ✅ Replace this with your real bio text -->
                   Baran supports clients with immigration matters using a clear, structured approach and careful attention to detail.
                 </p>
                 <div class="read"><span class="dash"></span> Profile</div>
@@ -319,7 +303,6 @@
               <div class="overlay" aria-hidden="true">
                 <div class="mini"><span class="line"></span> Solicitor</div>
                 <p>
-                  <!-- ✅ Replace this with your real bio text -->
                   Ufuk provides reliable guidance and client-first communication, supporting applications from start to decision.
                 </p>
                 <div class="read"><span class="dash"></span> Profile</div>
@@ -334,11 +317,11 @@
           <!-- 3) Ceren -->
           <article class="member">
             <div class="photoBox" tabindex="0" aria-label="Dondu Ceren Simsek Yalcin profile">
-              <img src="assets/ceren.jpg" alt="Dondu Ceren Simsek Yalcin" loading="lazy" />
+              <!-- ✅ use your real filename: ceren.png -->
+              <img src="assets/ceren.png" alt="Dondu Ceren Simsek Yalcin" loading="lazy" />
               <div class="overlay" aria-hidden="true">
                 <div class="mini"><span class="line"></span> Solicitor</div>
                 <p>
-                  <!-- ✅ Replace this with your real bio text -->
                   Ceren focuses on well-prepared submissions, ensuring documents and supporting evidence are presented clearly.
                 </p>
                 <div class="read"><span class="dash"></span> Profile</div>
@@ -353,11 +336,11 @@
           <!-- 4) Rojda -->
           <article class="member">
             <div class="photoBox" tabindex="0" aria-label="Rojda profile">
-              <img src="assets/rojda.jpg" alt="Rojda" loading="lazy" />
+              <!-- ✅ use your real filename: rojda.png -->
+              <img src="assets/rojda.png" alt="Rojda" loading="lazy" />
               <div class="overlay" aria-hidden="true">
                 <div class="mini"><span class="line"></span> Foreign Lawyer</div>
                 <p>
-                  <!-- ✅ Replace this with your real bio text -->
                   Rojda supports cross-border understanding and client clarity, helping ensure processes feel simple and guided.
                 </p>
                 <div class="read"><span class="dash"></span> Profile</div>
