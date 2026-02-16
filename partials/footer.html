@@ -74,18 +74,31 @@
 
     <div class="footLine"></div>
 
-    <div class="copyright">
-  <div>© <span id="year"></span> Benchmark Legals. All rights reserved.</div>
+    <div class="copyright" style="position:relative;">
+      <div>© <span id="year"></span> Benchmark Legals. All rights reserved.</div>
 
-  <!-- privacy link — centered without changing layout -->
-  <a href="privacy-policy.html"
-     style="position:absolute; left:50%; transform:translateX(-50%);">
-     Privacy Policy
-  </a>
+      <!-- Privacy Policy (desktop centre) -->
+      <a href="privacy-policy.html"
+         class="privacyLink"
+         style="position:absolute; left:50%; transform:translateX(-50%);">
+        Privacy Policy
+      </a>
 
-  <div><a href="#top" class="backTopLink">Back to top ↑</a></div>
-</div>
-
+      <div><a href="#top" class="backTopLink">Back to top ↑</a></div>
+    </div>
 
   </div>
+
+  <!-- Mobile fix ONLY -->
+  <style>
+    @media (max-width: 640px){
+      #siteFooter .privacyLink{
+        position: static !important;
+        transform: none !important;
+        display: block;
+        text-align: center;
+        margin: 6px 0;
+      }
+    }
+  </style>
 </footer>
