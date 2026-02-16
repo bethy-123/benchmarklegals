@@ -1,221 +1,345 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Privacy Policy | Benchmark Legals</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Benchmark Legals | Privacy Policy</title>
 
-  <link rel="icon" type="image/png" href="assets/tablogo.png">
-  <link rel="stylesheet" href="assets/shared.css">
+  <link rel="icon" type="image/png" href="assets/tablogo.png" />
+  <link rel="shortcut icon" type="image/png" href="assets/tablogo.png" />
+  <link rel="apple-touch-icon" href="assets/tablogo.png" />
+
+  <!-- ✅ Shared CSS -->
+  <link rel="stylesheet" href="assets/shared.css" />
+
+  <style>
+    section{ padding: 78px 0; }
+    .tight{ padding: 62px 0; }
+
+    /* HERO (NO PHOTO) */
+    .hero{
+      position: relative;
+      background:
+        linear-gradient(rgba(6, 18, 38, 0.92), rgba(6, 18, 38, 0.96));
+      color:#fff;
+      overflow:hidden;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .heroInner{
+      padding: 56px 0;
+      display:grid;
+      gap: 12px;
+    }
+    .crumbs{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-size: 14px;
+      color: rgba(255,255,255,.78);
+    }
+    .crumbs a{ color: rgba(255,255,255,.92); }
+    .crumbs span{ color: rgba(255,255,255,.55); }
+
+    .hero h1{
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: clamp(36px, 4vw, 54px);
+      line-height: 1.05;
+      margin: 6px 0 0;
+      letter-spacing:-.01em;
+      text-shadow: 0 12px 40px rgba(0,0,0,.22);
+    }
+    .hero p{
+      margin:0;
+      max-width: 80ch;
+      color: rgba(255,255,255,.80);
+      font-size: 15.5px;
+      line-height: 1.75;
+    }
+
+    /* POLICY BODY (premium, readable) */
+    .policyWrap{
+      max-width: 980px;
+      margin: 0 auto;
+    }
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      font-size: 12px;
+      letter-spacing:.22em;
+      text-transform: uppercase;
+      color: rgba(15,23,42,.55);
+      font-weight: 850;
+      margin-bottom: 10px;
+    }
+    .kicker::before{
+      content:"";
+      width: 38px;
+      height: 1px;
+      background: rgba(15,23,42,.18);
+      display:inline-block;
+    }
+
+    .policyTitle{
+      font-family: var(--serif);
+      font-weight: 650;
+      letter-spacing:-.01em;
+      margin: 0 0 12px;
+      font-size: clamp(34px, 3.6vw, 52px);
+      line-height: 1.06;
+      color: #0f172a;
+    }
+
+    .policyMeta{
+      margin: 0 0 18px;
+      color: rgba(15,23,42,.62);
+      font-weight: 650;
+      font-size: 14.5px;
+    }
+
+    .policyText{
+      color: rgba(15,23,42,.74);
+      line-height: 1.95;
+      font-size: 15.8px;
+    }
+    .policyText p{ margin: 0; }
+    .policyText p + p{ margin-top: 14px; }
+
+    .policyText h2{
+      font-family: var(--serif);
+      font-weight: 650;
+      letter-spacing:-.01em;
+      color:#0f172a;
+      margin: 28px 0 10px;
+      font-size: clamp(20px, 2.4vw, 26px);
+      line-height: 1.2;
+    }
+
+    .policyText ul{
+      margin: 10px 0 0 18px;
+      padding: 0;
+    }
+    .policyText li{
+      margin: 8px 0;
+    }
+
+    .policyNote{
+      margin-top: 18px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(15,23,42,.03);
+      border: 1px solid rgba(2,8,23,.08);
+      color: rgba(15,23,42,.70);
+      line-height: 1.8;
+      font-size: 14.8px;
+    }
+
+    /* WhatsApp */
+    .waFloat{
+      position:fixed;
+      right: 18px;
+      bottom: 18px;
+      width: 56px;
+      height: 56px;
+      border-radius: 999px;
+      background: #25D366;
+      display:grid;
+      place-items:center;
+      box-shadow: 0 16px 38px rgba(0,0,0,.20);
+      z-index: 60;
+      transition:.18s ease;
+    }
+    .waFloat:hover{ transform: translateY(-2px); }
+    .waFloat svg{ width:26px;height:26px; fill:#fff; }
+
+    @media (prefers-reduced-motion: reduce){
+      *{ transition:none !important; scroll-behavior:auto !important; }
+    }
+  </style>
 </head>
 
-<body id="top">
+<body>
 
-<!-- Shared Header -->
-<div id="site-header"></div>
+  <!-- ✅ injected header -->
+  <div id="headerMount"></div>
 
-<section class="hero" style="padding:70px 20px;">
-  <div class="container">
-    <h1>Privacy Policy</h1>
-  </div>
-</section>
+  <main id="top">
 
-<section class="container" style="padding:60px 20px; max-width:950px; line-height:1.75;">
+    <!-- HERO (no photo) -->
+    <section class="hero">
+      <div class="container">
+        <div class="heroInner">
+          <div class="crumbs">
+            <a href="index.html">Home</a>
+            <span>→</span>
+            <span>Privacy Policy</span>
+          </div>
+          <h1>Privacy Policy</h1>
+          <p>How we collect, use, and protect your personal data when you visit our website or contact us for immigration advice.</p>
+        </div>
+      </div>
+    </section>
 
-<p><strong>Last updated:</strong> [DATE]</p>
+    <!-- POLICY -->
+    <section class="tight">
+      <div class="container">
+        <div class="policyWrap">
 
-<p>
-Benchmark Legals (“we”, “us”, “our”) is committed to protecting your privacy and handling personal data responsibly and transparently. This Privacy Policy explains how we collect, use, store and protect your personal data when you visit our website or contact us for immigration or legal advisory services.
-</p>
+          <div class="kicker">BENCHMARK LEGALS</div>
+          <h2 class="policyTitle">Privacy Policy</h2>
+          <div class="policyMeta"><strong>Last updated:</strong> [DATE]</div>
 
-<p>
-We process personal data in accordance with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.
-</p>
+          <div class="policyText">
+            <p>
+              Benchmark Legals (“we”, “us”, “our”) is committed to protecting your privacy and handling personal data responsibly and transparently.
+              This Privacy Policy explains how we collect, use, store and protect your personal data when you visit our website or contact us for
+              immigration advisory services.
+            </p>
 
-<h2>1. Who We Are</h2>
+            <p>
+              We process personal data in accordance with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.
+            </p>
 
-<p>
-Benchmark Legals is a UK immigration advisory and legal consultancy practice.
-</p>
+            <h2>1. Who We Are</h2>
+            <p>
+              Benchmark Legals is a UK immigration advisory practice.<br>
+              Email: <a href="mailto:info@benchmarklegals.co.uk">info@benchmarklegals.co.uk</a><br>
+              Address: 124 City Road, London, EC1V 2NX
+            </p>
 
-<p>
-Website: https://benchmarklegals.co.uk<br>
-Email: info@benchmarklegals.co.uk<br>
-Address: [INSERT REGISTERED ADDRESS]
-</p>
+            <h2>2. Personal Data We Collect</h2>
+            <ul>
+              <li>Name and surname</li>
+              <li>Email address and phone number</li>
+              <li>Postal address</li>
+              <li>Date of birth and nationality (where relevant)</li>
+              <li>Immigration and case information you provide</li>
+              <li>Identity and verification documents you submit</li>
+              <li>Communications and correspondence</li>
+              <li>Technical website usage data (such as IP address, device type, pages visited)</li>
+            </ul>
 
-<p>
-For data protection matters, contact: info@benchmarklegals.co.uk
-</p>
+            <h2>3. How We Obtain Your Data</h2>
+            <ul>
+              <li>When you submit a contact or enquiry form</li>
+              <li>When you email or call us</li>
+              <li>When you request a consultation</li>
+              <li>When you instruct us to act for you</li>
+              <li>From authorised third parties connected to your case (where permitted)</li>
+              <li>From public authorities where permitted by law</li>
+            </ul>
 
-<h2>2. Personal Data We Collect</h2>
+            <h2>4. How We Use Your Data</h2>
+            <ul>
+              <li>To respond to enquiries and provide information</li>
+              <li>To assess your immigration matter and available options</li>
+              <li>To provide advisory services and prepare applications</li>
+              <li>To verify identity and prevent fraud</li>
+              <li>To communicate with you about your matter</li>
+              <li>To maintain records and meet legal/regulatory obligations</li>
+              <li>To improve our website and service quality</li>
+            </ul>
 
-<p>We may collect and process the following categories of personal data:</p>
+            <div class="policyNote">
+              <strong>Important:</strong> Submitting an enquiry does not automatically create an adviser-client relationship unless formally agreed in writing.
+              Please avoid sending highly sensitive original documents until secure communication methods are confirmed.
+            </div>
 
-<ul>
-<li>Name and surname</li>
-<li>Email address</li>
-<li>Telephone number</li>
-<li>Postal address</li>
-<li>Date of birth</li>
-<li>Nationality and immigration status information</li>
-<li>Identity and verification documents</li>
-<li>Case and enquiry details you provide</li>
-<li>Communications and correspondence</li>
-<li>Technical website usage data</li>
-</ul>
+            <h2>5. Legal Basis for Processing</h2>
+            <p>We process personal data under one or more lawful bases, depending on the circumstances:</p>
+            <ul>
+              <li>Steps prior to entering a contract</li>
+              <li>Performance of a contract</li>
+              <li>Legal obligation</li>
+              <li>Legitimate interests</li>
+              <li>Consent (where required)</li>
+            </ul>
 
-<h2>3. How We Obtain Your Data</h2>
+            <p>
+              Immigration matters may involve sensitive personal data. We process such data only where legally permitted and where necessary for legal claims
+              and regulatory purposes.
+            </p>
 
-<ul>
-<li>When you complete a contact or enquiry form</li>
-<li>When you email or call us</li>
-<li>When you request a consultation</li>
-<li>When you instruct us to act for you</li>
-<li>From authorised third parties connected to your case</li>
-<li>From public authorities where legally permitted</li>
-</ul>
+            <h2>6. Sharing Your Data</h2>
+            <p>We share personal data only where necessary and lawful, including:</p>
+            <ul>
+              <li>With UK government departments and authorities (for applications and representations)</li>
+              <li>With courts and tribunals where required</li>
+              <li>With regulators where required</li>
+              <li>With professional advisers (where necessary)</li>
+              <li>With secure service providers supporting our operations</li>
+            </ul>
+            <p>We do not sell personal data.</p>
 
-<h2>4. How We Use Your Data</h2>
+            <h2>7. Regulatory Verification Technology</h2>
+            <p>
+              Our website may display regulatory verification tools (such as the IAA/Yoshki digital badge). When loaded, limited technical information
+              may be processed to support real-time verification of regulatory status.
+            </p>
 
-<p>We use personal data to:</p>
+            <h2>8. International Data Transfers</h2>
+            <p>
+              Some technology providers may process data outside the UK. Where this occurs, appropriate safeguards are applied as required by UK data protection law.
+            </p>
 
-<ul>
-<li>Respond to enquiries</li>
-<li>Assess your immigration matter</li>
-<li>Provide advisory and legal services</li>
-<li>Prepare and submit applications</li>
-<li>Verify identity</li>
-<li>Communicate with you</li>
-<li>Maintain client records</li>
-<li>Meet regulatory and legal obligations</li>
-<li>Prevent fraud and misuse</li>
-<li>Improve our website and services</li>
-</ul>
+            <h2>9. Data Retention</h2>
+            <ul>
+              <li>General enquiries — up to 24 months</li>
+              <li>Client case files — typically 6 years or as required by regulation</li>
+              <li>Compliance records — as legally required</li>
+            </ul>
 
-<p>
-Submitting an enquiry does not automatically create an adviser-client relationship unless formally agreed in writing.
-</p>
+            <h2>10. Data Security</h2>
+            <p>We apply appropriate security measures, including secure hosting, access controls, and confidentiality obligations.</p>
 
-<h2>5. Legal Basis for Processing</h2>
+            <h2>11. Cookies</h2>
+            <p>
+              We may use cookies to ensure site functionality and improve user experience. You can control cookies through your browser settings.
+            </p>
 
-<p>We process personal data under one or more lawful bases:</p>
+            <h2>12. Your Rights</h2>
+            <p>You have the right to request access, correction, deletion, restriction, objection, and (where applicable) data portability.</p>
+            <p>
+              To exercise your rights, contact us at <a href="mailto:info@benchmarklegals.co.uk">info@benchmarklegals.co.uk</a>.
+            </p>
 
-<ul>
-<li>Taking steps prior to entering a contract</li>
-<li>Performance of a contract</li>
-<li>Legal obligation</li>
-<li>Legitimate interests</li>
-<li>Consent where required</li>
-</ul>
+            <h2>13. Complaints</h2>
+            <p>
+              You may complain to the UK Information Commissioner’s Office (ICO):<br>
+              <a href="https://ico.org.uk" target="_blank" rel="noopener">https://ico.org.uk</a><br>
+              Telephone: 0303 123 1113
+            </p>
 
-<p>
-Immigration matters may involve special category data. Such data is processed only where permitted for legal claims and regulatory purposes.
-</p>
+            <h2>14. Changes to This Policy</h2>
+            <p>
+              We may update this Privacy Policy from time to time. The latest version will always be available on this page.
+            </p>
 
-<h2>6. Confidentiality and Sensitive Information</h2>
+            <h2>15. Contact</h2>
+            <p>
+              Benchmark Legals<br>
+              Email: <a href="mailto:info@benchmarklegals.co.uk">info@benchmarklegals.co.uk</a><br>
+              Address: 124 City Road, London, EC1V 2NX
+            </p>
+          </div>
 
-<p>
-Immigration and legal enquiries may include sensitive personal information. We treat such information as confidential and apply appropriate safeguards.
-</p>
+        </div>
+      </div>
+    </section>
 
-<p>
-Please avoid sending highly sensitive original documents until secure communication methods are agreed.
-</p>
+  </main>
 
-<h2>7. Sharing Your Data</h2>
+  <!-- ✅ injected footer -->
+  <div id="footerMount"></div>
 
-<p>We may share personal data only where necessary:</p>
+  <!-- WhatsApp -->
+  <a class="waFloat" href="https://wa.me/447903004158" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M20 12a8 8 0 0 1-11.9 7L4 20l1.1-4.1A8 8 0 1 1 20 12Zm-4.6 2.2c-.2-.1-1.3-.6-1.5-.7-.2-.1-.4-.1-.6.1-.2.2-.6.7-.7.8-.1.1-.3.2-.5.1-.2-.1-.9-.3-1.7-1.1-.6-.6-1.1-1.4-1.2-1.6-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.6 0-.2-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2 0 1.2.8 2.3 1 2.5.1.2 1.6 2.4 3.9 3.4.5.2.9.4 1.2.5.5.1 1 .1 1.4.1.4-.1 1.3-.5 1.5-1 .2-.5.2-.9.1-1 0-.1-.2-.2-.4-.3Z"/>
+    </svg>
+  </a>
 
-<ul>
-<li>With government departments and authorities</li>
-<li>With courts and tribunals</li>
-<li>With regulators</li>
-<li>With professional advisers</li>
-<li>With secure service providers</li>
-</ul>
-
-<p>We do not sell personal data.</p>
-
-<h2>8. Regulatory Verification Technology</h2>
-
-<p>
-Our website may display regulatory verification tools such as the IAA/Yoshki digital badge. When loaded, limited technical data may be processed to verify regulatory status.
-</p>
-
-<h2>9. International Data Transfers</h2>
-
-<p>
-Some technology providers may process data outside the UK. Where this occurs, appropriate safeguards are applied.
-</p>
-
-<h2>10. Data Retention</h2>
-
-<ul>
-<li>General enquiries — up to 24 months</li>
-<li>Client case files — typically 6 years or as required</li>
-<li>Compliance records — as legally required</li>
-</ul>
-
-<h2>11. Data Security</h2>
-
-<p>We use appropriate security measures including:</p>
-
-<ul>
-<li>Secure hosting</li>
-<li>Access controls</li>
-<li>Confidentiality obligations</li>
-<li>Secure case systems</li>
-<li>Encryption where appropriate</li>
-</ul>
-
-<h2>12. Cookies</h2>
-
-<p>
-We may use cookies to ensure site functionality and improve user experience. You can control cookies through your browser.
-</p>
-
-<h2>13. Your Rights</h2>
-
-<p>You have the right to:</p>
-
-<ul>
-<li>Access your data</li>
-<li>Correct inaccurate data</li>
-<li>Request deletion</li>
-<li>Restrict processing</li>
-<li>Object to processing</li>
-<li>Data portability</li>
-<li>Withdraw consent where applicable</li>
-</ul>
-
-<h2>14. Complaints</h2>
-
-<p>
-You may complain to the UK Information Commissioner’s Office (ICO):<br>
-https://ico.org.uk<br>
-0303 123 1113
-</p>
-
-<h2>15. Changes to This Policy</h2>
-
-<p>
-We may update this policy from time to time. The latest version will always appear on this page.
-</p>
-
-<h2>16. Contact</h2>
-
-<p>
-Benchmark Legals<br>
-info@benchmarklegals.co.uk
-</p>
-
-</section>
-
-<!-- Shared Footer -->
-<div id="site-footer"></div>
-
-<script src="assets/layout.js"></script>
-
+  <script src="assets/site.js"></script>
 </body>
 </html>
