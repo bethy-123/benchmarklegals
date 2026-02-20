@@ -447,3 +447,26 @@ a.footItem:hover{ color:#fff; }
 @media (max-width: 980px){
   .footGridPro{ grid-template-columns: 1fr; gap: 18px; }
 }
+/* ===== Footer: logo + Yoshki badge side-by-side ===== */
+#siteFooter .brandTopRow{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 22px;
+  flex-wrap: nowrap;         /* prevents badge dropping under */
+}
+
+/* Make logo bigger but not full-width */
+#siteFooter .brandLogoBig{
+  height: 120px;             /* increase to 130px if you want */
+  width: auto;
+  max-width: 260px;          /* stops pushing badge down */
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+/* Keep badge fixed so it never wraps */
+#siteFooter .yoshkiWrap{
+  width: 125px;
+  flex: 0 0 125px;
+}
