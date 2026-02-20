@@ -167,37 +167,6 @@
   justify-content:flex-end;
 }
 
-.iaaBadgeCard{
-  width: 260px;
-  background: rgba(255,255,255,.96);
-  border: 1px solid rgba(2,8,23,.10);
-  border-radius: 22px;
-  padding: 16px;
-  box-shadow: 0 18px 55px rgba(0,0,0,.22);
-  backdrop-filter: blur(6px);
-}
-
-.iaaBadgeFrame{
-  position: relative;
-  width: 100%;
-  /* keeps correct badge aspect ratio */
-  padding-bottom: 152%;
-  overflow: hidden;
-  border-radius: 16px;
-  background: #fff;
-}
-
-.iaaBadgeFrame iframe{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  border:0;
-  display:block;
-  overflow:hidden;
-  background:transparent;
-}
-
 @media (max-width: 600px){
   .heroInner{ grid-template-columns: 1fr; }
   .regRow{ justify-content:flex-start; }
@@ -799,17 +768,21 @@
             </div>
           </div>
 
-          <div class="regRow">
-  <div class="iaaBadgeCard">
-    <div class="iaaBadgeFrame">
-      <iframe
+         <div class="regRow">
+  <!-- Start of Digital Badge code -->
+  <div style="width:100%;max-width:125px;max-height:190px;">
+    <div style="position: relative;padding-bottom: 152%;height: auto;overflow: hidden;">
+      <iframe id="myFrame"
         src="https://cdn2.yoshki.com/badgeframe?10"
+        style="overflow: hidden;border:0px; margin:0px; padding:0px; background-color:transparent; top:0px; left:0px; width:100%; height:100%; position: absolute;"
         loading="lazy"
         title="Immigration Advice Authority verification badge">
       </iframe>
     </div>
   </div>
+  <!-- End of Digital Badge code -->
 </div>
+
 
 
         </div>
