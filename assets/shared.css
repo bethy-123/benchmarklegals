@@ -457,7 +457,7 @@ a.footItem:hover{ color:#fff; }
 
 /* Make Benchmark logo visually equal to badge */
 #siteFooter .brandLogoBig{
-  height: 155px;        /* increase size */
+  height: 240px;        /* increase size */
   width: auto;
   max-width: none;      /* remove restriction */
   flex: 0 0 auto;
