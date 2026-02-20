@@ -447,26 +447,25 @@ a.footItem:hover{ color:#fff; }
 @media (max-width: 980px){
   .footGridPro{ grid-template-columns: 1fr; gap: 18px; }
 }
-/* ===== Footer: logo + Yoshki badge side-by-side ===== */
+/* ===== Footer: balanced logo + Yoshki badge ===== */
 #siteFooter .brandTopRow{
   display: flex;
-  flex-direction: row;
   align-items: center;
-  gap: 22px;
-  flex-wrap: nowrap;         /* prevents badge dropping under */
+  gap: 26px;
+  flex-wrap: nowrap;
 }
 
-/* Make logo bigger but not full-width */
+/* Make Benchmark logo visually equal to badge */
 #siteFooter .brandLogoBig{
-  height: 120px;             /* increase to 130px if you want */
+  height: 155px;        /* increase size */
   width: auto;
-  max-width: 260px;          /* stops pushing badge down */
+  max-width: none;      /* remove restriction */
   flex: 0 0 auto;
   margin: 0;
 }
 
-/* Keep badge fixed so it never wraps */
+/* Keep badge fixed but allow slight balance */
 #siteFooter .yoshkiWrap{
-  width: 125px;
-  flex: 0 0 125px;
+  width: 130px;
+  flex: 0 0 130px;
 }
