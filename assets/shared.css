@@ -84,7 +84,7 @@ button{ font:inherit; }
 /* ===== ALWAYS STICKY HEADER (FIXED, RELIABLE) ===== */
 #siteHeader{
   position: fixed;
-  top: 44px;
+  top: 0;
   left: 0;
   right: 0;
   width: 100%;
