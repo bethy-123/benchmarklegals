@@ -430,6 +430,12 @@ a.footItem:hover{ color:#fff; }
   transition:.18s ease;
 }
 .footSocial a:hover{ background: rgba(255,255,255,.10); transform: translateY(-1px); }
+/* 🔥 Add this right here */
+#siteFooter .footSocial a[aria-label="Facebook"],
+#siteFooter .footSocial a[aria-label="LinkedIn"]{
+  display:none;
+}
+
 
 .footLine{ height:1px; background: rgba(255,255,255,.10); margin: 34px 0 18px; }
 
