@@ -169,10 +169,21 @@
   margin-top: 250px; 
 }
 
-@media (max-width: 600px){
-  .heroInner{ grid-template-columns: 1fr; }
-  .regRow{ justify-content:flex-start; }
-  .iaaBadgeCard{ width: 220px; padding: 12px; }
+@media (max-width: 480px){
+  .heroInner{ 
+    grid-template-columns: 1fr; 
+  }
+
+  .regRow{
+    justify-content: flex-start;
+    margin-top: 40px;   /* only mobile */
+    padding-right: 0;   /* only mobile */
+  }
+
+  .iaaBadgeCard{ 
+    width: 220px; 
+    padding: 12px; 
+  }
 }
 
 
