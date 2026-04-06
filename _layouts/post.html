@@ -1,1 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ page.title }} | Benchmark Legals</title>
 
+  <link rel="icon" type="image/png" href="/benchmarklegals/assets/tablogo.png" />
+
+  <link rel="stylesheet" href="/benchmarklegals/assets/shared.css?v=6">
+  <link rel="stylesheet" href="/benchmarklegals/assets/site.css">
+
+  <style>
+    /* Adding a little extra padding for the blog text area */
+    .blog-main { padding: 80px 0; background: #fff; }
+    .blog-content-area { max-width: 800px; margin: 0 auto; line-height: 1.8; font-size: 17px; }
+    .blog-content-area h1 { font-family: var(--serif); color: var(--navy); font-size: 42px; margin-bottom: 10px; }
+    .blog-date { color: var(--muted); margin-bottom: 30px; text-transform: uppercase; font-size: 13px; letter-spacing: 1px; }
+  </style>
+</head>
+
+<body>
+
+  <div id="headerMount"></div>
+
+  <main class="blog-main">
+    <div class="container">
+      <article class="blog-content-area">
+        <div class="blog-date">Published on {{ page.date | date: "%B %d, %Y" }}</div>
+        <h1>{{ page.title }}</h1>
+        <hr style="opacity: 0.1; margin: 30px 0;">
+        
+        {{ content }}
+
+        <div style="margin-top: 60px;">
+            <a href="/benchmarklegals/" class="btn primary">Back to Home</a>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <div id="footerMount"></div>
+
+  <script src="/benchmarklegals/assets/site.js"></script>
+
+</body>
+</html>
