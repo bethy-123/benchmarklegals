@@ -25,11 +25,13 @@
       color:#fff;
       overflow:hidden;
     }
+
     .heroInner{
-      padding: 64px 0 64px;
+      padding: 64px 0;
       display:grid;
       gap: 12px;
     }
+
     .crumbs{
       display:flex;
       align-items:center;
@@ -38,6 +40,7 @@
       color: rgba(255,255,255,.78);
       flex-wrap: wrap;
     }
+
     .crumbs a{ color: rgba(255,255,255,.92); }
     .crumbs span{ color: rgba(255,255,255,.55); }
 
@@ -50,6 +53,7 @@
       letter-spacing:-.01em;
       text-shadow: 0 12px 40px rgba(0,0,0,.22);
     }
+
     .hero p{
       margin:0;
       max-width: 68ch;
@@ -60,10 +64,15 @@
 
     section{ padding: 64px 0; }
 
+    .blogSection{
+      background:#fff;
+    }
+
     .sectionTitle{
       text-align:center;
-      margin-bottom: 30px;
+      margin-bottom: 34px;
     }
+
     .sectionTitle .top{
       display:inline-flex;
       align-items:center;
@@ -73,11 +82,13 @@
       letter-spacing:.18em;
       text-transform: uppercase;
     }
+
     .sectionTitle .top .line{
       width:40px;
       height:1px;
       background: rgba(15,23,42,.18);
     }
+
     .sectionTitle h2{
       font-family: var(--serif);
       font-weight: 600;
@@ -86,6 +97,7 @@
       font-size: clamp(28px, 3vw, 40px);
       color:#0f172a;
     }
+
     .sectionTitle p{
       max-width: 72ch;
       margin: 12px auto 0;
@@ -94,89 +106,151 @@
       font-size: 15.5px;
     }
 
-    .blogCats{
-      background: #fff;
-    }
-
-    .catGrid{
+    .blogLayout{
       display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin-top: 12px;
-    }
-    @media (max-width: 980px){
-      .catGrid{ grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 640px){
-      .catGrid{ grid-template-columns: 1fr; }
+      grid-template-columns: 1fr 330px;
+      gap: 40px;
+      align-items:start;
     }
 
-    .catCard{
+    .featuredBlogs{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .featuredBlog{
+      display:block;
+      background:#fff;
+      border:1px solid rgba(2,8,23,.10);
+      text-decoration:none;
+      color:inherit;
+      transition:.2s ease;
+      box-shadow: 0 12px 34px rgba(11,27,51,.06);
+      overflow:hidden;
+    }
+
+    .featuredBlog:hover{
+      transform:translateY(-3px);
+      box-shadow:0 18px 44px rgba(11,27,51,.11);
+      border-color:rgba(215,181,109,.35);
+    }
+
+    .featuredBlog img{
+      width:100%;
+      height:290px;
+      object-fit:cover;
+      display:block;
+    }
+
+    .featuredContent{
+      padding:24px;
+    }
+
+    .featuredContent h3{
+      margin:0 0 12px;
+      font-family: var(--serif);
+      font-size:26px;
+      line-height:1.18;
+      color:#0b1b33;
+      font-weight:600;
+      letter-spacing:-.01em;
+    }
+
+    .featuredContent p{
+      margin:0 0 16px;
+      line-height:1.75;
+      color:rgba(15,23,42,.76);
+      font-size:15px;
+    }
+
+    .readMore{
+      display:inline-block;
+      font-weight:800;
+      color:#0b1b33;
+      text-decoration:underline;
+      text-underline-offset:3px;
+    }
+
+    .blogSidebar{
       display:flex;
       flex-direction:column;
-      gap: 14px;
-      padding: 24px;
-      border-radius: 24px;
-      background: #fff;
-      border: 1px solid rgba(2,8,23,.08);
-      box-shadow: var(--shadow2);
+      gap:12px;
+    }
+
+    .sideTitle{
+      border-bottom:2px solid #d7b56d;
+      margin-bottom:10px;
+    }
+
+    .sideTitle span{
+      display:inline-block;
+      background:#d7b56d;
+      color:#0b1b33;
+      font-weight:900;
+      padding:5px 18px;
+      font-size:13px;
+      letter-spacing:.04em;
+    }
+
+    .sidePost{
+      padding:13px 0;
+      border-bottom:1px solid rgba(2,8,23,.10);
       text-decoration:none;
-      color: inherit;
-      transition: .18s ease;
-      min-height: 235px;
-    }
-    .catCard:hover{
-      transform: translateY(-3px);
-      border-color: rgba(215,181,109,.30);
-      box-shadow: 0 22px 50px rgba(11,27,51,.10);
+      color:#0b1b33;
+      transition:.18s ease;
     }
 
-    .catIcon{
-      width: 58px;
-      height: 58px;
-      border-radius: 18px;
-      display:grid;
-      place-items:center;
-      background: rgba(215,181,109,.12);
-      border: 1px solid rgba(215,181,109,.26);
-      color: #7a5d1b;
-      font-size: 24px;
-      font-weight: 900;
-      line-height: 1;
-    }
-
-    .catCard h3{
-      margin: 0;
-      font-family: var(--serif);
-      font-weight: 600;
-      letter-spacing:-.01em;
-      font-size: 26px;
-      line-height: 1.15;
+    .sidePost h4{
+      margin:0;
+      font-size:15px;
+      line-height:1.45;
       color:#0b1b33;
     }
 
-    .catCard p{
-      margin: 0;
-      color: rgba(15,23,42,.76);
-      line-height: 1.8;
-      font-size: 15px;
+    .sidePost small{
+      display:block;
+      margin-top:6px;
+      font-size:12px;
+      color:rgba(15,23,42,.55);
     }
 
-    .catMeta{
-      margin-top: auto;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 12px;
+    .sidePost:hover h4{
+      color:#7a5d1b;
+    }
+
+    .sideCta{
+      margin-top:20px;
+      background:var(--navy2);
+      color:#fff;
+      padding:28px 22px;
+      text-align:center;
+      box-shadow:0 18px 45px rgba(0,0,0,.18);
+    }
+
+    .sideCta h3{
+      margin:0 0 12px;
+      font-family:var(--serif);
+      font-size:26px;
+      line-height:1.15;
+      color:#d7b56d;
+    }
+
+    .sideCta p{
+      margin:0 0 20px;
+      color:rgba(255,255,255,.78);
+      line-height:1.7;
+      font-size:14.5px;
+    }
+
+    .sideCta a{
+      display:block;
+      background:#fff;
       color:#0b1b33;
-      font-weight: 800;
-      font-size: 14px;
-    }
-
-    .catMeta .arrow{
-      color: rgba(215,181,109,.98);
-      font-size: 18px;
-      line-height: 1;
+      padding:13px 16px;
+      text-decoration:none;
+      font-weight:800;
+      border-radius:4px;
     }
 
     .ctaBand{
@@ -235,8 +309,35 @@
       z-index: 60;
       transition:.18s ease;
     }
+
     .waFloat:hover{ transform: translateY(-2px); }
     .waFloat svg{ width:26px;height:26px; fill:#fff; }
+
+    @media(max-width:980px){
+      .blogLayout{
+        grid-template-columns:1fr;
+      }
+
+      .featuredBlogs{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media(max-width:640px){
+      section{ padding:48px 0; }
+
+      .featuredBlog img{
+        height:230px;
+      }
+
+      .featuredContent{
+        padding:20px;
+      }
+
+      .featuredContent h3{
+        font-size:23px;
+      }
+    }
   </style>
 </head>
 
@@ -256,82 +357,92 @@
             <span>Blogs</span>
           </div>
           <h1>Blogs</h1>
-          <p>Explore our legal insights by category. Browse the topics below to access detailed immigration articles, practical guidance, and updates from Benchmark Legals.</p>
+          <p>Explore practical UK immigration insights, Home Office updates, visa guidance and legal articles from Benchmark Legals.</p>
         </div>
       </div>
     </section>
 
-    <section class="blogCats">
+    <section class="blogSection">
       <div class="container">
+
         <div class="sectionTitle">
           <div class="top"><span class="line"></span> Legal Insights</div>
-          <h2>Browse Blog Categories</h2>
-          <p>Select a category to explore articles written around that area of immigration law. Each category page will contain all related blog posts in one organised place.</p>
+          <h2>Latest Immigration Blogs</h2>
+          <p>Browse our latest UK immigration articles, practical legal guidance and Home Office updates in one place.</p>
         </div>
 
-        <div class="catGrid">
+        <div class="blogLayout">
 
-          <a class="catCard" href="blog-category-business-immigration.html">
-            <div class="catIcon">⌘</div>
-            <h3>Business Immigration</h3>
-            <p>Articles on sponsor licences, self-sponsorship, employer guidance, overseas businesses and work-related immigration routes.</p>
-            <div class="catMeta">
-              <span>View category</span>
-              <span class="arrow">→</span>
-            </div>
-          </a>
+          <!-- LEFT: ONLY 2 FEATURED BLOGS -->
+          <div class="featuredBlogs">
 
-          <a class="catCard" href="blog-category-family-immigration.html">
-            <div class="catIcon">♥</div>
-            <h3>Family Immigration</h3>
-            <p>Guidance on spouse visas, partner applications, children, family route extensions and supporting relationship evidence.</p>
-            <div class="catMeta">
-              <span>View category</span>
-              <span class="arrow">→</span>
-            </div>
-          </a>
+            <a class="featuredBlog" href="blog-uk-immigration-rules.html">
+              <img src="assets/ukimmig.png" alt="UK Immigration Rules and Home Office Guidance">
+              <div class="featuredContent">
+                <h3>UK Immigration Rules and Home Office Guidance</h3>
+                <p>Coming soon: a clear breakdown of UK immigration rules, key requirements and Home Office guidance affecting applicants.</p>
+                <span class="readMore">Read Article →</span>
+              </div>
+            </a>
 
-          <a class="catCard" href="blog-category-settlement-citizenship.html">
-            <div class="catIcon">★</div>
-            <h3>Settlement & Citizenship</h3>
-            <p>Read about indefinite leave to remain, naturalisation, residence requirements, absences and long-term immigration status.</p>
-            <div class="catMeta">
-              <span>View category</span>
-              <span class="arrow">→</span>
-            </div>
-          </a>
+            <a class="featuredBlog" href="blog-sponsor-licence-guidance.html">
+              <img src="assets/sponsor.png" alt="Sponsor Licence Guidance for UK Employers">
+              <div class="featuredContent">
+                <h3>Sponsor Licence Guidance for UK Employers</h3>
+                <p>Coming soon: practical guidance for UK employers on sponsor licence applications, compliance duties and key personnel.</p>
+                <span class="readMore">Read Article →</span>
+              </div>
+            </a>
 
-          <a class="catCard" href="blog-category-visitor-student.html">
-            <div class="catIcon">◎</div>
-            <h3>Visitor & Student</h3>
-            <p>Practical articles covering visitor visas, study routes, post-study options and common short-stay immigration questions.</p>
-            <div class="catMeta">
-              <span>View category</span>
-              <span class="arrow">→</span>
-            </div>
-          </a>
+          </div>
 
-          <a class="catCard" href="blog-category-sponsor-licence-guidance.html">
-            <div class="catIcon">□</div>
-            <h3>Sponsor Licence Guidance</h3>
-            <p>Focused insights for UK employers on sponsor licence applications, compliance duties, key personnel and document preparation.</p>
-            <div class="catMeta">
-              <span>View category</span>
-              <span class="arrow">→</span>
-            </div>
-          </a>
+          <!-- RIGHT: ALL BLOG LINKS -->
+          <aside class="blogSidebar">
 
-          <a class="catCard" href="blog-category-appeals-refusals.html">
-            <div class="catIcon">!</div>
-            <h3>Appeals & Refusals</h3>
-            <p>Articles on refusals, administrative review, appeals, reconsideration options and how to respond to immigration decisions.</p>
-            <div class="catMeta">
-              <span>View category</span>
-              <span class="arrow">→</span>
+            <div class="sideTitle">
+              <span>ALL ARTICLES</span>
             </div>
-          </a>
+
+            <a class="sidePost" href="blog-uk-immigration-rules.html">
+              <h4>UK Immigration Rules and Home Office Guidance</h4>
+              <small>Immigration Law</small>
+            </a>
+
+            <a class="sidePost" href="blog-sponsor-licence-guidance.html">
+              <h4>Sponsor Licence Guidance for UK Employers</h4>
+              <small>Business Immigration</small>
+            </a>
+
+            <a class="sidePost" href="blog-spouse-visa-requirements.html">
+              <h4>Spouse Visa Requirements Explained</h4>
+              <small>Family Immigration</small>
+            </a>
+
+            <a class="sidePost" href="blog-settlement-citizenship.html">
+              <h4>Settlement and British Citizenship Guidance</h4>
+              <small>Settlement & Citizenship</small>
+            </a>
+
+            <a class="sidePost" href="blog-visitor-student-visas.html">
+              <h4>Visitor and Student Visa Guidance</h4>
+              <small>Visitor & Student</small>
+            </a>
+
+            <a class="sidePost" href="blog-appeals-refusals.html">
+              <h4>Immigration Refusals and Appeal Options</h4>
+              <small>Appeals & Refusals</small>
+            </a>
+
+            <div class="sideCta">
+              <h3>Which Visa Route is Right for You?</h3>
+              <p>UK immigration rules can be complex. Our team can review your circumstances and guide you on the most suitable route.</p>
+              <a href="contact.html#book">Book Appointment</a>
+            </div>
+
+          </aside>
 
         </div>
+
       </div>
     </section>
 
