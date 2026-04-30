@@ -376,13 +376,18 @@
           <!-- LEFT: ONLY 2 FEATURED BLOGS -->
           <div class="featuredBlogs">
 
-            <a class="featuredBlog" href="blog-uk-immigration-rules.html">
-              <img src="assets/ukimmig.png" alt="UK Immigration Rules and Home Office Guidance">
-              <div class="featuredContent">
-                <h3>UK Immigration Rules and Home Office Guidance</h3>
-                <p>Coming soon: a clear breakdown of UK immigration rules, key requirements and Home Office guidance affecting applicants.</p>
-                <span class="readMore">Read Article →</span>
-              </div>
+  {% for post in site.posts limit:2 %}
+  <a class="featuredBlog" href="{{ post.url }}">
+    <img src="{{ post.image | default: 'assets/ukimmig.png' }}" alt="{{ post.title }}">
+    <div class="featuredContent">
+      <h3>{{ post.title }}</h3>
+      <p>{{ post.description }}</p>
+      <span class="readMore">Read Article →</span>
+    </div>
+  </a>
+  {% endfor %}
+
+</div>
             </a>
 
             <a class="featuredBlog" href="blog-sponsor-licence-guidance.html">
@@ -397,49 +402,26 @@
           </div>
 
           <!-- RIGHT: ALL BLOG LINKS -->
-          <aside class="blogSidebar">
+         <aside class="blogSidebar">
 
-            <div class="sideTitle">
-              <span>ALL ARTICLES</span>
-            </div>
+  <div class="sideTitle">
+    <span>ALL ARTICLES</span>
+  </div>
 
-            <a class="sidePost" href="blog-uk-immigration-rules.html">
-              <h4>UK Immigration Rules and Home Office Guidance</h4>
-              <small>Immigration Law</small>
-            </a>
+  {% for post in site.posts %}
+  <a class="sidePost" href="{{ post.url }}">
+    <h4>{{ post.title }}</h4>
+    <small>{{ post.category }}</small>
+  </a>
+  {% endfor %}
 
-            <a class="sidePost" href="blog-sponsor-licence-guidance.html">
-              <h4>Sponsor Licence Guidance for UK Employers</h4>
-              <small>Business Immigration</small>
-            </a>
+  <div class="sideCta">
+    <h3>Which Visa Route is Right for You?</h3>
+    <p>UK immigration rules can be complex. Our team can review your circumstances and guide you.</p>
+    <a href="contact.html#book">Book Appointment</a>
+  </div>
 
-            <a class="sidePost" href="blog-spouse-visa-requirements.html">
-              <h4>Spouse Visa Requirements Explained</h4>
-              <small>Family Immigration</small>
-            </a>
-
-            <a class="sidePost" href="blog-settlement-citizenship.html">
-              <h4>Settlement and British Citizenship Guidance</h4>
-              <small>Settlement & Citizenship</small>
-            </a>
-
-            <a class="sidePost" href="blog-visitor-student-visas.html">
-              <h4>Visitor and Student Visa Guidance</h4>
-              <small>Visitor & Student</small>
-            </a>
-
-            <a class="sidePost" href="blog-appeals-refusals.html">
-              <h4>Immigration Refusals and Appeal Options</h4>
-              <small>Appeals & Refusals</small>
-            </a>
-
-            <div class="sideCta">
-              <h3>Which Visa Route is Right for You?</h3>
-              <p>UK immigration rules can be complex. Our team can review your circumstances and guide you on the most suitable route.</p>
-              <a href="contact.html#book">Book Appointment</a>
-            </div>
-
-          </aside>
+</aside>
 
         </div>
 
