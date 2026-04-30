@@ -1,0 +1,378 @@
+---
+layout: none
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ page.title }} | Benchmark Legals</title>
+
+  <meta name="description" content="{{ page.description | default: site.description }}">
+
+  <link rel="icon" type="image/png" href="/assets/tablogo.png" />
+  <link rel="shortcut icon" type="image/png" href="/assets/tablogo.png" />
+  <link rel="apple-touch-icon" href="/assets/tablogo.png" />
+
+  <link rel="stylesheet" href="/assets/shared.css" />
+
+  <style>
+    .articleHero{
+      position:relative;
+      background:
+        linear-gradient(rgba(6,18,38,.72), rgba(6,18,38,.84)),
+        url("{{ page.image | default: '/assets/ukimmig.png' }}") center / cover no-repeat;
+      color:#fff;
+    }
+
+    .articleHeroInner{
+      padding:70px 0;
+      max-width:950px;
+    }
+
+    .crumbs{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      font-size:14px;
+      color:rgba(255,255,255,.75);
+      margin-bottom:18px;
+    }
+
+    .crumbs a{
+      color:#fff;
+      text-decoration:none;
+    }
+
+    .articleHero h1{
+      font-family:var(--serif);
+      font-size:clamp(38px, 5vw, 64px);
+      line-height:1.05;
+      margin:0 0 16px;
+      font-weight:600;
+    }
+
+    .articleMeta{
+      color:rgba(255,255,255,.80);
+      font-size:15px;
+    }
+
+    .articleSection{
+      padding:64px 0;
+      background:#fff;
+    }
+
+    .articleLayout{
+      display:grid;
+      grid-template-columns:minmax(0, 1fr) 330px;
+      gap:46px;
+      align-items:start;
+    }
+
+    .articleContent{
+      font-size:16px;
+      line-height:1.85;
+      color:rgba(15,23,42,.82);
+    }
+
+    .articleImage{
+      width:100%;
+      height:420px;
+      object-fit:cover;
+      margin-bottom:32px;
+      border:1px solid rgba(2,8,23,.08);
+      box-shadow:0 16px 40px rgba(11,27,51,.08);
+    }
+
+    .articleContent h2{
+      font-family:var(--serif);
+      color:#0b1b33;
+      font-size:32px;
+      line-height:1.2;
+      margin:34px 0 12px;
+    }
+
+    .articleContent p{
+      margin:0 0 18px;
+    }
+
+    .articleContent ul{
+      margin:0 0 24px 20px;
+      padding:0;
+    }
+
+    .articleContent li{
+      margin-bottom:10px;
+    }
+
+    .articleSidebar{
+      position:sticky;
+      top:110px;
+    }
+
+    .sideBox{
+      border:1px solid rgba(2,8,23,.10);
+      padding:24px;
+      margin-bottom:24px;
+      box-shadow:0 14px 34px rgba(11,27,51,.06);
+      background:#fff;
+    }
+
+    .sideBox h3{
+      font-family:var(--serif);
+      color:#0b1b33;
+      font-size:24px;
+      margin:0 0 14px;
+    }
+
+    .sideBox p{
+      color:rgba(15,23,42,.70);
+      line-height:1.7;
+      font-size:14.5px;
+      margin:0 0 18px;
+    }
+
+    .sideBox a{
+      display:block;
+      background:#0b1b33;
+      color:#fff;
+      padding:13px 16px;
+      text-align:center;
+      text-decoration:none;
+      font-weight:800;
+      border-radius:4px;
+    }
+
+    .sideTitle{
+      border-bottom:2px solid #d7b56d;
+      margin-bottom:12px;
+    }
+
+    .sideTitle span{
+      display:inline-block;
+      background:#d7b56d;
+      color:#0b1b33;
+      font-weight:900;
+      padding:6px 16px;
+      font-size:13px;
+    }
+
+    .sidePost{
+      display:block;
+      padding:13px 0;
+      border-bottom:1px solid rgba(2,8,23,.10);
+      text-decoration:none;
+      color:#0b1b33;
+    }
+
+    .sidePost h4{
+      margin:0;
+      font-size:15px;
+      line-height:1.45;
+    }
+
+    .sidePost small{
+      display:block;
+      margin-top:6px;
+      color:rgba(15,23,42,.55);
+      font-size:12px;
+    }
+
+    .relatedArticles{
+      margin-top:60px;
+      padding-top:34px;
+      border-top:1px solid rgba(2,8,23,.10);
+    }
+
+    .relatedArticles h2{
+      font-family:var(--serif);
+      color:#0b1b33;
+      font-size:34px;
+      margin:0 0 20px;
+    }
+
+    .articleSlider{
+      display:flex;
+      gap:18px;
+      overflow-x:auto;
+      scroll-snap-type:x mandatory;
+      padding-bottom:16px;
+    }
+
+    .slideArticle{
+      min-width:270px;
+      max-width:270px;
+      scroll-snap-align:start;
+      border:1px solid rgba(2,8,23,.10);
+      text-decoration:none;
+      color:#0b1b33;
+      background:#fff;
+      overflow:hidden;
+    }
+
+    .slideArticle img{
+      width:100%;
+      height:150px;
+      object-fit:cover;
+      display:block;
+    }
+
+    .slideArticle div{
+      padding:16px;
+    }
+
+    .slideArticle h3{
+      font-size:17px;
+      line-height:1.35;
+      margin:0 0 8px;
+      color:#0b1b33;
+    }
+
+    .slideArticle small{
+      color:rgba(15,23,42,.55);
+    }
+
+    .waFloat{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      width:56px;
+      height:56px;
+      border-radius:999px;
+      background:#25D366;
+      display:grid;
+      place-items:center;
+      box-shadow:0 16px 38px rgba(0,0,0,.20);
+      z-index:60;
+    }
+
+    .waFloat svg{
+      width:26px;
+      height:26px;
+      fill:#fff;
+    }
+
+    @media(max-width:980px){
+      .articleLayout{
+        grid-template-columns:1fr;
+      }
+
+      .articleSidebar{
+        position:static;
+      }
+    }
+
+    @media(max-width:640px){
+      .articleSection{
+        padding:48px 0;
+      }
+
+      .articleImage{
+        height:260px;
+      }
+
+      .slideArticle{
+        min-width:245px;
+        max-width:245px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="headerMount"></div>
+
+  <main id="top">
+
+    <section class="articleHero">
+      <div class="container">
+        <div class="articleHeroInner">
+
+          <div class="crumbs">
+            <a href="/">Home</a>
+            <span>→</span>
+            <a href="/blogs.html">Blogs</a>
+            <span>→</span>
+            <span>{{ page.title }}</span>
+          </div>
+
+          <h1>{{ page.title }}</h1>
+          <div class="articleMeta">{{ page.category }} • Benchmark Legals</div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="articleSection">
+      <div class="container">
+
+        <div class="articleLayout">
+
+          <article class="articleContent">
+
+            <img class="articleImage" src="{{ page.image | default: '/assets/ukimmig.png' }}" alt="{{ page.title }}">
+
+            {{ content }}
+
+            <div class="relatedArticles">
+              <h2>More Immigration Articles</h2>
+
+              <div class="articleSlider">
+                {% for post in site.posts limit:10 %}
+                  {% unless post.url == page.url %}
+                    <a class="slideArticle" href="{{ post.url }}">
+                      <img src="{{ post.image | default: '/assets/ukimmig.png' }}" alt="{{ post.title }}">
+                      <div>
+                        <h3>{{ post.title }}</h3>
+                        <small>{{ post.category }}</small>
+                      </div>
+                    </a>
+                  {% endunless %}
+                {% endfor %}
+              </div>
+            </div>
+
+          </article>
+
+          <aside class="articleSidebar">
+
+            <div class="sideBox">
+              <h3>Need Immigration Advice?</h3>
+              <p>Our team can review your circumstances and guide you on the most suitable UK immigration route.</p>
+              <a href="/contact.html#book">Book Appointment</a>
+            </div>
+
+            <div class="sideTitle">
+              <span>ALL ARTICLES</span>
+            </div>
+
+            {% for post in site.posts limit:10 %}
+              <a class="sidePost" href="{{ post.url }}">
+                <h4>{{ post.title }}</h4>
+                <small>{{ post.category }}</small>
+              </a>
+            {% endfor %}
+
+          </aside>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footerMount"></div>
+
+  <a class="waFloat" href="https://wa.me/447903004158" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M20 12a8 8 0 0 1-11.9 7L4 20l1.1-4.1A8 8 0 1 1 20 12Zm-4.6 2.2c-.2-.1-1.3-.6-1.5-.7-.2-.1-.4-.1-.6.1-.2.2-.6.7-.7.8-.1.1-.3.2-.5.1-.2-.1-.9-.3-1.7-1.1-.6-.6-1.1-1.4-1.2-1.6-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.6 0-.2-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2 0 1.2.8 2.3 1 2.5.1.2 1.6 2.4 3.9 3.4.5.2.9.4 1.2.5.5.1 1 .1 1.4.1.4-.1 1.3-.5 1.5-1 .2-.5.2-.9.1-1 0-.1-.2-.2-.4-.3Z"/>
+    </svg>
+  </a>
+
+  <script src="/assets/site.js"></script>
+
+</body>
+</html>
