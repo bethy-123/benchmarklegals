@@ -1,7 +1,3 @@
----
-layout: none
----
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -9,111 +5,118 @@ layout: none
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Benchmark Legals | Blogs</title>
 
-  <link rel="icon" type="image/png" href="{{ '/assets/tablogo.png' | relative_url }}" />
-  <link rel="shortcut icon" type="image/png" href="{{ '/assets/tablogo.png' | relative_url }}" />
-  <link rel="apple-touch-icon" href="{{ '/assets/tablogo.png' | relative_url }}" />
+  <link rel="icon" type="image/png" href="assets/tablogo.png" />
+  <link rel="shortcut icon" type="image/png" href="assets/tablogo.png" />
+  <link rel="apple-touch-icon" href="assets/tablogo.png" />
 
-  <link rel="stylesheet" href="{{ '/assets/shared.css' | relative_url }}" />
+  <!-- SHARED CSS -->
+  <link rel="stylesheet" href="assets/shared.css" />
 
   <style>
+    /* =========================
+       BLOGS PAGE STYLES ONLY
+       ========================= */
+
     .hero{
       position: relative;
       background:
         linear-gradient(rgba(6, 18, 38, 0.68), rgba(6, 18, 38, 0.78)),
-        url("{{ '/assets/ukimmig.png' | relative_url }}") center / cover no-repeat;
+        url("assets/ukimmig.png") center / cover no-repeat;
       color:#fff;
       overflow:hidden;
     }
 
     .heroInner{
-      padding:64px 0;
+      padding: 64px 0;
       display:grid;
-      gap:12px;
+      gap: 12px;
     }
 
     .crumbs{
       display:flex;
       align-items:center;
       gap:10px;
-      font-size:14px;
-      color:rgba(255,255,255,.78);
-      flex-wrap:wrap;
+      font-size: 14px;
+      color: rgba(255,255,255,.78);
+      flex-wrap: wrap;
     }
 
-    .crumbs a{ color:rgba(255,255,255,.92); }
-    .crumbs span{ color:rgba(255,255,255,.55); }
+    .crumbs a{ color: rgba(255,255,255,.92); }
+    .crumbs span{ color: rgba(255,255,255,.55); }
 
     .hero h1{
-      font-family:var(--serif);
-      font-weight:600;
-      font-size:clamp(40px, 4.2vw, 60px);
-      line-height:1.02;
-      margin:6px 0 0;
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: clamp(40px, 4.2vw, 60px);
+      line-height: 1.02;
+      margin: 6px 0 0;
       letter-spacing:-.01em;
-      text-shadow:0 12px 40px rgba(0,0,0,.22);
+      text-shadow: 0 12px 40px rgba(0,0,0,.22);
     }
 
     .hero p{
       margin:0;
-      max-width:68ch;
-      color:rgba(255,255,255,.78);
-      font-size:15.5px;
-      line-height:1.75;
+      max-width: 68ch;
+      color: rgba(255,255,255,.78);
+      font-size: 15.5px;
+      line-height: 1.75;
     }
 
-    section{ padding:64px 0; }
+    section{ padding: 64px 0; }
 
-    .blogSection{ background:#fff; }
+    .blogSection{
+      background:#fff;
+    }
 
     .sectionTitle{
       text-align:center;
-      margin-bottom:34px;
+      margin-bottom: 34px;
     }
 
     .sectionTitle .top{
       display:inline-flex;
       align-items:center;
       gap:10px;
-      color:rgba(15,23,42,.55);
-      font-size:12px;
+      color: rgba(15,23,42,.55);
+      font-size: 12px;
       letter-spacing:.18em;
-      text-transform:uppercase;
+      text-transform: uppercase;
     }
 
     .sectionTitle .top .line{
       width:40px;
       height:1px;
-      background:rgba(15,23,42,.18);
+      background: rgba(15,23,42,.18);
     }
 
     .sectionTitle h2{
-      font-family:var(--serif);
-      font-weight:600;
+      font-family: var(--serif);
+      font-weight: 600;
       letter-spacing:-.01em;
-      margin:10px 0 0;
-      font-size:clamp(28px, 3vw, 40px);
+      margin: 10px 0 0;
+      font-size: clamp(28px, 3vw, 40px);
       color:#0f172a;
     }
 
     .sectionTitle p{
-      max-width:72ch;
-      margin:12px auto 0;
-      color:rgba(15,23,42,.72);
-      line-height:1.8;
-      font-size:15.5px;
+      max-width: 72ch;
+      margin: 12px auto 0;
+      color: rgba(15,23,42,.72);
+      line-height: 1.8;
+      font-size: 15.5px;
     }
 
     .blogLayout{
       display:grid;
-      grid-template-columns:1fr 330px;
-      gap:40px;
+      grid-template-columns: 1fr 330px;
+      gap: 40px;
       align-items:start;
     }
 
     .featuredBlogs{
       display:grid;
-      grid-template-columns:repeat(2, 1fr);
-      gap:24px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
     }
 
     .featuredBlog{
@@ -123,7 +126,7 @@ layout: none
       text-decoration:none;
       color:inherit;
       transition:.2s ease;
-      box-shadow:0 12px 34px rgba(11,27,51,.06);
+      box-shadow: 0 12px 34px rgba(11,27,51,.06);
       overflow:hidden;
     }
 
@@ -146,7 +149,7 @@ layout: none
 
     .featuredContent h3{
       margin:0 0 12px;
-      font-family:var(--serif);
+      font-family: var(--serif);
       font-size:26px;
       line-height:1.18;
       color:#0b1b33;
@@ -250,23 +253,65 @@ layout: none
       border-radius:4px;
     }
 
+    .ctaBand{
+      background: var(--soft);
+      border-top: 1px solid rgba(2,8,23,.06);
+      border-bottom: 1px solid rgba(2,8,23,.06);
+    }
+
+    .ctaCard{
+      width: min(860px, 100%);
+      margin: 0 auto;
+      border-radius: 24px;
+      background: var(--navy2);
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: 0 18px 60px rgba(0,0,0,.28);
+      color: #fff;
+      padding: 28px;
+      text-align:center;
+    }
+
+    .ctaCard h3{
+      margin: 0 0 10px;
+      font-family: var(--serif);
+      font-size: clamp(26px, 3vw, 34px);
+      font-weight: 600;
+      letter-spacing:-.01em;
+    }
+
+    .ctaCard p{
+      margin: 0 auto;
+      max-width: 62ch;
+      color: rgba(255,255,255,.74);
+      line-height: 1.8;
+      font-size: 15px;
+    }
+
+    .ctaActions{
+      margin-top: 22px;
+      display:flex;
+      justify-content:center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
     .waFloat{
       position:fixed;
-      right:18px;
-      bottom:18px;
-      width:56px;
-      height:56px;
-      border-radius:999px;
-      background:#25D366;
+      right: 18px;
+      bottom: 18px;
+      width: 56px;
+      height: 56px;
+      border-radius: 999px;
+      background: #25D366;
       display:grid;
       place-items:center;
-      box-shadow:0 16px 38px rgba(0,0,0,.20);
-      z-index:60;
+      box-shadow: 0 16px 38px rgba(0,0,0,.20);
+      z-index: 60;
       transition:.18s ease;
     }
 
-    .waFloat:hover{ transform:translateY(-2px); }
-    .waFloat svg{ width:26px; height:26px; fill:#fff; }
+    .waFloat:hover{ transform: translateY(-2px); }
+    .waFloat svg{ width:26px;height:26px; fill:#fff; }
 
     @media(max-width:980px){
       .blogLayout{
@@ -298,6 +343,7 @@ layout: none
 
 <body>
 
+  <!-- injected header -->
   <div id="headerMount"></div>
 
   <main id="top">
@@ -306,7 +352,7 @@ layout: none
       <div class="container">
         <div class="heroInner">
           <div class="crumbs">
-            <a href="{{ '/' | relative_url }}">Home</a>
+            <a href="index.html">Home</a>
             <span>→</span>
             <span>Blogs</span>
           </div>
@@ -327,41 +373,55 @@ layout: none
 
         <div class="blogLayout">
 
+          <!-- LEFT: ONLY 2 FEATURED BLOGS -->
           <div class="featuredBlogs">
 
-            {% for post in site.posts limit:2 %}
-            <a class="featuredBlog" href="{{ post.url | relative_url }}">
-              <img src="{{ post.image | default: '/assets/ukimmig.png' | relative_url }}" alt="{{ post.title }}">
+  {% for post in site.posts limit:2 %}
+  <a class="featuredBlog" href="{{ post.url }}">
+    <img src="{{ post.image | default: 'assets/ukimmig.png' }}" alt="{{ post.title }}">
+    <div class="featuredContent">
+      <h3>{{ post.title }}</h3>
+      <p>{{ post.description }}</p>
+      <span class="readMore">Read Article →</span>
+    </div>
+  </a>
+  {% endfor %}
+
+</div>
+            </a>
+
+            <a class="featuredBlog" href="blog-sponsor-licence-guidance.html">
+              <img src="assets/sponsor.png" alt="Sponsor Licence Guidance for UK Employers">
               <div class="featuredContent">
-                <h3>{{ post.title }}</h3>
-                <p>{{ post.description }}</p>
+                <h3>Sponsor Licence Guidance for UK Employers</h3>
+                <p>Coming soon: practical guidance for UK employers on sponsor licence applications, compliance duties and key personnel.</p>
                 <span class="readMore">Read Article →</span>
               </div>
             </a>
-            {% endfor %}
 
           </div>
 
-          <aside class="blogSidebar">
+          <!-- RIGHT: ALL BLOG LINKS -->
+         <aside class="blogSidebar">
 
-            <div class="sideTitle">
-              <span>ALL ARTICLES</span>
-            </div>
+  <div class="sideTitle">
+    <span>ALL ARTICLES</span>
+  </div>
 
-            {% for post in site.posts %}
-            <a class="sidePost" href="{{ post.url | relative_url }}">
-              <h4>{{ post.title }}</h4>
-              <small>{{ post.category }}</small>
-            </a>
-            {% endfor %}
+  {% for post in site.posts %}
+  <a class="sidePost" href="{{ post.url }}">
+    <h4>{{ post.title }}</h4>
+    <small>{{ post.category }}</small>
+  </a>
+  {% endfor %}
 
-            <div class="sideCta">
-              <h3>Which Visa Route is Right for You?</h3>
-              <p>UK immigration rules can be complex. Our team can review your circumstances and guide you on the most suitable route.</p>
-              <a href="{{ '/contact.html#book' | relative_url }}">Book Appointment</a>
-            </div>
+  <div class="sideCta">
+    <h3>Which Visa Route is Right for You?</h3>
+    <p>UK immigration rules can be complex. Our team can review your circumstances and guide you.</p>
+    <a href="contact.html#book">Book Appointment</a>
+  </div>
 
-          </aside>
+</aside>
 
         </div>
 
@@ -370,15 +430,18 @@ layout: none
 
   </main>
 
+  <!-- injected footer -->
   <div id="footerMount"></div>
 
+  <!-- WhatsApp -->
   <a class="waFloat" href="https://wa.me/447903004158" target="_blank" rel="noopener" aria-label="WhatsApp">
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <path d="M20 12a8 8 0 0 1-11.9 7L4 20l1.1-4.1A8 8 0 1 1 20 12Zm-4.6 2.2c-.2-.1-1.3-.6-1.5-.7-.2-.1-.4-.1-.6.1-.2.2-.6.7-.7.8-.1.1-.3.2-.5.1-.2-.1-.9-.3-1.7-1.1-.6-.6-1.1-1.4-1.2-1.6-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.6 0-.2-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2 0 1.2.8 2.3 1 2.5.1.2 1.6 2.4 3.9 3.4.5.2.9.4 1.2.5.5.1 1 .1 1.4.1.4-.1 1.3-.5 1.5-1 .2-.5.2-.9.1-1 0-.1-.2-.2-.4-.3Z"/>
     </svg>
   </a>
 
-  <script src="{{ '/assets/site.js' | relative_url }}"></script>
+  <!-- injects header/footer -->
+  <script src="assets/site.js"></script>
 
 </body>
 </html>
