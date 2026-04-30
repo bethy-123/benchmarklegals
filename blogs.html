@@ -138,10 +138,21 @@
       margin-bottom:10px;
     }
 
-    .blogRight{
-      position:sticky;
-      top:110px;
-    }
+   .blogRight{
+  position:sticky;
+  top:120px;
+  align-self:start;
+  max-height:calc(100vh - 140px);
+  overflow-y:auto;
+}
+    .blogRight::-webkit-scrollbar{
+  width:6px;
+}
+
+.blogRight::-webkit-scrollbar-thumb{
+  background:#d7b56d;
+  border-radius:99px;
+} 
 
     .sideBox{
       background:#fff;
