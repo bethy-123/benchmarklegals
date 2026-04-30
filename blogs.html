@@ -9,178 +9,150 @@
   <link rel="shortcut icon" type="image/png" href="assets/tablogo.png" />
   <link rel="apple-touch-icon" href="assets/tablogo.png" />
 
-  <!-- SHARED CSS -->
   <link rel="stylesheet" href="assets/shared.css" />
 
   <style>
-    /* =========================
-       BLOGS PAGE STYLES ONLY
-       ========================= */
-
     .hero{
-      position: relative;
+      position:relative;
       background:
-        linear-gradient(rgba(6, 18, 38, 0.68), rgba(6, 18, 38, 0.78)),
+        linear-gradient(rgba(6,18,38,.68), rgba(6,18,38,.78)),
         url("assets/ukimmig.png") center / cover no-repeat;
       color:#fff;
       overflow:hidden;
     }
 
     .heroInner{
-      padding: 64px 0;
+      padding:64px 0;
       display:grid;
-      gap: 12px;
+      gap:12px;
     }
 
     .crumbs{
       display:flex;
       align-items:center;
       gap:10px;
-      font-size: 14px;
-      color: rgba(255,255,255,.78);
-      flex-wrap: wrap;
+      font-size:14px;
+      color:rgba(255,255,255,.78);
+      flex-wrap:wrap;
     }
 
-    .crumbs a{ color: rgba(255,255,255,.92); }
-    .crumbs span{ color: rgba(255,255,255,.55); }
+    .crumbs a{ color:rgba(255,255,255,.92); }
+    .crumbs span{ color:rgba(255,255,255,.55); }
+    .crumbs .current{ color:rgba(215,181,109,.95); font-weight:700; }
 
     .hero h1{
-      font-family: var(--serif);
-      font-weight: 600;
-      font-size: clamp(40px, 4.2vw, 60px);
-      line-height: 1.02;
-      margin: 6px 0 0;
+      font-family:var(--serif);
+      font-weight:600;
+      font-size:clamp(40px, 4.2vw, 60px);
+      line-height:1.02;
+      margin:6px 0 0;
       letter-spacing:-.01em;
-      text-shadow: 0 12px 40px rgba(0,0,0,.22);
+      text-shadow:0 12px 40px rgba(0,0,0,.22);
     }
 
     .hero p{
       margin:0;
-      max-width: 68ch;
-      color: rgba(255,255,255,.78);
-      font-size: 15.5px;
-      line-height: 1.75;
+      max-width:70ch;
+      color:rgba(255,255,255,.78);
+      font-size:15.5px;
+      line-height:1.75;
     }
 
-    section{ padding: 64px 0; }
-
-    .blogSection{
+    .blogWrap{
+      padding:58px 0 76px;
       background:#fff;
     }
 
-    .sectionTitle{
-      text-align:center;
-      margin-bottom: 34px;
-    }
-
-    .sectionTitle .top{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      color: rgba(15,23,42,.55);
-      font-size: 12px;
-      letter-spacing:.18em;
-      text-transform: uppercase;
-    }
-
-    .sectionTitle .top .line{
-      width:40px;
-      height:1px;
-      background: rgba(15,23,42,.18);
-    }
-
-    .sectionTitle h2{
-      font-family: var(--serif);
-      font-weight: 600;
-      letter-spacing:-.01em;
-      margin: 10px 0 0;
-      font-size: clamp(28px, 3vw, 40px);
-      color:#0f172a;
-    }
-
-    .sectionTitle p{
-      max-width: 72ch;
-      margin: 12px auto 0;
-      color: rgba(15,23,42,.72);
-      line-height: 1.8;
-      font-size: 15.5px;
-    }
-
-    .blogLayout{
+    .blogGrid{
       display:grid;
-      grid-template-columns: 1fr 330px;
-      gap: 40px;
+      grid-template-columns:minmax(0, 1fr) 360px;
+      gap:34px;
       align-items:start;
     }
 
-    .featuredBlogs{
-      display:grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
+    .blogPanel{
+      display:none;
     }
 
-    .featuredBlog{
+    .blogPanel.isActive{
       display:block;
-      background:#fff;
-      border:1px solid rgba(2,8,23,.10);
-      text-decoration:none;
-      color:inherit;
-      transition:.2s ease;
-      box-shadow: 0 12px 34px rgba(11,27,51,.06);
-      overflow:hidden;
     }
 
-    .featuredBlog:hover{
-      transform:translateY(-3px);
-      box-shadow:0 18px 44px rgba(11,27,51,.11);
-      border-color:rgba(215,181,109,.35);
-    }
-
-    .featuredBlog img{
+    .articleImage{
       width:100%;
-      height:290px;
+      height:420px;
       object-fit:cover;
       display:block;
+      border:1px solid rgba(2,8,23,.10);
+      box-shadow:0 16px 40px rgba(11,27,51,.08);
+      margin-bottom:30px;
     }
 
-    .featuredContent{
-      padding:24px;
-    }
-
-    .featuredContent h3{
-      margin:0 0 12px;
-      font-family: var(--serif);
-      font-size:26px;
-      line-height:1.18;
+    .blogTitle{
+      font-family:var(--serif);
+      font-size:clamp(34px, 3.4vw, 52px);
+      line-height:1.08;
       color:#0b1b33;
       font-weight:600;
       letter-spacing:-.01em;
+      margin:0 0 12px;
     }
 
-    .featuredContent p{
-      margin:0 0 16px;
-      line-height:1.75;
-      color:rgba(15,23,42,.76);
-      font-size:15px;
+    .blogMeta{
+      color:rgba(15,23,42,.58);
+      font-size:14px;
+      margin-bottom:24px;
+      font-weight:700;
     }
 
-    .readMore{
-      display:inline-block;
-      font-weight:800;
+    .blogContent{
+      font-size:16px;
+      line-height:1.85;
+      color:rgba(15,23,42,.82);
+    }
+
+    .blogContent h2{
+      font-family:var(--serif);
       color:#0b1b33;
-      text-decoration:underline;
-      text-underline-offset:3px;
+      font-size:32px;
+      line-height:1.2;
+      margin:34px 0 12px;
     }
 
-    .blogSidebar{
-      display:flex;
-      flex-direction:column;
-      gap:12px;
+    .blogContent h3{
+      color:#0b1b33;
+      font-size:22px;
+      margin:28px 0 10px;
+    }
+
+    .blogContent p{
+      margin:0 0 18px;
+    }
+
+    .blogContent ul{
+      margin:0 0 24px 20px;
+      padding:0;
+    }
+
+    .blogContent li{
+      margin-bottom:10px;
+    }
+
+    .blogRight{
+      position:sticky;
+      top:110px;
+    }
+
+    .sideBox{
+      background:#fff;
+      border:1px solid rgba(2,8,23,.10);
+      box-shadow:0 14px 34px rgba(11,27,51,.06);
+      padding:0 0 18px;
     }
 
     .sideTitle{
       border-bottom:2px solid #d7b56d;
-      margin-bottom:10px;
+      margin-bottom:8px;
     }
 
     .sideTitle span{
@@ -188,39 +160,93 @@
       background:#d7b56d;
       color:#0b1b33;
       font-weight:900;
-      padding:5px 18px;
+      padding:7px 18px;
       font-size:13px;
       letter-spacing:.04em;
     }
 
-    .sidePost{
-      padding:13px 0;
-      border-bottom:1px solid rgba(2,8,23,.10);
-      text-decoration:none;
-      color:#0b1b33;
-      transition:.18s ease;
+    .blogList{
+      display:flex;
+      flex-direction:column;
+      padding:0 18px;
     }
 
-    .sidePost h4{
+    .blogLink{
+      display:none;
+      width:100%;
+      text-align:left;
+      background:transparent;
+      border:0;
+      border-bottom:1px solid rgba(2,8,23,.10);
+      padding:14px 0;
+      cursor:pointer;
+      color:#0b1b33;
+      font-family:inherit;
+    }
+
+    .blogLink.isVisible{
+      display:block;
+    }
+
+    .blogLink h4{
       margin:0;
       font-size:15px;
       line-height:1.45;
       color:#0b1b33;
+      font-weight:900;
     }
 
-    .sidePost small{
+    .blogLink small{
       display:block;
       margin-top:6px;
       font-size:12px;
       color:rgba(15,23,42,.55);
     }
 
-    .sidePost:hover h4{
+    .blogLink:hover h4,
+    .blogLink.isActive h4{
       color:#7a5d1b;
     }
 
+    .blogLink.isActive{
+      background:rgba(215,181,109,.08);
+      padding-left:10px;
+      padding-right:10px;
+      margin-left:-10px;
+      margin-right:-10px;
+    }
+
+    .sliderControls{
+      display:flex;
+      gap:10px;
+      padding:18px 18px 0;
+    }
+
+    .sliderControls button{
+      flex:1;
+      border:1px solid rgba(2,8,23,.12);
+      background:#0b1b33;
+      color:#fff;
+      padding:11px 12px;
+      font-weight:900;
+      cursor:pointer;
+      border-radius:4px;
+    }
+
+    .sliderControls button:disabled{
+      opacity:.35;
+      cursor:not-allowed;
+    }
+
+    .pageCount{
+      padding:12px 18px 0;
+      font-size:13px;
+      color:rgba(15,23,42,.60);
+      text-align:center;
+    }
+
     .sideCta{
-      margin-top:20px;
+      margin-top:22px;
       background:var(--navy2);
       color:#fff;
       padding:28px 22px;
@@ -253,89 +279,42 @@
       border-radius:4px;
     }
 
-    .ctaBand{
-      background: var(--soft);
-      border-top: 1px solid rgba(2,8,23,.06);
-      border-bottom: 1px solid rgba(2,8,23,.06);
-    }
-
-    .ctaCard{
-      width: min(860px, 100%);
-      margin: 0 auto;
-      border-radius: 24px;
-      background: var(--navy2);
-      border: 1px solid rgba(255,255,255,.14);
-      box-shadow: 0 18px 60px rgba(0,0,0,.28);
-      color: #fff;
-      padding: 28px;
-      text-align:center;
-    }
-
-    .ctaCard h3{
-      margin: 0 0 10px;
-      font-family: var(--serif);
-      font-size: clamp(26px, 3vw, 34px);
-      font-weight: 600;
-      letter-spacing:-.01em;
-    }
-
-    .ctaCard p{
-      margin: 0 auto;
-      max-width: 62ch;
-      color: rgba(255,255,255,.74);
-      line-height: 1.8;
-      font-size: 15px;
-    }
-
-    .ctaActions{
-      margin-top: 22px;
-      display:flex;
-      justify-content:center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
     .waFloat{
       position:fixed;
-      right: 18px;
-      bottom: 18px;
-      width: 56px;
-      height: 56px;
-      border-radius: 999px;
-      background: #25D366;
+      right:18px;
+      bottom:18px;
+      width:56px;
+      height:56px;
+      border-radius:999px;
+      background:#25D366;
       display:grid;
       place-items:center;
-      box-shadow: 0 16px 38px rgba(0,0,0,.20);
-      z-index: 60;
+      box-shadow:0 16px 38px rgba(0,0,0,.20);
+      z-index:60;
       transition:.18s ease;
     }
 
-    .waFloat:hover{ transform: translateY(-2px); }
-    .waFloat svg{ width:26px;height:26px; fill:#fff; }
+    .waFloat:hover{ transform:translateY(-2px); }
+    .waFloat svg{ width:26px; height:26px; fill:#fff; }
 
     @media(max-width:980px){
-      .blogLayout{
+      .blogGrid{
         grid-template-columns:1fr;
       }
 
-      .featuredBlogs{
-        grid-template-columns:1fr;
+      .blogRight{
+        position:relative;
+        top:0;
       }
     }
 
     @media(max-width:640px){
-      section{ padding:48px 0; }
-
-      .featuredBlog img{
-        height:230px;
+      .blogWrap{
+        padding:48px 0;
       }
 
-      .featuredContent{
-        padding:20px;
-      }
-
-      .featuredContent h3{
-        font-size:23px;
+      .articleImage{
+        height:260px;
       }
     }
   </style>
@@ -343,7 +322,6 @@
 
 <body>
 
-  <!-- injected header -->
   <div id="headerMount"></div>
 
   <main id="top">
@@ -355,93 +333,335 @@
             <a href="index.html">Home</a>
             <span>→</span>
             <span>Blogs</span>
+            <span>→</span>
+            <span class="current" id="crumbCurrent">Article 1</span>
           </div>
-          <h1>Blogs</h1>
+
+          <h1>Immigration Blogs</h1>
           <p>Explore practical UK immigration insights, Home Office updates, visa guidance and legal articles from Benchmark Legals.</p>
         </div>
       </div>
     </section>
 
-    <section class="blogSection">
+    <section class="blogWrap">
       <div class="container">
+        <div class="blogGrid">
 
-        <div class="sectionTitle">
-          <div class="top"><span class="line"></span> Legal Insights</div>
-          <h2>Latest Immigration Blogs</h2>
-          <p>Browse our latest UK immigration articles, practical legal guidance and Home Office updates in one place.</p>
-        </div>
+          <div class="blogLeft">
 
-        <div class="blogLayout">
+            <!-- ARTICLE 1 -->
+            <article class="blogPanel isActive" id="article-1" data-title="Article 1">
+              <img class="articleImage" src="assets/ukimmig.png" alt="Article 1">
+              <h2 class="blogTitle">Article 1 Title</h2>
+              <div class="blogMeta">Immigration Law • Benchmark Legals</div>
 
-          <!-- LEFT: ONLY 2 FEATURED BLOGS -->
-          <div class="featuredBlogs">
+              <div class="blogContent">
+                <p>Write your article introduction here.</p>
 
-  {% for post in site.posts limit:2 %}
-  <a class="featuredBlog" href="{{ post.url }}">
-    <img src="{{ post.image | default: 'assets/ukimmig.png' }}" alt="{{ post.title }}">
-    <div class="featuredContent">
-      <h3>{{ post.title }}</h3>
-      <p>{{ post.description }}</p>
-      <span class="readMore">Read Article →</span>
-    </div>
-  </a>
-  {% endfor %}
+                <h2>Section Heading</h2>
+                <p>Write your article content here.</p>
 
-</div>
-            </a>
-
-            <a class="featuredBlog" href="blog-sponsor-licence-guidance.html">
-              <img src="assets/sponsor.png" alt="Sponsor Licence Guidance for UK Employers">
-              <div class="featuredContent">
-                <h3>Sponsor Licence Guidance for UK Employers</h3>
-                <p>Coming soon: practical guidance for UK employers on sponsor licence applications, compliance duties and key personnel.</p>
-                <span class="readMore">Read Article →</span>
+                <h2>Need Legal Advice?</h2>
+                <p>Contact Benchmark Legals to discuss your UK immigration matter and understand your options.</p>
               </div>
-            </a>
+            </article>
+
+            <!-- ARTICLE 2 -->
+            <article class="blogPanel" id="article-2" data-title="Article 2">
+              <img class="articleImage" src="assets/ukimmig.png" alt="Article 2">
+              <h2 class="blogTitle">Article 2 Title</h2>
+              <div class="blogMeta">Immigration Law • Benchmark Legals</div>
+
+              <div class="blogContent">
+                <p>Write your second article content here.</p>
+              </div>
+            </article>
+
+            <!-- ARTICLE 3 -->
+            <article class="blogPanel" id="article-3" data-title="Article 3">
+              <img class="articleImage" src="assets/ukimmig.png" alt="Article 3">
+              <h2 class="blogTitle">Article 3 Title</h2>
+              <div class="blogMeta">Immigration Law • Benchmark Legals</div>
+              <div class="blogContent"><p>Write article 3 content here.</p></div>
+            </article>
+
+            <!-- ARTICLE 4 -->
+            <article class="blogPanel" id="article-4" data-title="Article 4">
+              <img class="articleImage" src="assets/ukimmig.png" alt="Article 4">
+              <h2 class="blogTitle">Article 4 Title</h2>
+              <div class="blogMeta">Immigration Law • Benchmark Legals</div>
+              <div class="blogContent"><p>Write article 4 content here.</p></div>
+            </article>
+
+            <!-- ARTICLE 5 -->
+            <article class="blogPanel" id="article-5" data-title="Article 5">
+              <img class="articleImage" src="assets/ukimmig.png" alt="Article 5">
+              <h2 class="blogTitle">Article 5 Title</h2>
+              <div class="blogMeta">Immigration Law • Benchmark Legals</div>
+              <div class="blogContent"><p>Write article 5 content here.</p></div>
+            </article>
+
+            <!-- ARTICLE 6 -->
+            <article class="blogPanel" id="article-6" data-title="Article 6">
+              <img class="articleImage" src="assets/ukimmig.png" alt="Article 6">
+              <h2 class="blogTitle">Article 6 Title</h2>
+              <div class="blogMeta">Immigration Law • Benchmark Legals</div>
+              <div class="blogContent"><p>Write article 6 content here.</p></div>
+            </article>
+
+            <!-- ARTICLE 7 -->
+            <article class="blogPanel" id="article-7" data-title="Article 7">
+              <img class="articleImage" src="assets/ukimmig.png" alt="Article 7">
+              <h2 class="blogTitle">Article 7 Title</h2>
+              <div class="blogMeta">Immigration Law • Benchmark Legals</div>
+              <div class="blogContent"><p>Write article 7 content here.</p></div>
+            </article>
+
+            <!-- ARTICLE 8 -->
+            <article class="blogPanel" id="article-8" data-title="Article 8">
+              <img class="articleImage" src="assets/ukimmig.png" alt="Article 8">
+              <h2 class="blogTitle">Article 8 Title</h2>
+              <div class="blogMeta">Immigration Law • Benchmark Legals</div>
+              <div class="blogContent"><p>Write article 8 content here.</p></div>
+            </article>
+
+            <!-- ARTICLE 9 -->
+            <article class="blogPanel" id="article-9" data-title="Article 9">
+              <img class="articleImage" src="assets/ukimmig.png" alt="Article 9">
+              <h2 class="blogTitle">Article 9 Title</h2>
+              <div class="blogMeta">Immigration Law • Benchmark Legals</div>
+              <div class="blogContent"><p>Write article 9 content here.</p></div>
+            </article>
+
+            <!-- ARTICLE 10 -->
+            <article class="blogPanel" id="article-10" data-title="Article 10">
+              <img class="articleImage" src="assets/ukimmig.png" alt="Article 10">
+              <h2 class="blogTitle">Article 10 Title</h2>
+              <div class="blogMeta">Immigration Law • Benchmark Legals</div>
+              <div class="blogContent"><p>Write article 10 content here.</p></div>
+            </article>
+
+            <!-- ARTICLE 11 -->
+            <article class="blogPanel" id="article-11" data-title="Article 11">
+              <img class="articleImage" src="assets/ukimmig.png" alt="Article 11">
+              <h2 class="blogTitle">Article 11 Title</h2>
+              <div class="blogMeta">Immigration Law • Benchmark Legals</div>
+              <div class="blogContent"><p>Write article 11 content here.</p></div>
+            </article>
+
+            <!-- ARTICLE 12 -->
+            <article class="blogPanel" id="article-12" data-title="Article 12">
+              <img class="articleImage" src="assets/ukimmig.png" alt="Article 12">
+              <h2 class="blogTitle">Article 12 Title</h2>
+              <div class="blogMeta">Immigration Law • Benchmark Legals</div>
+              <div class="blogContent"><p>Write article 12 content here.</p></div>
+            </article>
 
           </div>
 
-          <!-- RIGHT: ALL BLOG LINKS -->
-         <aside class="blogSidebar">
+          <aside class="blogRight">
 
-  <div class="sideTitle">
-    <span>ALL ARTICLES</span>
-  </div>
+            <div class="sideBox">
+              <div class="sideTitle">
+                <span>ALL ARTICLES</span>
+              </div>
 
-  {% for post in site.posts %}
-  <a class="sidePost" href="{{ post.url }}">
-    <h4>{{ post.title }}</h4>
-    <small>{{ post.category }}</small>
-  </a>
-  {% endfor %}
+              <div class="blogList">
 
-  <div class="sideCta">
-    <h3>Which Visa Route is Right for You?</h3>
-    <p>UK immigration rules can be complex. Our team can review your circumstances and guide you.</p>
-    <a href="contact.html#book">Book Appointment</a>
-  </div>
+                <button class="blogLink isActive" type="button" data-target="article-1">
+                  <h4>Article 1 Title</h4>
+                  <small>Immigration Law</small>
+                </button>
 
-</aside>
+                <button class="blogLink" type="button" data-target="article-2">
+                  <h4>Article 2 Title</h4>
+                  <small>Immigration Law</small>
+                </button>
+
+                <button class="blogLink" type="button" data-target="article-3">
+                  <h4>Article 3 Title</h4>
+                  <small>Immigration Law</small>
+                </button>
+
+                <button class="blogLink" type="button" data-target="article-4">
+                  <h4>Article 4 Title</h4>
+                  <small>Immigration Law</small>
+                </button>
+
+                <button class="blogLink" type="button" data-target="article-5">
+                  <h4>Article 5 Title</h4>
+                  <small>Immigration Law</small>
+                </button>
+
+                <button class="blogLink" type="button" data-target="article-6">
+                  <h4>Article 6 Title</h4>
+                  <small>Immigration Law</small>
+                </button>
+
+                <button class="blogLink" type="button" data-target="article-7">
+                  <h4>Article 7 Title</h4>
+                  <small>Immigration Law</small>
+                </button>
+
+                <button class="blogLink" type="button" data-target="article-8">
+                  <h4>Article 8 Title</h4>
+                  <small>Immigration Law</small>
+                </button>
+
+                <button class="blogLink" type="button" data-target="article-9">
+                  <h4>Article 9 Title</h4>
+                  <small>Immigration Law</small>
+                </button>
+
+                <button class="blogLink" type="button" data-target="article-10">
+                  <h4>Article 10 Title</h4>
+                  <small>Immigration Law</small>
+                </button>
+
+                <button class="blogLink" type="button" data-target="article-11">
+                  <h4>Article 11 Title</h4>
+                  <small>Immigration Law</small>
+                </button>
+
+                <button class="blogLink" type="button" data-target="article-12">
+                  <h4>Article 12 Title</h4>
+                  <small>Immigration Law</small>
+                </button>
+
+              </div>
+
+              <div class="sliderControls">
+                <button type="button" id="prevArticles">← Previous</button>
+                <button type="button" id="nextArticles">Next →</button>
+              </div>
+
+              <div class="pageCount" id="articlePageCount"></div>
+            </div>
+
+            <div class="sideCta">
+              <h3>Which Visa Route is Right for You?</h3>
+              <p>UK immigration rules can be complex. Our team can review your circumstances and guide you on the most suitable route.</p>
+              <a href="contact.html#book">Book Appointment</a>
+            </div>
+
+          </aside>
 
         </div>
-
       </div>
     </section>
 
   </main>
 
-  <!-- injected footer -->
   <div id="footerMount"></div>
 
-  <!-- WhatsApp -->
+  <script src="assets/site.js"></script>
+
+  <script>
+    (function(){
+      const ITEMS_PER_PAGE = 10;
+      const DEFAULT_ID = "article-1";
+
+      const panels = Array.from(document.querySelectorAll(".blogPanel"));
+      const links = Array.from(document.querySelectorAll(".blogLink"));
+      const crumbCurrent = document.getElementById("crumbCurrent");
+      const prevBtn = document.getElementById("prevArticles");
+      const nextBtn = document.getElementById("nextArticles");
+      const pageCount = document.getElementById("articlePageCount");
+
+      let currentPage = 0;
+
+      function getPageForArticle(id){
+        const index = links.findIndex(link => link.dataset.target === id);
+        if(index < 0) return 0;
+        return Math.floor(index / ITEMS_PER_PAGE);
+      }
+
+      function renderArticleList(){
+        const totalPages = Math.ceil(links.length / ITEMS_PER_PAGE);
+        const start = currentPage * ITEMS_PER_PAGE;
+        const end = start + ITEMS_PER_PAGE;
+
+        links.forEach((link, index) => {
+          link.classList.toggle("isVisible", index >= start && index < end);
+        });
+
+        prevBtn.disabled = currentPage === 0;
+        nextBtn.disabled = currentPage >= totalPages - 1;
+
+        pageCount.textContent = `Page ${currentPage + 1} of ${totalPages}`;
+      }
+
+      function setActive(id, options = {}){
+        const pushHash = options.pushHash !== false;
+        const panel = document.getElementById(id);
+
+        if(!panel) id = DEFAULT_ID;
+
+        panels.forEach(panel => {
+          panel.classList.toggle("isActive", panel.id === id);
+        });
+
+        links.forEach(link => {
+          link.classList.toggle("isActive", link.dataset.target === id);
+        });
+
+        currentPage = getPageForArticle(id);
+        renderArticleList();
+
+        const activePanel = document.getElementById(id);
+        const title = activePanel?.dataset?.title || activePanel?.querySelector(".blogTitle")?.textContent || "Blogs";
+
+        if(crumbCurrent) crumbCurrent.textContent = title;
+        document.title = `Benchmark Legals | ${title}`;
+
+        if(pushHash){
+          history.replaceState(null, "", `#${id}`);
+        }
+
+        if(window.matchMedia("(max-width: 980px)").matches){
+          const top = document.querySelector(".blogWrap");
+          if(top) top.scrollIntoView({behavior:"smooth", block:"start"});
+        }
+      }
+
+      links.forEach(link => {
+        link.addEventListener("click", () => {
+          setActive(link.dataset.target, {pushHash:true});
+        });
+      });
+
+      prevBtn.addEventListener("click", () => {
+        if(currentPage > 0){
+          currentPage--;
+          renderArticleList();
+        }
+      });
+
+      nextBtn.addEventListener("click", () => {
+        const totalPages = Math.ceil(links.length / ITEMS_PER_PAGE);
+        if(currentPage < totalPages - 1){
+          currentPage++;
+          renderArticleList();
+        }
+      });
+
+      function syncFromHash(){
+        const id = location.hash ? location.hash.replace("#", "") : DEFAULT_ID;
+        setActive(id, {pushHash:false});
+      }
+
+      window.addEventListener("hashchange", syncFromHash);
+
+      syncFromHash();
+      renderArticleList();
+    })();
+  </script>
+
   <a class="waFloat" href="https://wa.me/447903004158" target="_blank" rel="noopener" aria-label="WhatsApp">
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <path d="M20 12a8 8 0 0 1-11.9 7L4 20l1.1-4.1A8 8 0 1 1 20 12Zm-4.6 2.2c-.2-.1-1.3-.6-1.5-.7-.2-.1-.4-.1-.6.1-.2.2-.6.7-.7.8-.1.1-.3.2-.5.1-.2-.1-.9-.3-1.7-1.1-.6-.6-1.1-1.4-1.2-1.6-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.6 0-.2-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2 0 1.2.8 2.3 1 2.5.1.2 1.6 2.4 3.9 3.4.5.2.9.4 1.2.5.5.1 1 .1 1.4.1.4-.1 1.3-.5 1.5-1 .2-.5.2-.9.1-1 0-.1-.2-.2-.4-.3Z"/>
     </svg>
   </a>
-
-  <!-- injects header/footer -->
-  <script src="assets/site.js"></script>
 
 </body>
 </html>
