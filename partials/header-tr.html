@@ -4,20 +4,22 @@
     <div class="inner">
       <div class="left">
         <a href="mailto:info@benchmarklegals.co.uk" aria-label="E-posta">
+          <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M4 6h16v12H4V6Z" stroke="currentColor" stroke-width="1.7"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.7"/></svg>
           info@benchmarklegals.co.uk
         </a>
         <a href="tel:+447903004158" aria-label="Telefon">
+          <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M7 3h3l2 6-2 1c1.3 2.5 3.5 4.7 6 6l1-2 6 2v3c0 1-1 2-2 2C10 21 3 14 3 5c0-1 1-2 2-2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
           +44 7903 004158
         </a>
         <div class="badge">
-          IAA Kayıt No: <strong>F202538075</strong>
+          IAA Kayıt No: <strong>F202538075</strong> 
         </div>
       </div>
 
       <div class="right">
         <div class="social" aria-label="Sosyal medya bağlantıları">
-          <a href="https://www.instagram.com/benchmarklegals" target="_blank" rel="noopener">
-            Instagram
+          <a href="https://www.instagram.com/benchmarklegals" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+            <svg class="icon" viewBox="0 0 24 24" fill="none"><path fill="currentColor" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3Zm-5 4a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.5-.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0Z"/></svg>
           </a>
         </div>
       </div>
@@ -25,137 +27,149 @@
   </div>
 </div>
 
+<!-- HEADER -->
 <header id="siteHeader">
   <div class="container">
     <div class="navwrap">
-
-      <!-- LOGO -->
-      <a class="brand" href="/tr/index.html">
+      <a class="brand" href="/tr/index.html" aria-label="Benchmark Legals Ana Sayfa">
         <div class="logoBox">
           <img src="/assets/logo1.png" alt="Benchmark Legals logo" />
         </div>
       </a>
 
-      <!-- DESKTOP NAV -->
-      <nav class="desktop">
+      <nav class="desktop" aria-label="Ana menü">
+        <a data-nav="home" href="/tr/index.html">Ana Sayfa</a>
+        <a data-nav="about" href="/tr/about.html">Hakkımızda</a>
+        <a data-nav="team" href="/tr/team.html">Ekibimiz</a>
 
-        <a href="/tr/index.html">Ana Sayfa</a>
-        <a href="/tr/about.html">Hakkımızda</a>
-        <a href="/tr/team.html">Ekibimiz</a>
-
-        <!-- DROPDOWN -->
+        <!-- Immigration: gold + clickable + stable dropdown -->
         <div class="dd" id="ddImm">
           <div class="ddHead">
             <a class="ddLink isGold" href="/tr/index.html#services">Göçmenlik</a>
 
-            <button class="ddToggle" type="button">
-              <svg class="caret" viewBox="0 0 12 12">
-                <path d="M3 5l3 3 3-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <button class="ddToggle" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Göçmenlik menüsünü aç">
+              <svg class="caret" viewBox="0 0 12 12" fill="none">
+                <path d="M3 5l3 3 3-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </button>
           </div>
 
-          <div class="mega">
+          <div class="mega" role="menu" aria-label="Göçmenlik hizmetleri">
             <div class="grid">
-
               <div class="col">
-                <a href="/tr/immigration.html#business">İş ve Şirket Vizeleri</a>
-                <a href="/tr/immigration.html#family">Aile Vizeleri</a>
-                <a href="/tr/immigration.html#global-talent">Global Talent Vizesi</a>
-                <a href="/tr/immigration.html#skilled-worker">Skilled Worker Vizesi</a>
-                <a href="/tr/immigration.html#self-sponsorship">Kendi Şirketiniz Üzerinden Sponsorluk</a>
+                <a href="/tr/immigration.html#business">İş ve Şirket Vizeleri <small>→</small></a>
+                <a href="/tr/immigration.html#family">Aile Vizeleri <small>→</small></a>
+                <a href="/tr/immigration.html#global-talent">Global Talent Vizesi <small>→</small></a>
+                <a href="/tr/immigration.html#skilled-worker">Skilled Worker Vizesi <small>→</small></a>
+                <a href="/tr/immigration.html#self-sponsorship">Kendi Şirketiniz Üzerinden Sponsorluk <small>→</small></a>
               </div>
 
-              <div class="divider"></div>
+              <div class="divider" aria-hidden="true"></div>
 
               <div class="col">
-                <a href="/tr/immigration.html#visitor">Ziyaretçi Vizesi</a>
-                <a href="/tr/immigration.html#extensions">Vize Uzatma Başvuruları</a>
-                <a href="/tr/immigration.html#settlement">Süresiz Oturum ve Vatandaşlık</a>
-                <a href="/tr/immigration.html#graduate">Graduate Vizesi</a>
-                <a href="/tr/immigration.html#innovator">Innovator Founder Vizesi</a>
+                <a href="/tr/immigration.html#visitor">Ziyaretçi Vizesi <small>→</small></a>
+                <a href="/tr/immigration.html#extensions">Vize Uzatma Başvuruları <small>→</small></a>
+                <a href="/tr/immigration.html#settlement">Süresiz Oturum ve Vatandaşlık <small>→</small></a>
+                <a href="/tr/immigration.html#graduate">Graduate Vizesi <small>→</small></a>
+                <a href="/tr/immigration.html#innovator">Innovator Founder Vizesi <small>→</small></a>
               </div>
-
             </div>
           </div>
         </div>
 
-        <a href="/tr/blogs.html">Bloglar</a>
-        <a href="/tr/contact.html">İletişim</a>
-
+        <a data-nav="blogs" href="/tr/blogs.html">Bloglar</a>
+        <a data-nav="contact" href="/tr/contact.html">İletişim</a>
       </nav>
 
-      <!-- LANGUAGE SWITCH -->
       <div class="langSwitch">
-        <button id="langEN">
+        <button type="button" id="langEN" aria-label="English">
           <img src="https://flagcdn.com/gb.svg" alt="English">
         </button>
-        <button id="langTR">
+        <button type="button" id="langTR" aria-label="Türkçe">
           <img src="https://flagcdn.com/tr.svg" alt="Türkçe">
         </button>
       </div>
 
-      <!-- CTA -->
       <a class="btn primary" href="/tr/contact.html#book">Randevu Al</a>
 
-      <!-- BURGER -->
-      <button class="burger" id="burger">
+      <button class="burger" id="burger" type="button" aria-label="Menüyü aç">
         <span></span><span></span><span></span>
       </button>
-
     </div>
+  </div>
 
-    <!-- MOBILE -->
-    <div class="mobilePanel" id="mobilePanel">
-      <div class="inner">
+  <!-- MOBILE PANEL -->
+  <div class="mobilePanel" id="mobilePanel">
+    <div class="inner">
+      <a class="mLink" data-nav="home" href="/tr/index.html">Ana Sayfa</a>
+      <a class="mLink" data-nav="about" href="/tr/about.html">Hakkımızda</a>
+      <a class="mLink" data-nav="team" href="/tr/team.html">Ekibimiz</a>
 
-        <a class="mLink" href="/tr/index.html">Ana Sayfa</a>
-        <a class="mLink" href="/tr/about.html">Hakkımızda</a>
-        <a class="mLink" href="/tr/team.html">Ekibimiz</a>
+      <a class="mLink" href="/tr/index.html#services">
+        Göçmenlik
+        <span aria-hidden="true">→</span>
+      </a>
 
-        <a class="mLink" href="/tr/index.html#services">
-          Göçmenlik →
-        </a>
+      <button class="mLink" id="mImmBtn" type="button" aria-expanded="false">
+        Göçmenlik Hizmetleri
+        <svg class="caret" viewBox="0 0 12 12" fill="none"><path d="M3 5l3 3 3-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
 
-        <button class="mLink" id="mImmBtn">
-          Göçmenlik Hizmetleri
+      <div class="mSub" id="mImmSub">
+        <a href="/tr/immigration.html#business">İş ve Şirket Vizeleri</a>
+        <a href="/tr/immigration.html#family">Aile Vizeleri</a>
+        <a href="/tr/immigration.html#global-talent">Global Talent Vizesi</a>
+        <a href="/tr/immigration.html#skilled-worker">Skilled Worker Vizesi</a>
+        <a href="/tr/immigration.html#self-sponsorship">Kendi Şirketiniz Üzerinden Sponsorluk</a>
+        <a href="/tr/immigration.html#visitor">Ziyaretçi Vizesi</a>
+        <a href="/tr/immigration.html#extensions">Vize Uzatma Başvuruları</a>
+        <a href="/tr/immigration.html#settlement">Süresiz Oturum ve Vatandaşlık</a>
+        <a href="/tr/immigration.html#graduate">Graduate Vizesi</a>
+        <a href="/tr/immigration.html#innovator">Innovator Founder Vizesi</a>
+      </div>
+
+      <a class="mLink" data-nav="blogs" href="/tr/blogs.html">Bloglar</a>
+      <a class="mLink" data-nav="contact" href="/tr/contact.html">İletişim</a>
+
+      <div class="mobileLangSwitch">
+        <button type="button" id="mobileLangEN" aria-label="English">
+          <img src="https://flagcdn.com/gb.svg" alt="English">
         </button>
+        <button type="button" id="mobileLangTR" aria-label="Türkçe">
+          <img src="https://flagcdn.com/tr.svg" alt="Türkçe">
+        </button>
+      </div>
 
-        <div class="mSub" id="mImmSub">
-          <a href="/tr/immigration.html#business">İş ve Şirket Vizeleri</a>
-          <a href="/tr/immigration.html#family">Aile Vizeleri</a>
-          <a href="/tr/immigration.html#global-talent">Global Talent Vizesi</a>
-          <a href="/tr/immigration.html#skilled-worker">Skilled Worker Vizesi</a>
-          <a href="/tr/immigration.html#self-sponsorship">Kendi Şirketiniz Üzerinden Sponsorluk</a>
-          <a href="/tr/immigration.html#visitor">Ziyaretçi Vizesi</a>
-          <a href="/tr/immigration.html#extensions">Vize Uzatma Başvuruları</a>
-          <a href="/tr/immigration.html#settlement">Süresiz Oturum ve Vatandaşlık</a>
-          <a href="/tr/immigration.html#graduate">Graduate Vizesi</a>
-          <a href="/tr/immigration.html#innovator">Innovator Founder Vizesi</a>
-        </div>
-
-        <a class="mLink" href="/tr/blogs.html">Bloglar</a>
-        <a class="mLink" href="/tr/contact.html">İletişim</a>
-
-        <!-- MOBILE LANG -->
-        <div class="mobileLangSwitch">
-          <button id="mobileLangEN">
-            <img src="https://flagcdn.com/gb.svg" alt="English">
-          </button>
-          <button id="mobileLangTR">
-            <img src="https://flagcdn.com/tr.svg" alt="Türkçe">
-          </button>
-        </div>
-
-        <!-- MOBILE CTA -->
-        <div class="mRow">
-          <a class="btn light" href="mailto:info@benchmarklegals.co.uk">E-posta</a>
-          <a class="btn light" href="tel:+447903004158">Ara</a>
-          <a class="btn primary" href="/tr/contact.html#book">Randevu Al</a>
-        </div>
-
+      <div class="mRow">
+        <a class="btn light" href="mailto:info@benchmarklegals.co.uk">E-posta</a>
+        <a class="btn light" href="tel:+447903004158">Ara</a>
+        <a class="btn primary" href="/tr/contact.html#book">Randevu Al</a>
       </div>
     </div>
-
   </div>
 </header>
+
+<!-- ✅ DROPDOWN + GOLD FIX -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const dd = document.getElementById("ddImm");
+    if (!dd) return;
+
+    const toggle = dd.querySelector(".ddToggle");
+
+    const close = () => {
+      dd.classList.remove("open");
+      toggle?.setAttribute("aria-expanded", "false");
+    };
+
+    toggle?.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const isOpen = dd.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+
+    document.addEventListener("click", close);
+    dd.addEventListener("mouseleave", close);
+  });
+</script>
