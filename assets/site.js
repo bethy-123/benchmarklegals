@@ -119,8 +119,12 @@ function wireHeaderBehaviour() {
 
 (async function initSharedLayout(){
   try {
-    await loadPartial("#headerMount", "partials/header.html");
-    await loadPartial("#footerMount", "partials/footer.html");
+  const isTurkishPage = location.pathname.includes("/tr/");
+const partialPath = isTurkishPage ? "../partials/" : "partials/";
+const suffix = isTurkishPage ? "-tr" : "";
+
+await loadPartial("#headerMount", partialPath + "header" + suffix + ".html");
+await loadPartial("#footerMount", partialPath + "footer" + suffix + ".html");
 
     setActiveNav();
     wireHeaderBehaviour();
