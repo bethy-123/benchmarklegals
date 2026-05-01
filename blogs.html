@@ -137,7 +137,56 @@
     .blogContent li{
       margin-bottom:10px;
     }
+.blogIntro{
+  margin-bottom:34px;
+  padding:26px;
+  border:1px solid rgba(2,8,23,.08);
+  box-shadow:0 14px 34px rgba(11,27,51,.06);
+  background:#fff;
+}
 
+.blogIntro h2{
+  margin:0 0 10px;
+  font-family:var(--serif);
+  color:#0b1b33;
+  font-size:34px;
+}
+
+.blogIntro p{
+  margin:0 0 20px;
+  color:rgba(15,23,42,.72);
+  line-height:1.7;
+}
+
+.blogHighlights{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+}
+
+.goArticle{
+  text-align:left;
+  border:1px solid rgba(2,8,23,.10);
+  background:#faf9f6;
+  padding:16px;
+  cursor:pointer;
+}
+
+.goArticle strong{
+  display:block;
+  color:#0b1b33;
+  margin-bottom:6px;
+}
+
+.goArticle span{
+  color:rgba(15,23,42,.65);
+  font-size:13px;
+  line-height:1.4;
+}
+
+.goArticle:hover{
+  border-color:#d7b56d;
+}
 .blogRight{
   position:sticky;
   top:20px;
@@ -366,6 +415,30 @@
         <div class="blogGrid">
 
           <div class="blogLeft">
+            <div class="blogIntro">
+  <h2>Your Guide to UK Immigration</h2>
+  <p>
+    Explore clear, practical guidance on UK visas, settlement, citizenship and Home Office requirements.
+    Select an article from the list or start with one of our key guides below.
+  </p>
+
+  <div class="blogHighlights">
+    <button type="button" class="goArticle" data-target="uk-immigration-rules">
+      <strong>Start Here</strong>
+      <span>UK Immigration Rules and Home Office Guidance</span>
+    </button>
+
+    <button type="button" class="goArticle" data-target="skilled-worker">
+      <strong>Work in the UK</strong>
+      <span>Skilled Worker Visa Guidance</span>
+    </button>
+
+    <button type="button" class="goArticle" data-target="ilr">
+      <strong>Settle in the UK</strong>
+      <span>Indefinite Leave to Remain Guide</span>
+    </button>
+  </div>
+</div>
 
            <!-- ARTICLE 1 -->
 <article class="blogPanel isActive" id="uk-immigration-rules" data-title="UK Immigration Rules and Home Office Guidance 2026">
@@ -1843,7 +1916,7 @@
   <script>
     (function(){
       const ITEMS_PER_PAGE = 10;
-      const DEFAULT_ID = "article-1";
+      const DEFAULT_ID = "uk-immigration-rules";
 
       const panels = Array.from(document.querySelectorAll(".blogPanel"));
       const links = Array.from(document.querySelectorAll(".blogLink"));
@@ -1933,7 +2006,11 @@
         const id = location.hash ? location.hash.replace("#", "") : DEFAULT_ID;
         setActive(id, {pushHash:false});
       }
-
+document.querySelectorAll(".goArticle").forEach(btn => {
+  btn.addEventListener("click", () => {
+    setActive(btn.dataset.target, {pushHash:true});
+  });
+});
       window.addEventListener("hashchange", syncFromHash);
 
       syncFromHash();
