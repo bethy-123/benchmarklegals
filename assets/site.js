@@ -8,15 +8,16 @@ async function loadPartial(selector, url) {
 }
 
 function setActiveNav() {
-  // Map page -> nav key
   const path = (location.pathname.split("/").pop() || "index.html").toLowerCase();
 
   const pageToKey = {
     "index.html": "home",
     "": "home",
     "about.html": "about",
+    "team.html": "team",
+    "blogs.html": "blogs",
     "contact.html": "contact",
-    "immigration.html": "immigration", // (we're not using a data-nav for this button; dropdown is "Immigration")
+    "immigration.html": "immigration",
   };
 
   const key = pageToKey[path];
@@ -30,43 +31,18 @@ function wireHeaderBehaviour() {
   const qs = (s, el=document) => el.querySelector(s);
   const qsa = (s, el=document) => Array.from(el.querySelectorAll(s));
 
-  // Year
   const yearEl = qs("#year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // Desktop dropdown
   const dd = qs("#ddImm");
   const ddBtn = dd ? qs(".ddToggle", dd) : null;
-
 
   function closeDropdown(){
     if(!dd) return;
     dd.classList.remove("open");
     ddBtn?.setAttribute("aria-expanded", "false");
-    // Language switch
-function switchLanguage(lang){
-  let path = window.location.pathname;
-
-  if(lang === "en"){
-    if(path.includes("/tr/")){
-      path = path.replace("/tr", "");
-    }
   }
 
-  if(lang === "tr"){
-    if(!path.includes("/tr/")){
-      path = "/tr" + path;
-    }
-  }
-
-  window.location.href = path;
-}
-
-qs("#langEN")?.addEventListener("click", () => switchLanguage("en"));
-qs("#langTR")?.addEventListener("click", () => switchLanguage("tr"));
-qs("#mobileLangEN")?.addEventListener("click", () => switchLanguage("en"));
-qs("#mobileLangTR")?.addEventListener("click", () => switchLanguage("tr"));
-  }
   function toggleDropdown(){
     if(!dd) return;
     const open = dd.classList.toggle("open");
@@ -78,12 +54,14 @@ qs("#mobileLangTR")?.addEventListener("click", () => switchLanguage("tr"));
     e.stopPropagation();
     toggleDropdown();
   });
+
   dd?.addEventListener("mouseenter", () => {
     if (window.matchMedia("(hover:hover)").matches) {
       dd.classList.add("open");
       ddBtn?.setAttribute("aria-expanded","true");
     }
   });
+
   dd?.addEventListener("mouseleave", () => {
     if (window.matchMedia("(hover:hover)").matches) closeDropdown();
   });
@@ -91,11 +69,11 @@ qs("#mobileLangTR")?.addEventListener("click", () => switchLanguage("tr"));
   document.addEventListener("click", (e) => {
     if(dd && dd.classList.contains("open") && !dd.contains(e.target)) closeDropdown();
   });
+
   document.addEventListener("keydown", (e) => {
     if(e.key === "Escape") closeDropdown();
   });
 
-  // Mobile menu
   const header = qs("#siteHeader");
   const burger = qs("#burger");
   burger?.addEventListener("click", () => header.classList.toggle("menuOpen"));
@@ -104,7 +82,6 @@ qs("#mobileLangTR")?.addEventListener("click", () => switchLanguage("tr"));
     a.addEventListener("click", () => header.classList.remove("menuOpen"));
   });
 
-  // Mobile Immigration submenu
   const mImmBtn = qs("#mImmBtn");
   const mImmSub = qs("#mImmSub");
   mImmBtn?.addEventListener("click", () => {
@@ -112,6 +89,32 @@ qs("#mobileLangTR")?.addEventListener("click", () => switchLanguage("tr"));
     mImmSub.style.display = open ? "none" : "block";
     mImmBtn.setAttribute("aria-expanded", open ? "false" : "true");
   });
+
+  // Language switch
+  function switchLanguage(lang){
+    let path = window.location.pathname;
+
+    const base = path.startsWith("/benchmarklegals/") ? "/benchmarklegals" : "";
+    let cleanPath = base ? path.replace(base, "") : path;
+
+    if(cleanPath === "/" || cleanPath === "") cleanPath = "/index.html";
+
+    if(lang === "tr"){
+      if(!cleanPath.startsWith("/tr/")){
+        window.location.href = base + "/tr" + cleanPath;
+      }
+    }
+
+    if(lang === "en"){
+      cleanPath = cleanPath.replace(/^\/tr/, "");
+      window.location.href = base + cleanPath;
+    }
+  }
+
+  qs("#langEN")?.addEventListener("click", () => switchLanguage("en"));
+  qs("#langTR")?.addEventListener("click", () => switchLanguage("tr"));
+  qs("#mobileLangEN")?.addEventListener("click", () => switchLanguage("en"));
+  qs("#mobileLangTR")?.addEventListener("click", () => switchLanguage("tr"));
 }
 
 (async function initSharedLayout(){
