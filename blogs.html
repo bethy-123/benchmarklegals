@@ -144,7 +144,9 @@
   box-shadow:0 14px 34px rgba(11,27,51,.06);
   background:#fff;
 }
-
+.blogIntro.isHidden{
+  display:none;
+}
 .blogIntro h2{
   margin:0 0 10px;
   font-family:var(--serif);
@@ -1948,38 +1950,43 @@
         pageCount.textContent = `Page ${currentPage + 1} of ${totalPages}`;
       }
 
-      function setActive(id, options = {}){
-        const pushHash = options.pushHash !== false;
-        const panel = document.getElementById(id);
+function setActive(id, options = {}){
+  const pushHash = options.pushHash !== false;
+  const panel = document.getElementById(id);
 
-        if(!panel) id = DEFAULT_ID;
+  if(!panel) id = DEFAULT_ID;
 
-        panels.forEach(panel => {
-          panel.classList.toggle("isActive", panel.id === id);
-        });
+  const blogIntro = document.querySelector(".blogIntro");
+  if(blogIntro){
+    blogIntro.classList.add("isHidden");
+  }
 
-        links.forEach(link => {
-          link.classList.toggle("isActive", link.dataset.target === id);
-        });
+  panels.forEach(panel => {
+    panel.classList.toggle("isActive", panel.id === id);
+  });
 
-        currentPage = getPageForArticle(id);
-        renderArticleList();
+  links.forEach(link => {
+    link.classList.toggle("isActive", link.dataset.target === id);
+  });
 
-        const activePanel = document.getElementById(id);
-        const title = activePanel?.dataset?.title || activePanel?.querySelector(".blogTitle")?.textContent || "Blogs";
+  currentPage = getPageForArticle(id);
+  renderArticleList();
 
-        if(crumbCurrent) crumbCurrent.textContent = title;
-        document.title = `Benchmark Legals | ${title}`;
+  const activePanel = document.getElementById(id);
+  const title = activePanel?.dataset?.title || activePanel?.querySelector(".blogTitle")?.textContent || "Blogs";
 
-        if(pushHash){
-          history.replaceState(null, "", `#${id}`);
-        }
+  if(crumbCurrent) crumbCurrent.textContent = title;
+  document.title = `Benchmark Legals | ${title}`;
 
-        if(window.matchMedia("(max-width: 980px)").matches){
-          const top = document.querySelector(".blogWrap");
-          if(top) top.scrollIntoView({behavior:"smooth", block:"start"});
-        }
-      }
+  if(pushHash){
+    history.replaceState(null, "", `#${id}`);
+  }
+
+  if(window.matchMedia("(max-width: 980px)").matches){
+    const top = document.querySelector(".blogWrap");
+    if(top) top.scrollIntoView({behavior:"smooth", block:"start"});
+  }
+}
 
       links.forEach(link => {
         link.addEventListener("click", () => {
@@ -1994,7 +2001,7 @@
         }
       });
 
-      nextBtn.addEventListener("click", () => {
+            nextBtn.addEventListener("click", () => {
         const totalPages = Math.ceil(links.length / ITEMS_PER_PAGE);
         if(currentPage < totalPages - 1){
           currentPage++;
@@ -2003,14 +2010,26 @@
       });
 
       function syncFromHash(){
-        const id = location.hash ? location.hash.replace("#", "") : DEFAULT_ID;
+        const blogIntro = document.querySelector(".blogIntro");
+
+        if(!location.hash){
+          setActive(DEFAULT_ID, {pushHash:false});
+          if(blogIntro) blogIntro.classList.remove("isHidden");
+          return;
+        }
+
+        if(blogIntro) blogIntro.classList.add("isHidden");
+
+        const id = location.hash.replace("#", "");
         setActive(id, {pushHash:false});
       }
-document.querySelectorAll(".goArticle").forEach(btn => {
-  btn.addEventListener("click", () => {
-    setActive(btn.dataset.target, {pushHash:true});
-  });
-});
+
+      document.querySelectorAll(".goArticle").forEach(btn => {
+        btn.addEventListener("click", () => {
+          setActive(btn.dataset.target, {pushHash:true});
+        });
+      });
+
       window.addEventListener("hashchange", syncFromHash);
 
       syncFromHash();
