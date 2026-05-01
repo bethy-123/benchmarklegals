@@ -5,21 +5,764 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Benchmark Legals | Göçmenlik Hukuku Hizmetleri</title>
 
-  <link rel="icon" type="image/png" href="../assets/tablogo.png" />
-  <link rel="shortcut icon" type="image/png" href="../assets/tablogo.png" />
-  <link rel="apple-touch-icon" href="../assets/tablogo.png" />
+  <!-- FAVICON -->
+  <link rel="icon" type="image/png" href="assets/tablogo.png" />
+  <link rel="shortcut icon" type="image/png" href="assets/tablogo.png" />
+  <link rel="apple-touch-icon" href="assets/tablogo.png" />
 
-  <link rel="stylesheet" href="../assets/shared.css?v=6">
+  <!-- ✅ SHARED CSS (controls topbar + header/nav + footer like other pages) -->
+  <link rel="stylesheet" href="assets/shared.css?v=6">
 
-  <!-- KEEP YOUR FULL EXISTING STYLE SECTION HERE EXACTLY SAME -->
+  <style>
+    :root{
+      --navy:#081a33;
+      --navy2:#0b2346;
+      --ink:#0e1526;
+      --muted:#6b7280;
+      --line:rgba(15, 23, 42, .10);
+      --paper:#ffffff;
+      --soft:#f6f7fb;
+      --gold:#d7b56d;
+      --gold2:#caa353;
+      --shadow: 0 16px 40px rgba(2,8,23,.12);
+      --shadow2: 0 10px 24px rgba(2,8,23,.10);
+      --radius: 18px;
+      --radius2: 22px;
+
+      --serif: ui-serif, Georgia, "Times New Roman", serif;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: var(--sans);
+      color: var(--ink);
+      background: var(--paper);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    img{ max-width:100%; display:block; }
+    a{ color: inherit; text-decoration:none; }
+    button{ font:inherit; }
+
+    /* Prevent invisible overlays blocking clicks */
+    body, main, section { position: relative; }
+
+    /* Anchor offset for sticky header (shared header is sticky) */
+    [id]{ scroll-margin-top: 98px; }
+
+    /* ---------- utilities ---------- */
+    .container{
+      width:min(1180px, calc(100% - 40px));
+      margin:0 auto;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:.55rem;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border:1px solid transparent;
+      cursor:pointer;
+      transition:.18s ease;
+      font-weight:600;
+      letter-spacing:.01em;
+      background:transparent;
+      user-select:none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn:focus{ outline:none; }
+    .btn:focus-visible{
+      outline: 3px solid rgba(215,181,109,.35);
+      outline-offset: 3px;
+    }
+    .btn.primary{
+      background: var(--gold);
+      color:#10203a;
+      box-shadow: 0 10px 24px rgba(215,181,109,.22);
+    }
+    .btn.primary:hover{ background: var(--gold2); }
+    .btn.ghost{
+      border-color: rgba(255,255,255,.35);
+      color:#fff;
+    }
+    .btn.ghost:hover{ background: rgba(255,255,255,.08); }
+    .btn.light{
+      border-color: rgba(2,8,23,.10);
+      color:#111827;
+      background:#fff;
+    }
+    .btn.light:hover{ box-shadow: var(--shadow2); transform: translateY(-1px); }
+
+    .kicker{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color: rgba(255,255,255,.70);
+      font-size:12px;
+      letter-spacing:.18em;
+      text-transform: uppercase;
+    }
+    .kicker .line{
+      width:36px;height:1px;background: rgba(255,255,255,.35);
+    }
+
+    /* ---------- HERO ---------- */
+    .hero{
+      position: relative;
+      background:
+        linear-gradient(rgba(6, 18, 38, 0.65), rgba(6, 18, 38, 0.75)),
+        url("assets/hero-legal-women.png") center top / cover no-repeat;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .heroInner{
+      position:relative;
+      z-index:2;
+      padding: 64px 0 84px;
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 26px;
+      align-items:center;
+    }
+    .hero h1{
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: clamp(42px, 4.6vw, 64px);
+      line-height: 1.02;
+      margin: 12px 0 14px;
+      letter-spacing:-.01em;
+      text-shadow: 0 12px 40px rgba(0,0,0,.22);
+    }
+    .hero p{
+      max-width: 56ch;
+      color: rgba(255,255,255,.78);
+      font-size: 15.5px;
+      line-height: 1.7;
+      margin: 0 0 18px;
+    }
+    .langLine{
+      margin: 6px 0 10px;
+      color: rgba(255,255,255,.88);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .heroActions{
+      display:flex;
+      gap: 12px;
+      flex-wrap:wrap;
+      margin-top: 18px;
+    }
+
+    .regRow{
+  display:flex;
+  justify-content:flex-end;
+   padding-right: 300px;
+  margin-top: 250px; 
+}
+
+@media (max-width: 480px){
+  .heroInner{ 
+    grid-template-columns: 1fr; 
+  }
+
+  .regRow{
+    justify-content: flex-start;
+    margin-top: 40px;   /* only mobile */
+    padding-right: 0;   /* only mobile */
+  }
+
+  .iaaBadgeCard{ 
+    width: 220px; 
+    padding: 12px; 
+  }
+}
+
+
+    /* ---------- SECTION BASE ---------- */
+    section{ padding: 64px 0; }
+    .sectionTitle{
+      text-align:center;
+      margin-bottom: 26px;
+    }
+    .sectionTitle .top{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      color: rgba(15,23,42,.55);
+      font-size: 12px;
+      letter-spacing:.18em;
+      text-transform: uppercase;
+    }
+    .sectionTitle .top .line{ width:40px;height:1px;background: rgba(15,23,42,.18); }
+    .sectionTitle h2{
+      font-family: var(--serif);
+      font-weight: 600;
+      letter-spacing:-.01em;
+      margin: 10px 0 0;
+      font-size: clamp(28px, 3vw, 40px);
+    }
+
+    /* ---------- WELCOME ---------- */
+    .welcome{ background: #fff; }
+
+    .welcomeGrid{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 26px;
+      align-items:stretch;
+    }
+
+    .welcomeImg{
+      border-radius: 22px;
+      overflow:hidden;
+      box-shadow: var(--shadow);
+      position:relative;
+      min-height: 420px;
+      background: #0b1730;
+    }
+    .welcomeImg img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .casesBadge{
+      position:absolute;
+      left: 22px;
+      bottom: 22px;
+      width: 190px;
+      background: var(--navy2);
+      color:#fff;
+      border-radius: 18px;
+      padding: 18px 18px;
+      box-shadow: 0 18px 40px rgba(2,8,23,.30);
+    }
+    .casesBadge .big{
+      font-family: var(--serif);
+      font-weight: 800;
+      font-size: 54px;
+      line-height:1;
+      margin-bottom: 10px;
+    }
+    .casesBadge .small{
+      font-weight: 800;
+      letter-spacing:.02em;
+      opacity:.95;
+    }
+
+    .welcomeCard{
+      border-radius: 22px;
+      position:relative;
+      overflow:hidden;
+      border: 1px solid rgba(2,8,23,.08);
+      box-shadow: var(--shadow2);
+      background:
+        linear-gradient(180deg, rgba(6,18,38,.60), rgba(6,18,38,.70)),
+        url("assets/ukn.png") center / cover no-repeat;
+      padding: 26px;
+      color: #fff;
+    }
+    .welcomeCard::after{ display:none; }
+
+    .welcomeCard .mini{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      font-size: 12px;
+      letter-spacing:.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.80);
+      margin-bottom: 8px;
+    }
+    .welcomeCard .mini .line{
+      width:34px;height:1px;
+      background: rgba(255,255,255,.35);
+    }
+
+    .welcomeCard h3{
+      font-family: var(--serif);
+      font-weight: 600;
+      letter-spacing:-.01em;
+      margin: 0 0 10px;
+      font-size: 34px;
+      line-height:1.05;
+      color:#fff;
+    }
+
+    .welcomeCard p{
+      color: rgba(255,255,255,.78);
+      line-height:1.75;
+      font-size: 14.8px;
+      margin: 0 0 16px;
+    }
+
+    .checklist{
+      margin: 16px 0 18px;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap: 10px;
+    }
+    .checklist li{
+      display:flex;
+      align-items:flex-start;
+      gap: 10px;
+      color: rgba(255,255,255,.86);
+      font-size: 14px;
+      line-height:1.6;
+    }
+    .tick{
+      width:18px;height:18px; flex:0 0 auto;
+      border-radius: 6px;
+      background: rgba(255,255,255,.16);
+      display:grid;place-items:center;
+      margin-top: 2px;
+      border:1px solid rgba(255,255,255,.20);
+      font-weight:900;
+      color:#fff;
+    }
+
+    .welcomeBtns{
+      display:flex;
+      gap: 12px;
+      flex-wrap:wrap;
+    }
+    .welcomeBtns .btn.light{
+      background: #fff !important;
+      color: #0b2346 !important;
+      border: none !important;
+    }
+    .welcomeBtns .btn.light:hover{
+      transform: translateY(-1px);
+      box-shadow: var(--shadow2);
+    }
+
+    @media (max-width: 980px){
+      .welcomeGrid{ grid-template-columns: 1fr; }
+      .welcomeImg{ min-height: 320px; }
+      .casesBadge{ width: 170px; }
+      .casesBadge .big{ font-size: 46px; }
+      .welcomeCard h3{ font-size: 30px; }
+    }
+
+    /* ---------- SERVICES ---------- */
+    .services{
+      background: var(--soft);
+      border-top:1px solid rgba(2,8,23,.06);
+      border-bottom:1px solid rgba(2,8,23,.06);
+    }
+
+    .svcGrid{
+      display:grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      border-radius: 22px;
+      overflow:hidden;
+      border: 1px solid rgba(2,8,23,.08);
+      background:#fff;
+      box-shadow: var(--shadow2);
+    }
+    .svc{
+      padding: 22px 18px;
+      min-height: 170px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      gap: 10px;
+      border-right:1px solid rgba(2,8,23,.08);
+      border-bottom:1px solid rgba(2,8,23,.08);
+      transition:.18s ease;
+      cursor:pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .svc:nth-child(5),
+    .svc:nth-child(10){ border-right:none; }
+    .svc:nth-child(n+6){ border-bottom:none; }
+    .svc:hover{ background: rgba(215,181,109,.06); }
+
+    .svc .ico{
+      width: 46px; height: 46px;
+      border-radius: 16px;
+      display:grid;
+      place-items:center;
+      background: rgba(215,181,109,.10);
+      border: 1px solid rgba(215,181,109,.28);
+      box-shadow: 0 10px 22px rgba(2,8,23,.08);
+    }
+
+    .svc h4{
+      margin: 4px 0 0;
+      font-size: 12.5px;
+      letter-spacing:.12em;
+      text-transform: uppercase;
+      color:#0f172a;
+      line-height:1.35;
+    }
+    .svc .arrow{
+      width:30px;height:30px;border-radius:999px;
+      border:1px solid rgba(2,8,23,.10);
+      display:grid;place-items:center;
+      margin-top: 6px;
+      color:#0f172a;
+      opacity:.85;
+    }
+    .svc:hover .arrow{
+      background: #fff;
+      box-shadow: var(--shadow2);
+      transform: translateY(-1px);
+    }
+
+    .svc svg{
+      width:22px;
+      height:22px;
+      stroke: currentColor;
+    }
+    .svc svg *{
+      stroke-width: 1.7 !important;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .c1, .c2, .c3, .c4, .c5{ color: var(--gold2); }
+
+    @media (max-width: 1100px){
+      .svcGrid{ grid-template-columns: repeat(3, 1fr); }
+      .svc:nth-child(3),
+      .svc:nth-child(6),
+      .svc:nth-child(9){ border-right:none; }
+      .svc:nth-child(4),
+      .svc:nth-child(5),
+      .svc:nth-child(6){ border-bottom:1px solid rgba(2,8,23,.08); }
+      .svc:nth-child(7),
+      .svc:nth-child(8),
+      .svc:nth-child(9){ border-bottom:none; }
+      .svc:nth-child(10){ border-right:none; border-bottom:none; }
+    }
+
+    @media (max-width: 820px){
+      .svcGrid{
+        display:flex;
+        gap: 12px;
+        padding: 14px;
+        overflow-x:auto;
+        scroll-snap-type: x mandatory;
+        border-radius: 22px;
+      }
+      .svcGrid::-webkit-scrollbar{ display:none; }
+      .svc{
+        flex: 0 0 78%;
+        min-height: 170px;
+        border-radius: 18px;
+        border:1px solid rgba(2,8,23,.08);
+        scroll-snap-align: start;
+      }
+      .svc{ border-right:none; border-bottom:none; }
+    }
+
+    /* ---------- SPEAK ---------- */
+    .speak{ background:#fff; }
+    .speakBox{
+      border-radius: 22px;
+      border: 1px solid rgba(2,8,23,.08);
+      box-shadow: var(--shadow2);
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 0;
+      overflow:hidden;
+    }
+    .speakLeft{
+      padding: 26px;
+      background:#fff;
+    }
+    .speakLeft h3{
+      font-family: var(--serif);
+      font-weight: 600;
+      margin: 0 0 8px;
+      font-size: 28px;
+      letter-spacing:-.01em;
+    }
+    .speakLeft p{
+      margin:0;
+      color: rgba(15,23,42,.70);
+      line-height:1.75;
+      font-size: 14.8px;
+      max-width: 62ch;
+    }
+    .speakRight{
+      padding: 22px;
+      background: linear-gradient(180deg, rgba(215,181,109,.96), rgba(202,163,83,.96));
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap: 10px;
+    }
+    .speakRight .tiny{
+      font-size: 12px;
+      letter-spacing:.16em;
+      text-transform: uppercase;
+      color: rgba(16,32,58,.85);
+      font-weight: 800;
+    }
+    .speakRight .cta{
+      font-family: var(--serif);
+      font-weight: 800;
+      color:#10203a;
+      font-size: 20px;
+      line-height:1.2;
+    }
+    .speakRight .miniRow{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-top: 6px;
+    }
+    .speakRight .miniBtn{
+      background:#10203a;
+      color:#fff;
+      border:none;
+      border-radius:999px;
+      padding: 10px 14px;
+      cursor:pointer;
+      font-weight:800;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .speakRight .miniBtn:hover{ opacity:.92; }
+
+    @media (max-width: 980px){
+      .speakBox{ grid-template-columns: 1fr; }
+    }
+
+    /* ---------- FAQ ---------- */
+    .faq{ background:#fff; }
+    .faqGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      align-items:start;
+    }
+    @media (max-width: 980px){
+      .faqGrid{ grid-template-columns: 1fr; }
+    }
+
+    .accordion{ display:grid; gap: 10px; }
+    .accItem{
+      border-radius: 16px;
+      border: 1px solid rgba(2,8,23,.08);
+      overflow:hidden;
+      background:#fff;
+      box-shadow: 0 10px 24px rgba(2,8,23,.06);
+    }
+    .accBtn{
+      width:100%;
+      text-align:left;
+      padding: 16px 16px;
+      background:#fff;
+      border:none;
+      cursor:pointer;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap: 10px;
+      font-weight:800;
+      color:#0f172a;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .accBtn .plus{
+      width:26px;height:26px;border-radius:10px;
+      border:1px solid rgba(2,8,23,.10);
+      display:grid;place-items:center;
+      color:#0f172a;
+      background:#fff;
+      flex:0 0 auto;
+      font-weight:900;
+    }
+    .accPanel{
+      display:none;
+      padding: 0 16px 16px;
+      color: rgba(15,23,42,.72);
+      line-height:1.75;
+      font-size: 14.4px;
+    }
+
+    /* ---------- CONTACT / BOOKING ---------- */
+    .contact{
+      background: var(--soft);
+      border-top: 1px solid rgba(2,8,23,.06);
+    }
+
+    .contactGrid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 22px;
+      align-items:start;
+    }
+
+    .contact .card{
+      background: var(--navy2);
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: 0 18px 60px rgba(0,0,0,.35);
+      color: #fff;
+    }
+
+    .contact .card p{ color: rgba(255,255,255,.72); }
+    .contact label{ color: rgba(255,255,255,.70); }
+
+    .contact input,
+    .contact select,
+    .contact textarea{
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.16);
+      color: #fff;
+    }
+    .contact select option{
+      background: #ffffff;
+      color: #0f172a;
+    }
+
+    .contactActions{
+      margin-top: 22px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    .contact input::placeholder,
+    .contact textarea::placeholder{
+      color: rgba(255,255,255,.55);
+    }
+
+    .contact .consent{ color: rgba(255,255,255,.75); }
+    .contact .note{ color: rgba(255,255,255,.60); }
+
+    .contact .btn.light{
+      background: rgba(255,255,255,.06) !important;
+      border: 1px solid rgba(255,255,255,.22) !important;
+      color: #fff !important;
+    }
+    .contact .btn.light:hover{
+      background: rgba(255,255,255,.10) !important;
+      transform: translateY(-1px);
+    }
+    .contact .btn.primary{
+      background: var(--gold);
+      color: #10203a;
+    }
+
+    .card{
+      border-radius: 22px;
+      background:#fff;
+      border: 1px solid rgba(2,8,23,.08);
+      box-shadow: var(--shadow2);
+      padding: 22px;
+    }
+    .card h3{
+      font-family: var(--serif);
+      margin: 0 0 10px;
+      font-size: 26px;
+      letter-spacing:-.01em;
+    }
+    .card p{
+      margin:0 0 14px;
+      color: rgba(15,23,42,.72);
+      line-height:1.7;
+      font-size: 14.6px;
+    }
+    .fields{
+      display:grid;
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .row2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    @media (max-width: 560px){
+      .row2{ grid-template-columns: 1fr; }
+    }
+    label{
+      display:block;
+      font-size: 12px;
+      letter-spacing:.14em;
+      text-transform: uppercase;
+      font-weight: 800;
+      margin: 0 0 6px;
+    }
+    input, select, textarea{
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 14px;
+      font:inherit;
+      outline:none;
+      transition: .15s ease;
+    }
+    textarea{ min-height: 120px; resize: vertical; }
+    input:focus, select:focus, textarea:focus{
+      border-color: rgba(215,181,109,.70);
+      box-shadow: 0 0 0 4px rgba(215,181,109,.20);
+    }
+    .consent{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      margin-top: 10px;
+      font-size: 13.8px;
+      line-height:1.5;
+    }
+    .consent input{
+      width: 18px;
+      height: 18px;
+      margin-top: 2px;
+    }
+    .note{
+      font-size: 12.8px;
+      margin-top: 10px;
+      line-height:1.5;
+    }
+
+    .waFloat{
+      position:fixed;
+      right: 18px;
+      bottom: 18px;
+      width: 56px;
+      height: 56px;
+      border-radius: 999px;
+      background: #25D366;
+      display:grid;
+      place-items:center;
+      box-shadow: 0 16px 38px rgba(0,0,0,.20);
+      z-index: 60;
+      transition:.18s ease;
+    }
+    .waFloat:hover{ transform: translateY(-2px); }
+    .waFloat svg{ width:26px;height:26px; fill:#fff; }
+
+    @media (prefers-reduced-motion: reduce){
+      *{ transition:none !important; scroll-behavior:auto !important; }
+    }
+  </style>
 </head>
 
 <body>
 
+  <!-- ✅ SHARED HEADER (Topbar + Header/Nav) -->
   <div id="headerMount"></div>
 
   <main>
 
+    <!-- HERO -->
     <section class="hero" id="top">
       <div class="container">
         <div class="heroInner">
@@ -29,39 +772,44 @@
             <p class="langLine">İngilizce • Türkçe • Kürtçe konuşan ekip</p>
 
             <p>
-              Deneyimli ekibimiz, Birleşik Krallık göçmenlik süreçlerinde ihtiyaçlarınıza uygun, etkili, anlaşılır ve profesyonel hukuki destek sunar.
+              Deneyimli göçmenlik hukuku ekibimiz, bireysel ihtiyaçlarınıza uygun geniş kapsamlı hizmetlerde etkili, özenli ve profesyonel hukuki destek sunma konusunda güçlü bir itibara sahiptir.
             </p>
 
             <div class="heroActions">
               <a class="btn ghost" href="#about">Daha Fazla Bilgi</a>
-              <a class="btn primary" href="#book">Ücretsiz 15 Dakikalık Online Görüşme</a>
+              <a class="btn primary" href="#book">Ücretsiz 15 Dakikalık Online Danışma</a>
             </div>
           </div>
 
-          <div class="regRow">
-            <div style="width:100%;max-width:125px;max-height:190px;">
-              <div style="position: relative;padding-bottom: 152%;height: auto;overflow: hidden;">
-                <iframe id="myFrame"
-                  src="https://cdn2.yoshki.com/badgeframe?10"
-                  style="overflow: hidden;border:0px; margin:0px; padding:0px; background-color:transparent; top:0px; left:0px; width:100%; height:100%; position: absolute;"
-                  loading="lazy"
-                  title="Immigration Advice Authority verification badge">
-                </iframe>
-              </div>
-            </div>
-          </div>
+         <div class="regRow">
+  <!-- Start of Digital Badge code -->
+  <div style="width:100%;max-width:125px;max-height:190px;">
+    <div style="position: relative;padding-bottom: 152%;height: auto;overflow: hidden;">
+      <iframe id="myFrame"
+        src="https://cdn2.yoshki.com/badgeframe?10"
+        style="overflow: hidden;border:0px; margin:0px; padding:0px; background-color:transparent; top:0px; left:0px; width:100%; height:100%; position: absolute;"
+        loading="lazy"
+        title="Immigration Advice Authority doğrulama rozeti">
+      </iframe>
+    </div>
+  </div>
+  <!-- End of Digital Badge code -->
+</div>
+
+
 
         </div>
       </div>
     </section>
 
+    <!-- WELCOME / ABOUT -->
     <section class="welcome" id="about">
       <div class="container">
         <div class="welcomeGrid">
           <div class="welcomeImg" aria-label="Karşılama görseli">
             <img
-              src="../assets/legal-visa.png"
-              alt="Hukuki danışmanlık görüşmesi"
+              src="assets/legal-visa.png"
+              alt="Hukuk danışmanlığı görüşmesi"
               onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(180deg,#0b2346,#081a33)';"
             />
             <div class="casesBadge" aria-label="Başarılı dosyalar">
@@ -72,113 +820,137 @@
 
           <div class="welcomeCard">
             <div class="mini"><span class="line"></span> Benchmark Legals</div>
-            <h3>Deneyimimiz Size Yol Göstersin!</h3>
+            <h3>Deneyimimiz Yolunuzu Aydınlatsın!</h3>
             <p>
-              Benchmark Legals, bireylere ve işletmelere vize başvuruları, uzatma işlemleri ve Birleşik Krallık’ta yerleşim seçenekleri konusunda özenli dosya yönetimi ve profesyonel danışmanlık yaklaşımıyla destek sunar.
+              Benchmark Legals, bireylere ve işletmelere göçmenlik hukuku alanında hizmet sunar. Vize başvuruları, uzatma işlemleri ve Birleşik Krallık’ta yerleşim seçeneklerinde titiz dosya yönetimi ve yüksek standartlarda müvekkil hizmetiyle destek sağlar.
             </p>
 
             <ul class="checklist">
-              <li><span class="tick">✓</span> Uzman göçmenlik danışmanlığı ve hukuki destek</li>
-              <li><span class="tick">✓</span> Her müvekkile özel başvuru stratejisi</li>
-              <li><span class="tick">✓</span> Etkili dosya yönetimi ve belge hazırlığı</li>
-              <li><span class="tick">✓</span> Şeffaf, etik ve profesyonel hizmet</li>
+              <li><span class="tick">✓</span> Uzman Göçmenlik Danışmanlığı ve Hukuki Destek</li>
+              <li><span class="tick">✓</span> Her Müvekkile Özel Stratejik Yaklaşım</li>
+              <li><span class="tick">✓</span> Etkili Dosya Yönetimi ve Belge Hazırlığı</li>
+              <li><span class="tick">✓</span> Şeffaf, Etik ve Güvenilir Hizmet Anlayışı</li>
             </ul>
 
             <div class="welcomeBtns">
-              <a class="btn primary" href="#book">Teklif Al</a>
+              <a class="btn primary" href="#book">Teklif Alın</a>
               <a class="btn light" href="about.html">Hakkımızda</a>
             </div>
           </div>
         </div>
       </div>
-    </section> 
-        <section class="services" id="services">
+    </section>
+
+    <!-- UK VISA SERVICES -->
+    <section class="services" id="services">
       <div class="container">
         <div class="sectionTitle">
           <div class="top"><span class="line"></span> Birleşik Krallık Göçmenlik</div>
-          <h2>Vize Hizmetleri</h2>
+          <h2>Birleşik Krallık Vize Hizmetleri</h2>
         </div>
 
-        <div class="svcGrid" aria-label="Vize Hizmetleri">
+        <div class="svcGrid" aria-label="Birleşik Krallık Vize Hizmetleri">
 
-          <a href="immigration.html#business" class="svc">
-            <div class="ico c1">💼</div>
-            <h4>İş Vizeleri</h4>
-            <div class="arrow">→</div>
-          </a>
+  <a href="immigration.html#business" class="svc" aria-label="İş ve yatırım vizeleri">
+    <div class="ico c1">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M7 7h10v12H7V7Z" stroke="currentColor" stroke-width="1.8"/><path d="M9 7V5h6v2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </div>
+    <h4>İş ve Yatırım Vizeleri</h4>
+    <div class="arrow">→</div>
+  </a>
 
-          <a href="immigration.html#skilled-worker" class="svc">
-            <div class="ico c2">👤</div>
-            <h4>Nitelikli İşçi Vizesi</h4>
-            <div class="arrow">→</div>
-          </a>
+  <a href="immigration.html#skilled-worker" class="svc" aria-label="Skilled Worker vizesi">
+    <div class="ico c2">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Z" stroke="currentColor" stroke-width="1.8"/><path d="M4 21c1.5-4 14.5-4 16 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </div>
+    <h4>Skilled Worker Vizesi</h4>
+    <div class="arrow">→</div>
+  </a>
 
-          <a href="immigration.html#global-talent" class="svc">
-            <div class="ico c4">⭐</div>
-            <h4>Global Talent Vizesi</h4>
-            <div class="arrow">→</div>
-          </a>
+  <a href="immigration.html#global-talent" class="svc" aria-label="Global Talent vizesi">
+    <div class="ico c4">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2.6 6.2L21 9l-4.7 4.2L17.5 21 12 17.9 6.5 21l1.2-7.8L3 9l6.4-.8L12 2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+    </div>
+    <h4>Global Talent Vizesi</h4>
+    <div class="arrow">→</div>
+  </a>
 
-          <a href="immigration.html#self-sponsorship" class="svc">
-            <div class="ico c5">🏢</div>
-            <h4>Self Sponsorship</h4>
-            <div class="arrow">→</div>
-          </a>
+  <a href="immigration.html#self-sponsorship" class="svc" aria-label="Self Sponsorship">
+    <div class="ico c5">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M6 9h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M7 21h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </div>
+    <h4>Self-Sponsorship Vizesi</h4>
+    <div class="arrow">→</div>
+  </a>
 
-          <a href="immigration.html#family" class="svc">
-            <div class="ico c3">👨‍👩‍👧</div>
-            <h4>Aile Vizeleri</h4>
-            <div class="arrow">→</div>
-          </a>
+  <a href="immigration.html#family" class="svc" aria-label="Aile vizeleri">
+    <div class="ico c3">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M7 11a3 3 0 1 0-3-3 3 3 0 0 0 3 3Z" stroke="currentColor" stroke-width="1.8"/><path d="M17 11a3 3 0 1 0-3-3 3 3 0 0 0 3 3Z" stroke="currentColor" stroke-width="1.8"/><path d="M2 21c.8-3.3 8.2-3.3 9 0M13 21c.8-3.3 8.2-3.3 9 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </div>
+    <h4>Aile Vizeleri</h4>
+    <div class="arrow">→</div>
+  </a>
 
-          <a href="immigration.html#innovator" class="svc">
-            <div class="ico c4">💡</div>
-            <h4>Innovator Vizeleri</h4>
-            <div class="arrow">→</div>
-          </a>
+  <a href="immigration.html#innovator" class="svc" aria-label="Innovator vizeleri">
+    <div class="ico c4">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M9 21h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M12 2a7 7 0 0 0-4 12c.8.7 1 1.2 1 2h6c0-.8.2-1.3 1-2A7 7 0 0 0 12 2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+    </div>
+    <h4>Innovator Vizeleri</h4>
+    <div class="arrow">→</div>
+  </a>
 
-          <a href="immigration.html#graduate" class="svc">
-            <div class="ico c1">🎓</div>
-            <h4>Graduate Vizesi</h4>
-            <div class="arrow">→</div>
-          </a>
+  <a href="immigration.html#graduate" class="svc" aria-label="Graduate vizesi">
+    <div class="ico c1">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M3 7l9-4 9 4-9 4-9-4Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M7 10v7c2 2 8 2 10 0v-7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+    </div>
+    <h4>Graduate Vizesi</h4>
+    <div class="arrow">→</div>
+  </a>
 
-          <a href="immigration.html#extensions" class="svc">
-            <div class="ico c2">📄</div>
-            <h4>Vize Uzatma</h4>
-            <div class="arrow">→</div>
-          </a>
+  <a href="immigration.html#extensions" class="svc" aria-label="Vize uzatma başvuruları">
+    <div class="ico c2">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M7 3h10v18H7V3Z" stroke="currentColor" stroke-width="1.8"/><path d="M9 8h6M9 12h6M9 16h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </div>
+    <h4>Vize Uzatma Başvuruları</h4>
+    <div class="arrow">→</div>
+  </a>
 
-          <a href="immigration.html#settlement" class="svc">
-            <div class="ico c5">🏠</div>
-            <h4>Yerleşim & Vatandaşlık</h4>
-            <div class="arrow">→</div>
-          </a>
+  <a href="immigration.html#settlement" class="svc" aria-label="Yerleşim ve vatandaşlık">
+    <div class="ico c5">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M4 12h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M6 7h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M8 17h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    </div>
+    <h4>Yerleşim ve Vatandaşlık</h4>
+    <div class="arrow">→</div>
+  </a>
 
-          <a href="immigration.html#visitor" class="svc">
-            <div class="ico c3">✈️</div>
-            <h4>Ziyaretçi Vizesi</h4>
-            <div class="arrow">→</div>
-          </a>
+  <a href="immigration.html#visitor" class="svc" aria-label="Birleşik Krallık ziyaretçi vizesi">
+    <div class="ico c3">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-4 7-10V6l-7-3-7 3v5c0 6 7 10 7 10Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+    </div>
+    <h4>Birleşik Krallık Ziyaretçi Vizesi</h4>
+    <div class="arrow">→</div>
+  </a>
 
-        </div>
+</div>
       </div>
     </section>
 
+    <!-- SPEAK WITH OUR TEAM -->
     <section class="speak" id="speak">
       <div class="container">
         <div class="speakBox">
           <div class="speakLeft">
             <h3>Ekibimizle Görüşün</h3>
             <p>
-              Geri aranmak mı istiyorsunuz? Size uygun tarih ve saat seçin, ekibimiz sizinle iletişime geçsin.
+              Geri aranmak mı istiyorsunuz? Aşağıdan size uygun tarih ve saati seçerek randevu talebinizi oluşturabilirsiniz.
+              Ekibimiz, çalışma saatleri içinde en kısa sürede sizinle iletişime geçmeyi hedefler.
             </p>
           </div>
           <div class="speakRight">
             <div class="tiny">Hızlı İletişim</div>
-            <div class="cta">Görüşme Randevusu Oluşturun</div>
+            <div class="cta">Geri arama randevunuzu oluşturun</div>
             <div class="miniRow">
-              <a class="miniBtn" href="tel:+447903004158">Şimdi Ara</a>
+              <a class="miniBtn" href="tel:+447903004158">Hemen Ara</a>
               <a class="miniBtn" href="#book">Randevu Al</a>
             </div>
           </div>
@@ -186,128 +958,175 @@
       </div>
     </section>
 
-    <section class="faq" id="faq">
-      <div class="container">
-        <div class="sectionTitle">
-          <div class="top"><span class="line"></span> Sıkça Sorulan Sorular</div>
+  <!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="sectionTitle">
+      <div class="top"><span class="line"></span> Sıkça Sorulan Sorular</div>
+    </div>
+
+    <div class="faqGrid">
+      <div>
+        <h3 style="margin:0 0 10px;font-family:var(--serif);font-size:30px;letter-spacing:-.01em;">Merak Edilenler</h3>
+        <p style="margin:0;color:rgba(15,23,42,.72);line-height:1.75;max-width:58ch;">
+          Göçmenlik hukuku karmaşık ve yorucu görünebilir. Vize danışmanlığı, hizmetlerimiz ve ücretlerimiz hakkında bilgi almak
+          ya da başvurunuzla ilgili destek istemek için ekibimizden net ve anlaşılır yanıtlar alabilirsiniz.
+        </p>
+        <div style="margin-top:18px;">
+          <a class="btn primary" href="#book">Hemen Başlayın →</a>
+        </div>
+      </div>
+
+      <div class="accordion" aria-label="Sıkça sorulan sorular akordeonu">
+        <div class="accItem">
+          <button class="accBtn" type="button">
+            Hangi vize türlerinde destek sağlıyorsunuz?
+            <span class="plus">+</span>
+          </button>
+          <div class="accPanel">
+            Çalışma ve aile vizeleri, ziyaretçi vizeleri, yerleşim ve vatandaşlık başvuruları, Global Talent başvuruları
+            ve daha birçok göçmenlik rotasında danışmanlık hizmeti sunuyoruz.
+          </div>
         </div>
 
-        <div class="faqGrid">
-          <div>
-            <h3 style="margin:0 0 10px;font-family:var(--serif);font-size:30px;">Genel Sorular</h3>
-            <p style="margin:0;color:rgba(15,23,42,.72);">
-              Göçmenlik süreci karmaşık olabilir. Vize başvuruları, ücretler veya hizmetlerimiz hakkında tüm sorularınızı yanıtlıyoruz.
-            </p>
-            <div style="margin-top:18px;">
-              <a class="btn primary" href="#book">Hemen Başla →</a>
-            </div>
+        <div class="accItem">
+          <button class="accBtn" type="button">
+            Dosyamı görüşmek için sizinle nasıl iletişime geçebilirim?
+            <span class="plus">+</span>
+          </button>
+          <div class="accPanel">
+            Aşağıdan randevu oluşturarak geri arama talep edebilir veya telefon ve e-posta yoluyla doğrudan bizimle iletişime geçebilirsiniz.
           </div>
+        </div>
 
-          <div class="accordion">
+        <div class="accItem">
+          <button class="accBtn" type="button">
+            Ücretleriniz nedir?
+            <span class="plus">+</span>
+          </button>
+          <div class="accPanel">
+            Şeffaf bir ücretlendirme anlayışıyla çalışıyoruz. İlk değerlendirme sonrasında, hizmet kapsamına göre önceden mutabık kalınan net bir teklif sunuyoruz.
+          </div>
+        </div>
 
-            <div class="accItem">
-              <button class="accBtn">
-                Hangi vizelerde yardımcı oluyorsunuz?
-                <span class="plus">+</span>
-              </button>
-              <div class="accPanel">
-                Çalışma, aile, ziyaretçi, yerleşim ve vatandaşlık başvuruları dahil birçok vize türünde destek sağlıyoruz.
-              </div>
-            </div>
-
-            <div class="accItem">
-              <button class="accBtn">
-                Sizinle nasıl iletişime geçebilirim?
-                <span class="plus">+</span>
-              </button>
-              <div class="accPanel">
-                Aşağıdan randevu oluşturabilir veya telefon ve e-posta yoluyla bize ulaşabilirsiniz.
-              </div>
-            </div>
-
-            <div class="accItem">
-              <button class="accBtn">
-                Ücretleriniz nedir?
-                <span class="plus">+</span>
-              </button>
-              <div class="accPanel">
-                Ön değerlendirme sonrası size net ve şeffaf bir fiyatlandırma sunuyoruz.
-              </div>
-            </div>
-
-            <div class="accItem">
-              <button class="accBtn">
-                Sığınma başvurularında yardımcı oluyor musunuz?
-                <span class="plus">+</span>
-              </button>
-              <div class="accPanel">
-                Durumunuzu değerlendirmek için randevu oluşturabilirsiniz.
-              </div>
-            </div>
-
+        <div class="accItem">
+          <button class="accBtn" type="button">
+            İltica başvuruları için danışmanlık sunuyor musunuz?
+            <span class="plus">+</span>
+          </button>
+          <div class="accPanel">
+            Koşullarınızı değerlendirebilmemiz ve size hangi kapsamda destek sağlayabileceğimizi netleştirebilmemiz için lütfen bir danışma randevusu oluşturun.
           </div>
         </div>
       </div>
-    </section>
 
+    </div>
+  </div>
+
+  <!-- Accordion functionality (added, no layout/text changes) -->
+  <script>
+    (function () {
+      const root = document.getElementById('faq');
+      if (!root) return;
+
+      const panels = root.querySelectorAll('.accordion .accPanel');
+      panels.forEach(p => { p.style.display = 'none'; });
+
+      root.querySelectorAll('.accordion .accBtn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const item = btn.closest('.accItem');
+          const panel = item && item.querySelector('.accPanel');
+          if (!panel) return;
+
+          const isOpen = panel.style.display === 'block';
+          panel.style.display = isOpen ? 'none' : 'block';
+
+          const plus = btn.querySelector('.plus');
+          if (plus) plus.textContent = isOpen ? '+' : '−';
+        });
+      });
+    })();
+  </script>
+</section>
+
+    <!-- CONTACT / BOOK APPOINTMENT -->
     <section class="contact" id="book">
       <div class="container">
         <div class="sectionTitle">
           <div class="top"><span class="line"></span> İletişim</div>
-          <h2>Randevu Oluştur</h2>
+          <h2>Randevu Oluşturun</h2>
         </div>
 
         <div class="contactGrid">
           <div class="card">
-            <h3>Geri Arama Talebi</h3>
+            <h3>Geri arama talebi gönderin</h3>
             <p>
-              Size uygun tarih ve saati seçin, ekibimiz sizinle iletişime geçsin.
+              Size uygun tarih ve saati seçerek talebinizi gönderin. Ekibimiz randevunuzu teyit etmek için sizinle iletişime geçecektir.
             </p>
 
-            <form>
-              <div class="fields">
+            <form action="https://formspree.io/f/xykdgdwd" method="POST">
+              <input type="hidden" name="_subject" value="Yeni talep — Benchmark Legals website" />
+              <input type="hidden" name="_next" value="https://bethy-123.github.io/benchmarklegals/thanks.html">
 
+              <div class="fields">
                 <div class="row2">
                   <div>
-                    <label>Ad Soyad</label>
-                    <input type="text" placeholder="Adınız" required />
+                    <label for="fullName">Ad Soyad</label>
+                    <input id="fullName" name="fullName" type="text" placeholder="Adınız ve soyadınız" required />
                   </div>
                   <div>
-                    <label>Telefon</label>
-                    <input type="tel" placeholder="+44..." required />
+                    <label for="phone">Telefon</label>
+                    <input id="phone" name="phone" type="tel" placeholder="+44..." required />
                   </div>
                 </div>
 
                 <div class="row2">
                   <div>
-                    <label>Email</label>
-                    <input type="email" placeholder="email@ornek.com" required />
+                    <label for="email">E-posta</label>
+                    <input id="email" name="email" type="email" placeholder="siz@email.com" required />
                   </div>
                   <div>
-                    <label>Hizmet</label>
-                    <select required>
-                      <option disabled selected>Seçiniz</option>
-                      <option>Nitelikli İşçi</option>
-                      <option>Global Talent</option>
-                      <option>İş Vizesi</option>
+                    <label for="service">Hizmet</label>
+                    <select id="service" name="service" required>
+                      <option value="" selected disabled>Seçiniz</option>
+                      <option>Skilled Worker Vizesi</option>
+                      <option>Global Talent Vizesi</option>
+                      <option>İş ve Yatırım Vizesi</option>
                       <option>Aile Vizesi</option>
-                      <option>Ziyaretçi</option>
-                      <option>Yerleşim</option>
+                      <option>Ziyaretçi Vizesi</option>
+                      <option>Yerleşim ve Vatandaşlık</option>
+                      <option>Diğer</option>
                     </select>
                   </div>
                 </div>
 
                 <div>
-                  <label>Mesaj</label>
-                  <textarea placeholder="Size nasıl yardımcı olabiliriz?" required></textarea>
+                  <label for="message">Kısa açıklama</label>
+                  <textarea id="message" name="message" placeholder="Nasıl bir desteğe ihtiyacınız olduğunu kısaca yazın..." required></textarea>
                 </div>
 
-                <button class="btn primary" type="submit">Gönder</button>
+                <div class="consent">
+                  <input id="consent" type="checkbox" required />
+                  <div>
+                    Talebim hakkında benimle iletişime geçilmesine onay veriyorum ve bilgilerimin başvuruma yanıt vermek amacıyla kullanılacağını anlıyorum.
+                  </div>
+                </div>
 
+                <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;">
+                  <button class="btn primary" type="submit">Talep Gönder</button>
+                  <a class="btn light" href="mailto:info@benchmarklegals.co.uk">E-posta Gönder</a>
+                  <a class="btn light" href="tel:+447903004158">Hemen Ara</a>
+                </div>
+
+                <div class="note"></div>
               </div>
             </form>
-
           </div>
+        </div>
+
+        <div class="contactActions">
+          <a class="btn primary" href="#top">Yukarı Dön</a>
+          <a class="btn light" href="#services">Hizmetleri Gör</a>
         </div>
 
       </div>
@@ -315,9 +1134,18 @@
 
   </main>
 
+  <!-- ✅ SHARED FOOTER -->
   <div id="footerMount"></div>
 
-  <script src="../assets/site.js"></script>
+  <!-- Floating WhatsApp -->
+  <a class="waFloat" href="https://wa.me/447903004158" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M20 12a8 8 0 0 1-11.9 7L4 20l1.1-4.1A8 8 0 1 1 20 12Zm-4.6 2.2c-.2-.1-1.3-.6-1.5-.7-.2-.1-.4-.1-.6.1-.2.2-.6.7-.7.8-.1.1-.3.2-.5.1-.2-.1-.9-.3-1.7-1.1-.6-.6-1.1-1.4-1.2-1.6-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.6 0-.2-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2 0 1.2.8 2.3 1 2.5.1.2 1.6 2.4 3.9 3.4.5.2.9.4 1.2.5.5.1 1 .1 1.4.1.4-.1 1.3-.5 1.5-1 .2-.5.2-.9.1-1 0-.1-.2-.2-.4-.3Z"/>
+    </svg>
+  </a>
+
+  <!-- ✅ Shared layout + nav behaviours -->
+  <script src="assets/site.js"></script>
 
 </body>
 </html>
