@@ -472,3 +472,46 @@ a.footItem:hover{ color:#fff; }
   width: 130px;
   flex: 0 0 130px;
 }
+
+/* ===== Language Switch Flags ===== */
+.langSwitch,
+.mobileLangSwitch{
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+
+.langSwitch{
+  margin-left:8px;
+}
+
+.langSwitch button,
+.mobileLangSwitch button{
+  background:transparent;
+  border:0;
+  padding:0;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.langSwitch img,
+.mobileLangSwitch img{
+  width:22px;
+  height:15px;
+  object-fit:cover;
+  border-radius:2px;
+  box-shadow:0 0 0 1px rgba(255,255,255,.45);
+  transition:.18s ease;
+}
+
+.langSwitch img:hover,
+.mobileLangSwitch img:hover{
+  transform:scale(1.08);
+  box-shadow:0 0 0 1px var(--gold);
+}
+
+.mobileLangSwitch{
+  padding:10px 0 4px;
+}
