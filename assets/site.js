@@ -43,6 +43,29 @@ function wireHeaderBehaviour() {
     if(!dd) return;
     dd.classList.remove("open");
     ddBtn?.setAttribute("aria-expanded", "false");
+    // Language switch
+function switchLanguage(lang){
+  let path = window.location.pathname;
+
+  if(lang === "en"){
+    if(path.includes("/tr/")){
+      path = path.replace("/tr", "");
+    }
+  }
+
+  if(lang === "tr"){
+    if(!path.includes("/tr/")){
+      path = "/tr" + path;
+    }
+  }
+
+  window.location.href = path;
+}
+
+qs("#langEN")?.addEventListener("click", () => switchLanguage("en"));
+qs("#langTR")?.addEventListener("click", () => switchLanguage("tr"));
+qs("#mobileLangEN")?.addEventListener("click", () => switchLanguage("en"));
+qs("#mobileLangTR")?.addEventListener("click", () => switchLanguage("tr"));
   }
   function toggleDropdown(){
     if(!dd) return;
